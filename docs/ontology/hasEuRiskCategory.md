@@ -1,0 +1,82 @@
+
+
+# Slot: hasEuRiskCategory
+
+
+_The risk category of an AI system as defined by the EU AI Act._
+
+
+
+
+
+URI: [nexus:hasEuRiskCategory](http://research.ibm.com/ontologies/aiont/hasEuRiskCategory)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [AiSystem](AiSystem.md) | A compound AI System composed of one or more AI capablities |  no  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [EuAiRiskCategory](EuAiRiskCategory.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | nexus:hasEuRiskCategory |
+| native | nexus:hasEuRiskCategory |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: hasEuRiskCategory
+description: The risk category of an AI system as defined by the EU AI Act.
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+alias: hasEuRiskCategory
+domain_of:
+- AiSystem
+range: EuAiRiskCategory
+
+```
+</details>

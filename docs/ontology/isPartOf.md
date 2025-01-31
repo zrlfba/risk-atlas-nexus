@@ -1,0 +1,85 @@
+
+
+# Slot: isPartOf
+
+
+_A relationship where an entity is part of another entity_
+
+
+
+
+
+URI: [schema:isPartOf](http://schema.org/isPartOf)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  yes  |
+| [LargeLanguageModel](LargeLanguageModel.md) | A large language model (LLM) is an AI model which supports a range of languag... |  yes  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [String](String.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | schema:isPartOf |
+| native | nexus:isPartOf |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: isPartOf
+description: A relationship where an entity is part of another entity
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+slot_uri: schema:isPartOf
+alias: isPartOf
+domain_of:
+- Risk
+- LargeLanguageModel
+range: string
+
+```
+</details>

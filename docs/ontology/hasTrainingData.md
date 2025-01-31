@@ -1,0 +1,87 @@
+
+
+# Slot: hasTrainingData
+
+
+_A relationship indicating the datasets an AI model was trained on._
+
+
+
+
+
+URI: [airo:hasTrainingData](https://w3id.org/airo#hasTrainingData)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [LargeLanguageModel](LargeLanguageModel.md) | A large language model (LLM) is an AI model which supports a range of languag... |  no  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [Dataset](Dataset.md)
+
+* Multivalued: True
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | airo:hasTrainingData |
+| native | nexus:hasTrainingData |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: hasTrainingData
+description: A relationship indicating the datasets an AI model was trained on.
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+slot_uri: airo:hasTrainingData
+alias: hasTrainingData
+domain_of:
+- LargeLanguageModel
+range: Dataset
+multivalued: true
+inlined: false
+
+```
+</details>

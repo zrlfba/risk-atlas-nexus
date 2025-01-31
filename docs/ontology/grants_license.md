@@ -1,0 +1,85 @@
+
+
+# Slot: grants_license
+
+
+_A relationship from a granting entity such as an Organization to a License instance._
+
+
+
+
+
+URI: [nexus:grants_license](http://research.ibm.com/ontologies/aiont/grants_license)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [AiOffice](AiOffice.md) | The EU AI Office (https://digital-strategy |  no  |
+| [Organization](Organization.md) | Any organizational entity such as a corporation, educational institution, con... |  no  |
+| [AiProvider](AiProvider.md) | A provider under the AI Act is defined by Article 3(3) as a natural or legal ... |  no  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [License](License.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | nexus:grants_license |
+| native | nexus:grants_license |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: grants_license
+description: A relationship from a granting entity such as an Organization to a License
+  instance.
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+alias: grants_license
+domain_of:
+- Organization
+range: License
+
+```
+</details>
