@@ -1,0 +1,146 @@
+documents:
+- id: "2412.07724"
+  name: 'Granite Guardian'
+  description: 'We introduce the Granite Guardian models, a suite of safeguards designed to provide risk detection for prompts and responses, enabling safe and responsible use in combination with any large language model (LLM). These models offer comprehensive coverage across multiple risk dimensions, including social bias, profanity, violence, sexual content, unethical behavior, jailbreaking, and hallucination-related risks such as context relevance, groundedness, and answer relevance for retrieval-augmented generation (RAG). Trained on a unique dataset combining human annotations from diverse sources and synthetic data, Granite Guardian models address risks typically overlooked by traditional risk detection models, such as jailbreaks and RAG-specific issues. With AUC scores of 0.871 and 0.854 on harmful content and RAG-hallucination-related benchmarks respectively, Granite Guardian is the most generalizable and competitive model available in the space. Released as open-source, Granite Guardian aims to promote responsible AI development across the community.'
+  url: https://arxiv.org/abs/2412.07724
+taxonomies:
+- id: ibm-granite-guardian
+  name: IBM Granite Guardian
+  description: Understand risk dimensions covered by Granite Guardian.
+  url: https://arxiv.org/abs/2412.07724
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-16
+  hasDocumentation:
+  - "2412.07724"
+riskgroups:
+- id: granite-guardian-harm-group
+  name: Harm
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: granite-guardian-rag-safety-group
+  name: RAG Safety
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: granite-guardian-agentic-safety-group
+  name: Agentic Safety
+  isDefinedByTaxonomy: ibm-granite-guardian
+risks:
+- id: granite-guardian-harm
+  name: Harm
+  description: Content considered universally harmful. This is our general category, which should encompass a variety of risks including those not specifically addressed by the following categories.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-harm
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: harm
+  broadMatch:
+  - atlas-harmful-output
+- id: granite-social_bias
+  name: Social Bias
+  description: Systemic prejudice against groups based on shared identity or characteristics, often stemming from stereotypes or cultural influences. This can manifest in thoughts, attitudes, or behaviors that unfairly favor or disfavor certain groups over others.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-social_bias
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: social_bias
+  broadMatch:
+  - atlas-output-bias
+- id: granite-profanity
+  name: Profanity
+  description: Use of language considered offensive or socially unacceptable in a given context. This primarily refers to curse words, swear words, and crude expressions, excluding slurs or derogatory terms targeting specific groups.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-profanity
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: profanity
+  broadMatch:
+  - atlas-toxic-output
+- id: granite-sexual_content
+  name: Sexual Content
+  description: Material explicitly related to sexual activities, anatomy, or desires. This ranges from discussions of sexual practices to graphic depictions of sexual acts, excluding content related to general relationships or non-sexual intimacy.Material explicitly related to sexual activities, anatomy, or desires. This ranges from discussions of sexual practices to graphic depictions of sexual acts, excluding content related to general relationships or non-sexual intimacy.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-sexual_content
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: sexual_content
+  broadMatch:
+  - atlas-harmful-output
+- id: granite-unethical_behavior
+  name: Unethical Behavior
+  description: Actions that violate moral or professional standards, focusing on exploitation for personal gain or disregard for others' well-being. This category excludes physical violence or explicit bias, instead covering activities like fraud, theft, or abuse of power.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-unethical_behavior
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: unethical_behavior
+  broadMatch:
+  - atlas-harmful-output
+- id: granite-violence
+  name: Violence
+  description: Promoting or describing physical harm to individuals or groups. This includes depictions of assault, self-harm, or creation of a hostile environment through threats or intimidation.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-violence
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: violence
+  broadMatch:
+  - atlas-harmful-output
+- id: granite-jailbreak
+  name: Jailbreaking
+  description: Deliberate circumvention of AI systems' built-in safeguards or ethical guidelines. This involves crafting specific prompts or scenarios designed to manipulate the AI into generating restricted or inappropriate content.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-jailbreak
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-harm-group
+  tag: jailbreak
+  broadMatch:
+  - atlas-jailbreaking
+- id: granite-groundedness
+  name: Groundedness
+  description: This risk arises in a Retrieval-Augmented Generation (RAG) system when the LLM response includes claims, facts, or details that are not supported by or directly contradicted by the given context. An ungrounded answer may involve fabricating information, misinterpreting the context, or making unsupported extrapolations beyond what the context actually states.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-groundedness
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-rag-safety-group
+  tag: groundedness
+  broadMatch:
+  - atlas-hallucination
+- id: granite-relevance
+  name: Context Relevance
+  description: This occurs in when the retrieved or provided context fails to contain information pertinent to answering the user's question or addressing their needs. Irrelevant context may be on a different topic, from an unrelated domain, or contain information that doesn't help in formulating an appropriate response to the user.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-relevance
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-rag-safety-group
+  tag: relevance
+  broadMatch:
+  - atlas-hallucination
+- id: granite-answer_relevance
+  name: Answer Relevance
+  description: This occurs when the LLM response fails to address or properly respond to the user's input. This includes providing off-topic information, misinterpreting the query, or omitting crucial details requested by the User. An irrelevant answer may contain factually correct information but still fail to meet the User's specific needs or answer their intended question.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-answer_relevance
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-rag-safety-group
+  tag: answer_relevance
+  broadMatch:
+  - atlas-hallucination
+- id: granite-function_call
+  name: Function Calling Hallucination
+  description: This occurs when the LLM response contains function calls that have syntax or semantic errors based on the user query and available tool definition. For instance, if an AI agent purportedly queries an external information source, this capability monitors for fabricated information flows.
+  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-function_call
+  dateCreated: 2024-12-10
+  dateModified: 2024-12-10
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-agentic-safety-group
+  tag: function_call
+  broadMatch:
+  - atlas-hallucination

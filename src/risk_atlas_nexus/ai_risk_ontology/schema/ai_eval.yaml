@@ -1,0 +1,77 @@
+id: http://research.ibm.com/ontologies/aiont/ai_eval
+name: ai_eval
+description:
+  Defines vocabulary relating to AI model evaluation
+imports:
+  - linkml:types
+  - common
+  - ai_risk
+default_curi_maps:
+  - semweb_context
+prefixes:
+  linkml: https://w3id.org/linkml/
+  nexus: http://research.ibm.com/ontologies/aiont/
+default_range: string
+default_prefix: nexus
+
+classes:
+
+  AiEval:
+    is_a: Entity
+    class_uri: dqv:Metric
+    description: An AI Evaluation, e.g. a metric, benchmark, unitxt card evaluation, a question or a combination of such entities.
+    slot_usage:
+      isComposedOf:
+        range: AiEval
+        description: A relationship indicating that an AI evaluation maybe composed of other AI evaluations (e.g. it's an overall average of other scores).
+    slots:
+      - hasDocumentation
+      - hasDataset
+      - hasUnitxtCard
+      - hasLicense
+      - hasRelatedRisk
+      - bestValue
+  
+  AiEvalResult:
+    is_a: Entity
+    class_uri: dqv:QualityMeasurement
+    description: The result of an evaluation for a specific AI model.
+    mixins:
+    - Fact
+    slots:
+    - isResultOf
+
+  Question:
+    is_a: AiEval
+    description: An evaluation where a question has to be answered
+    attributes:
+      text:
+        description: The question itself
+        required: true
+
+  Questionnaire:
+    is_a: AiEval
+    description: A questionnaire groups questions
+    slot_usage:
+      composed_of:
+        range: Question
+
+slots:
+  hasUnitxtCard:
+    slot_uri: schema:url
+    description: A relationship to a Unitxt card defining the risk evaluation
+    range: uri
+  bestValue:
+    description: Annotation of the best possible result of the evaluation
+  hasEvaluation:
+    slot_uri: dqv:hasQualityMeasurement
+    description: A relationship indicating that an entity has an AI evaluation result.
+    range: AiEvalResult
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+  isResultOf:
+    slot_uri: dqv:isMeasurementOf
+    description: A relationship indicating that an entity is the result of an AI evaluation.
+    range: AiEval
+    inlined: false

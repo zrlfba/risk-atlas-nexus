@@ -1,0 +1,76 @@
+
+
+# Slot: isComposedOf
+
+
+_Relationship indicating the some entity is composed of other entities (including some of the same type)._
+
+
+
+
+
+URI: [nexus:isComposedOf](http://research.ibm.com/ontologies/aiont/isComposedOf)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+
+
+
+## Properties
+
+* Range: [String](String.md)
+
+* Multivalued: True
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | nexus:isComposedOf |
+| native | nexus:isComposedOf |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: isComposedOf
+description: Relationship indicating the some entity is composed of other entities
+  (including some of the same type).
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+alias: isComposedOf
+range: string
+multivalued: true
+inlined: false
+
+```
+</details>

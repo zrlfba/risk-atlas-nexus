@@ -1,0 +1,3 @@
+linkml_runtime
+pydantic
+requests

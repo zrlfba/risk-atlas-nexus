@@ -1,0 +1,85 @@
+
+
+# Slot: isDefinedByTaxonomy
+
+
+_A relationship where a risk or a risk group is defined by a risk taxonomy_
+
+
+
+
+
+URI: [schema:isPartOf](http://schema.org/isPartOf)
+
+
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
+| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [RiskTaxonomy](RiskTaxonomy.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | schema:isPartOf |
+| native | nexus:isDefinedByTaxonomy |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: isDefinedByTaxonomy
+description: A relationship where a risk or a risk group is defined by a risk taxonomy
+from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+rank: 1000
+slot_uri: schema:isPartOf
+alias: isDefinedByTaxonomy
+domain_of:
+- RiskGroup
+- Risk
+range: RiskTaxonomy
+
+```
+</details>
