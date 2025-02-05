@@ -32,3 +32,4 @@ Formatter: run the black formatter on python changes
 2. Create a new branch: `git checkout -b my-branch-name`
 3. Make your change, push to your fork and [submit a pull request][pr]
 4. Wait for your pull request to be reviewed and merged.
+5. When ready Request Resync your fork with the upstream branch
