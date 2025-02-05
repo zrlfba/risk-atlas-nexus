@@ -28,8 +28,10 @@ Formatter: run the black formatter on python changes
 
 ## Submitting a pull request
 
+The following is the recommended method for changing code
+
 1. [Fork][fork] and clone the repository
 2. Create a new branch: `git checkout -b my-branch-name`
-3. Make your change, push to your fork and [submit a pull request][pr]
-4. Wait for your pull request to be reviewed and merged.
-5. When ready Request Resync your fork with the upstream branch
+3. Make your change, push to your fork and [submit a pull request][pr] 
+4. Wait for your pull request to be reviewed and merged into the main branch of the fork
+5. When ready created a pr for the fork's main branch with the upstream main branch
