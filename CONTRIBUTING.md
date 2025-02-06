@@ -28,7 +28,10 @@ Formatter: run the black formatter on python changes
 
 ## Submitting a pull request
 
+The following is the recommended method for changing code
+
 1. [Fork][fork] and clone the repository
-2. Create a new branch: `git checkout -b my-branch-name`
-3. Make your change, push to your fork and [submit a pull request][pr]
-4. Wait for your pull request to be reviewed and merged.
+2. If a major change create a new branch: `git checkout -b my-branch-name` Otherwise work in main
+3. Make your changes, push to your fork and [submit a pull request][pr] to co-devleopers on your fork
+4. Wait for your pull request to be reviewed and merged into the main branch of the fork
+5. When changes are ready create a pr for the fork's main branch to merge into the upstream's main branch
