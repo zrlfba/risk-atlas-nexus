@@ -33,6 +33,8 @@ dependencies = [
 [project.optional-dependencies]
 wml = ["ibm-watsonx-ai"]
 rits = ["openai"]
+ollama = ["ollama"]
+vllm = ["vllm, openai"]
 
 [tool.isort]
 profile = "black"

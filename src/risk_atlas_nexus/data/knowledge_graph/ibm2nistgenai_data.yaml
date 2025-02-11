@@ -28,7 +28,7 @@ risks:
 - id: atlas-personal-information-in-prompt
   broadMatch:
   - nist-data-privacy
-- id: atlas-impact-human-agency
+- id: atlas-impact-on-human-agency
 - id: atlas-exposing-personal-information
   broadMatch:
   - nist-data-privacy
@@ -39,7 +39,7 @@ risks:
   broadMatch:
   - nist-harmful-bias-or-homogenization
 - id: atlas-lack-of-testing-diversity
-- id: atlas-data-privacy-rights-alignment
+- id: atlas-data-privacy-rights
   broadMatch:
   - nist-data-privacy
 - id: atlas-prompt-leaking
@@ -56,11 +56,11 @@ risks:
   - nist-data-privacy
   - nist-intellectual-property
   - nist-value-chain-and-component-integration
-- id: atlas-lack-training-data-transparency
+- id: atlas-data-transparency
   broadMatch:
   - nist-information-integrity
   - nist-value-chain-and-component-integration
-- id: atlas-model-usage-rights-restrictions
+- id: atlas-model-usage-rights
   broadMatch:
   - nist-data-privacy
   - nist-intellectual-property
@@ -68,20 +68,20 @@ risks:
 - id: atlas-non-disclosure
   broadMatch:
   - nist-human-ai-configuration
-- id: atlas-prompt-injection-attack
+- id: atlas-prompt-injection
   broadMatch:
   - nist-information-security
 - id: atlas-incomplete-advice
   broadMatch:
   - nist-information-integrity
   - nist-value-chain-and-component-integration
-- id: atlas-data-usage-restrictions
+- id: atlas-data-usage-rights
   broadMatch:
   - nist-data-privacy
   - nist-value-chain-and-component-integration
 - id: atlas-lack-of-system-transparency
 - id: atlas-impact-on-cultural-diversity
-- id: atlas-impact-education-plagiarism
+- id: atlas-plagiarism
 - id: atlas-improper-usage
   broadMatch:
   - nist-human-ai-configuration
@@ -94,8 +94,8 @@ risks:
 - id: atlas-extraction-attack
   broadMatch:
   - nist-information-security
-- id: atlas-impact-jobs
-- id: atlas-data-aquisition-restrictions
+- id: atlas-job-loss
+- id: atlas-data-acquisition
 - id: atlas-prompt-priming
   broadMatch:
   - nist-information-security
@@ -111,10 +111,10 @@ risks:
   - nist-human-ai-configuration
   - nist-information-integrity
   - nist-value-chain-and-component-integration
-- id: atlas-data-transfer-restrictions
+- id: atlas-data-transfer
   broadMatch:
   - nist-value-chain-and-component-integration
-- id: atlas-generated-content-ownership-ip
+- id: atlas-generated-content-ownership
   broadMatch:
   - nist-intellectual-property
 - id: atlas-output-bias
@@ -129,7 +129,7 @@ risks:
 - id: atlas-human-exploitation
   broadMatch:
   - nist-obscene-degrading-and-or-abusive-content
-- id: atlas-improper-data-curation
+- id: atlas-data-curation
   broadMatch:
   - nist-value-chain-and-component-integration
 - id: atlas-revealing-confidential-information
@@ -144,10 +144,10 @@ risks:
 - id: atlas-data-bias
   broadMatch:
   - nist-harmful-bias-or-homogenization
-- id: atlas-uncertain-data-provenance
+- id: atlas-data-provenance
   broadMatch:
   - nist-value-chain-and-component-integration
-- id: atlas-data-usage-rights-restrictions
+- id: atlas-data-usage-rights
   broadMatch:
   - nist-intellectual-property
 - id: atlas-harmful-code-generation
@@ -175,7 +175,7 @@ risks:
 - id: atlas-inaccessible-training-data
   broadMatch:
   - nist-value-chain-and-component-integration
-- id: atlas-impact-education-bypassing-learning
+- id: atlas-bypassing-learning
 - id: atlas-untraceable-attribution
   broadMatch:
   - nist-information-integrity

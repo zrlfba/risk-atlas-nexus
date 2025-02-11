@@ -10,7 +10,7 @@ from risk_atlas_nexus.ai_risk_ontology import Container, Documentation, Risk, Ri
 
 MO_HOST = "https://usage-gov-advisor.bx.cloud9.ibm.com"
 MO_API_PREFIX = "/v1"
-
+DATA_DIR = "src/risk_atlas_nexus/data/knowledge_graph/"
 
 def convert_datetime_to_date(datetime_str: str) -> str:
     datetime_value = datetime.fromisoformat(datetime_str)
@@ -73,7 +73,7 @@ def create_container_object() -> Container:
                 "descriptor": risk["descriptor"],
                 "description": risk["description"],
                 "concern": risk["concern"],
-                "url": "https://www.ibm.com/docs/en/watsonx/saas?topic=atlas-" + risk["tag"],
+                "url": "https://www.ibm.com/docs/en/watsonx/saas?topic=SSYOK8/wsj/ai-risk-atlas/" + risk["tag"] + ".html",
                 "dateCreated": convert_datetime_to_date(risk["creation_date"]),
                 "dateModified": convert_datetime_to_date(risk["last_update_date"]),
                 "isPartOf": "ibm-risk-atlas-" + risk["group"].replace(" ", "-"),
@@ -99,8 +99,7 @@ def get_risks() -> list[dict]:
 
 
 if __name__ == "__main__":
-    with open(
-            "src/data/knowledge-graph/risk_atlas_data.yaml",
+    with open(DATA_DIR + "risk_atlas_data.yaml",
             "+tw",
             encoding="utf-8",
     ) as output_file:

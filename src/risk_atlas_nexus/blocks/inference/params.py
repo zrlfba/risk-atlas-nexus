@@ -3,16 +3,28 @@ from typing import Any, Dict, List, Literal, Optional, TypedDict, Union
 
 
 class InferenceEngineCredentials(TypedDict):
-    api_key: str
+    """Contains the prediction results and metadata for the inference.
+
+    Args:
+        api_url (str): API url of the hosted LLM server.
+
+        api_key (str, optional) : API key to access services on the hosted LLM service.
+
+        space_id (str, optional) : space id to use for the WML platform.
+
+        project_id (str, optional) : project id to use for the WML platform.
+    """
+
     api_url: str
-    space_id: Optional[str] = None  # only used for WML engine
-    project_id: Optional[str] = None  # only used for WML engine
+    api_key: Optional[str] = None  # Optional for vLLM/Ollama server mode
+    space_id: Optional[str] = None  # only used in WML engine
+    project_id: Optional[str] = None  # only used in WML engine
 
 
 class RITSInferenceEngineParams(TypedDict):
     frequency_penalty: Optional[float] = None
     presence_penalty: Optional[float] = None
-    max_tokens: Optional[int] = None
+    max_tokens: Optional[int] = 100
     seed: Optional[int] = None
     stop: Union[Optional[str], List[str]] = None
     temperature: Optional[float] = None
@@ -34,12 +46,70 @@ class WMLInferenceEngineParams(TypedDict):
     random_seed: Optional[int] = None
     repetition_penalty: Optional[float] = None
     min_new_tokens: Optional[int] = None
-    max_new_tokens: Optional[int] = None
+    max_new_tokens: Optional[int] = 100
     stop_sequences: Optional[List[str]] = None
     time_limit: Optional[int] = None
     truncate_input_tokens: Optional[int] = None
     prompt_variables: Optional[Dict[str, Any]] = None
     return_options: Optional[Dict[str, bool]] = None
+
+
+class OllamaInferenceEngineParams(TypedDict):
+    # load time options
+    numa: Optional[bool] = None
+    num_ctx: Optional[int] = None
+    num_batch: Optional[int] = None
+    num_gpu: Optional[int] = None
+    main_gpu: Optional[int] = None
+    low_vram: Optional[bool] = None
+    f16_kv: Optional[bool] = None
+    logits_all: Optional[bool] = None
+    vocab_only: Optional[bool] = None
+    use_mmap: Optional[bool] = None
+    use_mlock: Optional[bool] = None
+    embedding_only: Optional[bool] = None
+    num_thread: Optional[int] = None
+
+    # runtime options
+    num_keep: Optional[int] = None
+    seed: Optional[int] = None
+    num_predict: Optional[int] = 100
+    top_k: Optional[int] = None
+    top_p: Optional[float] = None
+    tfs_z: Optional[float] = None
+    typical_p: Optional[float] = None
+    repeat_last_n: Optional[int] = None
+    temperature: Optional[float] = None
+    repeat_penalty: Optional[float] = None
+    presence_penalty: Optional[float] = None
+    frequency_penalty: Optional[float] = None
+    mirostat: Optional[int] = None
+    mirostat_tau: Optional[float] = None
+    mirostat_eta: Optional[float] = None
+    penalize_newline: Optional[bool] = None
+    stop: Optional[List[str]] = None
+
+
+class VLLMInferenceEngineParams(TypedDict):
+
+    n: int = 1
+    best_of: Optional[int] = None
+    presence_penalty: float = 0.0
+    frequency_penalty: float = 0.0
+    repetition_penalty: float = 1.0
+    temperature: float = 1.0
+    top_p: float = 1.0
+    top_k: int = -1
+    min_p: float = 0.0
+    seed: Optional[int] = None
+    stop: Optional[Union[str, List[str]]] = None
+    stop_token_ids: Optional[List[int]] = None
+    bad_words: Optional[List[str]] = None
+    ignore_eos: bool = False
+    max_tokens: Optional[int] = 100
+    min_tokens: int = 0
+    logprobs: Optional[int] = None
+    prompt_logprobs: Optional[int] = None
 
 
 @dataclasses.dataclass(kw_only=True)

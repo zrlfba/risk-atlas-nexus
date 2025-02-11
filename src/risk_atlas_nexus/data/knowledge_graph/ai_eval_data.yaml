@@ -23,7 +23,7 @@ evaluations:
     description: "The Foundation Model Transparency Index is an ongoing initiative to comprehensively assess the transparency of foundation model developers."
     url: "https://crfm.stanford.edu/fmti/"
     hasDocumentation: ["arxiv.org/2310.12941"]
-    hasRelatedRisk: ["atlas-lack-of-model-transparency", "atlas-lack-training-data-transparency", "atlas-uncertain-data-provenance"]
+    hasRelatedRisk: ["atlas-lack-of-model-transparency", "atlas-data-transparency", "atlas-data-provenance"]
   - id: cards.value_alignment.hallucinations.truthfulqa
     name: "TruthfulQA"
     description: "TruthfulQA is a benchmark to measure whether a language model is truthful in generating answers to questions."
