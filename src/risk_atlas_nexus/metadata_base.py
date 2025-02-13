@@ -9,6 +9,8 @@ class InferenceEngineType(str, Enum):
 
     RITS = "RITS"
     WML = "WML"
+    VLLM = "VLLM"
+    OLLAMA = "OLLAMA"
 
     @classmethod
     def list(cls):

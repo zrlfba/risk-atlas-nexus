@@ -1,5 +1,5 @@
 from typing import List, Optional
-from tqdm import tqdm
+from tqdm.autonotebook import tqdm
 from multiprocessing.pool import ThreadPool
 
 
