@@ -15,6 +15,9 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 - 🚨🧐 Use the python library methods to detect potential risks in your usecase 
 - 📤📈 Download an exported graph populated with data instances
 
+## Architecture
+![Architecture](resources/images/architecture.png)
+
 ### Coming soon
 - Tooling to convert the LinkML schema and instance data into a Cypher representation to populate a graph database
 - Example use-case of auto-assistance in compliance questionnaires using CoT examples and Risk Atlas Nexus
