@@ -22,7 +22,6 @@ class LatexDumper(Dumper):
         if isinstance(element, BaseModel):
             element = element.dict()
             
-        print("ok")
         super().dump(element, to_file, contexts=contexts, **kwargs)
 
     def dumps(self, element: Union[BaseModel, YAMLRoot]) -> str:
@@ -32,8 +31,7 @@ class LatexDumper(Dumper):
         Args:
             element: Union[BaseModel, YAMLRoot],
                 LinkML object to be emitted
-            inject_type: 
-                if True (default), add a @type at the top level
+            
         Returns: 
             str
         """
