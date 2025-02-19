@@ -97,7 +97,6 @@ class TestLibrary(TestCaseBase):
         ran_lib = self.ran_lib
         risk = ran_lib.get_risk_by_id("atlas-toxic-output")
         assert risk.linkml_meta.root["class_uri"] == 'airo:Risk'
-     
 
     def test_get_related_risks_by_tag(self):
         """Get related risk definitions from the LinkML, by risk atlas tag"""
@@ -137,10 +136,17 @@ class TestLibrary(TestCaseBase):
 
 
     def test_identify_risks_from_usecase_taxonomy_not_a_str(self):
-        """Identify potential risks from a usecase description"""
+        """Identify potential risks from a usecase description - taxonomy type is wrong"""
         ran_lib = self.ran_lib
         self.assertRaises(
-            ValueError, ran_lib.identify_risks_from_usecase, "my usecase", "my inference_engine", 4000
+            ValueError, ran_lib.identify_risks_from_usecases, "my usecase", "my inference_engine", 4000
+        )
+
+    def test_identify_risks_from_usecase_wrong_taxonomy(self):
+        """Identify potential risks from a usecase description - taxonomy not found """
+        ran_lib = self.ran_lib
+        self.assertRaises(
+            Exception, ran_lib.identify_risks_from_usecases, "my usecase", "my inference_engine", "non-existing-taxonomy"
         )
 
     def test_get_all_taxonomies(self):
@@ -153,4 +159,5 @@ class TestLibrary(TestCaseBase):
         """Get taxonomy definitions from the LinkML filtered by taxonomy id"""
         ran_lib = self.ran_lib
         taxonomy = ran_lib.get_taxonomy_by_id("nist-ai-rmf")
+
         assert taxonomy.id == "nist-ai-rmf"
