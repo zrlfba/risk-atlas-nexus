@@ -1,6 +1,6 @@
 # Risk Atlas Nexus
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/) <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://www.apache.org/licenses/LICENSE-2.0) ![main branch](https://github.com/IBM/risk-atlas-nexus/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main) [![](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/) <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 
 ## Overview
 Risk Atlas Nexus aims to provide tooling to help bring together disparate resources related to governance of foundation models. We support a community driven approach to curating and cataloguing resources such as datasets, benchmarks and mitigations.  Our goal is to turn abstract risk definitions into actionable workflows that streamline AI governance processes. By connecting fragmented resources, Risk Atlas Nexus seeks to fill a critical gap in AI governance, enabling stakeholders to build more robust, transparent, and accountable systems. Risk Atlas Nexus builds on the [IBM AI Risk Atlas](https://www.ibm.com/docs/en/watsonx/saas?topic=ai-risk-atlas) making this educational resource a nexus of governance assets and tooling.  An AI System's Knowledge Graph is used to provide a unified structure that links and contextualize the very heterogeneous domain data. 
@@ -14,6 +14,9 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 - 🐍🔍 Use the python library methods to quickly explore available risks, relations and actions 
 - 🚨🧐 Use the python library methods to detect potential risks in your usecase 
 - 📤📈 Download an exported graph populated with data instances
+
+## Architecture
+![Architecture](resources/images/architecture.png)
 
 ### Coming soon
 - Tooling to convert the LinkML schema and instance data into a Cypher representation to populate a graph database
