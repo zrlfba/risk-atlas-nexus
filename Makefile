@@ -24,6 +24,7 @@ help: status
 	@echo "make regenerate_pydantic -- update pydantic classes"
 	@echo "make regenerate_documentation -- regenerate the documentation"
 	@echo "make regenerate_graph_output -- export the graph with all instances"
+	@echo "make regenerate_risk_atlas_as_tex -- export the IBM AI risk atlas as .tex"
 	@echo ""
 
 status: 
@@ -38,6 +39,9 @@ regenerate_pydantic:
 
 regenerate_graph_output:
 	python ./src/risk_atlas_nexus/ai_risk_ontology/util/export_graph.py
+
+regenerate_risk_atlas_as_tex:
+	python ./src/risk_atlas_nexus/ai_risk_ontology/util/export_risk_atlas_tex.py
 
 test:
 	pytest
