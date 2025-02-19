@@ -30,9 +30,8 @@ Our intention is to create a starting point for an open AI Systems ontology whos
     - [Download a populated graph](graph_export/README.md)
 - **Notebooks:** 
     - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
-    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk Atlas Nexus Quickstart.ipynb) Overview of library functionality
-    - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
-    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk Atlas Nexus Quickstart.ipynb) Overview of library functionality
+    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk%20Atlas%20Nexus%20Quickstart.ipynb) Overview of library functionality
+    
 - **Additional Resources:**
     - [IBM AI Risk Atlas](https://www.ibm.com/docs/en/watsonx/saas?topic=ai-risk-atlas)
     - [Usage Governance Advisor: From Intent to AI Governance](https://arxiv.org/abs/2412.01957)
