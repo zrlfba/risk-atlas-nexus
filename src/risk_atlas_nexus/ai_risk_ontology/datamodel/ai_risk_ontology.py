@@ -279,6 +279,26 @@ class RiskGroup(Entity):
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
          'domain_of': ['RiskGroup', 'Risk'],
          'slot_uri': 'schema:isPartOf'} })
+    closeMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.""", json_schema_extra = { "linkml_meta": {'alias': 'closeMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:closeMatch'} })
+    exactMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications""", json_schema_extra = { "linkml_meta": {'alias': 'exactMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:exactMatch'} })
+    broadMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a broader concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'broadMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:broadMatch'} })
+    narrowMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a narrower concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'narrowMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:narrowMatch'} })
+    relatedMatch: Optional[List[str]] = Field(default=None, description="""The property skos:relatedMatch is used to state an associative mapping link between two concepts.""", json_schema_extra = { "linkml_meta": {'alias': 'relatedMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:relatedMatch'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })
     description: Optional[str] = Field(default=None, description="""The description of an entity""", json_schema_extra = { "linkml_meta": {'alias': 'description',
@@ -311,12 +331,25 @@ class Risk(Entity):
     isPartOf: Optional[str] = Field(default=None, description="""A relationship where a risk is part of a risk group""", json_schema_extra = { "linkml_meta": {'alias': 'isPartOf',
          'domain_of': ['Risk', 'LargeLanguageModel'],
          'slot_uri': 'schema:isPartOf'} })
-    closeMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.""", json_schema_extra = { "linkml_meta": {'alias': 'closeMatch', 'domain_of': ['Risk'], 'slot_uri': 'skos:closeMatch'} })
-    exactMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications""", json_schema_extra = { "linkml_meta": {'alias': 'exactMatch', 'domain_of': ['Risk'], 'slot_uri': 'skos:exactMatch'} })
-    broadMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a broader concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'broadMatch', 'domain_of': ['Risk'], 'slot_uri': 'skos:broadMatch'} })
-    narrowMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a narrower concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'narrowMatch', 'domain_of': ['Risk'], 'slot_uri': 'skos:narrowMatch'} })
+    closeMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.""", json_schema_extra = { "linkml_meta": {'alias': 'closeMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:closeMatch'} })
+    exactMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications""", json_schema_extra = { "linkml_meta": {'alias': 'exactMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:exactMatch'} })
+    broadMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a broader concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'broadMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:broadMatch'} })
+    narrowMatch: Optional[List[str]] = Field(default=None, description="""The property is used to state a hierarchical mapping link between two concepts, indicating that the concept linked to, is a narrower concept than the originating concept.""", json_schema_extra = { "linkml_meta": {'alias': 'narrowMatch',
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
+         'slot_uri': 'skos:narrowMatch'} })
     relatedMatch: Optional[List[str]] = Field(default=None, description="""The property skos:relatedMatch is used to state an associative mapping link between two concepts.""", json_schema_extra = { "linkml_meta": {'alias': 'relatedMatch',
-         'domain_of': ['Risk'],
+         'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
+         'domain_of': ['RiskGroup', 'Risk'],
          'slot_uri': 'skos:relatedMatch'} })
     tag: Optional[str] = Field(default=None, description="""A shost version of the name""", json_schema_extra = { "linkml_meta": {'alias': 'tag', 'domain_of': ['Risk']} })
     type: Optional[str] = Field(default=None, description="""Annotation whether an AI risk occurs at input or output or is non-technical.""", json_schema_extra = { "linkml_meta": {'alias': 'type', 'domain_of': ['Risk']} })
