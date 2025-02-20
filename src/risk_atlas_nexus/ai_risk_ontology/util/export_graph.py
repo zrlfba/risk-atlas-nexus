@@ -4,4 +4,6 @@
 from risk_atlas_nexus import RiskAtlasNexus
 
 ran = RiskAtlasNexus()
+
+# export the graph to yaml
 ran.export('graph_export/yaml/')
