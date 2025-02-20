@@ -45,7 +45,7 @@ def create_container_object() -> Container:
     container = Container(documents=documents, taxonomies=taxonomies, risks=risks)
     return container
 
-# export IBM AI risk atlas to yaml
+# export IBM AI risk atlas to latex
 export_path = 'graph_export/latex'
 if os.path.isdir(export_path) == False:
     logger.error(f"Directory %s does not exist.", export_path)
