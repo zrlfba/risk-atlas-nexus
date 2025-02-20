@@ -30,7 +30,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
     - [LinkML instance data for an example knowledge graph](src/risk_atlas_nexus/data/knowledge_graph/README.md)
     - [Download a populated graph](graph_export/README.md)
 - **Notebooks:** 
-    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk%20Atlas%20Nexus%20Quickstart.ipynb) Overview of library functionality
+    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
     - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
     - [Auto assist questionnaire](examples/notebooks/autoassist_questionnaire.ipynb) Auto-fill questionnaire using Chain of Thought or Few-Shot Examples
     - [AI Tasks identification](examples/notebooks/ai_tasks_identification.ipynb) Uncover ai tasks related to your usecase
