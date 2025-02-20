@@ -1,28 +1,40 @@
 import json
+from typing import List
 
-from risk_atlas_nexus.blocks.inference import (
-    InferencePromptParams,
-    TextGenerationInferenceOutput,
-)
+from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import Risk
+from risk_atlas_nexus.blocks.inference import TextGenerationInferenceOutput
+from risk_atlas_nexus.blocks.inference.templates import RISK_IDENTIFICATION_TEMPLATE
 from risk_atlas_nexus.blocks.risk_detector import RiskDetector
 
 
 class GenericRiskDetector(RiskDetector):
 
-    def detect(self, usecase: str) -> TextGenerationInferenceOutput:
-        return self.inference_engine.generate(
-            [
-                InferencePromptParams(
-                    query=self._prompt_template.format(
-                        risks=json.dumps(
-                            [
-                                {"category": risk.name, "description": risk.description}
-                                for risk in self._risks
-                            ],
-                            indent=4,
-                        ),
-                        query=usecase,
-                    ),
+    def detect(self, usecases: List[str]) -> List[Risk]:
+        prompts = [
+            self.inference_engine.prepare_prompt(
+                prompt_template=RISK_IDENTIFICATION_TEMPLATE,
+                usecase=usecase,
+                risks=json.dumps(
+                    [
+                        {"category": risk.name, "description": risk.description}
+                        for risk in self._risks
+                    ],
+                    indent=4,
+                ),
+                examples=self._examples,
+            )
+            for usecase in usecases
+        ]
+
+        inference_response: List[TextGenerationInferenceOutput] = (
+            self.inference_engine.generate(prompts)
+        )
+        return [
+            list(
+                filter(
+                    lambda risk: risk.name in inference.prediction,
+                    self._risks,
                 )
-            ]
-        )[0]
+            )
+            for inference in inference_response
+        ]

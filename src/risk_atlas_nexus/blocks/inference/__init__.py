@@ -3,4 +3,4 @@ from .rits import RITSInferenceEngine
 from .wml import WMLInferenceEngine
 from .ollama import OllamaInferenceEngine
 from .vllm import VLLMInferenceEngine
-from .params import InferencePromptParams, TextGenerationInferenceOutput
+from .params import TextGenerationInferenceOutput
