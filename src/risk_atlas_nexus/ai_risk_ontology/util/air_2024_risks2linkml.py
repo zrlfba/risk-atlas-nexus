@@ -1,5 +1,6 @@
 # Standard Library
 import re
+import os
 
 # Third Party
 import pandas as pd
@@ -126,7 +127,9 @@ def get_related_risks(related_risks_str: str, risks: dict[str, str]) -> list[str
         if name == risk.strip()
     ]
 
-with open("/Users/ingevejs/Documents/workspace/ingelise/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/air_2024_data.yaml", "+tw", encoding="utf-8"
+export_file_path = os.path.join(DATA_DIR, "air_2024_data.yaml")
+
+with open(export_file_path, "+tw", encoding="utf-8"
 ) as output_file:
     container = create_container_object()
     print(YAMLDumper().dumps(container), file=output_file)
