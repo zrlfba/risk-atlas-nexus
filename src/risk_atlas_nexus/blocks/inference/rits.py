@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
-    InferencePromptParams,
     RITSInferenceEngineParams,
     TextGenerationInferenceOutput,
 )
+from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
 
@@ -53,7 +53,7 @@ class RITSInferenceEngine(InferenceEngine):
             default_headers={"RITS_API_KEY": credentials["api_key"]},
         )
 
-    def _to_open_ai_format(self, prompt_params: InferencePromptParams):
+    def _to_open_ai_format(self, prompt: str):
         # prompt = []
         # if "instructions" in prompt_params:
         #     prompt.append(
@@ -95,20 +95,21 @@ class RITSInferenceEngine(InferenceEngine):
         return [
             {
                 "role": "user",
-                "content": prompt_params.query,
+                "content": prompt,
             }
         ]
 
-    def generate(self, prompt_params: List[InferencePromptParams]):
+    @postprocess
+    def generate(self, prompts: List[str]):
         return run_parallel(
             self.generate_text,
-            prompt_params,
+            prompts,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
         )
 
-    def generate_text(self, prompt_params: InferencePromptParams):
-        messages = self._to_open_ai_format(prompt_params)
+    def generate_text(self, prompt: str):
+        messages = self._to_open_ai_format(prompt)
         response = self.client.chat.completions.create(
             messages=messages,
             model=self.model_name_or_path,

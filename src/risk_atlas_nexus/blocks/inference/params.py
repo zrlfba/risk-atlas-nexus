@@ -113,13 +113,6 @@ class VLLMInferenceEngineParams(TypedDict):
 
 
 @dataclasses.dataclass(kw_only=True)
-class InferencePromptParams:
-    query: str
-    instructions: Optional[str] = None
-    examples: Optional[str] = None
-
-
-@dataclasses.dataclass(frozen=True, kw_only=True)
 class TextGenerationInferenceOutput:
     """Contains the prediction results and metadata for the inference.
 

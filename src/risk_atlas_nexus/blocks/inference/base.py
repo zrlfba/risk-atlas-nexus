@@ -1,15 +1,14 @@
-import os
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Union
 
+from jinja2 import Template
+
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
-    InferencePromptParams,
     RITSInferenceEngineParams,
     TextGenerationInferenceOutput,
     WMLInferenceEngineParams,
 )
-from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.logging import configure_logger
 
 
@@ -25,6 +24,7 @@ class InferenceEngine(ABC):
         parameters: Optional[
             Union[RITSInferenceEngineParams, WMLInferenceEngineParams]
         ] = None,
+        postprocessors: List[str] = None,
         concurrency_limit: int = 10,
     ):
         self.model_name_or_path = model_name_or_path
@@ -32,6 +32,7 @@ class InferenceEngine(ABC):
         self.client = self.create_client(
             self.prepare_credentials(credentials if credentials else {})
         )
+        self.postprocessors = postprocessors
         self.concurrency_limit = concurrency_limit
 
         logger.info(f"Created {self._inference_engine_type} inference engine.")
@@ -52,6 +53,12 @@ class InferenceEngine(ABC):
 
         return parameters
 
+    def prepare_prompt(self, prompt_template: str, usecase: str, **kwargs) -> List[str]:
+        return Template(prompt_template).render(
+            usecase=usecase,
+            **kwargs,
+        )
+
     @abstractmethod
     def prepare_credentials(
         self,
@@ -60,11 +67,9 @@ class InferenceEngine(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def create_client(self, credentials: InferenceEngineCredentials):
+    def create_client(self, credentials: InferenceEngineCredentials) -> Any:
         raise NotImplementedError
 
     @abstractmethod
-    def generate(
-        self, prompt_params: List[InferencePromptParams]
-    ) -> TextGenerationInferenceOutput:
+    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError

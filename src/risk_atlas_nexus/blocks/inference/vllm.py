@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
-    InferencePromptParams,
     TextGenerationInferenceOutput,
     VLLMInferenceEngineParams,
 )
+from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
 from risk_atlas_nexus.toolkit.logging import configure_logger
@@ -73,13 +73,14 @@ class VLLMInferenceEngine(InferenceEngine):
                 max_model_len=4098,
             )
 
-    def generate(self, prompt_params: List[InferencePromptParams]):
+    @postprocess
+    def generate(self, prompts: List[str]):
         from vllm import LLM, SamplingParams
 
         responses = []
         if isinstance(self.client, LLM):
             for response in self.client.generate(
-                prompts=[prompt.query for prompt in prompt_params],
+                prompts=prompts,
                 sampling_params=SamplingParams(**self.parameters),
                 use_tqdm=True,
             ):
@@ -89,17 +90,17 @@ class VLLMInferenceEngine(InferenceEngine):
         else:
             responses = run_parallel(
                 self.generate_vllm_server_response,
-                prompt_params,
+                prompts,
                 f"Inferring with {self._inference_engine_type}",
                 self.concurrency_limit,
             )
 
         return responses
 
-    def generate_vllm_server_response(self, prompt_params: InferencePromptParams):
+    def generate_vllm_server_response(self, prompt: str):
         response = self.client.completions.create(
             model=self.model_name_or_path,
-            prompt=prompt_params.query,
+            prompt=prompt,
             **self.parameters,
         )
         return self._prepare_prediction_output(response, offline=False)

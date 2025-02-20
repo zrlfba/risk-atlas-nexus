@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
-    InferencePromptParams,
     OllamaInferenceEngineParams,
     TextGenerationInferenceOutput,
 )
+from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
 from risk_atlas_nexus.toolkit.logging import configure_logger
@@ -50,18 +50,19 @@ class OllamaInferenceEngine(InferenceEngine):
 
         return Client(host=credentials["api_url"])
 
-    def generate(self, prompt_params: List[InferencePromptParams]):
+    @postprocess
+    def generate(self, prompts: List[str]):
         return run_parallel(
             self.generate_text,
-            prompt_params,
+            prompts,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
         )
 
-    def generate_text(self, prompt_params: InferencePromptParams):
+    def generate_text(self, prompt: str):
         response = self.client.generate(
             model=self.model_name_or_path,
-            prompt=prompt_params.query,
+            prompt=prompt,
             options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
         )
         return self._prepare_prediction_output(response)

@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
-    InferencePromptParams,
     TextGenerationInferenceOutput,
     WMLInferenceEngineParams,
 )
+from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.logging import configure_logger
 
@@ -93,17 +93,20 @@ class WMLInferenceEngine(InferenceEngine):
             params=self.parameters,
         )
 
-    def generate(self, prompt_params: List[InferencePromptParams]):
+    @postprocess
+    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
         responses = []
         for response in self.client.generate(
-            prompt=[prompt.query for prompt in prompt_params],
+            prompt=prompts,
             concurrency_limit=self.concurrency_limit,
         ):
             responses.append(self._prepare_prediction_output(response))
 
         return responses
 
-    def _prepare_prediction_output(self, response):
+    def _prepare_prediction_output(
+        self, response
+    ) -> List[TextGenerationInferenceOutput]:
         return TextGenerationInferenceOutput(
             prediction=response["results"][0]["generated_text"],
             # input_text=prompts[0]["source"],
