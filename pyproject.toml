@@ -27,7 +27,8 @@ dependencies = [
     "sssom",
     "tqdm",
     "logzero",
-    "python-dotenv"
+    "python-dotenv",
+    "datasets"
 ]
 
 [project.optional-dependencies]

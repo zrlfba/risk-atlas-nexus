@@ -11,7 +11,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 
 ## Features
 - 🏗️📊 An ontology has been provided, that combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one coherent schema 
-- 📚⚠️ AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, and OWASP Top 10 for Large Language Model Applications
+- 📚⚠️ AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, the AI Risk Taxonomy (AIR 2024), and OWASP Top 10 for Large Language Model Applications
 - 🔗📌 Mappings are proposed between the taxonomies and between risks and actions
 - 🐍🔍 Use the python library methods to quickly explore available risks, relations and actions 
 - 🚨🧐 Use the python library methods to detect potential risks in your usecase 
@@ -30,7 +30,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
     - [LinkML instance data for an example knowledge graph](src/risk_atlas_nexus/data/knowledge_graph/README.md)
     - [Download a populated graph](graph_export/README.md)
 - **Notebooks:** 
-    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk%20Atlas%20Nexus%20Quickstart.ipynb) Overview of library functionality
+    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
     - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
     - [Auto assist questionnaire](examples/notebooks/autoassist_questionnaire.ipynb) Auto-fill questionnaire using Chain of Thought or Few-Shot Examples
     - [AI Tasks identification](examples/notebooks/ai_tasks_identification.ipynb) Uncover ai tasks related to your usecase
