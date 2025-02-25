@@ -29,6 +29,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
     - [LinkML schema documentation](docs/ontology/index.md)
     - [LinkML instance data for an example knowledge graph](src/risk_atlas_nexus/data/knowledge_graph/README.md)
     - [Download a populated graph](graph_export/README.md)
+    - [Contribute your own taxonomy files and CoT templates](docs/Contributing_a_taxonomy.md)
 - **Notebooks:** 
     - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
     - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
@@ -143,6 +144,7 @@ pip install -e ".[rits]"
 - Get started by checking our [contribution guidelines](CONTRIBUTING.md).
 - Read the wiki for more technical and design details.
 - If you have any questions, just ask!
+- [Contribute your own taxonomy files and CoT templates](docs/Contributing_a_taxonomy.md)
 
 Tip: Use the makefile provided to regenerate artifacts provided in the repository by running `make` in this repository.
 
