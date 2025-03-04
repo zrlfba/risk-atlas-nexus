@@ -35,13 +35,17 @@ classes:
       - narrowMatch
       - relatedMatch
 
+  RiskConcept:
+    is_a: Entity
+    class_uri: airo:RiskConcept
+
   Risk:
     is_a: Entity
     description: The state of uncertainty associated with an AI system, that has the potential to cause harms
     class_uri: airo:Risk
     attributes:
       tag:
-        description: A shost version of the name
+        description: A short version of the name
       type:
         description: Annotation whether an AI risk occurs at input or output or is non-technical.
       phase:
@@ -64,6 +68,13 @@ classes:
       - narrowMatch
       - relatedMatch
 
+  RiskControl:
+    is_a: Entity
+    class_uri: airo:RiskControl
+    description: A measure that maintains and/or modifies risk (and risk concepts)
+    slots:
+      - detectsRiskConcept
+      - isDefinedByTaxonomy
 
   Action:
     is_a: Entity
@@ -130,6 +141,15 @@ slots:
   relatedMatch:
     slot_uri: skos:relatedMatch
     description: The property skos:relatedMatch is used to state an associative mapping link between two concepts.
+    range: Any
+    any_of:
+      - range: Risk
+      - range: RiskGroup
+    multivalued: true
+    inlined: false
+  detectsRiskConcept:
+    slot_uri: airo:detectsRiskConcept
+    description: The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, consequences, and impacts.
     range: Any
     any_of:
       - range: Risk
