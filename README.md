@@ -4,7 +4,6 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://www.apache.org/licenses/LICENSE-2.0) ![main branch](https://github.com/IBM/risk-atlas-nexus/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main) [![](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/) <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 
-
  👉 (Feb-2025) Our new [HF spaces demo site](https://huggingface.co/spaces/ibm/risk-atlas-nexus) is available! 
 
 ## Overview
@@ -19,6 +18,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 - 🐍🔍 Use the python library methods to quickly explore available risks, relations and actions 
 - 🚨🧐 Use the python library methods to detect potential risks in your usecase 
 - 📤📈 Download an exported graph populated with data instances
+- ✨📝 Example use-case of auto-assistance in compliance questionnaires using CoT examples and Risk Atlas Nexus
 
 ## Architecture
 ![Architecture](resources/images/architecture.png)
