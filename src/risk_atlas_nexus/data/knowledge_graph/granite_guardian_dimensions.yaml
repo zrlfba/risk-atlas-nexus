@@ -23,7 +23,7 @@ riskgroups:
   name: Agentic Safety
   isDefinedByTaxonomy: ibm-granite-guardian
 - id: granite-guardian-conversational-egregiousness
-  name: "Conversational egregiousness / degradation"
+  name: Conversational egregiousness / degradation
 risks:
 - id: granite-guardian-harm
   name: Harm

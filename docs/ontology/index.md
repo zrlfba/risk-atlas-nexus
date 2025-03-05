@@ -12,6 +12,7 @@ Name: ai-risk-ontology
 
 | Class | Description |
 | --- | --- |
+| [Any](Any.md) | None |
 | [Container](Container.md) | An umbrella object that holds the ontology class instances |
 | [Entity](Entity.md) | A generic grouping for any identifiable entity. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Action](Action.md) | Action to remediate a risk |
@@ -36,6 +37,8 @@ Name: ai-risk-ontology
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AiOffice](AiOffice.md) | The EU AI Office (https://digital-strategy.ec.europa.eu/en/policies/ai-office) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AiProvider](AiProvider.md) | A provider under the AI Act is defined by Article 3(3) as a natural or legal person or body that develops an AI system or general-purpose AI model or has an AI system or general-purpose AI model developed; and places that system or model on the market, or puts that system into service, under the provider's own name or trademark, whether for payment or free for charge. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential to cause harms |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RiskConcept](RiskConcept.md) | None |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RiskControl](RiskControl.md) | A measure that maintains and/or modifies risk (and risk concepts) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RiskTaxonomy](RiskTaxonomy.md) | A taxonomy of AI system related risks |
 | [Fact](Fact.md) | A fact about something, for example the result of a measurement. In addition to the value, evidence is provided. |
@@ -63,6 +66,7 @@ Name: ai-risk-ontology
 | [dateModified](dateModified.md) | The date on which the entity was most recently modified |
 | [description](description.md) | The description of an entity |
 | [descriptor](descriptor.md) | Annotates whether an AI risk is a traditional risk, specific to or amplified ... |
+| [detectsRiskConcept](detectsRiskConcept.md) | The property airo:detectsRiskConcept indicates the control used for detecting... |
 | [documents](documents.md) | A list of documents |
 | [evaluations](evaluations.md) | A list of AI evaluation methods |
 | [evidence](evidence.md) | Evidence provides a source (typical a chunk, paragraph or link) describing wh... |
@@ -81,6 +85,7 @@ Name: ai-risk-ontology
 | [hasOutputModality](hasOutputModality.md) | A relationship indicating the output modalities supported by an AI component |
 | [hasRelatedAction](hasRelatedAction.md) | A relationship where an entity relates to an action |
 | [hasRelatedRisk](hasRelatedRisk.md) | A relationship where an entity relates to a risk |
+| [hasRiskControl](hasRiskControl.md) | Indicates the control measures associated with a system or component to modif... |
 | [hasTrainingData](hasTrainingData.md) | A relationship indicating the datasets an AI model was trained on |
 | [hasUnitxtCard](hasUnitxtCard.md) | A relationship to a Unitxt card defining the risk evaluation |
 | [id](id.md) | A unique identifier to this instance of the model element |
@@ -105,6 +110,7 @@ Name: ai-risk-ontology
 | [producer](producer.md) | A relationship to the Organization instance which produces this instance |
 | [provider](provider.md) | A relationship to the Organization instance that provides this instance |
 | [relatedMatch](relatedMatch.md) | The property skos:relatedMatch is used to state an associative mapping link b... |
+| [riskcontrols](riskcontrols.md) | A list of AI risk controls |
 | [riskgroups](riskgroups.md) | A list of AI risk groups |
 | [risks](risks.md) | A list of AI risks |
 | [supported_languages](supported_languages.md) | A list of languages, expressed as ISO two letter codes |

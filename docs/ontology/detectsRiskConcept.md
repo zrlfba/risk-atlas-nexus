@@ -1,15 +1,15 @@
 
 
-# Slot: relatedMatch
+# Slot: detectsRiskConcept
 
 
-_The property skos:relatedMatch is used to state an associative mapping link between two concepts._
+_The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, consequences, and impacts._
 
 
 
 
 
-URI: [skos:relatedMatch](skos:relatedMatch)
+URI: [nexus:detectsRiskConcept](http://research.ibm.com/ontologies/aiont/detectsRiskConcept)
 
 
 
@@ -23,8 +23,7 @@ URI: [skos:relatedMatch](skos:relatedMatch)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
-| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
+| [RiskControl](RiskControl.md) | A measure that maintains and/or modifies risk (and risk concepts) |  no  |
 
 
 
@@ -62,8 +61,9 @@ URI: [skos:relatedMatch](skos:relatedMatch)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | skos:relatedMatch |
-| native | nexus:relatedMatch |
+| self | nexus:detectsRiskConcept |
+| native | nexus:detectsRiskConcept |
+| exact | airo:detectsRiskConcept |
 
 
 
@@ -72,16 +72,16 @@ URI: [skos:relatedMatch](skos:relatedMatch)
 
 <details>
 ```yaml
-name: relatedMatch
-description: The property skos:relatedMatch is used to state an associative mapping
-  link between two concepts.
+name: detectsRiskConcept
+description: The property airo:detectsRiskConcept indicates the control used for detecting
+  risks, risk sources, consequences, and impacts.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+exact_mappings:
+- airo:detectsRiskConcept
 rank: 1000
-slot_uri: skos:relatedMatch
-alias: relatedMatch
+alias: detectsRiskConcept
 domain_of:
-- RiskGroup
-- Risk
+- RiskControl
 range: Any
 multivalued: true
 inlined: false

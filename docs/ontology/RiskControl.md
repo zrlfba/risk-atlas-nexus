@@ -1,15 +1,15 @@
 
 
-# Class: RiskTaxonomy
+# Class: RiskControl
 
 
-_A taxonomy of AI system related risks_
+_A measure that maintains and/or modifies risk (and risk concepts)_
 
 
 
 
 
-URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
+URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 
 
 
@@ -18,42 +18,40 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 ```mermaid
  classDiagram
-    class RiskTaxonomy
-    click RiskTaxonomy href "../RiskTaxonomy"
-      Entity <|-- RiskTaxonomy
+    class RiskControl
+    click RiskControl href "../RiskControl"
+      Entity <|-- RiskControl
         click Entity href "../Entity"
       
-      RiskTaxonomy : dateCreated
+      RiskControl : dateCreated
         
-      RiskTaxonomy : dateModified
+      RiskControl : dateModified
         
-      RiskTaxonomy : description
+      RiskControl : description
         
-      RiskTaxonomy : hasDocumentation
-        
-          
-    
-    
-    RiskTaxonomy --> "*" Documentation : hasDocumentation
-    click Documentation href "../Documentation"
-
-        
-      RiskTaxonomy : hasLicense
+      RiskControl : detectsRiskConcept
         
           
     
     
-    RiskTaxonomy --> "0..1" License : hasLicense
-    click License href "../License"
+    RiskControl --> "*" Any : detectsRiskConcept
+    click Any href "../Any"
 
         
-      RiskTaxonomy : id
+      RiskControl : id
         
-      RiskTaxonomy : name
+      RiskControl : isDefinedByTaxonomy
         
-      RiskTaxonomy : url
+          
+    
+    
+    RiskControl --> "0..1" RiskTaxonomy : isDefinedByTaxonomy
+    click RiskTaxonomy href "../RiskTaxonomy"
+
         
-      RiskTaxonomy : version
+      RiskControl : name
+        
+      RiskControl : url
         
       
 ```
@@ -64,7 +62,7 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **RiskTaxonomy**
+    * **RiskControl**
 
 
 
@@ -72,9 +70,8 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [version](version.md) | 0..1 <br/> [String](String.md) | The version of the entity embodied by a specified resource | direct |
-| [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | direct |
-| [hasLicense](hasLicense.md) | 0..1 <br/> [License](License.md) | Indicates licenses associated with a resource | direct |
+| [detectsRiskConcept](detectsRiskConcept.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property airo:detectsRiskConcept indicates the control used for detecting... | direct |
+| [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -90,10 +87,9 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Container](Container.md) | [taxonomies](taxonomies.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskGroup](RiskGroup.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [Risk](Risk.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskControl](RiskControl.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
+| [Container](Container.md) | [riskcontrols](riskcontrols.md) | range | [RiskControl](RiskControl.md) |
+| [AiModel](AiModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
+| [LargeLanguageModel](LargeLanguageModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
 
 
 
@@ -120,8 +116,8 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:RiskTaxonomy |
-| native | nexus:RiskTaxonomy |
+| self | airo:RiskControl |
+| native | nexus:RiskControl |
 
 
 
@@ -137,14 +133,14 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: RiskControl
+description: A measure that maintains and/or modifies risk (and risk concepts)
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 slots:
-- version
-- hasDocumentation
-- hasLicense
+- detectsRiskConcept
+- isDefinedByTaxonomy
+class_uri: airo:RiskControl
 
 ```
 </details>
@@ -153,55 +149,43 @@ slots:
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: RiskControl
+description: A measure that maintains and/or modifies risk (and risk concepts)
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 attributes:
-  version:
-    name: version
-    description: The version of the entity embodied by a specified resource.
+  detectsRiskConcept:
+    name: detectsRiskConcept
+    description: The property airo:detectsRiskConcept indicates the control used for
+      detecting risks, risk sources, consequences, and impacts.
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    exact_mappings:
+    - airo:detectsRiskConcept
     rank: 1000
-    slot_uri: schema:version
-    alias: version
-    owner: RiskTaxonomy
+    alias: detectsRiskConcept
+    owner: RiskControl
     domain_of:
-    - License
-    - RiskTaxonomy
-    range: string
-  hasDocumentation:
-    name: hasDocumentation
-    description: Indicates documentation associated with an entity.
-    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
-    rank: 1000
-    slot_uri: airo:hasDocumentation
-    alias: hasDocumentation
-    owner: RiskTaxonomy
-    domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - Action
-    - AiEval
-    - BaseAi
-    - LargeLanguageModelFamily
-    range: Documentation
+    - RiskControl
+    range: Any
     multivalued: true
     inlined: false
-  hasLicense:
-    name: hasLicense
-    description: Indicates licenses associated with a resource
+    any_of:
+    - range: Risk
+    - range: RiskGroup
+  isDefinedByTaxonomy:
+    name: isDefinedByTaxonomy
+    description: A relationship where a risk or a risk group is defined by a risk
+      taxonomy
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
-    slot_uri: airo:hasLicense
-    alias: hasLicense
-    owner: RiskTaxonomy
+    slot_uri: schema:isPartOf
+    alias: isDefinedByTaxonomy
+    owner: RiskControl
     domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - AiEval
-    - BaseAi
-    range: License
+    - RiskGroup
+    - Risk
+    - RiskControl
+    range: RiskTaxonomy
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example
@@ -211,7 +195,7 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: string
@@ -223,7 +207,7 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: string
@@ -234,7 +218,7 @@ attributes:
     rank: 1000
     slot_uri: schema:description
     alias: description
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: string
@@ -245,7 +229,7 @@ attributes:
     rank: 1000
     slot_uri: schema:url
     alias: url
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: uri
@@ -256,7 +240,7 @@ attributes:
     rank: 1000
     slot_uri: schema:dateCreated
     alias: dateCreated
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: date
@@ -268,11 +252,12 @@ attributes:
     rank: 1000
     slot_uri: schema:dateModified
     alias: dateModified
-    owner: RiskTaxonomy
+    owner: RiskControl
     domain_of:
     - Entity
     range: date
     required: false
+class_uri: airo:RiskControl
 
 ```
 </details>

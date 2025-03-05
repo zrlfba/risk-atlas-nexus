@@ -78,7 +78,7 @@ class TestLibrary(TestCaseBase):
         """Check how many risks returned for get all risk definitions"""
         ran_lib = self.ran_lib
         all_risks = ran_lib.get_all_risks()
-        self.assertIs(len(all_risks), 123)
+        self.assertTrue(len(all_risks) == 440)
 
     def test_get_risk_by_tag_type(self):
         """Check type of Get risk definition filtered by risk atlas tag"""
@@ -93,7 +93,7 @@ class TestLibrary(TestCaseBase):
         assert risk.tag == "toxic-output"
 
     def test_get_risk_by_id_type(self):
-        """Check type of Get risk definition filtered by risk  ID"""
+        """Check type of Get risk definition filtered by risk ID"""
         ran_lib = self.ran_lib
         risk = ran_lib.get_risk_by_id("atlas-toxic-output")
         assert risk.linkml_meta.root["class_uri"] == 'airo:Risk'
@@ -113,13 +113,13 @@ class TestLibrary(TestCaseBase):
     def test_get_related_risks_by_id(self):
         """Get related risk definitions from the LinkML, by risk id"""
         ran_lib = self.ran_lib
-        risks = ran_lib.get_related_risks_by_risk_id("granite-function_call")
+        risks = ran_lib.get_related_risks_by_risk_id("granite-function-call")
         self.assertIs(len(risks), 1)
 
     def test_get_related_risk_ids_by_id(self):
         """Get related risk definitions from the LinkML, by risk id"""
         ran_lib = self.ran_lib
-        risks = ran_lib.get_related_risk_ids_by_risk_id("granite-function_call")
+        risks = ran_lib.get_related_risk_ids_by_risk_id("granite-function-call")
         self.assertIs(len(risks), 1)
 
     def test_get_risk_actions_by_risk_id(self):
@@ -153,7 +153,7 @@ class TestLibrary(TestCaseBase):
         """Get all taxonomy definitions from the LinkML"""
         ran_lib = self.ran_lib
         taxonomies = ran_lib.get_all_taxonomies()
-        self.assertIs(len(taxonomies), 5)
+        self.assertIs(len(taxonomies), 6)
 
     def test_get_taxonomy_by_id(self):
         """Get taxonomy definitions from the LinkML filtered by taxonomy id"""

@@ -69,6 +69,15 @@ URI: [nexus:AiModel](http://research.ibm.com/ontologies/aiont/AiModel)
         
       AiModel : hasModelCard
         
+      AiModel : hasRiskControl
+        
+          
+    
+    
+    AiModel --> "*" RiskControl : hasRiskControl
+    click RiskControl href "../RiskControl"
+
+        
       AiModel : id
         
       AiModel : isProvidedBy
@@ -128,6 +137,7 @@ URI: [nexus:AiModel](http://research.ibm.com/ontologies/aiont/AiModel)
 | [gpu_hours](gpu_hours.md) | 0..1 <br/> [Integer](Integer.md) | GPU consumption in terms of hours | direct |
 | [power_consumption_w](power_consumption_w.md) | 0..1 <br/> [Integer](Integer.md) | power consumption in Watts | direct |
 | [carbon_emitted](carbon_emitted.md) | 0..1 <br/> [Float](Float.md) | The number of tons of carbon dioxide equivalent that are emitted during train... | direct |
+| [hasRiskControl](hasRiskControl.md) | * <br/> [RiskControl](RiskControl.md) | Indicates the control measures associated with a system or component to modif... | direct |
 | [producer](producer.md) | 0..1 <br/> [Organization](Organization.md) | A relationship to the Organization instance which produces this instance | [BaseAi](BaseAi.md) |
 | [hasModelCard](hasModelCard.md) | * <br/> [String](String.md) | A relationship to model card references | [BaseAi](BaseAi.md) |
 | [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | [BaseAi](BaseAi.md) |
@@ -197,6 +207,7 @@ slots:
 - gpu_hours
 - power_consumption_w
 - carbon_emitted
+- hasRiskControl
 
 ```
 </details>
@@ -272,6 +283,19 @@ attributes:
     unit:
       symbol: t CO2-eq
       descriptive_name: tons of CO2 equivalent
+  hasRiskControl:
+    name: hasRiskControl
+    description: Indicates the control measures associated with a system or component
+      to modify risks.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: airo:hasRiskControl
+    alias: hasRiskControl
+    owner: AiModel
+    domain_of:
+    - AiModel
+    range: RiskControl
+    multivalued: true
   producer:
     name: producer
     description: A relationship to the Organization instance which produces this instance.

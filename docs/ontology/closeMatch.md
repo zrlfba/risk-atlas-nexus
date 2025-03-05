@@ -23,6 +23,7 @@ URI: [skos:closeMatch](skos:closeMatch)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
 | [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 
 
@@ -33,7 +34,7 @@ URI: [skos:closeMatch](skos:closeMatch)
 
 ## Properties
 
-* Range: [Risk](Risk.md)
+* Range: [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md)
 
 * Multivalued: True
 
@@ -79,10 +80,14 @@ rank: 1000
 slot_uri: skos:closeMatch
 alias: closeMatch
 domain_of:
+- RiskGroup
 - Risk
-range: Risk
+range: Any
 multivalued: true
 inlined: false
+any_of:
+- range: Risk
+- range: RiskGroup
 
 ```
 </details>

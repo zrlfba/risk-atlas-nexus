@@ -1,15 +1,15 @@
 
 
-# Slot: carbon_emitted
+# Slot: hasRiskControl
 
 
-_The number of tons of carbon dioxide equivalent that are emitted during training_
+_Indicates the control measures associated with a system or component to modify risks._
 
 
 
 
 
-URI: [nexus:carbon_emitted](http://research.ibm.com/ontologies/aiont/carbon_emitted)
+URI: [airo:hasRiskControl](https://w3id.org/airo#hasRiskControl)
 
 
 
@@ -34,9 +34,9 @@ URI: [nexus:carbon_emitted](http://research.ibm.com/ontologies/aiont/carbon_emit
 
 ## Properties
 
-* Range: [Float](Float.md)
+* Range: [RiskControl](RiskControl.md)
 
-* Minimum Value: 0
+* Multivalued: True
 
 
 
@@ -62,8 +62,8 @@ URI: [nexus:carbon_emitted](http://research.ibm.com/ontologies/aiont/carbon_emit
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:carbon_emitted |
-| native | nexus:carbon_emitted |
+| self | airo:hasRiskControl |
+| native | nexus:hasRiskControl |
 
 
 
@@ -72,19 +72,17 @@ URI: [nexus:carbon_emitted](http://research.ibm.com/ontologies/aiont/carbon_emit
 
 <details>
 ```yaml
-name: carbon_emitted
-description: The number of tons of carbon dioxide equivalent that are emitted during
-  training
+name: hasRiskControl
+description: Indicates the control measures associated with a system or component
+  to modify risks.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
-alias: carbon_emitted
+slot_uri: airo:hasRiskControl
+alias: hasRiskControl
 domain_of:
 - AiModel
-range: float
-minimum_value: 0
-unit:
-  symbol: t CO2-eq
-  descriptive_name: tons of CO2 equivalent
+range: RiskControl
+multivalued: true
 
 ```
 </details>
