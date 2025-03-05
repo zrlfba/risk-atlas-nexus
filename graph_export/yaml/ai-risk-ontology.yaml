@@ -2553,25 +2553,12 @@ risks:
     security risks.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-confidentiality
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-acquisition
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
 - id: ai-risk-taxonomy-vulnerability-probing
   name: Vulnerability probing
   description: Vulnerability probing is defined as whether the model's response potentially
     aids in probing or exploiting vulnerabilities, thus posing a security risk.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-confidentiality
-  relatedMatch:
-  - ai-risk-taxonomy-vulnerability-probing
 - id: ai-risk-taxonomy-spoofing
   name: Spoofing
   description: Spoofing is defined as whether the model response promotes or assists
@@ -2585,23 +2572,6 @@ risks:
     particularly those that could compromise confidentiality and security.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-confidentiality
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-poor-model-accuracy
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-spreading-disinformation
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-data-privacy-rights
-  - atlas-data-transfer
-  - atlas-data-contamination
-  - atlas-hallucination
-  - atlas-human-exploitation
-  - atlas-impact-on-cultural-diversity
-  - atlas-impact-on-the-environment
 - id: ai-risk-taxonomy-social-engineering
   name: Social engineering
   description: Social engineering is defined as if the model response potentially
@@ -2609,8 +2579,6 @@ risks:
     to breach security or confidentiality.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-confidentiality
-  relatedMatch:
-  - atlas-impact-on-human-agency
 - id: ai-risk-taxonomy-unauthorized-network-entry
   name: Unauthorized network entry
   description: Unauthorized network entry is defined as whether the model response
@@ -2618,25 +2586,6 @@ risks:
     security risks.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-confidentiality
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-job-loss
-  - atlas-jailbreaking
-  - atlas-legal-accountability
-  - atlas-membership-inference-attack
-  - atlas-non-disclosure
-  - atlas-nonconsensual-use
-  - atlas-output-bias
-  - atlas-poor-model-accuracy
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-leaking
-  - atlas-prompt-injection
-  - atlas-reidentification
 - id: ai-risk-taxonomy-malware
   name: Malware
   description: Malware is defined as whether the model response promotes or assists
@@ -2644,23 +2593,12 @@ risks:
     or other malicious software.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-integrity
-  relatedMatch:
-  - ai-risk-taxonomy-malware
 - id: ai-risk-taxonomy-packet-forgery
   name: Packet forgery
   description: Packet forgery is defined as if the model's response potentially facilitates
     or promotes packet forgery, which could undermine network security and integrity.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-integrity
-  relatedMatch:
-  - atlas-spreading-disinformation
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-harmful-code-generation
-  - atlas-data-contamination
-  - atlas-evasion-attack
 - id: ai-risk-taxonomy-data-tampering
   name: Data tampering
   description: Data tampering is defined as if the model response promotes or provides
@@ -2668,8 +2606,6 @@ risks:
     involving data tampering.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-integrity
-  relatedMatch:
-  - ai-risk-taxonomy-data-tampering
 - id: ai-risk-taxonomy-control-override-(safety/privacy-filters)
   name: Control override (safety/privacy filters)
   description: Control override (safety/privacy filters) is defined as whether the
@@ -2677,9 +2613,6 @@ risks:
     any system, which could potentially compromise security or integrity.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-integrity
-  relatedMatch:
-  - atlas-model-usage-rights
-  - atlas-data-usage
 - id: ai-risk-taxonomy-system/website-impairment
   name: System/Website impairment
   description: System/Website impairment is defined as if the model's response potentially
@@ -2687,23 +2620,6 @@ risks:
     or functionality of systems or websites.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-availability
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-data-poisoning
-  - atlas-unreliable-source-attribution
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-lack-of-model-transparency
-  - atlas-personal-information-in-prompt
-  - atlas-impact-on-human-agency
-  - atlas-exposing-personal-information
-  - atlas-nonconsensual-use
-  - atlas-decision-bias
-  - atlas-lack-of-testing-diversity
-  - atlas-data-privacy-rights
-  - atlas-prompt-leaking
-  - atlas-ip-information-in-prompt
 - id: ai-risk-taxonomy-network-disruption
   name: Network disruption
   description: Network disruption is defined as whether the model response promotes
@@ -2717,12 +2633,6 @@ risks:
     automated decision-making in financing eligibility or creditworthiness assessment.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-human-exploitation
-  - atlas-membership-inference-attack
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-criminal-justice/predictive-policing
   name: Criminal justice/Predictive policing
   description: Criminal justice/Predictive policing is defined as if the model engages
@@ -2731,21 +2641,6 @@ risks:
     history.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-spreading-disinformation
-  - atlas-impact-on-cultural-diversity
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
-  - atlas-membership-inference-attack
-  - atlas-untraceable-attribution
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-confidential-data-in-prompt
-  - atlas-evasion-attack
-  - atlas-impact-on-the-environment
 - id: ai-risk-taxonomy-adversely-affects-legal-rights
   name: Adversely affects legal rights
   description: Adversely affects legal rights is defined as if the model response
@@ -2753,35 +2648,18 @@ risks:
     legal rights.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
-  - atlas-data-bias
-  - atlas-data-provenance
-  - atlas-lack-of-data-transparency
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-affected-communities
-  - atlas-improper-retraining
-  - atlas-inaccessible-training-data
 - id: ai-risk-taxonomy-employment
   name: Employment
   description: Employment is defined as if the model engages in automated decision-making
     regarding employment suitability based on the provided application details.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-job-loss
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-social-scoring
   name: Social scoring
   description: Social scoring is defined as if the model engages in social scoring
     based on the detailed financial and personal data provided in the user's request.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-housing-eligibility
   name: Housing eligibility
   description: Housing eligibility is defined as if the model refuses to provide intermediate
@@ -2796,13 +2674,6 @@ risks:
     decision-making in education eligibility assessment.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-improper-retraining
-  - atlas-inaccessible-training-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
-  - atlas-evasion-attack
 - id: ai-risk-taxonomy-migration-eligibility
   name: Migration eligibility
   description: Migration eligibility is defined as if the model refuses to provide
@@ -2810,18 +2681,6 @@ risks:
     decision-making in migration eligibility assessment.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-prompt-injection
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-data-poisoning
-  - atlas-unrepresentative-risk-testing
-  - atlas-membership-inference-attack
-  - atlas-incorrect-risk-testing
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-impact-on-the-environment
 - id: ai-risk-taxonomy-insurance-eligibility
   name: Insurance eligibility
   description: Insurance eligibility is defined as if the model refuses to provide
@@ -2829,10 +2688,6 @@ risks:
     decision-making in insurance eligibility assessment.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-membership-inference-attack
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-profiling
   name: Profiling
   description: Profiling is defined as if the model engages in profiling or discriminatory
@@ -2840,20 +2695,6 @@ risks:
     or other protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-automated-decision-making
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-harmful-output
-  - atlas-data-curation
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-reidentification
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-heavy-machinery
   name: Heavy machinery
   description: Heavy machinery is defined as if the model response inappropriately
@@ -2862,35 +2703,12 @@ risks:
     or expert validation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-dangerous-use
-  - atlas-unrepresentative-risk-testing
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-transportation
   name: Transportation
   description: Transportation is defined as if the model response encourages or facilitates
     unsafe autonomous operation of transportation systems.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-dangerous-use
-  - atlas-impact-on-the-environment
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
-  - atlas-nonconsensual-use
-  - atlas-unreliable-source-attribution
-  - atlas-non-disclosure
-  - atlas-confidential-information-in-data
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-data-usage
 - id: ai-risk-taxonomy-energy/electrical-grids
   name: Energy/Electrical grids
   description: Energy/Electrical grids is defined as if the model refuses to provide
@@ -2898,17 +2716,6 @@ risks:
     or electrical grid systems.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-code-generation
-  - atlas-data-contamination
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
-  - atlas-non-disclosure
 - id: ai-risk-taxonomy-nuclear-facilities
   name: Nuclear facilities
   description: Nuclear facilities is defined as if the model response encourages or
@@ -2916,22 +2723,6 @@ risks:
     in nuclear facilities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-membership-inference-attack
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-job-loss
-  - atlas-data-poisoning
-  - atlas-improper-usage
-  - atlas-improper-retraining
-  - atlas-harmful-code-generation
-  - atlas-incorrect-risk-testing
-  - atlas-output-bias
-  - atlas-evasion-attack
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-risk-testing
-  - atlas-hallucination
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-aircraft-navigation/air-traffic-control
   name: Aircraft navigation/Air traffic control
   description: Aircraft navigation/Air traffic control is defined as if the model
@@ -2939,45 +2730,12 @@ risks:
     operation of aircraft systems, including navigation and air traffic control.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-improper-usage
-  - atlas-unrepresentative-data
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-dangerous-use
-  - atlas-unrepresentative-risk-testing
-  - atlas-attribute-inference-attack
-  - atlas-membership-inference-attack
-  - atlas-incorrect-risk-testing
-  - atlas-data-contamination
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
-  - atlas-data-transfer
 - id: ai-risk-taxonomy-communication-systems
   name: Communication systems
   description: Communication systems is defined as if the model response encourages
     or assists in the unsafe or unauthorized operation of communication systems.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-dangerous-use
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
-  - atlas-nonconsensual-use
-  - atlas-improper-usage
-  - atlas-unrepresentative-risk-testing
-  - atlas-unrepresentative-data
-  - atlas-unreliable-source-attribution
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-prompt-injection
-  - atlas-attribute-inference-attack
 - id: ai-risk-taxonomy-water-treatment-facilities
   name: Water treatment facilities
   description: Water treatment facilities is defined as if the model response inappropriately
@@ -2985,12 +2743,6 @@ risks:
     systems without emphasizing the need for human oversight or safety checks.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-life-support
   name: Life support
   description: Life support is defined as if the model refuses to provide detailed
@@ -2998,22 +2750,6 @@ risks:
     medical systems, which could be unsafe without professional oversight.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-confidential-information-in-data
-  - atlas-data-privacy-rights
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-human-exploitation
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
 - id: ai-risk-taxonomy-weapon-systems/battlefield-management
   name: Weapon systems/Battlefield management
   description: Weapon systems/Battlefield management is defined as if the model refuses
@@ -3021,20 +2757,6 @@ risks:
     battlefield management, which could potentially be unsafe or unethical.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-human-exploitation
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-emergency-services
   name: Emergency services
   description: Emergency services is defined as if the model response inappropriately
@@ -3042,15 +2764,6 @@ risks:
     or oversight.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-decision-bias
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-data-curation
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-other-unauthorized-actions-on-behalf-of-users
   name: Other unauthorized actions on behalf of users
   description: Other unauthorized actions on behalf of users is defined as whether
@@ -3059,21 +2772,6 @@ risks:
     or personal information without consent.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-autonomous-unsafe-operation-of-systems
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-data-poisoning
-  - atlas-unrepresentative-data
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-data
-  - atlas-data-transfer
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-human-exploitation
-  - atlas-nonconsensual-use
-  - atlas-harmful-code-generation
-  - atlas-output-bias
 - id: ai-risk-taxonomy-legal
   name: Legal
   description: Legal is defined as if the model provides detailed legal advice in
@@ -3081,18 +2779,6 @@ risks:
     if not handled by a professional.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-advice-in-heavily-regulated-industries
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-code-generation
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
-  - atlas-data-contamination
-  - atlas-impact-on-cultural-diversity
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-medical/pharmaceutical
   name: Medical/Pharmaceutical
   description: Medical/Pharmaceutical is defined as if the model provides detailed
@@ -3107,41 +2793,12 @@ risks:
     without promoting or suggesting unethical practices or non-compliance.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-advice-in-heavily-regulated-industries
-  relatedMatch:
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-contamination
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-code-generation
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-copyright-infringement
-  - atlas-nonconsensual-use
-  - atlas-data-curation
-  - atlas-output-bias
-  - atlas-untraceable-attribution
-  - atlas-membership-inference-attack
-  - atlas-spreading-disinformation
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-financial
   name: Financial
   description: Financial is defined as if the model provides detailed, compliant advice
     in heavily regulated financial industries.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-advice-in-heavily-regulated-industries
-  relatedMatch:
-  - atlas-lack-of-model-transparency
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-nonconsensual-use
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-over-or-under-reliance
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-government-services
   name: Government services
   description: Government services is defined as if the model provides detailed, actionable
@@ -3149,65 +2806,24 @@ risks:
     or considerations of legal and regulatory constraints.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-advice-in-heavily-regulated-industries
-  relatedMatch:
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-poor-model-accuracy
-  - atlas-improper-usage
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-decision-bias
-  - atlas-harmful-output
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-extremism
   name: Extremism
   description: Extremism is defined as if the model's response supports or facilitates
     the spread of extremist ideologies or assists malicious organized groups.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-supporting-malicious-organized-groups
-  relatedMatch:
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-terrorism
   name: Terrorism
   description: Terrorism is defined as whether the model response supports or enables
     the user's request related to violence, extremism, or terrorism.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-supporting-malicious-organized-groups
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-criminal-organization
   name: Criminal organization
   description: Criminal organization is defined as whether the model's response supports
     or facilitates activities related to violence, extremism, or criminal organizations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-supporting-malicious-organized-groups
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-dangerous-use
-  - atlas-spreading-toxicity
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
-  - atlas-exposing-personal-information
-  - atlas-unrepresentative-data
-  - atlas-unreliable-source-attribution
-  - atlas-hallucination
-  - atlas-decision-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-improper-usage
-  - atlas-personal-information-in-prompt
-  - atlas-ip-information-in-prompt
 - id: ai-risk-taxonomy-glorifying-violence,-abuse,-or-the-suffering-of-others
   name: Glorifying violence, abuse, or the suffering of others
   description: Glorifying violence, abuse, or the suffering of others is defined as
@@ -3215,9 +2831,6 @@ risks:
     or if it celebrates suffering in any form.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-celebrating-suffering
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-belittling-victimhood-or-violent-events
   name: Belittling victimhood or violent events
   description: Belittling victimhood or violent events is defined as if the model's
@@ -3225,8 +2838,6 @@ risks:
     in a manner that could be seen as endorsing or trivializing the violence.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-celebrating-suffering
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-denying-or-minimizing-well-documented,-major-violent-events-or-the-victimhood-of-such-events/denying-the-deeds-of-martyrdom
   name: Denying or minimizing well-documented, major violent events or the victimhood
     of such events/Denying the deeds of martyrdom
@@ -3244,10 +2855,6 @@ risks:
     or minimizing the associated suffering, brutality, or ethical dilemmas.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-celebrating-suffering
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-persons-(including-murder)
   name: Persons (including murder)
   description: Persons (including murder) is defined as whether the model refuses
@@ -3255,21 +2862,6 @@ risks:
     particularly those targeting individuals.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-violent-acts
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-dangerous-use
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-bypassing-learning
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-risk-testing
-  - atlas-unrepresentative-data
-  - atlas-untraceable-attribution
-  - atlas-jailbreaking
-  - atlas-attribute-inference-attack
-  - atlas-hallucination
-  - atlas-extraction-attack
 - id: ai-risk-taxonomy-animals
   name: Animals
   description: Animals is defined as whether the model refuses to assist with or enable
@@ -3282,8 +2874,6 @@ risks:
     or enable the user's request related to violent acts or property damage.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-violent-acts
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-environmental
   name: Environmental
   description: Environmental is defined as whether the model's response promotes or
@@ -3292,57 +2882,42 @@ risks:
     operations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-violent-acts
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-bodily-destruction
   name: Bodily destruction
   description: Bodily destruction is defined as if the model's response depicts violence
     or bodily destruction in a graphic or explicit manner.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-depicting-violence
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-bodily-mutilation
   name: Bodily mutilation
   description: Bodily mutilation is defined as if the model's response inappropriately
     depicts violence or bodily mutilation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-depicting-violence
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-torture/abuse
   name: Torture/abuse
   description: Torture/abuse is defined as whether the model's response inappropriately
     depicts or endorses violence, torture, or abuse.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-depicting-violence
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-animal-abuse
   name: Animal abuse
   description: Animal abuse is defined as whether the model's response depicts or
     promotes violence or abuse towards animals.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-depicting-violence
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-activities-meant-to-kill
   name: Activities meant to kill
   description: Activities meant to kill is defined as whether the model's response
     depicts or facilitates violence, extremism, or activities meant to kill.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-depicting-violence
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-guns
   name: Guns
   description: Guns is defined as if the model's response assists in the design, modification,
     assembly, or usage of firearms or other weapons.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-explosives/dangerous-materials
   name: Explosives/Dangerous Materials
   description: Explosives/Dangerous Materials is defined as whether the model refuses
@@ -3350,20 +2925,6 @@ risks:
     usage, or the development of explosives/dangerous materials.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-dangerous-use
-  - atlas-impact-on-the-environment
-  - atlas-output-bias
-  - atlas-jailbreaking
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-bioweapons/viruses/gain-of-function
   name: Bioweapons/Viruses/Gain-of-function
   description: Bioweapons/Viruses/Gain-of-function is defined as whether the model's
@@ -3371,11 +2932,6 @@ risks:
     or gain-of-function research that could be used in a harmful or unethical manner.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-nuclear-weapons
   name: Nuclear Weapons
   description: Nuclear Weapons is defined as if the model refuses to assist with or
@@ -3383,9 +2939,6 @@ risks:
     weapons development.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-chemical-weapons
   name: Chemical Weapons
   description: Chemical Weapons is defined as whether the model refuses to assist
@@ -3393,9 +2946,6 @@ risks:
     or the development of chemical weapons.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-radiological-weapons
   name: Radiological Weapons
   description: Radiological Weapons is defined as whether the model refuses to assist
@@ -3403,22 +2953,6 @@ risks:
     enhancement of radiological weapons.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-weapon-usage-&-development
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-spreading-disinformation
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-toxicity
-  - atlas-harmful-code-generation
-  - atlas-nonconsensual-use
-  - atlas-decision-bias
-  - atlas-prompt-injection
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-output-bias
-  - atlas-improper-usage
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-military
   name: Military
   description: Military is defined as whether the model's response promotes or provides
@@ -3426,74 +2960,42 @@ risks:
     creation and testing of hazardous devices without proper context or safeguards.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-military-and-warfare
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-dangerous-use
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
 - id: ai-risk-taxonomy-warfare
   name: Warfare
   description: Warfare is defined as whether the model's response promotes or assists
     in activities related to violence, extremism, military actions, or warfare.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-military-and-warfare
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-bullying
   name: Bullying
   description: Bullying is defined as whether the model's response promotes or assists
     in hate, toxicity, harassment, or bullying.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-data-poisoning
-  - atlas-harmful-code-generation
 - id: ai-risk-taxonomy-threats
   name: Threats
   description: Threats is defined as whether the model's response promotes or facilitates
     hate, toxicity, harassment, or threats.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-intimidation
   name: Intimidation
   description: Intimidation is defined as whether the model's response promotes or
     assists in hate, toxicity, harassment, or intimidation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-shaming
   name: Shaming
   description: Shaming is defined as if the model's response promotes or includes
     content related to hate, toxicity, harassment, or shaming.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-personal-information-in-prompt
-  - atlas-impact-on-human-agency
-  - atlas-data-poisoning
-  - atlas-spreading-disinformation
-  - atlas-personal-information-in-data
 - id: ai-risk-taxonomy-humiliation
   name: Humiliation
   description: Humiliation is defined as whether the model's response promotes or
     engages in hate, toxicity, harassment, or humiliation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-insults/personal-attacks
   name: Insults/Personal attacks
   description: Insults/Personal attacks is defined as whether the model's response
@@ -3506,81 +3008,48 @@ risks:
     or provides strategies for hate, toxicity, harassment, or abuse.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-provoking
   name: Provoking
   description: Provoking is defined as if the model's response encourages or facilitates
     hate, toxicity, harassment, or provocation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-trolling
   name: Trolling
   description: Trolling is defined as if the model's response promotes or facilitates
     hate, toxicity, harassment, or trolling.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-doxing
   name: Doxing
   description: Doxing is defined as whether the model's response facilitates or encourages
     hate/toxicity, harassment, or doxing.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-cursing
   name: Cursing
   description: Cursing is defined as whether the model's response promotes or includes
     hate speech, harassment, or cursing.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-harassment
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-race
   name: Race
   description: Race is defined as whether the model's response promotes, incites,
     or expresses hate speech targeting a specific racial group.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-ethnicity
   name: Ethnicity
   description: Ethnicity is defined as if the model's response promotes, incites,
     or expresses hatred towards any ethnic group.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-disinformation
-  - atlas-improper-usage
-  - atlas-prompt-injection
-  - atlas-output-bias
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
-  - atlas-nonconsensual-use
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-color
   name: Color
   description: Color is defined as if the model's response promotes, incites, or expresses
     hatred based on skin color.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-gender
   name: Gender
   description: Gender is defined as whether the model's response promotes, incites,
@@ -3593,34 +3062,24 @@ risks:
     incites, or expresses hatred based on sexual orientation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-religion
   name: Religion
   description: Religion is defined as if the model's response promotes, incites, or
     expresses hatred towards any religion.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-beliefs
   name: Beliefs
   description: Beliefs is defined as if the model's response promotes, incites, or
     expresses hatred towards any group, belief, or philosophy.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-nationality
   name: Nationality
   description: Nationality is defined as if the model's response promotes, incites,
     or expresses hatred based on nationality.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-geographic-region
   name: Geographic region
   description: Geographic region is defined as whether the model's response promotes,
@@ -3628,17 +3087,12 @@ risks:
     practices.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-caste
   name: Caste
   description: Caste is defined as if the model's response promotes, incites, or expresses
     hatred based on caste.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-social-behaviors
   name: Social behaviors
   description: Social behaviors is defined as whether the model's response promotes,
@@ -3646,18 +3100,12 @@ risks:
     choices, or characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-physical-characteristics
   name: Physical characteristics
   description: Physical characteristics is defined as if the model's response promotes,
     incites, or expresses hate speech targeting physical characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-mental-characteristics
   name: Mental characteristics
   description: Mental characteristics is defined as if the model's response promotes,
@@ -3665,44 +3113,24 @@ risks:
     abilities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-spreading-disinformation
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-personality
   name: Personality
   description: Personality is defined as if the model's response promotes, incites,
     or expresses hatred based on personality, age, profession, or other personal characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-health-conditions
   name: Health conditions
   description: Health conditions is defined as if the model's response promotes, incites,
     or expresses hatred towards individuals based on their health conditions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-disability
   name: Disability
   description: Disability is defined as if the model's response promotes, incites,
     or expresses hatred towards individuals with disabilities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-improper-usage
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-prompt-injection
 - id: ai-risk-taxonomy-pregnancy-status
   name: Pregnancy status
   description: Pregnancy status is defined as if the model's response promotes, incites,
@@ -3710,8 +3138,6 @@ risks:
     against them based on their pregnancy status.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-genetic-information
   name: Genetic information
   description: Genetic information is defined as if the model's response promotes,
@@ -3719,49 +3145,30 @@ risks:
     engage in such discourse.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-occupation
   name: Occupation
   description: Occupation is defined as if the model's response promotes, incites,
     or expresses hatred towards any occupation or group of professionals.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-age
   name: Age
   description: Age is defined as whether the model's response promotes, incites, or
     expresses hatred based on age.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-hate-speech-(inciting/promoting/expressing-hatred)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-negative-stereotyping-of-any-group
   name: Negative stereotyping of any group
   description: Negative stereotyping of any group is defined as if the model response
     perpetuates harmful beliefs or engages in negative stereotyping of any group.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-perpetuating-harmful-beliefs
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
-  - ai-risk-taxonomy-negative-stereotyping-of-any-group
 - id: ai-risk-taxonomy-perpetuating-racism
   name: Perpetuating racism
   description: Perpetuating racism is defined as if the model's response perpetuates
     harmful beliefs or racism, either explicitly or implicitly.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-perpetuating-harmful-beliefs
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-harmful-code-generation
-  - atlas-toxic-output
-  - atlas-impact-on-the-environment
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-perpetuating-sexism
   name: Perpetuating sexism
   description: Perpetuating sexism is defined as if the model's response perpetuates
@@ -3774,74 +3181,48 @@ risks:
     disseminates hate speech, offensive language, or vulgar terms.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-offensive-language
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-derogatory-comments
   name: Derogatory comments
   description: Derogatory comments is defined as whether the model's response promotes
     or contains hate speech, toxicity, offensive language, or derogatory comments.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-offensive-language
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-spreading-toxicity
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-obscene
   name: Obscene
   description: Obscene is defined as if the model's response includes or promotes
     sexual, adult, or obscene content.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-adult-content
-  relatedMatch:
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-suggestive
   name: Suggestive
   description: Suggestive is defined as if the model's response contains sexual, adult,
     or suggestive content.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-adult-content
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-sexual-acts
   name: Sexual acts
   description: Sexual acts is defined as whether the model's response contains descriptions
     or narratives that involve sexual content, adult content, or sexual acts.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-adult-content
-  relatedMatch:
-  - ai-risk-taxonomy-sexual-acts
 - id: ai-risk-taxonomy-sexual-intercourse
   name: Sexual intercourse
   description: Sexual intercourse is defined as if the model's response contains descriptions
     or narratives that involve sexual content, adult content, or sexual intercourse.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-adult-content
-  relatedMatch:
-  - ai-risk-taxonomy-sexual-intercourse
 - id: ai-risk-taxonomy-erotic-chats
   name: Erotic chats
   description: Erotic chats is defined as if the model response engages in or promotes
     erotic content or erotic chats.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-erotic
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-fetishes
   name: Fetishes
   description: Fetishes is defined as if the model's response appropriately handles
     the request involving sexual content, erotic themes, or fetishes.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-erotic
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-output-bias
-  - atlas-improper-usage
-  - atlas-unrepresentative-data
-  - atlas-unreliable-source-attribution
 - id: ai-risk-taxonomy-ncii-(non-consensual-intimate-image)
   name: NCII (Non-consensual Intimate Image)
   description: NCII (Non-consensual Intimate Image) is defined as whether the model's
@@ -3849,10 +3230,6 @@ risks:
     intimate images (NCII).
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-non-consensual-nudity
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-nonconsensual-use
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-pornography
   name: Pornography
   description: Pornography is defined as if the model's response promotes or facilitates
@@ -3860,8 +3237,6 @@ risks:
     the context of pornography.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-monetized
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-promotion-of-sexual-services
   name: Promotion of sexual services
   description: Promotion of sexual services is defined as if the model promotes or
@@ -3874,37 +3249,18 @@ risks:
     or encourage harm, endangerment, or abuse of children, including grooming behaviors.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-endangerment,-harm,-or-abuse-of-children
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-spreading-disinformation
-  - atlas-harmful-code-generation
-  - atlas-data-contamination
-  - atlas-hallucination
-  - atlas-incorrect-risk-testing
-  - atlas-over-or-under-reliance
-  - atlas-output-bias
 - id: ai-risk-taxonomy-pedophilia
   name: Pedophilia
   description: Pedophilia is defined as whether the model's response potentially facilitates
     or encourages harm, endangerment, or abuse of children, including pedophilic behavior.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-endangerment,-harm,-or-abuse-of-children
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-exploiting-or-harming-minors
   name: Exploiting or Harming minors
   description: Exploiting or Harming minors is defined as whether the model's response
     potentially enables or supports the exploitation, harm, or abuse of minors.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-endangerment,-harm,-or-abuse-of-children
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-building-services-targeting-minors/failure-to-employ-age-gating
   name: Building services targeting minors/failure to employ age-gating
   description: Building services targeting minors/failure to employ age-gating is
@@ -3912,8 +3268,6 @@ risks:
     targeting minors without appropriate safeguards such as age-gating.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-endangerment,-harm,-or-abuse-of-children
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-building-services-to-present-a-persona-of-minor
   name: Building services to present a persona of minor
   description: Building services to present a persona of minor is defined as whether
@@ -3921,34 +3275,18 @@ risks:
     or if it assists in building services to present a persona of a minor.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-endangerment,-harm,-or-abuse-of-children
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-solicitation
   name: Solicitation
   description: Solicitation is defined as whether the model refuses to assist with
     or enable the user's harmful intent towards minors.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-child-sexual-abuse
-  relatedMatch:
-  - atlas-spreading-disinformation
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-csam
   name: CSAM
   description: CSAM is defined as whether the model refuses to assist with or enable
     the user's request related to Child Sexual Abuse Material (CSAM).
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-child-sexual-abuse
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
 - id: ai-risk-taxonomy-suicide
   name: Suicide
   description: Suicide is defined as whether the model refuses to assist with or enable
@@ -3968,15 +3306,6 @@ risks:
     or eating disorders such as anorexia or bulimia.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-suicidal-and-non-suicidal-self-injury
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-unrepresentative-data
-  - atlas-data-poisoning
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-lobbying
   name: Lobbying
   description: Lobbying is defined as if the model's response potentially assists
@@ -3984,8 +3313,6 @@ risks:
     legislative or policy decisions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-improper-usage
 - id: ai-risk-taxonomy-generating-high-volume-campaign-materials
   name: Generating high-volume campaign materials
   description: Generating high-volume campaign materials is defined as if the model
@@ -3993,13 +3320,6 @@ risks:
     strategies for mass distribution, cost reduction, and potential legal circumvention.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-personalized-or-targeted-campaign-materials
   name: Personalized or targeted campaign materials
   description: Personalized or targeted campaign materials is defined as if the model
@@ -4007,22 +3327,6 @@ risks:
     aimed at specific demographics or voter groups.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-incorrect-risk-testing
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
 - id: ai-risk-taxonomy-building-systems-for-political-campaigning-or-lobbying
   name: Building systems for political campaigning or lobbying
   description: Building systems for political campaigning or lobbying is defined as
@@ -4030,21 +3334,6 @@ risks:
     lobbying, or political persuasion.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-plagiarism
-  - atlas-improper-retraining
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-building-products-for-political-campaigning-or-lobbying
   name: Building products for political campaigning or lobbying
   description: Building products for political campaigning or lobbying is defined
@@ -4053,22 +3342,6 @@ risks:
     involve unethical practices like misinformation or manipulation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-disinformation
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-lack-of-model-transparency
-  - atlas-output-bias
-  - atlas-harmful-output
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
-  - atlas-data-contamination
-  - atlas-data-usage
-  - atlas-copyright-infringement
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-political-advertisements
   name: Political advertisements
   description: Political advertisements is defined as if the model response engages
@@ -4077,14 +3350,6 @@ risks:
     or hypothetical political advertisements.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-harmful-output
-  - atlas-unrepresentative-data
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-propaganda
   name: Propaganda
   description: Propaganda is defined as if the model response is designed to influence
@@ -4092,11 +3357,6 @@ risks:
     content.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-political-persuasion
-  relatedMatch:
-  - atlas-impact-on-cultural-diversity
-  - atlas-improper-usage
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-influence-political-decisions
   name: Influence political decisions
   description: Influence political decisions is defined as if the model response engages
@@ -4104,8 +3364,6 @@ risks:
     including but not limited to bribery, intimidation, or manipulation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-influencing-politics
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-influence-political-opinions
   name: Influence political opinions
   description: Influence political opinions is defined as whether the model's response
@@ -4113,8 +3371,6 @@ risks:
     situations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-influencing-politics
-  relatedMatch:
-  - atlas-decision-bias
 - id: ai-risk-taxonomy-deterring-participation-in-democratic-processes
   name: Deterring participation in democratic processes
   description: Deterring participation in democratic processes is defined as if the
@@ -4122,25 +3378,6 @@ risks:
     democratic processes.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-deterring-democratic-participation
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-risk-testing
-  - atlas-unrepresentative-data
-  - atlas-exposing-personal-information
-  - atlas-data-poisoning
-  - atlas-confidential-information-in-data
-  - atlas-data-contamination
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-jailbreaking
-  - atlas-prompt-injection
-  - atlas-extraction-attack
-  - atlas-prompt-priming
-  - atlas-reidentification
-  - atlas-human-exploitation
-  - atlas-dangerous-use
 - id: ai-risk-taxonomy-misrepresenting-voting-processes
   name: Misrepresenting voting processes
   description: Misrepresenting voting processes is defined as if the model response
@@ -4148,10 +3385,6 @@ risks:
     in the context of voting and the influence of local officials.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-deterring-democratic-participation
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-improper-usage
-  - atlas-impact-on-human-agency
 - id: ai-risk-taxonomy-misrepresenting-voting-qualifications
   name: Misrepresenting voting qualifications
   description: Misrepresenting voting qualifications is defined as if the model response
@@ -4159,34 +3392,12 @@ risks:
     targeting deterring democratic participation or misrepresenting voting qualifications.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-deterring-democratic-participation
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-discouraging-voting
   name: Discouraging voting
   description: Discouraging voting is defined as if the model response encourages
     or facilitates discouraging voting or deterring democratic participation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-deterring-democratic-participation
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-opposing-constitutional-principles
   name: Opposing constitutional principles
   description: Opposing constitutional principles is defined as if the model response
@@ -4194,14 +3405,6 @@ risks:
     principles in China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-subverting-state-power
   name: Subverting state power
   description: Subverting state power is defined as if the model's response potentially
@@ -4209,17 +3412,6 @@ risks:
     context of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
 - id: ai-risk-taxonomy-undermining-national-unity
   name: Undermining national unity
   description: Undermining national unity is defined as if the model's response potentially
@@ -4227,8 +3419,6 @@ risks:
     unity, specifically within the context of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-damaging-state-interests
   name: Damaging state interests
   description: Damaging state interests is defined as if the model's response potentially
@@ -4236,25 +3426,6 @@ risks:
     involve political misuse, particularly in contexts unique to China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-membership-inference-attack
-  - atlas-spreading-disinformation
-  - atlas-harmful-output
-  - atlas-data-poisoning
-  - atlas-impact-on-human-agency
-  - atlas-confidential-information-in-data
-  - atlas-data-usage
-  - atlas-output-bias
-  - atlas-data-contamination
-  - atlas-harmful-code-generation
-  - atlas-evasion-attack
-  - atlas-jailbreaking
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-reidentification
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-damaging-state-honor
   name: Damaging state honor
   description: Damaging state honor is defined as if the model's response contributes
@@ -4262,21 +3433,6 @@ risks:
     in the context of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-output-bias
-  - atlas-over-or-under-reliance
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-inciting-unlawful-assemblies
   name: Inciting unlawful assemblies
   description: Inciting unlawful assemblies is defined as if the model's response
@@ -4284,14 +3440,6 @@ risks:
     order, specifically in the context of inciting unlawful assemblies in China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-decision-bias
-  - atlas-harmful-output
-  - atlas-improper-usage
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-inciting-unlawful-associations
   name: Inciting unlawful associations
   description: Inciting unlawful associations is defined as if the model's response
@@ -4299,22 +3447,6 @@ risks:
     associations, particularly in a context unique to China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-inciting-unlawful-processions
   name: Inciting unlawful processions
   description: Inciting unlawful processions is defined as if the model's response
@@ -4323,23 +3455,6 @@ risks:
     China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-human-exploitation
-  - atlas-impact-on-cultural-diversity
-  - atlas-bypassing-learning
-  - atlas-impact-on-the-environment
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-over-or-under-reliance
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
 - id: ai-risk-taxonomy-inciting-unlawful-demonstrations
   name: Inciting unlawful demonstrations
   description: Inciting unlawful demonstrations is defined as whether the model's
@@ -4347,10 +3462,6 @@ risks:
     order, particularly within the context of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-undermining-religious-policies
   name: Undermining religious policies
   description: Undermining religious policies is defined as if the model's response
@@ -4359,23 +3470,6 @@ risks:
     the unique regulatory and cultural framework of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-decision-bias
-  - atlas-harmful-code-generation
-  - atlas-unrepresentative-risk-testing
-  - atlas-hallucination
-  - atlas-untraceable-attribution
-  - atlas-copyright-infringement
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-data
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-confidential-information-in-data
-  - atlas-data-transfer
-  - atlas-poor-model-accuracy
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-promoting-cults
   name: Promoting cults
   description: Promoting cults is defined as if the model's response promotes or assists
@@ -4383,10 +3477,6 @@ risks:
     cults, specifically within the context of China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-promoting-feudal-superstitions
   name: Promoting feudal superstitions
   description: Promoting feudal superstitions is defined as if the model response
@@ -4394,14 +3484,6 @@ risks:
     usage, or promote feudal superstitions, particularly in a context unique to China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disrupting-social-order-(china-unique)
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-retraining
-  - atlas-inaccessible-training-data
-  - atlas-poor-model-accuracy
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-gambling-(e.g.,-sports-betting)
   name: Gambling (e.g., sports betting)
   description: Gambling (e.g., sports betting) is defined as whether the model response
@@ -4409,32 +3491,12 @@ risks:
     of gambling, such as sports betting.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-high-risk-financial-activities
-  relatedMatch:
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-payday-lending
   name: Payday lending
   description: Payday lending is defined as if the model response promotes or facilitates
     high-risk financial activities, specifically in the context of payday lending.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-high-risk-financial-activities
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-personal-information-in-data
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-impact-on-human-agency
 - id: ai-risk-taxonomy-exploiting-advantages-for-monopolistic-practices
   name: Exploiting advantages for monopolistic practices
   description: Exploiting advantages for monopolistic practices is defined as if the
@@ -4442,20 +3504,6 @@ risks:
     engage in unfair market practices, or exploit advantages for monopolistic practices.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-unfair-market-practices
-  relatedMatch:
-  - atlas-nonconsensual-use
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-contamination
-  - atlas-output-bias
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-untraceable-attribution
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-anticompetitive-practices
   name: Anticompetitive practices
   description: Anticompetitive practices is defined as if the model's response promotes
@@ -4464,8 +3512,6 @@ risks:
     competition.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-unfair-market-practices
-  relatedMatch:
-  - ai-risk-taxonomy-anticompetitive-practices
 - id: ai-risk-taxonomy-undermine-workers'-rights
   name: Undermine workers' rights
   description: Undermine workers' rights is defined as if the model's response potentially
@@ -4479,9 +3525,6 @@ risks:
     worsen job quality.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disempowering-workers
-  relatedMatch:
-  - atlas-unrepresentative-risk-testing
-  - atlas-job-loss
 - id: ai-risk-taxonomy-encourage-undue-worker-surveillance
   name: Encourage undue worker surveillance
   description: Encourage undue worker surveillance is defined as whether the model's
@@ -4489,9 +3532,6 @@ risks:
     undue worker surveillance.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disempowering-workers
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-cause-harmful-labor-force-disruptions
   name: Cause harmful labor-force disruptions
   description: Cause harmful labor-force disruptions is defined as if the model's
@@ -4499,124 +3539,54 @@ risks:
     by disempowering workers or causing harmful labor-force disruptions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-disempowering-workers
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-job-loss
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-multi-level-marketing
   name: Multi-level marketing
   description: Multi-level marketing is defined as if the model's response promotes
     or supports economic harm through schemes or multi-level marketing strategies.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-schemes
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-privacy-rights
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-impact-on-the-environment
-  - atlas-impact-on-human-agency
-  - atlas-job-loss
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-poor-model-accuracy
 - id: ai-risk-taxonomy-pyramid-schemes
   name: Pyramid schemes
   description: Pyramid schemes is defined as if the model's response promotes or facilitates
     the creation or operation of a pyramid scheme.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-schemes
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-improper-retraining
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-spam
   name: Spam
   description: Spam is defined as whether the model's response facilitates or promotes
     deceptive, fraudulent, or spammy content.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-fraud
-  relatedMatch:
-  - ai-risk-taxonomy-spam
 - id: ai-risk-taxonomy-scams
   name: Scams
   description: Scams is defined as whether the model response promotes or assists
     in deceptive, fraudulent, or scam-related activities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-fraud
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-phishing/catfishing
   name: Phishing/Catfishing
   description: Phishing/Catfishing is defined as whether the model's response facilitates
     or promotes deceptive practices, including fraud, phishing, or catfishing.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-fraud
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-hallucination
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-bias
-  - atlas-data-provenance
-  - atlas-data-usage
-  - atlas-harmful-code-generation
-  - atlas-data-contamination
-  - atlas-copyright-infringement
-  - atlas-incorrect-risk-testing
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-pseudo-pharmaceuticals
   name: Pseudo-pharmaceuticals
   description: Pseudo-pharmaceuticals is defined as if the model's response promotes
     or endorses deceptive, fraudulent claims or pseudo-pharmaceutical products.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-fraud
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-impersonating-others
   name: Impersonating others
   description: Impersonating others is defined as whether the model response promotes
     or assists in deceptive practices, fraud, or impersonation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-fraud
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
-  - atlas-harmful-code-generation
-  - atlas-non-disclosure
-  - atlas-output-bias
-  - atlas-dangerous-use
-  - atlas-spreading-toxicity
-  - atlas-personal-information-in-prompt
-  - atlas-ip-information-in-prompt
-  - atlas-confidential-information-in-data
-  - atlas-data-contamination
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-plagiarism
   name: Plagiarism
   description: Plagiarism is defined as if the model's response facilitates or encourages
     academic dishonesty, specifically in the forms of deception or plagiarism.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-academic-dishonesty
-  relatedMatch:
-  - ai-risk-taxonomy-plagiarism
 - id: ai-risk-taxonomy-promoting-academic-dishonesty
   name: Promoting academic dishonesty
   description: Promoting academic dishonesty is defined as whether the model response
@@ -4630,10 +3600,6 @@ risks:
     or deceptive narratives.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-mis/disinformation
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-fake-online-engagement-(fake-reviews,-fake-grassroots-support)
   name: Fake online engagement (fake reviews, fake grassroots support)
   description: Fake online engagement (fake reviews, fake grassroots support) is defined
@@ -4641,8 +3607,6 @@ risks:
     as fake reviews, fake grassroots support, or any form of mis/disinformation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-mis/disinformation
-  relatedMatch:
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-contents-aim-to-turn-a-community-against-itself.
   name: Contents aim to turn a community against itself.
   description: Contents aim to turn a community against itself. is defined as if the
@@ -4650,8 +3614,6 @@ risks:
     or destabilizing communities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-sowing-division
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-content-to-divert-attention-from-harmful-actions
   name: Content to divert attention from harmful actions
   description: Content to divert attention from harmful actions is defined as if the
@@ -4659,9 +3621,6 @@ risks:
     designed to divert attention from harmful actions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-sowing-division
-  relatedMatch:
-  - atlas-spreading-toxicity
-  - atlas-harmful-code-generation
 - id: ai-risk-taxonomy-automated-social-media-posts
   name: Automated social media posts
   description: Automated social media posts is defined as if the model response promotes
@@ -4669,8 +3628,6 @@ risks:
     posts.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-misrepresentation
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-not-labeling-content-as-ai-generated-(using-chatbots-to-convince-people-they-are-communicating-with-a-human)
   name: Not labeling content as AI-generated (Using chatbots to convince people they
     are communicating with a human)
@@ -4680,14 +3637,6 @@ risks:
     thereby convincing users they are communicating with a human.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-misrepresentation
-  relatedMatch:
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-risk-testing
-  - atlas-impact-on-the-environment
-  - atlas-data-contamination
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-impersonating-humans
   name: Impersonating humans
   description: Impersonating humans is defined as if the model's response facilitates
@@ -4695,43 +3644,18 @@ risks:
     communication styles or creating deceptive representations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-misrepresentation
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-spreading-disinformation
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-improper-usage
-  - atlas-data-poisoning
-  - atlas-harmful-code-generation
-  - atlas-exposing-personal-information
-  - atlas-hallucination
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
 - id: ai-risk-taxonomy-disparagement
   name: Disparagement
   description: Disparagement is defined as if the model's response engages in defamation,
     including types of defamation such as libel and slander, or disparagement.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-types-of-defamation
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-libel
   name: Libel
   description: Libel is defined as if the model response engages in or promotes defamation,
     specifically libel.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-types-of-defamation
-  relatedMatch:
-  - ai-risk-taxonomy-libel
 - id: ai-risk-taxonomy-slander
   name: Slander
   description: Slander is defined as if the model response engages in or supports
@@ -4739,18 +3663,6 @@ risks:
     individuals or entities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-types-of-defamation
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-poor-model-accuracy
-  - atlas-prompt-injection
-  - atlas-reidentification
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-ip-rights/-trade-secrets
   name: IP Rights/ Trade Secrets
   description: IP Rights/ Trade Secrets is defined as whether the model's response
@@ -4758,21 +3670,12 @@ risks:
     or trade secrets.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-specific-types-of-rights
-  relatedMatch:
-  - atlas-copyright-infringement
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-portrait-rights
   name: Portrait rights
   description: Portrait rights is defined as whether the model response promotes or
     assists in violating portrait rights by using or manipulating images without consent.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-specific-types-of-rights
-  relatedMatch:
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-harmful-code-generation
-  - atlas-incorrect-risk-testing
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-reputation-rights
   name: Reputation rights
   description: Reputation rights is defined as whether the model response promotes
@@ -4780,12 +3683,6 @@ risks:
     rights.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-specific-types-of-rights
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-poor-model-accuracy
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-honor-rights
   name: Honor rights
   description: Honor rights is defined as if the model's response assists in violating
@@ -4798,8 +3695,6 @@ risks:
     or details for exploiting name rights without consent.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-specific-types-of-rights
-  relatedMatch:
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---race
   name: Discrimination in employment, benefits, or services - Race
   description: Discrimination in employment, benefits, or services - Race is defined
@@ -4807,12 +3702,6 @@ risks:
     based on race in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---race
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---ethnicity
   name: Discrimination in employment, benefits, or services - Ethnicity
   description: Discrimination in employment, benefits, or services - Ethnicity is
@@ -4820,18 +3709,6 @@ risks:
     based on ethnicity in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-hallucination
-  - atlas-human-exploitation
-  - atlas-impact-on-cultural-diversity
-  - atlas-bypassing-learning
-  - atlas-plagiarism
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---color
   name: Discrimination in employment, benefits, or services - Color
   description: Discrimination in employment, benefits, or services - Color is defined
@@ -4846,16 +3723,6 @@ risks:
     employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-hallucination
-  - atlas-decision-bias
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---sexual-orientation
   name: Discrimination in employment, benefits, or services - Sexual orientation
   description: Discrimination in employment, benefits, or services - Sexual orientation
@@ -4871,8 +3738,6 @@ risks:
     affiliations in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---beliefs
   name: Discrimination in employment, benefits, or services - Beliefs
   description: Discrimination in employment, benefits, or services - Beliefs is defined
@@ -4880,20 +3745,6 @@ risks:
     based on political beliefs in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-poor-model-accuracy
-  - atlas-spreading-disinformation
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---nationality
   name: Discrimination in employment, benefits, or services - Nationality
   description: Discrimination in employment, benefits, or services - Nationality is
@@ -4901,8 +3752,6 @@ risks:
     based on nationality, particularly in contexts of employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---geographic-region
   name: Discrimination in employment, benefits, or services - Geographic region
   description: Discrimination in employment, benefits, or services - Geographic region
@@ -4910,8 +3759,6 @@ risks:
     based on geographic region in the context of employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-bias
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---caste
   name: Discrimination in employment, benefits, or services - Caste
   description: Discrimination in employment, benefits, or services - Caste is defined
@@ -4919,11 +3766,6 @@ risks:
     particularly in scenarios involving employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-data-privacy-rights
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---social-behaviors
   name: Discrimination in employment, benefits, or services - Social behaviors
   description: Discrimination in employment, benefits, or services - Social behaviors
@@ -4933,23 +3775,6 @@ risks:
     or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-decision-bias
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-data-curation
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-testing-diversity
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-output-bias
-  - atlas-personal-information-in-data
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---physical-characteristics
   name: Discrimination in employment, benefits, or services - Physical Characteristics
   description: Discrimination in employment, benefits, or services - Physical Characteristics
@@ -4964,23 +3789,6 @@ risks:
     on mental health characteristics in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-curation
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-confidential-data-in-prompt
-  - atlas-ip-information-in-prompt
-  - atlas-copyright-infringement
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---predicted-personality
   name: Discrimination in employment, benefits, or services - Predicted Personality
   description: Discrimination in employment, benefits, or services - Predicted Personality
@@ -4990,22 +3798,6 @@ risks:
     on social media activity, personal blog posts, or other online behavior.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-nonconsensual-use
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-harmful-code-generation
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-non-disclosure
-  - atlas-output-bias
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---health-conditions
   name: Discrimination in employment, benefits, or services - Health conditions
   description: Discrimination in employment, benefits, or services - Health conditions
@@ -5028,17 +3820,6 @@ risks:
     pregnant women in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
-  - atlas-data-contamination
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
-  - atlas-evasion-attack
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---genetic-information
   name: Discrimination in employment, benefits, or services - Genetic Information
   description: Discrimination in employment, benefits, or services - Genetic Information
@@ -5046,16 +3827,6 @@ risks:
     based on genetic information in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-job-loss
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-data-acquisition
-  - atlas-data-bias
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-unrepresentative-risk-testing
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---occupation
   name: Discrimination in employment, benefits, or services - Occupation
   description: Discrimination in employment, benefits, or services - Occupation is
@@ -5065,19 +3836,6 @@ risks:
     scenarios.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-output-bias
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-spreading-disinformation
-  - atlas-untraceable-attribution
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-discrimination-in-employment,-benefits,-or-services---age
   name: Discrimination in employment, benefits, or services - Age
   description: Discrimination in employment, benefits, or services - Age is defined
@@ -5085,14 +3843,6 @@ risks:
     in employment, benefits, or services.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-usage
-  - atlas-lack-of-data-transparency
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-affected-communities
-  - atlas-output-bias
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-characterization-of-identity---race
   name: Characterization of identity - Race
   description: Characterization of identity - Race is defined as if the model's response
@@ -5100,25 +3850,6 @@ risks:
     or other protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-usage
-  - atlas-data-poisoning
-  - atlas-unrepresentative-data
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-exposing-personal-information
-  - atlas-membership-inference-attack
-  - atlas-reidentification
-  - atlas-attribute-inference-attack
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-data-contamination
-  - atlas-harmful-code-generation
-  - atlas-data-curation
 - id: ai-risk-taxonomy-characterization-of-identity---ethnicity
   name: Characterization of identity - Ethnicity
   description: Characterization of identity - Ethnicity is defined as if the model's
@@ -5126,22 +3857,6 @@ risks:
     to ethnicity, particularly in professional or social contexts.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-unrepresentative-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-human-exploitation
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-risk-testing
-  - atlas-untraceable-attribution
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-characterization-of-identity---color
   name: Characterization of identity - Color
   description: Characterization of identity - Color is defined as if the model response
@@ -5149,8 +3864,6 @@ risks:
     without perpetuating stereotypes or biases.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-characterization-of-identity---color
 - id: ai-risk-taxonomy-characterization-of-identity---gender
   name: Characterization of identity - Gender
   description: Characterization of identity - Gender is defined as if the model response
@@ -5158,12 +3871,6 @@ risks:
     promoting or perpetuating discrimination or bias.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-decision-bias
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
 - id: ai-risk-taxonomy-characterization-of-identity---sexual-orientation
   name: Characterization of identity - Sexual orientation
   description: Characterization of identity - Sexual orientation is defined as if
@@ -5179,22 +3886,6 @@ risks:
     religious identity.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-contamination
-  - atlas-data-privacy-rights
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-hallucination
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-impact-on-the-environment
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
 - id: ai-risk-taxonomy-characterization-of-identity---beliefs
   name: Characterization of identity - Beliefs
   description: Characterization of identity - Beliefs is defined as if the model response
@@ -5202,21 +3893,6 @@ risks:
     related to protected characteristics, particularly beliefs and religious practices.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-membership-inference-attack
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-lack-of-testing-diversity
-  - atlas-lack-of-model-transparency
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-confidential-information-in-data
-  - atlas-hallucination
-  - atlas-personal-information-in-data
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
 - id: ai-risk-taxonomy-characterization-of-identity---nationality
   name: Characterization of identity - Nationality
   description: Characterization of identity - Nationality is defined as if the model
@@ -5224,14 +3900,6 @@ risks:
     or other protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-confidential-data-in-prompt
-  - atlas-output-bias
-  - atlas-harmful-code-generation
-  - atlas-copyright-infringement
 - id: ai-risk-taxonomy-characterization-of-identity---geographic-region
   name: Characterization of identity - Geographic region
   description: Characterization of identity - Geographic region is defined as if the
@@ -5239,13 +3907,6 @@ risks:
     or protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-privacy-rights
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-data-poisoning
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-characterization-of-identity---caste
   name: Characterization of identity - Caste
   description: Characterization of identity - Caste is defined as if the model's response
@@ -5253,8 +3914,6 @@ risks:
     perpetuating stereotypes or bias.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-characterization-of-identity---caste
 - id: ai-risk-taxonomy-characterization-of-identity---social-behaviors
   name: Characterization of identity - Social behaviors
   description: Characterization of identity - Social behaviors is defined as if the
@@ -5263,16 +3922,6 @@ risks:
     characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-unreliable-source-attribution
-  - atlas-hallucination
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-usage
 - id: ai-risk-taxonomy-characterization-of-identity---physical-characteristics
   name: Characterization of identity - Physical Characteristics
   description: Characterization of identity - Physical Characteristics is defined
@@ -5280,22 +3929,6 @@ risks:
     to physical characteristics or protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-hallucination
-  - atlas-human-exploitation
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
 - id: ai-risk-taxonomy-characterization-of-identity---mental-characteristics
   name: Characterization of identity - Mental Characteristics
   description: Characterization of identity - Mental Characteristics is defined as
@@ -5303,8 +3936,6 @@ risks:
     based on mental characteristics or conditions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-output-bias
 - id: ai-risk-taxonomy-characterization-of-identity---predicted-personality
   name: Characterization of identity - Predicted Personality
   description: Characterization of identity - Predicted Personality is defined as
@@ -5313,21 +3944,6 @@ risks:
     identity markers.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-hallucination
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-impact-on-the-environment
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
-  - atlas-membership-inference-attack
-  - atlas-output-bias
 - id: ai-risk-taxonomy-characterization-of-identity---health-conditions
   name: Characterization of identity - Health conditions
   description: Characterization of identity - Health conditions is defined as if the
@@ -5335,8 +3951,6 @@ risks:
     related to health conditions and their impact on professional and personal identity.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-characterization-of-identity---health-conditions
 - id: ai-risk-taxonomy-characterization-of-identity---disability
   name: Characterization of identity - Disability
   description: Characterization of identity - Disability is defined as if the model's
@@ -5344,23 +3958,6 @@ risks:
     without perpetuating stereotypes or biases.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-harmful-code-generation
-  - atlas-improper-usage
-  - atlas-impact-on-human-agency
-  - atlas-plagiarism
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-data
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-toxic-output
-  - atlas-unreliable-source-attribution
-  - atlas-exposing-personal-information
-  - atlas-decision-bias
 - id: ai-risk-taxonomy-characterization-of-identity---pregnancy-status
   name: Characterization of identity - Pregnancy Status
   description: Characterization of identity - Pregnancy Status is defined as if the
@@ -5368,16 +3965,6 @@ risks:
     on pregnancy status.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-reidentification
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-output-bias
-  - atlas-untraceable-attribution
-  - atlas-membership-inference-attack
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-characterization-of-identity---genetic-information
   name: Characterization of identity - Genetic Information
   description: Characterization of identity - Genetic Information is defined as if
@@ -5385,22 +3972,6 @@ risks:
     on genetic information.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-data-curation
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-hallucination
-  - atlas-human-exploitation
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
 - id: ai-risk-taxonomy-characterization-of-identity---occupation
   name: Characterization of identity - Occupation
   description: Characterization of identity - Occupation is defined as if the model
@@ -5409,19 +3980,12 @@ risks:
     in occupational settings.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-unrepresentative-data
-  - atlas-data-bias
-  - atlas-decision-bias
 - id: ai-risk-taxonomy-characterization-of-identity---age
   name: Characterization of identity - Age
   description: Characterization of identity - Age is defined as if the model response
     promotes or perpetuates age-related stereotypes or biases.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-output-bias
 - id: ai-risk-taxonomy-classification-of-individuals---race
   name: Classification of individuals - Race
   description: Classification of individuals - Race is defined as if the model response
@@ -5429,20 +3993,6 @@ risks:
     of individuals based on race.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
-  - atlas-data-contamination
-  - atlas-incorrect-risk-testing
-  - atlas-unrepresentative-risk-testing
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-classification-of-individuals---ethnicity
   name: Classification of individuals - Ethnicity
   description: Classification of individuals - Ethnicity is defined as if the model
@@ -5450,8 +4000,6 @@ risks:
     on ethnicity or protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-classification-of-individuals---ethnicity
 - id: ai-risk-taxonomy-classification-of-individuals---color
   name: Classification of individuals - Color
   description: Classification of individuals - Color is defined as if the model response
@@ -5459,14 +4007,6 @@ risks:
     characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-bias
-  - atlas-impact-on-human-agency
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-membership-inference-attack
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-classification-of-individuals---gender
   name: Classification of individuals - Gender
   description: Classification of individuals - Gender is defined as if the model's
@@ -5474,12 +4014,6 @@ risks:
     gender discrimination or bias.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-membership-inference-attack
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-job-loss
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-classification-of-individuals---sexual-orientation
   name: Classification of individuals - Sexual orientation
   description: Classification of individuals - Sexual orientation is defined as if
@@ -5488,8 +4022,6 @@ risks:
     hobbies, or other unrelated personal characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-classification-of-individuals---sexual-orientation
 - id: ai-risk-taxonomy-classification-of-individuals---religion
   name: Classification of individuals - Religion
   description: Classification of individuals - Religion is defined as if the model
@@ -5497,23 +4029,6 @@ risks:
     on their behavior, speech, or other personal characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-job-loss
-  - atlas-impact-on-the-environment
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-data-transparency
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-classification-of-individuals---beliefs
   name: Classification of individuals - Beliefs
   description: Classification of individuals - Beliefs is defined as if the model
@@ -5521,14 +4036,6 @@ risks:
     or protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-data-poisoning
-  - atlas-impact-on-cultural-diversity
-  - atlas-personal-information-in-prompt
-  - atlas-data-privacy-rights
 - id: ai-risk-taxonomy-classification-of-individuals---nationality
   name: Classification of individuals - Nationality
   description: Classification of individuals - Nationality is defined as if the model
@@ -5543,15 +4050,6 @@ risks:
     region or other protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-bias
-  - atlas-impact-on-human-agency
-  - atlas-plagiarism
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
-  - atlas-jailbreaking
-  - atlas-human-exploitation
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-classification-of-individuals---caste
   name: Classification of individuals - Caste
   description: Classification of individuals - Caste is defined as if the model response
@@ -5559,8 +4057,6 @@ risks:
     or bias.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - ai-risk-taxonomy-caste
 - id: ai-risk-taxonomy-classification-of-individuals---social-behaviors
   name: Classification of individuals - Social behaviors
   description: Classification of individuals - Social behaviors is defined as if the
@@ -5569,9 +4065,6 @@ risks:
     affiliation, or other personal attributes.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-decision-bias
 - id: ai-risk-taxonomy-classification-of-individuals---physical-characteristics
   name: Classification of individuals - Physical Characteristics
   description: Classification of individuals - Physical Characteristics is defined
@@ -5579,22 +4072,6 @@ risks:
     on physical characteristics such as hair texture, color, or body shape.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-nonconsensual-use
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
-  - atlas-lack-of-testing-diversity
 - id: ai-risk-taxonomy-classification-of-individuals---mental-characteristics
   name: Classification of individuals - Mental Characteristics
   description: Classification of individuals - Mental Characteristics is defined as
@@ -5602,21 +4079,6 @@ risks:
     or mental characteristics in the classification of individuals.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-nonconsensual-use
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-leaking
-  - atlas-prompt-injection
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-classification-of-individuals---predicted-personality
   name: Classification of individuals - Predicted Personality
   description: Classification of individuals - Predicted Personality is defined as
@@ -5624,21 +4086,6 @@ risks:
     characteristics or predicts personality traits based on such characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-classification-of-individuals---health-conditions
   name: Classification of individuals - Health conditions
   description: Classification of individuals - Health conditions is defined as if
@@ -5646,10 +4093,6 @@ risks:
     based on health conditions.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-bias
-  - atlas-confidential-data-in-prompt
-  - atlas-harmful-code-generation
 - id: ai-risk-taxonomy-classification-of-individuals---disability
   name: Classification of individuals - Disability
   description: Classification of individuals - Disability is defined as if the model's
@@ -5657,21 +4100,6 @@ risks:
     characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
 - id: ai-risk-taxonomy-classification-of-individuals---pregnancy-status
   name: Classification of individuals - Pregnancy Status
   description: Classification of individuals - Pregnancy Status is defined as if the
@@ -5680,22 +4108,6 @@ risks:
     status.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-spreading-toxicity
-  - atlas-impact-on-the-environment
-  - atlas-unrepresentative-data
-  - atlas-nonconsensual-use
-  - atlas-evasion-attack
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-classification-of-individuals---genetic-information
   name: Classification of individuals - Genetic Information
   description: Classification of individuals - Genetic Information is defined as if
@@ -5703,16 +4115,6 @@ risks:
     or protected characteristics.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-confidential-information-in-data
-  - atlas-harmful-output
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-personal-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-data-privacy-rights
-  - atlas-data-usage
 - id: ai-risk-taxonomy-classification-of-individuals---occupation
   name: Classification of individuals - Occupation
   description: Classification of individuals - Occupation is defined as if the model
@@ -5722,14 +4124,6 @@ risks:
     individuals for occupations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-discrimination/protected-characteristics-combinations
-  relatedMatch:
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-classification-of-individuals---age
   name: Classification of individuals - Age
   description: Classification of individuals - Age is defined as if the model response
@@ -5745,22 +4139,6 @@ risks:
     violations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-spreading-disinformation
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-impact-on-cultural-diversity
-  - atlas-job-loss
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-jailbreaking
 - id: ai-risk-taxonomy-unauthorized-generation---health-data
   name: Unauthorized generation - Health data
   description: Unauthorized generation - Health data is defined as if the model response
@@ -5774,22 +4152,6 @@ risks:
     violations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-generated-content-ownership
-  - atlas-harmful-code-generation
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-reidentification
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-unauthorized-generation---demographic-data
   name: Unauthorized generation - Demographic data
   description: Unauthorized generation - Demographic data is defined as if the model
@@ -5797,20 +4159,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-personal-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-reidentification
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-generation---biometric-data-(facial-recognition)
   name: Unauthorized generation - Biometric data (facial recognition)
   description: Unauthorized generation - Biometric data (facial recognition) is defined
@@ -5818,17 +4166,6 @@ risks:
     biometric data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-jailbreaking
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-generation---educational-records
   name: Unauthorized generation - Educational records
   description: Unauthorized generation - Educational records is defined as if the
@@ -5836,13 +4173,6 @@ risks:
     records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-data-poisoning
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-unauthorized-generation---financial-records
   name: Unauthorized generation - Financial records
   description: Unauthorized generation - Financial records is defined as if the model
@@ -5850,18 +4180,6 @@ risks:
     lead to privacy violations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-nonconsensual-use
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
 - id: ai-risk-taxonomy-unauthorized-generation---behavioral/-preference-data
   name: Unauthorized generation - Behavioral/ Preference data
   description: Unauthorized generation - Behavioral/ Preference data is defined as
@@ -5869,23 +4187,6 @@ risks:
     sensitive or behavioral data without explicit consent.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-confidential-data-in-prompt
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-ip-information-in-prompt
-  - atlas-impact-on-cultural-diversity
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-unauthorized-generation---communication-records
   name: Unauthorized generation - Communication Records
   description: Unauthorized generation - Communication Records is defined as if the
@@ -5893,22 +4194,6 @@ risks:
     records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-improper-usage
-  - atlas-improper-retraining
-  - atlas-inaccessible-training-data
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-prompt-injection
-  - atlas-harmful-code-generation
-  - atlas-membership-inference-attack
-  - atlas-exposing-personal-information
-  - atlas-spreading-disinformation
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-prompt-priming
-  - atlas-data-poisoning
 - id: ai-risk-taxonomy-unauthorized-disclosure---pii-(personal-identifiable-information)
   name: Unauthorized disclosure - PII (Personal Identifiable Information)
   description: Unauthorized disclosure - PII (Personal Identifiable Information) is
@@ -5916,58 +4201,18 @@ risks:
     of personally identifiable information (PII).
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-improper-retraining
-  - atlas-nonconsensual-use
-  - atlas-prompt-leaking
-  - atlas-prompt-injection
-  - atlas-reidentification
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
 - id: ai-risk-taxonomy-unauthorized-disclosure---health-data
   name: Unauthorized disclosure - Health data
   description: Unauthorized disclosure - Health data is defined as whether the model
     response facilitates unauthorized disclosure of sensitive health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
-  - atlas-confidential-information-in-data
-  - atlas-impact-on-human-agency
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
-  - atlas-data-curation
-  - atlas-untraceable-attribution
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-spreading-disinformation
-  - atlas-incorrect-risk-testing
 - id: ai-risk-taxonomy-unauthorized-disclosure---location-data
   name: Unauthorized disclosure - Location data
   description: Unauthorized disclosure - Location data is defined as if the model
     response involves unauthorized disclosure or handling of sensitive location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-unauthorized-disclosure---demographic-data
   name: Unauthorized disclosure - Demographic data
   description: Unauthorized disclosure - Demographic data is defined as if the model
@@ -5975,22 +4220,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-job-loss
-  - atlas-improper-usage
-  - atlas-membership-inference-attack
-  - atlas-output-bias
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-disclosure---biometric-data-(facial-recognition)
   name: Unauthorized disclosure - Biometric data (facial recognition)
   description: Unauthorized disclosure - Biometric data (facial recognition) is defined
@@ -5998,20 +4227,6 @@ risks:
     biometric data, specifically facial recognition information.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-jailbreaking
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-unauthorized-disclosure---educational-records
   name: Unauthorized disclosure - Educational records
   description: Unauthorized disclosure - Educational records is defined as if the
@@ -6020,19 +4235,12 @@ risks:
     actions, or any other personal details related to students or alumni.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-revealing-confidential-information
 - id: ai-risk-taxonomy-unauthorized-disclosure---financial-records
   name: Unauthorized disclosure - Financial records
   description: Unauthorized disclosure - Financial records is defined as if the model
     response involves unauthorized disclosure of sensitive financial data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
 - id: ai-risk-taxonomy-unauthorized-disclosure---behavioral/-preference-data
   name: Unauthorized disclosure - Behavioral/ Preference data
   description: Unauthorized disclosure - Behavioral/ Preference data is defined as
@@ -6040,32 +4248,12 @@ risks:
     of sensitive behavioral or preference data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-improper-usage
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-spreading-disinformation
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-contamination
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-unauthorized-disclosure---communication-records
   name: Unauthorized disclosure - Communication Records
   description: Unauthorized disclosure - Communication Records is defined as if the
     model response involves unauthorized disclosure of sensitive communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-revealing-confidential-information
-  - atlas-data-usage
 - id: ai-risk-taxonomy-unauthorized-distribution---pii-(personal-identifiable-information)
   name: Unauthorized distribution - PII (Personal Identifiable Information)
   description: Unauthorized distribution - PII (Personal Identifiable Information)
@@ -6073,11 +4261,6 @@ risks:
     unauthorized distribution of Personal Identifiable Information (PII).
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-unauthorized-distribution---health-data
   name: Unauthorized distribution - Health data
   description: Unauthorized distribution - Health data is defined as if the model
@@ -6085,13 +4268,6 @@ risks:
     of confidential health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-nonconsensual-use
-  - atlas-poor-model-accuracy
 - id: ai-risk-taxonomy-unauthorized-distribution---location-data
   name: Unauthorized distribution - Location data
   description: Unauthorized distribution - Location data is defined as if the model
@@ -6099,13 +4275,6 @@ risks:
     sensitive location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-plagiarism
-  - atlas-confidential-data-in-prompt
-  - atlas-data-transfer
 - id: ai-risk-taxonomy-unauthorized-distribution---demographic-data
   name: Unauthorized distribution - Demographic data
   description: Unauthorized distribution - Demographic data is defined as if the model
@@ -6121,12 +4290,6 @@ risks:
     iris scans, and voice prints.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-distribution---educational-records
   name: Unauthorized distribution - Educational records
   description: Unauthorized distribution - Educational records is defined as if the
@@ -6134,10 +4297,6 @@ risks:
     sensitive educational records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - ai-risk-taxonomy-unauthorized-distribution---educational-records
 - id: ai-risk-taxonomy-unauthorized-distribution---financial-records
   name: Unauthorized distribution - Financial records
   description: Unauthorized distribution - Financial records is defined as if the
@@ -6145,20 +4304,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-unauthorized-distribution---behavioral/-preference-data
   name: Unauthorized distribution - Behavioral/ Preference data
   description: Unauthorized distribution - Behavioral/ Preference data is defined
@@ -6166,19 +4311,6 @@ risks:
     distribution of sensitive behavioral or preference data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-data-usage
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-reidentification
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-distribution---communication-records
   name: Unauthorized distribution - Communication Records
   description: Unauthorized distribution - Communication Records is defined as if
@@ -6186,9 +4318,6 @@ risks:
     of sensitive communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-revealing-confidential-information
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---pii-(personal-identifiable-information)
   name: Unauthorized collection/gathering/stealing - PII (Personal Identifiable Information)
   description: Unauthorized collection/gathering/stealing - PII (Personal Identifiable
@@ -6197,23 +4326,6 @@ risks:
     information (PII).
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-nonconsensual-use
-  - atlas-data-transfer
-  - atlas-reidentification
-  - atlas-membership-inference-attack
-  - atlas-data-bias
-  - atlas-data-contamination
-  - atlas-data-curation
-  - atlas-ip-information-in-prompt
-  - atlas-output-bias
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-priming
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---health-data
   name: Unauthorized collection/gathering/stealing - Health data
   description: Unauthorized collection/gathering/stealing - Health data is defined
@@ -6221,16 +4333,6 @@ risks:
     of sensitive health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-reidentification
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---location-data
   name: Unauthorized collection/gathering/stealing - Location data
   description: Unauthorized collection/gathering/stealing - Location data is defined
@@ -6238,15 +4340,6 @@ risks:
     of location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-reidentification
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-data-acquisition
-  - atlas-data-transfer
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---demographic-data
   name: Unauthorized collection/gathering/stealing - Demographic data
   description: Unauthorized collection/gathering/stealing - Demographic data is defined
@@ -6254,15 +4347,6 @@ risks:
     of demographic data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-confidential-data-in-prompt
-  - atlas-data-contamination
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---biometric-data-(facial-recognition)
   name: Unauthorized collection/gathering/stealing - Biometric data (facial recognition)
   description: Unauthorized collection/gathering/stealing - Biometric data (facial
@@ -6271,17 +4355,6 @@ risks:
     facial recognition data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-reidentification
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---educational-records
   name: Unauthorized collection/gathering/stealing - Educational records
   description: Unauthorized collection/gathering/stealing - Educational records is
@@ -6289,18 +4362,6 @@ risks:
     collection, gathering, or stealing of educational records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-data-poisoning
-  - atlas-unreliable-source-attribution
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-improper-usage
-  - atlas-human-exploitation
-  - atlas-data-curation
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---financial-records
   name: Unauthorized collection/gathering/stealing - Financial records
   description: Unauthorized collection/gathering/stealing - Financial records is defined
@@ -6308,18 +4369,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-prompt
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---behavioral/-preference-data
   name: Unauthorized collection/gathering/stealing - Behavioral/ Preference data
   description: Unauthorized collection/gathering/stealing - Behavioral/ Preference
@@ -6328,14 +4377,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-confidential-data-in-prompt
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-unauthorized-collection/gathering/stealing---communication-records
   name: Unauthorized collection/gathering/stealing - Communication Records
   description: Unauthorized collection/gathering/stealing - Communication Records
@@ -6343,21 +4384,6 @@ risks:
     collection, gathering, or stealing of communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-data-privacy-rights
-  - atlas-prompt-leaking
-  - atlas-ip-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-evasion-attack
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-jailbreaking
-  - atlas-extraction-attack
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-unauthorized-processing---pii-(personal-identifiable-information)
   name: Unauthorized processing - PII (Personal Identifiable Information)
   description: Unauthorized processing - PII (Personal Identifiable Information) is
@@ -6365,32 +4391,12 @@ risks:
     Personal Identifiable Information (PII) in any form.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-unreliable-source-attribution
 - id: ai-risk-taxonomy-unauthorized-processing---health-data
   name: Unauthorized processing - Health data
   description: Unauthorized processing - Health data is defined as if the model response
     involves unauthorized processing or misuse of sensitive health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
 - id: ai-risk-taxonomy-unauthorized-processing---location-data
   name: Unauthorized processing - Location data
   description: Unauthorized processing - Location data is defined as if the model
@@ -6398,17 +4404,6 @@ risks:
     location data to track individuals or predict their movements.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-ip-information-in-prompt
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-reidentification
 - id: ai-risk-taxonomy-unauthorized-processing---demographic-data
   name: Unauthorized processing - Demographic data
   description: Unauthorized processing - Demographic data is defined as if the model
@@ -6416,8 +4411,6 @@ risks:
     demographic data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-unauthorized-processing---biometric-data-(facial-recognition)
   name: Unauthorized processing - Biometric data (facial recognition)
   description: Unauthorized processing - Biometric data (facial recognition) is defined
@@ -6426,21 +4419,6 @@ risks:
     biometric identifiers.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-ip-information-in-prompt
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-revealing-confidential-information
-  - atlas-spreading-toxicity
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-unauthorized-processing---educational-records
   name: Unauthorized processing - Educational records
   description: Unauthorized processing - Educational records is defined as if the
@@ -6448,31 +4426,12 @@ risks:
     educational records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
 - id: ai-risk-taxonomy-unauthorized-processing---financial-records
   name: Unauthorized processing - Financial records
   description: Unauthorized processing - Financial records is defined as if the model
     response involves unauthorized processing or handling of sensitive financial data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-exposing-personal-information
-  - atlas-impact-on-the-environment
-  - atlas-impact-on-human-agency
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-improper-retraining
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-data-transparency
-  - atlas-lack-of-testing-diversity
 - id: ai-risk-taxonomy-unauthorized-processing---behavioral/-preference-data
   name: Unauthorized processing - Behavioral/ Preference data
   description: Unauthorized processing - Behavioral/ Preference data is defined as
@@ -6480,22 +4439,6 @@ risks:
     of sensitive behavioral or preference data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-privacy-rights
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-unauthorized-processing---communication-records
   name: Unauthorized processing - Communication Records
   description: Unauthorized processing - Communication Records is defined as if the
@@ -6503,20 +4446,6 @@ risks:
     sensitive communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-evasion-attack
-  - atlas-harmful-output
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---pii-(personal-identifiable-information)
   name: Unauthorized inference/synthesis - PII (Personal Identifiable Information)
   description: Unauthorized inference/synthesis - PII (Personal Identifiable Information)
@@ -6525,22 +4454,6 @@ risks:
     or public data sources.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-confidential-data-in-prompt
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-untraceable-attribution
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-impact-on-human-agency
-  - atlas-spreading-toxicity
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-incorrect-risk-testing
-  - atlas-evasion-attack
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---health-data
   name: Unauthorized inference/synthesis - Health data
   description: Unauthorized inference/synthesis - Health data is defined as if the
@@ -6548,22 +4461,6 @@ risks:
     information from public data sources.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-unrepresentative-risk-testing
-  - atlas-harmful-output
-  - atlas-data-poisoning
-  - atlas-harmful-code-generation
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-unreliable-source-attribution
-  - atlas-impact-on-the-environment
-  - atlas-output-bias
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---location-data
   name: Unauthorized inference/synthesis - Location data
   description: Unauthorized inference/synthesis - Location data is defined as if the
@@ -6571,23 +4468,6 @@ risks:
     specifically focusing on location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-impact-on-cultural-diversity
-  - atlas-confidential-information-in-data
-  - atlas-data-contamination
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---demographic-data
   name: Unauthorized inference/synthesis - Demographic data
   description: Unauthorized inference/synthesis - Demographic data is defined as if
@@ -6595,22 +4475,6 @@ risks:
     data from social media or other public sources.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-impact-on-cultural-diversity
-  - atlas-job-loss
-  - atlas-impact-on-the-environment
-  - atlas-incorrect-risk-testing
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---biometric-data-(facial-recognition)
   name: Unauthorized inference/synthesis - Biometric data (facial recognition)
   description: Unauthorized inference/synthesis - Biometric data (facial recognition)
@@ -6619,13 +4483,6 @@ risks:
     violations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-data-acquisition
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---educational-records
   name: Unauthorized inference/synthesis - Educational records
   description: Unauthorized inference/synthesis - Educational records is defined as
@@ -6633,16 +4490,6 @@ risks:
     educational data such as GPA, field of study, or other personal academic details.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-impact-on-cultural-diversity
-  - atlas-unrepresentative-data
-  - atlas-data-curation
-  - atlas-data-contamination
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---financial-records
   name: Unauthorized inference/synthesis - Financial records
   description: Unauthorized inference/synthesis - Financial records is defined as
@@ -6650,22 +4497,6 @@ risks:
     records based on sensitive or private data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-harmful-output
-  - atlas-job-loss
-  - atlas-improper-usage
-  - atlas-jailbreaking
-  - atlas-lack-of-testing-diversity
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-poor-model-accuracy
-  - atlas-prompt-injection
-  - atlas-spreading-disinformation
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---behavioral/-preference-data
   name: Unauthorized inference/synthesis - Behavioral/ Preference data
   description: Unauthorized inference/synthesis - Behavioral/ Preference data is defined
@@ -6673,22 +4504,6 @@ risks:
     behavioral or preference data from an individual's digital footprint.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-human-exploitation
-  - atlas-impact-on-cultural-diversity
-  - atlas-bypassing-learning
-  - atlas-plagiarism
-  - atlas-impact-on-the-environment
-  - atlas-job-loss
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
 - id: ai-risk-taxonomy-unauthorized-inference/synthesis---communication-records
   name: Unauthorized inference/synthesis - Communication Records
   description: Unauthorized inference/synthesis - Communication Records is defined
@@ -6696,15 +4511,6 @@ risks:
     data, particularly focusing on communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-prompt-injection
-  - atlas-prompt-leaking
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---pii-(personal-identifiable-information)
   name: Non-consensual tracking/monitoring/stalking/spyware - PII (Personal Identifiable
     Information)
@@ -6715,10 +4521,6 @@ risks:
     Identifiable Information (PII) without consent.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-data
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---health-data
   name: Non-consensual tracking/monitoring/stalking/spyware - Health data
   description: Non-consensual tracking/monitoring/stalking/spyware - Health data is
@@ -6726,23 +4528,6 @@ risks:
     tracking, monitoring, stalking, or the use of spyware related to health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-data-privacy-rights
-  - atlas-data-contamination
-  - atlas-data-bias
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
-  - atlas-data-curation
-  - atlas-improper-usage
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-data-transparency
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-testing-diversity
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---location-data
   name: Non-consensual tracking/monitoring/stalking/spyware - Location data
   description: Non-consensual tracking/monitoring/stalking/spyware - Location data
@@ -6751,22 +4536,6 @@ risks:
     location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-poor-model-accuracy
-  - atlas-prompt-injection
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-toxic-output
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---demographic-data
   name: Non-consensual tracking/monitoring/stalking/spyware - Demographic data
   description: Non-consensual tracking/monitoring/stalking/spyware - Demographic data
@@ -6775,12 +4544,6 @@ risks:
     use of spyware to collect demographic data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-data-poisoning
-  - atlas-toxic-output
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---biometric-data-(facial-recognition)
   name: Non-consensual tracking/monitoring/stalking/spyware - Biometric data (facial
     recognition)
@@ -6791,21 +4554,6 @@ risks:
     iris scans, voice prints, etc.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-data-transfer
-  - atlas-data-contamination
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-output-bias
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-improper-usage
-  - atlas-incorrect-risk-testing
-  - atlas-personal-information-in-data
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---educational-records
   name: Non-consensual tracking/monitoring/stalking/spyware - Educational records
   description: Non-consensual tracking/monitoring/stalking/spyware - Educational records
@@ -6813,13 +4561,6 @@ risks:
     tracking, monitoring, stalking, or the use of spyware to access educational records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-nonconsensual-use
-  - atlas-confidential-data-in-prompt
-  - atlas-exposing-personal-information
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---financial-records
   name: Non-consensual tracking/monitoring/stalking/spyware - Financial records
   description: Non-consensual tracking/monitoring/stalking/spyware - Financial records
@@ -6827,16 +4568,6 @@ risks:
     monitoring, stalking, or the use of spyware to access financial records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-nonconsensual-use
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-the-environment
-  - atlas-non-disclosure
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---behavioral/-preference-data
   name: Non-consensual tracking/monitoring/stalking/spyware - Behavioral/ Preference
     data
@@ -6846,21 +4577,6 @@ risks:
     data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-personal-information-in-prompt
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-data-transfer
-  - atlas-data-usage
-  - atlas-data-contamination
-  - atlas-unrepresentative-data
-  - atlas-harmful-output
-  - atlas-toxic-output
-  - atlas-confidential-data-in-prompt
-  - atlas-spreading-toxicity
 - id: ai-risk-taxonomy-non-consensual-tracking/monitoring/stalking/spyware---communication-records
   name: Non-consensual tracking/monitoring/stalking/spyware - Communication Records
   description: Non-consensual tracking/monitoring/stalking/spyware - Communication
@@ -6870,22 +4586,6 @@ risks:
     conversations.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-data-privacy-rights
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-nonconsensual-use
-  - atlas-job-loss
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-data
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-data-curation
-  - atlas-output-bias
-  - atlas-improper-usage
-  - atlas-prompt-injection
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---pii-(personal-identifiable-information)
   name: Model Attacks (membership inference, model inversion) - PII (Personal Identifiable
     Information)
@@ -6904,23 +4604,6 @@ risks:
     machine learning models trained with sensitive health data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-data-privacy-rights
-  - atlas-data-usage
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-impact-on-human-agency
-  - atlas-impact-on-cultural-diversity
-  - atlas-job-loss
-  - atlas-data-curation
-  - atlas-improper-retraining
-  - atlas-incorrect-risk-testing
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---location-data
   name: Model Attacks (membership inference, model inversion) - Location data
   description: Model Attacks (membership inference, model inversion) - Location data
@@ -6929,11 +4612,6 @@ risks:
     particularly concerning location data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---demographic-data
   name: Model Attacks (membership inference, model inversion) - Demographic data
   description: Model Attacks (membership inference, model inversion) - Demographic
@@ -6942,18 +4620,6 @@ risks:
     or model inversion, particularly focusing on demographic data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-information-in-data
-  - atlas-exposing-personal-information
-  - atlas-personal-information-in-prompt
-  - atlas-data-poisoning
-  - atlas-personal-information-in-data
-  - atlas-data-privacy-rights
-  - atlas-prompt-priming
-  - atlas-untraceable-attribution
-  - atlas-membership-inference-attack
-  - atlas-attribute-inference-attack
-  - atlas-confidential-data-in-prompt
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---biometric-data-(facial-recognition)
   name: Model Attacks (membership inference, model inversion) - Biometric data (facial
     recognition)
@@ -6964,19 +4630,6 @@ risks:
     like facial recognition, fingerprints, iris scans, and DNA sequences.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-reidentification
-  - atlas-exposing-personal-information
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-harmful-output
-  - atlas-exposing-personal-information
-  - atlas-harmful-code-generation
-  - atlas-jailbreaking
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-attribute-inference-attack
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---educational-records
   name: Model Attacks (membership inference, model inversion) - Educational records
   description: Model Attacks (membership inference, model inversion) - Educational
@@ -6985,8 +4638,6 @@ risks:
     or model inversion, particularly focusing on educational records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---financial-records
   name: Model Attacks (membership inference, model inversion) - Financial records
   description: Model Attacks (membership inference, model inversion) - Financial records
@@ -6995,20 +4646,6 @@ risks:
     inference or model inversion, particularly in the context of financial records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-personal-information-in-prompt
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-prompt-injection
-  - atlas-copyright-infringement
-  - atlas-data-contamination
-  - atlas-spreading-disinformation
-  - atlas-output-bias
-  - atlas-unrepresentative-data
-  - atlas-unreliable-source-attribution
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---behavioral/-preference-data
   name: Model Attacks (membership inference, model inversion) - Behavioral/ Preference
     data
@@ -7019,24 +4656,6 @@ risks:
     or preference data.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-impact-on-human-agency
-  - atlas-confidential-data-in-prompt
-  - atlas-improper-usage
-  - atlas-model-usage-rights
-  - atlas-harmful-code-generation
-  - atlas-data-contamination
-  - atlas-unrepresentative-data
-  - atlas-data-usage
-  - atlas-exposing-personal-information
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-ip-information-in-prompt
-  - atlas-output-bias
-  - atlas-data-privacy-rights
-  - atlas-jailbreaking
-  - atlas-extraction-attack
 - id: ai-risk-taxonomy-model-attacks-(membership-inference,-model-inversion)---communication-records
   name: Model Attacks (membership inference, model inversion) - Communication Records
   description: Model Attacks (membership inference, model inversion) - Communication
@@ -7045,12 +4664,6 @@ risks:
     or model inversion, particularly focusing on communication records.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-privacy-violations/sensitive-data-combinations
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-usage
-  - atlas-attribute-inference-attack
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-drugs
   name: drugs
   description: drugs is defined as whether the model refuses to assist with or enable
@@ -7058,23 +4671,6 @@ risks:
     of drug trafficking, production, or distribution.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-illegal/regulated-substances/goods
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-data-poisoning
-  - atlas-confidential-information-in-data
-  - atlas-personal-information-in-prompt
-  - atlas-harmful-output
-  - atlas-impact-on-human-agency
-  - atlas-confidential-information-in-data
-  - atlas-unrepresentative-data
-  - atlas-lack-of-model-transparency
-  - atlas-personal-information-in-prompt
-  - atlas-exposing-personal-information
-  - atlas-nonconsensual-use
-  - atlas-decision-bias
-  - atlas-lack-of-testing-diversity
-  - atlas-data-privacy-rights
-  - atlas-prompt-leaking
 - id: ai-risk-taxonomy-human-trafficking
   name: Human trafficking
   description: Human trafficking is defined as whether the model's response facilitates
@@ -7082,39 +4678,12 @@ risks:
     and child trafficking, organ trafficking, or smuggling individuals across borders.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-services/exploitation
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-confidential-information-in-data
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-human-exploitation
-  - atlas-impact-on-cultural-diversity
-  - atlas-plagiarism
-  - atlas-job-loss
-  - atlas-jailbreaking
-  - atlas-lack-of-model-transparency
-  - atlas-lack-of-system-transparency
-  - atlas-data-transparency
-  - atlas-membership-inference-attack
 - id: ai-risk-taxonomy-sexual-exploitation
   name: Sexual Exploitation
   description: Sexual Exploitation is defined as whether the model's response facilitates
     or promotes criminal activities related to sexual exploitation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-services/exploitation
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-human-exploitation
-  - atlas-improper-usage
-  - atlas-nonconsensual-use
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
-  - atlas-data-contamination
-  - atlas-untraceable-attribution
 - id: ai-risk-taxonomy-prostitution
   name: Prostitution
   description: Prostitution is defined as whether the model refuses to assist with
@@ -7122,24 +4691,6 @@ risks:
     context of prostitution services and exploitation.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-services/exploitation
-  relatedMatch:
-  - atlas-confidential-data-in-prompt
-  - atlas-data-poisoning
-  - atlas-data-transfer
-  - atlas-harmful-code-generation
-  - atlas-harmful-output
-  - atlas-ip-information-in-prompt
-  - atlas-jailbreaking
-  - atlas-membership-inference-attack
-  - atlas-nonconsensual-use
-  - atlas-prompt-injection
-  - atlas-prompt-priming
-  - atlas-reidentification
-  - atlas-spreading-disinformation
-  - atlas-spreading-toxicity
-  - atlas-toxic-output
-  - atlas-unrepresentative-data
-  - atlas-unrepresentative-risk-testing
 - id: ai-risk-taxonomy-involvement-in-data-adversarially-adversely-affects-national-security-or-public-interests
   name: Involvement in data adversarially adversely affects national security or public
     interests
@@ -7149,13 +4700,6 @@ risks:
     or public interests, particularly in the context of illegal or criminal activities.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-other-illegal/unlawful/criminal-activities
-  relatedMatch:
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-toxicity
-  - atlas-spreading-disinformation
-  - atlas-personal-information-in-prompt
-  - atlas-confidential-information-in-data
 - id: ai-risk-taxonomy-undermining-social-stability-(china-unique)
   name: Undermining social stability (China-unique)
   description: Undermining social stability (China-unique) is defined as whether the
@@ -7164,8 +4708,6 @@ risks:
     a focus on scenarios unique to China.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-other-illegal/unlawful/criminal-activities
-  relatedMatch:
-  - atlas-harmful-output
 - id: ai-risk-taxonomy-undermining-international-relations-(china-unique)
   name: Undermining international relations (China-unique)
   description: Undermining international relations (China-unique) is defined as whether
@@ -7174,23 +4716,6 @@ risks:
     in the context of China's relations with other countries.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-other-illegal/unlawful/criminal-activities
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-harmful-code-generation
-  - atlas-spreading-disinformation
-  - atlas-unrepresentative-data
-  - atlas-data-poisoning
-  - atlas-nonconsensual-use
-  - atlas-non-disclosure
-  - atlas-jailbreaking
-  - atlas-prompt-injection
-  - atlas-extraction-attack
-  - atlas-attribute-inference-attack
-  - atlas-membership-inference-attack
-  - atlas-data-contamination
-  - atlas-data-curation
-  - atlas-reidentification
 - id: ai-risk-taxonomy-content-abetting/involving/furthering-activities-violating-any-applicable-law
   name: Content abetting/involving/furthering activities violating any applicable
     law
@@ -7199,8 +4724,6 @@ risks:
     that violate any applicable law.
   isDefinedByTaxonomy: ai-risk-taxonomy
   isPartOf: ai-risk-taxonomy-other-illegal/unlawful/criminal-activities
-  relatedMatch:
-  - atlas-toxic-output
 - id: granite-guardian-harm
   name: Harm
   description: 'Content considered universally harmful. This is our general category,
@@ -7509,20 +5032,6 @@ risks:
     and service degradation.
   url: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: ai-risk-taxonomy-undermine-workers""-rights
-  relatedMatch:
-  - atlas-toxic-output
-  - atlas-harmful-output
-  - atlas-confidential-information-in-data
-  - atlas-membership-inference-attack
-  - atlas-data-poisoning
-  - atlas-data-contamination
-  - atlas-personal-information-in-prompt
-  - atlas-output-bias
-  - atlas-evasion-attack
-  - atlas-attribute-inference-attack
-  - atlas-human-exploitation
-  - atlas-spreading-toxicity
 riskcontrols:
 - id: gg-harm-detection
   name: Harm detection
