@@ -3,6 +3,11 @@
 # Class: RiskConcept
 
 
+_An umbrella term for refering to risk, risk source consequence and impact._
+
+
+
+
 
 URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 
@@ -100,6 +105,7 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 <details>
 ```yaml
 name: RiskConcept
+description: An umbrella term for refering to risk, risk source consequence and impact.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 class_uri: airo:RiskConcept
@@ -112,6 +118,7 @@ class_uri: airo:RiskConcept
 <details>
 ```yaml
 name: RiskConcept
+description: An umbrella term for refering to risk, risk source consequence and impact.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 attributes:

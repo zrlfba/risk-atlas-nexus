@@ -371,6 +371,9 @@ class Risk(Entity):
 
 
 class RiskConcept(Entity):
+    """
+    An umbrella term for refering to risk, risk source consequence and impact.
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'airo:RiskConcept',
          'from_schema': 'http://research.ibm.com/ontologies/aiont/ai_risk'})
 

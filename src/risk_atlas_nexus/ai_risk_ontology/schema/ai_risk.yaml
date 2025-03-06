@@ -66,6 +66,7 @@ classes:
 
   RiskConcept:
     is_a: Entity
+    description: An umbrella term for refering to risk, risk source consequence and impact.
     class_uri: airo:RiskConcept
 
   RiskControl:
