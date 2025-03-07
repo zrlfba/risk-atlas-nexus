@@ -1,8 +1,5 @@
-title: Risk Atlas Nexus
 
 preserve_directory_names: true 
-
-hide: true 
 
 flatten_single_child_sections: false 
 
@@ -24,6 +21,7 @@ nav:
       - Usage: usage/index.md
   - Concepts:
     - Concepts: concepts/index.md
+    - IBM AI Risk Atlas: concepts/IBM_AI_Risk_Atlas.md 
     - Architecture: concepts/architecture.md
     - "Contribute your own taxonomy files": concepts/Contributing_a_taxonomy.md
   - Examples:
