@@ -1,0 +1,81 @@
+site_name: Risk Atlas Nexus
+site_url: https://ibm.github.io/risk-atlas-nexus/
+repo_name: IBM/risk-atlas-nexus
+repo_url: https://github.com/IBM/risk-atlas-nexus
+
+theme:
+  name: material
+  docs_dir: docs
+  custom_dir: docs/overrides
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  logo: assets/risk_atlas_nexus_vector.svg
+  favicon: assets/risk_atlas_nexus_vector.svg
+  features:
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - announce.dismiss
+    - navigation.footer
+    - navigation.tabs
+    - navigation.indexes  
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.sections 
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - toc.follow
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - mkdocs-click
+plugins:
+  - awesome-nav:
+      filename: .nav.yml 
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            extensions:
+            - griffe_inherited_docstrings
+            preload_modules:
+              - risk_atlas_nexus
+  - mkdocs-jupyter
+  - search
+
+extra_css:
+  - stylesheets/extra.css

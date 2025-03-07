@@ -26,6 +26,28 @@ Signed-off-by: Random J Developer <random@developer.example.org>
 Formatter: run the black formatter on python changes
 `python3.11 -m black .`
 
+## Contributing to documentation
+`python3.11 -m pip install -e ".[docs]"`
+
+We use [MkDocs](https://www.mkdocs.org/) to write documentation.
+
+To run the documentation server, run:
+
+```bash
+mkdocs serve
+```
+
+The server will be available at [http://localhost:8000](http://localhost:8000).
+
+### Pushing Documentation to GitHub Pages
+
+Run the following:
+
+```bash
+mkdocs gh-deploy
+```
+
+
 ## Submitting a pull request
 
 1. [Fork][fork] and clone the repository

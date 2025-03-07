@@ -12,16 +12,16 @@ This document will describe how to contribute custom  _taxonomy files_ and _CoT 
 ## Overview
 You may wish to contribute your own taxonomy definitions and mappings or Chain of Thought templates to the Risk Atlas Nexus project. We welcome any contributions.
 
-Please familiarise yourself with the general [contribution guidelines](../CONTRIBUTING.md) and set up your own fork of the project.
+Please familiarise yourself with the general [contribution guidelines](https://github.com/ibm/risk-atlas-nexus/CONTRIBUTING.md) and set up your own fork of the project.
 
 ### What are the taxonomy files? 
-The Risk Atlas Nexus ontology combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one schema.  These are loaded into the system with LinkML, through yaml representations, stored in the [knowledge graph data folder](../../risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/)
+The Risk Atlas Nexus ontology combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one schema.  These are loaded into the system with LinkML, through yaml representations, stored in the [knowledge graph data folder](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/)
 
 ## Add your own taxonomies/risks/actions
-You can add your own risk definitions by adding yaml to [knowledge graph data folder](../../risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). Ensure the entries comply with [the schema](../../docs/ontology/index.md)
+You can add your own risk definitions by adding yaml to [knowledge graph data folder](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). Ensure the entries comply with [the schema](../ontology/index.md)
 
 #### An example addition of a risk
-If you would like to contribute your own taxonomy files to the project for others to use, add one or more yaml files to the  [knowledge graph data directory](../../risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/).
+If you would like to contribute your own taxonomy files to the project for others to use, add one or more yaml files to the  [knowledge graph data directory](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/).
 
 For example, to add a new risk, create a file with the following sample content.
 
@@ -32,7 +32,7 @@ For example, to add a new risk, create a file with the following sample content.
   isDefinedByTaxonomy: my-taxonomy
 ```
 
-- Save your new taxonomy files in the [knowledge graph data directory](../../risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). push your changes and make a PR to the main project.
+- Save your new taxonomy files in the [knowledge graph data directory](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). push your changes and make a PR to the main project.
 
 
 ### Add your own Chain of Thought templates

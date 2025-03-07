@@ -1,0 +1,43 @@
+title: Risk Atlas Nexus
+
+preserve_directory_names: true 
+
+hide: true 
+
+flatten_single_child_sections: false 
+
+ignore: "*.hidden.md" 
+
+sort:
+  direction: asc 
+  type: natural 
+  by: filename 
+  sections: last 
+  ignore_case: true 
+
+nav:
+  - Home:
+    - "Risk Atlas Nexus": index.md
+    - Installation:
+      - Installation: installation/index.md
+    - Usage:
+      - Usage: usage/index.md
+  - Concepts:
+    - Concepts: concepts/index.md
+    - Architecture: concepts/architecture.md
+    - "Contribute your own taxonomy files": concepts/Contributing_a_taxonomy.md
+  - Examples:
+    - Examples: examples/index.md
+    - 🔀 Quick start:
+      - "Risk Atlas Nexus Quickstart": examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb
+    - 🔀 Discovery:
+      - "Risk identification": examples/notebooks/risk_identification.ipynb
+      - "AI Tasks identification": examples/notebooks/ai_tasks_identification.ipynb
+    - 🔀 Questionnaire:
+      -  "Auto assist questionnaire" : examples/notebooks/autoassist_questionnaire.ipynb
+  - Ontology:
+      - Ontology: ontology/index.md
+      - "*"
+  - Python Reference:
+    - Python API:
+      - Risk Atlas Nexus: reference/index.md
