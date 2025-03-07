@@ -23,11 +23,38 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
       Entity <|-- RiskGroup
         click Entity href "../Entity"
       
+      RiskGroup : broadMatch
+        
+          
+    
+    
+    RiskGroup --> "*" Any : broadMatch
+    click Any href "../Any"
+
+        
+      RiskGroup : closeMatch
+        
+          
+    
+    
+    RiskGroup --> "*" Any : closeMatch
+    click Any href "../Any"
+
+        
       RiskGroup : dateCreated
         
       RiskGroup : dateModified
         
       RiskGroup : description
+        
+      RiskGroup : exactMatch
+        
+          
+    
+    
+    RiskGroup --> "*" Any : exactMatch
+    click Any href "../Any"
+
         
       RiskGroup : id
         
@@ -41,6 +68,24 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 
         
       RiskGroup : name
+        
+      RiskGroup : narrowMatch
+        
+          
+    
+    
+    RiskGroup --> "*" Any : narrowMatch
+    click Any href "../Any"
+
+        
+      RiskGroup : relatedMatch
+        
+          
+    
+    
+    RiskGroup --> "*" Any : relatedMatch
+    click Any href "../Any"
+
         
       RiskGroup : url
         
@@ -62,6 +107,11 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
+| [closeMatch](closeMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to link two concepts that are sufficiently similar that ... | direct |
+| [exactMatch](exactMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to link two concepts, indicating a high degree of confid... | direct |
+| [broadMatch](broadMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
+| [narrowMatch](narrowMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
+| [relatedMatch](relatedMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -78,7 +128,18 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Container](Container.md) | [riskgroups](riskgroups.md) | range | [RiskGroup](RiskGroup.md) |
+| [RiskGroup](RiskGroup.md) | [closeMatch](closeMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [RiskGroup](RiskGroup.md) | [exactMatch](exactMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [RiskGroup](RiskGroup.md) | [broadMatch](broadMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [RiskGroup](RiskGroup.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [RiskGroup](RiskGroup.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
 | [Risk](Risk.md) | [isPartOf](isPartOf.md) | range | [RiskGroup](RiskGroup.md) |
+| [Risk](Risk.md) | [closeMatch](closeMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [Risk](Risk.md) | [exactMatch](exactMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [Risk](Risk.md) | [broadMatch](broadMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
+| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
 
 
 
@@ -128,6 +189,11 @@ from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 slots:
 - isDefinedByTaxonomy
+- closeMatch
+- exactMatch
+- broadMatch
+- narrowMatch
+- relatedMatch
 
 ```
 </details>
@@ -153,7 +219,101 @@ attributes:
     domain_of:
     - RiskGroup
     - Risk
+    - RiskControl
     range: RiskTaxonomy
+  closeMatch:
+    name: closeMatch
+    description: The property is used to link two concepts that are sufficiently similar
+      that they can be used interchangeably in some information retrieval applications.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: skos:closeMatch
+    alias: closeMatch
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    - Risk
+    range: Any
+    multivalued: true
+    inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
+  exactMatch:
+    name: exactMatch
+    description: The property is used to link two concepts, indicating a high degree
+      of confidence that the concepts can be used interchangeably across a wide range
+      of information retrieval applications
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: skos:exactMatch
+    alias: exactMatch
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    - Risk
+    range: Any
+    multivalued: true
+    inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
+  broadMatch:
+    name: broadMatch
+    description: The property is used to state a hierarchical mapping link between
+      two concepts, indicating that the concept linked to, is a broader concept than
+      the originating concept.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: skos:broadMatch
+    alias: broadMatch
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    - Risk
+    range: Any
+    multivalued: true
+    inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
+  narrowMatch:
+    name: narrowMatch
+    description: The property is used to state a hierarchical mapping link between
+      two concepts, indicating that the concept linked to, is a narrower concept than
+      the originating concept.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: skos:narrowMatch
+    alias: narrowMatch
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    - Risk
+    range: Any
+    multivalued: true
+    inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
+  relatedMatch:
+    name: relatedMatch
+    description: The property skos:relatedMatch is used to state an associative mapping
+      link between two concepts.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: skos:relatedMatch
+    alias: relatedMatch
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    - Risk
+    range: Any
+    multivalued: true
+    inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

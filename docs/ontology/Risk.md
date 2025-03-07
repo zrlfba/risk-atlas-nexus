@@ -28,8 +28,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
           
     
     
-    Risk --> "*" Risk : broadMatch
-    click Risk href "../Risk"
+    Risk --> "*" Any : broadMatch
+    click Any href "../Any"
 
         
       Risk : closeMatch
@@ -37,8 +37,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
           
     
     
-    Risk --> "*" Risk : closeMatch
-    click Risk href "../Risk"
+    Risk --> "*" Any : closeMatch
+    click Any href "../Any"
 
         
       Risk : concern
@@ -56,8 +56,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
           
     
     
-    Risk --> "*" Risk : exactMatch
-    click Risk href "../Risk"
+    Risk --> "*" Any : exactMatch
+    click Any href "../Any"
 
         
       Risk : hasRelatedAction
@@ -96,8 +96,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
           
     
     
-    Risk --> "*" Risk : narrowMatch
-    click Risk href "../Risk"
+    Risk --> "*" Any : narrowMatch
+    click Any href "../Any"
 
         
       Risk : phase
@@ -107,8 +107,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
           
     
     
-    Risk --> "*" Risk : relatedMatch
-    click Risk href "../Risk"
+    Risk --> "*" Any : relatedMatch
+    click Any href "../Any"
 
         
       Risk : tag
@@ -137,11 +137,11 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
 | [hasRelatedAction](hasRelatedAction.md) | * <br/> [Action](Action.md) | A relationship where an entity relates to an action | direct |
 | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
 | [isPartOf](isPartOf.md) | 0..1 <br/> [RiskGroup](RiskGroup.md) | A relationship where a risk is part of a risk group | direct |
-| [closeMatch](closeMatch.md) | * <br/> [Risk](Risk.md) | The property is used to link two concepts that are sufficiently similar that ... | direct |
-| [exactMatch](exactMatch.md) | * <br/> [Risk](Risk.md) | The property is used to link two concepts, indicating a high degree of confid... | direct |
-| [broadMatch](broadMatch.md) | * <br/> [Risk](Risk.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
-| [narrowMatch](narrowMatch.md) | * <br/> [Risk](Risk.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
-| [relatedMatch](relatedMatch.md) | * <br/> [Risk](Risk.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
+| [closeMatch](closeMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to link two concepts that are sufficiently similar that ... | direct |
+| [exactMatch](exactMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to link two concepts, indicating a high degree of confid... | direct |
+| [broadMatch](broadMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
+| [narrowMatch](narrowMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
+| [relatedMatch](relatedMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
 | [tag](tag.md) | 0..1 <br/> [String](String.md) | A shost version of the name | direct |
 | [type](type.md) | 0..1 <br/> [String](String.md) | Annotation whether an AI risk occurs at input or output or is non-technical | direct |
 | [phase](phase.md) | 0..1 <br/> [String](String.md) | Annotation whether an AI risk shows specifically during the training-tuning o... | direct |
@@ -163,11 +163,17 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Container](Container.md) | [risks](risks.md) | range | [Risk](Risk.md) |
-| [Risk](Risk.md) | [closeMatch](closeMatch.md) | range | [Risk](Risk.md) |
-| [Risk](Risk.md) | [exactMatch](exactMatch.md) | range | [Risk](Risk.md) |
-| [Risk](Risk.md) | [broadMatch](broadMatch.md) | range | [Risk](Risk.md) |
-| [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | range | [Risk](Risk.md) |
-| [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | range | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [closeMatch](closeMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [exactMatch](exactMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [broadMatch](broadMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [Risk](Risk.md) | [closeMatch](closeMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [Risk](Risk.md) | [exactMatch](exactMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [Risk](Risk.md) | [broadMatch](broadMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | any_of[range] | [Risk](Risk.md) |
 | [Action](Action.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
 | [AiEval](AiEval.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
 | [Question](Question.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
@@ -368,6 +374,7 @@ attributes:
     domain_of:
     - RiskGroup
     - Risk
+    - RiskControl
     range: RiskTaxonomy
   isPartOf:
     name: isPartOf
@@ -391,10 +398,14 @@ attributes:
     alias: closeMatch
     owner: Risk
     domain_of:
+    - RiskGroup
     - Risk
-    range: Risk
+    range: Any
     multivalued: true
     inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   exactMatch:
     name: exactMatch
     description: The property is used to link two concepts, indicating a high degree
@@ -406,10 +417,14 @@ attributes:
     alias: exactMatch
     owner: Risk
     domain_of:
+    - RiskGroup
     - Risk
-    range: Risk
+    range: Any
     multivalued: true
     inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   broadMatch:
     name: broadMatch
     description: The property is used to state a hierarchical mapping link between
@@ -421,10 +436,14 @@ attributes:
     alias: broadMatch
     owner: Risk
     domain_of:
+    - RiskGroup
     - Risk
-    range: Risk
+    range: Any
     multivalued: true
     inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   narrowMatch:
     name: narrowMatch
     description: The property is used to state a hierarchical mapping link between
@@ -436,10 +455,14 @@ attributes:
     alias: narrowMatch
     owner: Risk
     domain_of:
+    - RiskGroup
     - Risk
-    range: Risk
+    range: Any
     multivalued: true
     inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   relatedMatch:
     name: relatedMatch
     description: The property skos:relatedMatch is used to state an associative mapping
@@ -450,10 +473,14 @@ attributes:
     alias: relatedMatch
     owner: Risk
     domain_of:
+    - RiskGroup
     - Risk
-    range: Risk
+    range: Any
     multivalued: true
     inlined: false
+    any_of:
+    - range: Risk
+    - range: RiskGroup
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

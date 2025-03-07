@@ -36,6 +36,10 @@ URI: [schema:Thing](http://schema.org/Thing)
         click RiskGroup href "../RiskGroup"
       Entity <|-- Risk
         click Risk href "../Risk"
+      Entity <|-- RiskConcept
+        click RiskConcept href "../RiskConcept"
+      Entity <|-- RiskControl
+        click RiskControl href "../RiskControl"
       Entity <|-- Action
         click Action href "../Action"
       Entity <|-- AiEval
@@ -81,6 +85,8 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [RiskTaxonomy](RiskTaxonomy.md)
     * [RiskGroup](RiskGroup.md)
     * [Risk](Risk.md)
+    * [RiskConcept](RiskConcept.md)
+    * [RiskControl](RiskControl.md)
     * [Action](Action.md)
     * [AiEval](AiEval.md)
     * [AiEvalResult](AiEvalResult.md) [ [Fact](Fact.md)]

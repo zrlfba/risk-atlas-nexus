@@ -60,6 +60,7 @@ classes:
       - gpu_hours
       - power_consumption_w
       - carbon_emitted
+      - hasRiskControl
 
   LargeLanguageModel:
     is_a: AiModel
@@ -188,5 +189,10 @@ slots:
     multivalued: true
     inlined_as_list: true
     description: A relationship to model card references.
+  hasRiskControl:
+    slot_uri: airo:hasRiskControl
+    description: Indicates the control measures associated with a system or component to modify risks.
+    multivalued: true
+    range: RiskControl
 
     

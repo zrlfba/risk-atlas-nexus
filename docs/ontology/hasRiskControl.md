@@ -1,15 +1,15 @@
 
 
-# Slot: hasModelCard
+# Slot: hasRiskControl
 
 
-_A relationship to model card references._
+_Indicates the control measures associated with a system or component to modify risks._
 
 
 
 
 
-URI: [nexus:hasModelCard](http://research.ibm.com/ontologies/aiont/hasModelCard)
+URI: [airo:hasRiskControl](https://w3id.org/airo#hasRiskControl)
 
 
 
@@ -23,10 +23,8 @@ URI: [nexus:hasModelCard](http://research.ibm.com/ontologies/aiont/hasModelCard)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AiSystem](AiSystem.md) | A compound AI System composed of one or more AI capablities |  no  |
 | [AiModel](AiModel.md) | A base AI Model class |  no  |
 | [LargeLanguageModel](LargeLanguageModel.md) | A large language model (LLM) is an AI model which supports a range of languag... |  no  |
-| [BaseAi](BaseAi.md) | Any type of AI, be it a LLM, RL agent, SVM, etc |  no  |
 
 
 
@@ -36,7 +34,7 @@ URI: [nexus:hasModelCard](http://research.ibm.com/ontologies/aiont/hasModelCard)
 
 ## Properties
 
-* Range: [String](String.md)
+* Range: [RiskControl](RiskControl.md)
 
 * Multivalued: True
 
@@ -64,8 +62,8 @@ URI: [nexus:hasModelCard](http://research.ibm.com/ontologies/aiont/hasModelCard)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:hasModelCard |
-| native | nexus:hasModelCard |
+| self | airo:hasRiskControl |
+| native | nexus:hasRiskControl |
 
 
 
@@ -74,17 +72,17 @@ URI: [nexus:hasModelCard](http://research.ibm.com/ontologies/aiont/hasModelCard)
 
 <details>
 ```yaml
-name: hasModelCard
-description: A relationship to model card references.
+name: hasRiskControl
+description: Indicates the control measures associated with a system or component
+  to modify risks.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
-alias: hasModelCard
+slot_uri: airo:hasRiskControl
+alias: hasRiskControl
 domain_of:
-- BaseAi
-range: string
+- AiModel
+range: RiskControl
 multivalued: true
-inlined: true
-inlined_as_list: true
 
 ```
 </details>

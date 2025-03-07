@@ -1,4 +1,10 @@
 organizations:
+- id: ibm
+  name: International Business Machines Corporation
+  description: International Business Machines Corporation (using the trademark IBM),
+    is an American multinational technology company headquartered in Armonk, New York
+    and present in over 175 countries.
+  url: https://www.ibm.com
 - id: codeparrot
   name: CodeParrot & Friends
   description: This organization is dedicated to language models for code generation.
@@ -203,7 +209,7 @@ documents:
     open foundation models ranging in scale from 400 million to 8 billion active parameters.
   url: https://github.com/ibm-granite/granite-3.0-language-models/blob/main/paper.pdf
   dateCreated: 2024-10-21
-- id: '2412.07724'
+- id: granite-guardian-paper
   name: Granite Guardian
   description: We introduce the Granite Guardian models, a suite of safeguards designed
     to provide risk detection for prompts and responses, enabling safe and responsible
@@ -312,7 +318,7 @@ taxonomies:
   dateCreated: 2024-12-10
   dateModified: 2024-12-16
   hasDocumentation:
-  - '2412.07724'
+  - granite-guardian-paper
 - id: owasp-llm-2.0
   name: OWASP Top 10 for Large Language Model Applications
   description: The OWASP Top 10 for Large Language Model Applications project aims
@@ -720,6 +726,8 @@ riskgroups:
 - id: granite-guardian-agentic-safety-group
   name: Agentic Safety
   isDefinedByTaxonomy: ibm-granite-guardian
+- id: granite-guardian-conversational-egregiousness
+  name: Conversational egregiousness / degradation
 risks:
 - id: atlas-non-disclosure
   name: Non-disclosure
@@ -4718,28 +4726,40 @@ risks:
   isPartOf: ai-risk-taxonomy-other-illegal/unlawful/criminal-activities
 - id: granite-guardian-harm
   name: Harm
-  description: Content considered universally harmful. This is our general category,
+  description: 'Content considered universally harmful. This is our general category,
     which should encompass a variety of risks including those not specifically addressed
-    by the following categories.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-harm
+    by the following categories: Social Bias, Profanity, Sexual Content, Unethical
+    Behavior, Violence, Jailbreaking, Groundedness, Answer Relevance, Context Relevance.'
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
-  broadMatch:
+  narrowMatch:
+  - granite-social-bias
+  - granite-profanity
+  - granite-sexual-content
+  - granite-unethical-behavior
+  - granite-violence
+  - granite-jailbreak
+  - granite-harm-engagement
+  - granite-evasiveness
+  relatedMatch:
   - atlas-harmful-output
   tag: harm
-- id: granite-social_bias
+- id: granite-social-bias
   name: Social Bias
   description: Systemic prejudice against groups based on shared identity or characteristics,
     often stemming from stereotypes or cultural influences. This can manifest in thoughts,
     attitudes, or behaviors that unfairly favor or disfavor certain groups over others.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-social_bias
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-output-bias
   tag: social_bias
 - id: granite-profanity
@@ -4747,15 +4767,17 @@ risks:
   description: Use of language considered offensive or socially unacceptable in a
     given context. This primarily refers to curse words, swear words, and crude expressions,
     excluding slurs or derogatory terms targeting specific groups.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-profanity
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-toxic-output
   tag: profanity
-- id: granite-sexual_content
+- id: granite-sexual-content
   name: Sexual Content
   description: Material explicitly related to sexual activities, anatomy, or desires.
     This ranges from discussions of sexual practices to graphic depictions of sexual
@@ -4763,39 +4785,45 @@ risks:
     explicitly related to sexual activities, anatomy, or desires. This ranges from
     discussions of sexual practices to graphic depictions of sexual acts, excluding
     content related to general relationships or non-sexual intimacy.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-sexual_content
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-harmful-output
-  tag: sexual_content
-- id: granite-unethical_behavior
+  tag: sexual-content
+- id: granite-unethical-behavior
   name: Unethical Behavior
   description: Actions that violate moral or professional standards, focusing on exploitation
     for personal gain or disregard for others' well-being. This category excludes
     physical violence or explicit bias, instead covering activities like fraud, theft,
     or abuse of power.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-unethical_behavior
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-harmful-output
-  tag: unethical_behavior
+  tag: unethical-behavior
 - id: granite-violence
   name: Violence
   description: Promoting or describing physical harm to individuals or groups. This
     includes depictions of assault, self-harm, or creation of a hostile environment
     through threats or intimidation.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-violence
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-harmful-output
   tag: violence
 - id: granite-jailbreak
@@ -4803,14 +4831,50 @@ risks:
   description: Deliberate circumvention of AI systems' built-in safeguards or ethical
     guidelines. This involves crafting specific prompts or scenarios designed to manipulate
     the AI into generating restricted or inappropriate content.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-jailbreak
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-harm-group
   broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
   - atlas-jailbreaking
   tag: jailbreak
+- id: granite-harm-engagement
+  name: Harm Engagement
+  description: An engagement or endorsement with any requests that are harmful or
+    unethical. This includes scenarios where the user or assistant messages reflects
+    an engagement with any requests that are harmful, e.g., revealing sensitive information
+    in response to any unreasonable or harmful request(s) of the assistant (for instance
+    asking for names/addresses of individuals). Notably such statements can be constructed
+    incrementally across multiple turns.
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
+  dateCreated: 2025-02-26
+  dateModified: 2025-02-26
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-conversational-egregiousness
+  broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
+  - atlas-harmful-output
+  tag: harm-engagement
+- id: granite-evasiveness
+  name: Evasiveness
+  description: Avoiding to engage without providing sufficient reason. This includes
+    scenarios where the assistant avoids engaging with certain topics or subjects
+    without providing sufficient reason, or the user ignores or fails to acknowledge
+    any pertinent advice or feedback from the assistant without providing an explanation.
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
+  dateCreated: 2025-02-26
+  dateModified: 2025-02-26
+  isDefinedByTaxonomy: ibm-granite-guardian
+  isPartOf: granite-guardian-conversational-egregiousness
+  broadMatch:
+  - granite-guardian-harm
+  relatedMatch:
+  - atlas-harmful-output
+  tag: evasiveness
 - id: granite-groundedness
   name: Groundedness
   description: This risk arises in a Retrieval-Augmented Generation (RAG) system when
@@ -4818,12 +4882,12 @@ risks:
     or directly contradicted by the given context. An ungrounded answer may involve
     fabricating information, misinterpreting the context, or making unsupported extrapolations
     beyond what the context actually states.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-groundedness
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-rag-safety-group
-  broadMatch:
+  relatedMatch:
   - atlas-hallucination
   tag: groundedness
 - id: granite-relevance
@@ -4832,43 +4896,43 @@ risks:
     information pertinent to answering the user's question or addressing their needs.
     Irrelevant context may be on a different topic, from an unrelated domain, or contain
     information that doesn't help in formulating an appropriate response to the user.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-relevance
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-rag-safety-group
-  broadMatch:
+  relatedMatch:
   - atlas-hallucination
   tag: relevance
-- id: granite-answer_relevance
+- id: granite-answer-relevance
   name: Answer Relevance
   description: This occurs when the LLM response fails to address or properly respond
     to the user's input. This includes providing off-topic information, misinterpreting
     the query, or omitting crucial details requested by the User. An irrelevant answer
     may contain factually correct information but still fail to meet the User's specific
     needs or answer their intended question.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-answer_relevance
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-rag-safety-group
-  broadMatch:
+  relatedMatch:
   - atlas-hallucination
-  tag: answer_relevance
-- id: granite-function_call
+  tag: answer-relevance
+- id: granite-function-call
   name: Function Calling Hallucination
   description: This occurs when the LLM response contains function calls that have
     syntax or semantic errors based on the user query and available tool definition.
     For instance, if an AI agent purportedly queries an external information source,
     this capability monitors for fabricated information flows.
-  url: https://www.ibm.com/docs/en/watsonx/saas?topic=gg-function_call
+  url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-agentic-safety-group
-  broadMatch:
+  relatedMatch:
   - atlas-hallucination
-  tag: function_call
+  tag: function-call
 - id: owasp-llm01-prompt-injection
   name: LLM01:2025 Prompt Injection
   description: A Prompt Injection Vulnerability occurs when user prompts alter the
@@ -4968,6 +5032,72 @@ risks:
     and service degradation.
   url: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/
   isDefinedByTaxonomy: owasp-llm-2.0
+riskcontrols:
+- id: gg-harm-detection
+  name: Harm detection
+  detectsRiskConcept:
+  - granite-guardian-harm
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-social-bias-detection
+  name: Social Bias detection
+  detectsRiskConcept:
+  - granite-social-bias
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-profanity-detection
+  name: Profanity detection
+  detectsRiskConcept:
+  - granite-profanity
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-sexual-content-detection
+  name: Sexual Content detection
+  detectsRiskConcept:
+  - granite-sexual-content
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-unethical-behavior-detection
+  name: Unethical Behavior detection
+  detectsRiskConcept:
+  - granite-unethical-behavior
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-violence-detection
+  name: Violence detection
+  detectsRiskConcept:
+  - granite-violence
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-jailbreak-detection
+  name: Jailbreaking detection
+  detectsRiskConcept:
+  - granite-jailbreak
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-harm-engagement-detection
+  name: Harm engagement detection
+  detectsRiskConcept:
+  - granite-harm-engagement
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-evasiveness-detection
+  name: Evasiveness detection
+  detectsRiskConcept:
+  - granite-evasiveness
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-groundedness-detection
+  name: Groundedness detection
+  detectsRiskConcept:
+  - granite-groundedness
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-relevance-detection
+  name: Context Relevance detection
+  detectsRiskConcept:
+  - granite-relevance
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-answer-relevance-detection
+  name: Answer Relevance detection
+  detectsRiskConcept:
+  - answer-relevance
+  isDefinedByTaxonomy: ibm-granite-guardian
+- id: gg-function-call-detection
+  name: Function Calling Hallucination detection
+  detectsRiskConcept:
+  - granite-function-call
+  isDefinedByTaxonomy: ibm-granite-guardian
 actions:
 - id: GV-1.1-001
   name: GV-1.1-001
@@ -5442,7 +5572,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-4.3-002
   name: GV-4.3-002
@@ -5456,7 +5586,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-4.3-003
   name: GV-4.3-003
@@ -5469,7 +5599,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-5.1-001
   name: GV-5.1-001
@@ -6196,7 +6326,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-002
@@ -6216,7 +6346,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-003
@@ -6234,7 +6364,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-004
@@ -6252,7 +6382,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-005
@@ -6268,7 +6398,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-006
@@ -6285,7 +6415,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.2-001
@@ -6302,7 +6432,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Human Factors
@@ -6321,7 +6451,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Human Factors
@@ -6457,7 +6587,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -6478,7 +6608,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -6496,7 +6626,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -7269,7 +7399,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7286,7 +7416,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7299,7 +7429,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7316,7 +7446,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7335,7 +7465,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7969,7 +8099,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -7988,7 +8118,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -8004,7 +8134,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -8092,6 +8222,83 @@ aimodelfamilies:
   hasDocumentation:
   - granite-3.0-paper
 aimodels:
+- id: granite-guardian-3.2-3b-a800m
+  name: Granite Guardian 3.2 3B-A800M
+  description: Granite Guardian 3.2 3B-A800M is a fine-tuned Granite 3.2 3B-A800M
+    instruct model designed to detect risks in prompts and responses. It can help
+    with risk detection along many key dimensions catalogued in the IBM AI Risk Atlas.
+    It is trained on unique data comprising human annotations and synthetic data informed
+    by internal red-teaming. It outperforms other open-source models in the same space
+    on standard benchmarks.
+  url: https://github.com/ibm-granite/granite-guardian
+  dateCreated: 2025-02-26
+  hasModelCard:
+  - https://huggingface.co/ibm-granite/granite-guardian-3.2-3b-a800m
+  hasDocumentation:
+  - granite-guardian-paper
+  hasLicense: license-apache-2.0
+  performsTask:
+  - text-generation
+  isProvidedBy: ibm
+  hasRiskControl:
+  - gg-harm-detection
+  - gg-social-bias-detection
+  - gg-profanity-detection
+  - gg-sexual-content-detection
+  - gg-unethical-behavior-detection
+  - gg-violence-detection
+  - gg-jailbreak-detection
+  - gg-groundedness-detection
+  - gg-relevance-detection
+  - gg-answer-relevance-detection
+  - gg-function-call-detection
+  - gg-harm-engagement-detection
+  - gg-evasiveness-detection
+  hasInputModality:
+  - modality-text
+  hasOutputModality:
+  - modality-text
+  isPartOf: ibm-granite
+- id: granite-guardian-3.2-5b
+  name: Granite Guardian 3.2 5B
+  description: Granite Guardian 3.2 5B is a thinned down version of Granite Guardian
+    3.1 8B designed to detect risks in prompts and responses. It can help with risk
+    detection along many key dimensions catalogued in the IBM AI Risk Atlas. To generate
+    this model, the Granite Guardian is iteratively pruned and healed on the same
+    unique data comprising human annotations and synthetic data informed by internal
+    red-teaming used for its training. About 30% of the original parameters were removed
+    allowing for faster inference and lower resource requirements while still providing
+    competitive performance. It outperforms other open-source models in the same space
+    on standard benchmarks.
+  url: https://github.com/ibm-granite/granite-guardian
+  dateCreated: 2025-02-26
+  hasModelCard:
+  - https://huggingface.co/ibm-granite/granite-guardian-3.2-5b
+  hasDocumentation:
+  - granite-guardian-paper
+  hasLicense: license-apache-2.0
+  performsTask:
+  - text-generation
+  isProvidedBy: ibm
+  hasRiskControl:
+  - gg-harm-detection
+  - gg-social-bias-detection
+  - gg-profanity-detection
+  - gg-sexual-content-detection
+  - gg-unethical-behavior-detection
+  - gg-violence-detection
+  - gg-jailbreak-detection
+  - gg-groundedness-detection
+  - gg-relevance-detection
+  - gg-answer-relevance-detection
+  - gg-function-call-detection
+  - gg-harm-engagement-detection
+  - gg-evasiveness-detection
+  hasInputModality:
+  - modality-text
+  hasOutputModality:
+  - modality-text
+  isPartOf: ibm-granite
 - id: granite-3.0-2b-base
   name: Granite-3.0-2B-Base
   description: Granite-3.0-2B-Base is a decoder-only language model to support a variety

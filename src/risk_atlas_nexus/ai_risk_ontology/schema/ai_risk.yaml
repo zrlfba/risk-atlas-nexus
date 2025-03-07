@@ -64,6 +64,18 @@ classes:
       - narrowMatch
       - relatedMatch
 
+  RiskConcept:
+    is_a: Entity
+    description: An umbrella term for refering to risk, risk source consequence and impact.
+    class_uri: airo:RiskConcept
+
+  RiskControl:
+    is_a: Entity
+    class_uri: airo:RiskControl
+    description: A measure that maintains and/or modifies risk (and risk concepts)
+    slots:
+      - detectsRiskConcept
+      - isDefinedByTaxonomy
 
   Action:
     is_a: Entity
@@ -76,6 +88,9 @@ classes:
     - hasRelatedRisk
     - hasDocumentation
 
+  Any:
+    class_uri: linkml:Any
+    
 slots:
   isDefinedByTaxonomy:
     slot_uri: schema:isPartOf
@@ -130,6 +145,16 @@ slots:
   relatedMatch:
     slot_uri: skos:relatedMatch
     description: The property skos:relatedMatch is used to state an associative mapping link between two concepts.
+    range: Any
+    any_of:
+      - range: Risk
+      - range: RiskGroup
+    multivalued: true
+    inlined: false
+  detectsRiskConcept:
+    exact_mappings:
+    - airo:detectsRiskConcept
+    description: The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, consequences, and impacts.
     range: Any
     any_of:
       - range: Risk

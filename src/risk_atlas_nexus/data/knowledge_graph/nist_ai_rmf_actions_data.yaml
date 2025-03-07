@@ -472,7 +472,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-4.3-002
   name: GV-4.3-002
@@ -486,7 +486,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-4.3-003
   name: GV-4.3-003
@@ -499,7 +499,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Governance and Oversight
 - id: GV-5.1-001
   name: GV-5.1-001
@@ -1226,7 +1226,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-002
@@ -1246,7 +1246,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-003
@@ -1264,7 +1264,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-004
@@ -1282,7 +1282,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-005
@@ -1298,7 +1298,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.1-006
@@ -1315,7 +1315,7 @@ actions:
   - AI Design
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
 - id: MP-5.2-001
@@ -1332,7 +1332,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Human Factors
@@ -1351,7 +1351,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Human Factors
@@ -1487,7 +1487,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -1508,7 +1508,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -1526,7 +1526,7 @@ actions:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - Domain Experts
   - End-Users
   - Operation and Monitoring
@@ -2299,7 +2299,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -2316,7 +2316,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -2329,7 +2329,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -2346,7 +2346,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -2365,7 +2365,7 @@ actions:
   - NIST.AI.600-1
   aiActorTask:
   - AI Deployment
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -2999,7 +2999,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -3018,7 +3018,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
@@ -3034,7 +3034,7 @@ actions:
   - AI Deployment
   - AI Design
   - AI Development
-  - AÃ”Â¨Ã„ected Individuals and Communities
+  - Affected Individuals and Communities
   - End-Users
   - Operation and Monitoring
   - TEVV
