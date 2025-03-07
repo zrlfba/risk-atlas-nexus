@@ -1,6 +1,6 @@
 # Risk Atlas Nexus
 
-<img src="resources/images/risk_atlas_nexus_vector.svg" width="200">
+<img src="assets/risk_atlas_nexus_vector.svg" width="200">
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://www.apache.org/licenses/LICENSE-2.0) ![main branch](https://github.com/IBM/risk-atlas-nexus/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main) [![](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/) <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 
@@ -12,16 +12,16 @@ Risk Atlas Nexus aims to provide tooling to help bring together disparate resour
 Our intention is to create a starting point for an open AI Systems ontology whose focus is on risk and that the community can extend and enhance. This ontology serves as the foundation that unifies innovation and tooling in the AI risk space. By lowering the barrier to entry for developers, it fosters a governance-first approach to AI solutions, while also inviting the broader community to contribute their own tools and methodologies to expand its impact.
 
 ## Features
-- 🏗️📊 An ontology has been provided, that combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one coherent schema 
-- 📚⚠️ AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, the AI Risk Taxonomy (AIR 2024), and OWASP Top 10 for Large Language Model Applications
-- 🔗📌 Mappings are proposed between the taxonomies and between risks and actions
-- 🐍🔍 Use the python library methods to quickly explore available risks, relations and actions 
-- 🚨🧐 Use the python library methods to detect potential risks in your usecase 
-- 📤📈 Download an exported graph populated with data instances
-- ✨📝 Example use-case of auto-assistance in compliance questionnaires using CoT examples and Risk Atlas Nexus
+- 🏗️ An [ontology](ontology/index.md) has been provided, that combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one coherent schema 
+- 📚 AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, the AI Risk Taxonomy (AIR 2024), and OWASP Top 10 for Large Language Model Applications
+- 🔗 Mappings are proposed between the taxonomies and between risks and actions
+- 🔍 Use the python library methods to quickly explore available risks, relations and actions 
+- 🚨 Use the python library methods to detect potential risks in your usecase 
+- 📤 Download an exported graph populated with data instances
+- ✨ Example use-case of auto-assistance in compliance questionnaires using CoT examples and Risk Atlas Nexus
 
 ## Architecture
-![Architecture](resources/images/architecture.png)
+![Architecture](assets/architecture.png)
 
 ### Coming soon
 - Tooling to convert the LinkML schema and instance data into a Cypher representation to populate a graph database
@@ -29,15 +29,15 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 
 ## Links
 - **AI Risk Ontology**
-    - [LinkML schema documentation](docs/ontology/index.md)
-    - [LinkML instance data for an example knowledge graph](src/risk_atlas_nexus/data/knowledge_graph/README.md)
-    - [Download a populated graph](graph_export/README.md)
-    - [Contribute your own taxonomy files and CoT templates](docs/Contributing_a_taxonomy.md)
+    - [LinkML schema documentation](ontology/index.md)
+    - [LinkML instance data for an example knowledge graph](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/README.md)
+    - [Download a populated graph](https://github.com/ibm/risk-atlas-nexus/graph_export/README.md)
+    - [Contribute your own taxonomy files and CoT templates](concepts/Contributing_a_taxonomy.md)
 - **Notebooks:** 
-    - [Risk Atlas Nexus Quickstart](docs/examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
-    - [Risk identification](docs/examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
-    - [Auto assist questionnaire](docs/examples/notebooks/autoassist_questionnaire.ipynb) Auto-fill questionnaire using Chain of Thought or Few-Shot Examples
-    - [AI Tasks identification](docs/examples/notebooks/ai_tasks_identification.ipynb) Uncover ai tasks related to your usecase
+    - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
+    - [Risk identification](examples/notebooks/risk_identification.ipynb) Uncover risks related to your usecase
+    - [Auto assist questionnaire](examples/notebooks/autoassist_questionnaire.ipynb) Auto-fill questionnaire using Chain of Thought or Few-Shot Examples
+    - [AI Tasks identification](examples/notebooks/ai_tasks_identification.ipynb) Uncover ai tasks related to your usecase
 - **Additional Resources:**
     - [IBM AI Risk Atlas](https://www.ibm.com/docs/en/watsonx/saas?topic=ai-risk-atlas)
     - [Usage Governance Advisor: From Intent to AI Governance](https://arxiv.org/abs/2412.01957)
@@ -141,13 +141,13 @@ pip install -e ".[rits]"
 ```
 
 ## Compatibility
-- View the [changelog](CHANGELOG.md).
+- View the [changelog](https://github.com/ibm/risk-atlas-nexus/CHANGELOG.md).
 
 ## Contributing
-- Get started by checking our [contribution guidelines](CONTRIBUTING.md).
+- Get started by checking our [contribution guidelines](https://github.com/ibm/risk-atlas-nexus/CONTRIBUTING.md).
 - Read the wiki for more technical and design details.
 - If you have any questions, just ask!
-- [Contribute your own taxonomy files and CoT templates](docs/concepts/Contributing_a_taxonomy.md)
+- [Contribute your own taxonomy files and CoT templates](concepts/Contributing_a_taxonomy.md)
 
 Tip: Use the makefile provided to regenerate artifacts provided in the repository by running `make` in this repository.
 
@@ -160,3 +160,5 @@ Tip: Use the makefile provided to regenerate artifacts provided in the repositor
 ## IBM ❤️ Open Source AI
 
 Risk Atlas Nexus has been brought to you by IBM.
+
+

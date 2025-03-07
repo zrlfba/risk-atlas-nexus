@@ -36,6 +36,7 @@ wml = ["ibm-watsonx-ai"]
 rits = ["openai"]
 ollama = ["ollama"]
 vllm = ["vllm", "openai"]
+docs = ["mkdocs-material", "mkdocs-jupyter", "mkdocs-click", "mkdocstrings", "griffe_inherited_docstrings", "griffe-pydantic" "mkdocs-awesome-nav" ]
 
 [tool.isort]
 profile = "black"
