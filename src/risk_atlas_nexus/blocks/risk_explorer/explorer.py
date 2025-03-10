@@ -5,7 +5,6 @@ from risk_atlas_nexus.data.knowledge_graph import *
 
 class RiskExplorer(ExplorerBase):
 
-
     def __init__(self, ontology):
 
         # load the data into the graph
@@ -35,36 +34,38 @@ class RiskExplorer(ExplorerBase):
 
         return risk_instances
 
-    def get_risk_by_tag(self, tag=None):
-        """Get all risk definitions from the LinkML
+    def get_risk(self, tag=None, id=None, name=None, taxonomy=None):
+        """Get a risk definition from the LinkML by tag, id or name
 
         Args:
-            tag: str
-                The string tag for a risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
+            taxonomy: str
+                (Optional) The string label for a taxonomy
 
         Returns:
             Risk
-                Result containing a list of AI risks
+                An AI risk result
         """
-        matching_risks = list(filter(lambda risk: risk.tag == tag, self._risks))
-        if len(matching_risks) > 0:
-            return matching_risks[0]
-        else:
-            print("No matching risk found")
-            return None
-
-    def get_risk_by_id(self, id=None):
-        """Get all risk definitions from the LinkML
-
-        Args:
-            id: str
-                The string id for a risk
-
-        Returns:
-            Risk
-                Result containing an AI risks
-        """
-        matching_risks = list(filter(lambda risk: risk.id == id, self._risks))
+        matching_risks = self._risks
+        if tag is not None:
+            matching_risks = list(filter(lambda risk: risk.tag == tag, matching_risks))
+        if id is not None:
+            matching_risks = list(filter(lambda risk: risk.id == id, matching_risks))
+        if name is not None:
+            matching_risks = list(
+                filter(lambda risk: risk.name == name, matching_risks)
+            )
+        if taxonomy is not None:
+            matching_risks = list(
+                filter(
+                    lambda risk: risk.isDefinedByTaxonomy == taxonomy, matching_risks
+                )
+            )
 
         if len(matching_risks) > 0:
             return matching_risks[0]
@@ -95,15 +96,24 @@ class RiskExplorer(ExplorerBase):
         if initial_risk.relatedMatch is not None:
             related_risks.append(initial_risk.relatedMatch)
 
-        related_risks = [j for i in related_risks for j in i]
+        related_risk_ids = [j for i in related_risks for j in i]
+        related_risks = list(
+            filter(lambda risk: risk.id in related_risk_ids, self._risks)
+        )
         return related_risks
 
-    def get_related_risk_ids_by_atlas_tag(self, tag=None, taxonomy=None):
+    def get_related_risks(self, risk=None, tag=None, id=None, name=None, taxonomy=None):
         """Get all related risk definitions from the LinkML by the IBM risk atlas tag
 
         Args:
-            tag: str
-                The string tag for a risk
+            risk: (Optional) Risk
+                The Risk object to find related risks for
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
             taxonomy: str
                 (Optional) The string label for a taxonomy
 
@@ -111,10 +121,21 @@ class RiskExplorer(ExplorerBase):
             list[str]
                 Result containing a list of AI risks IDs
         """
-        atlas_risk = list(filter(lambda risk: risk.tag == tag, self._risks))
+        matching_risks = self._risks
 
-        if len(atlas_risk) > 0:
-            initial_risk: Risk = atlas_risk[0]
+        if risk is not None:
+            matching_risks = [risk]
+        if tag is not None:
+            matching_risks = list(filter(lambda risk: risk.tag == tag, matching_risks))
+        if id is not None:
+            matching_risks = list(filter(lambda risk: risk.id == id, matching_risks))
+        if name is not None:
+            matching_risks = list(
+                filter(lambda risk: risk.name == name, matching_risks)
+            )
+
+        if len(matching_risks) > 0:
+            initial_risk: Risk = matching_risks[0]
             related_risks = self._combine_related_risks(initial_risk)
 
             if taxonomy is not None:
@@ -129,109 +150,42 @@ class RiskExplorer(ExplorerBase):
             print("No matching risk found")
             return None
 
-    def get_related_risks_by_atlas_tag(self, tag=None, taxonomy=None):
-        """Get all risk definitions from the LinkML
-
-        Args:
-            tag: str
-                The string tag for a risk
-            taxonomy: str
-                (Optional) The string label for a taxonomy
-
-        Returns:
-            list[Risk]
-                Result containing a list of AI risks
-        """
-        related_risk_ids = self.get_related_risk_ids_by_atlas_tag(tag, taxonomy)
-        if related_risk_ids is not None:
-            related_risks = [self.get_risk_by_id(id) for id in related_risk_ids]
-            if taxonomy is not None:
-                related_risks = list(
-                    filter(
-                        lambda risk: risk.isDefinedByTaxonomy == taxonomy, related_risks
-                    )
-                )
-
-            return related_risks
-        else:
-            print("No matching risk found")
-            return None
-
-    def get_related_risk_ids_by_risk_id(self, id=None, taxonomy=None):
-        """Get all risk definitions from the LinkML
-
-        Args:
-            id: str
-                (Optional) The string label for a risk
-            taxonomy: str
-                (Optional) The string label for a taxonomy
-
-        Returns:
-            list[str]
-                Result containing a list of AI risk IDs
-        """
-        risks = list(filter(lambda risk: risk.id == id, self._risks))
-
-        if len(risks) > 0:
-            initial_risk: Risk = risks[0]
-            related_risks = self._combine_related_risks(initial_risk)
-
-            if taxonomy is not None:
-                related_risks = list(
-                    filter(
-                        lambda risk: risk.isDefinedByTaxonomy == taxonomy, related_risks
-                    )
-                )
-
-            return related_risks
-        else:
-            print("No matching risk found")
-            return None
-
-    def get_related_risks_by_risk_id(self, id=None, taxonomy=None):
-        """Get related risk definitions from the LinkML from a given risk id
-
-        Args:
-            id: str
-                (Optional) The string id for a risk
-
-        Returns:
-            list[Risk]
-                Result containing a list of AI risks
-        """
-        related_risk_ids = self.get_related_risk_ids_by_risk_id(id)
-        if related_risk_ids is not None:
-            related_risks = [self.get_risk_by_id(id) for id in related_risk_ids]
-
-            if taxonomy is not None:
-                related_risks = list(
-                    filter(
-                        lambda risk: risk.isDefinedByTaxonomy == taxonomy, related_risks
-                    )
-                )
-
-            return related_risks
-        else:
-            print("No matching risk found")
-            return None
-
-    def get_risk_actions_by_risk_id(self, id, taxonomy=None):
+    def get_related_actions(
+        self, risk=None, tag=None, id=None, name=None, taxonomy=None
+    ):
         """Get actions for a risk from the LinkML
 
         Args:
-            id: str
-                The string id for a risk
+            risk: (Optional) Risk
+                The Risk object to find related actions for
+            id: (Optional) str
+                The string ID identifying the risk to find related actions for
+            tag: (Optional) str
+                The string tag identifying the risk to find related actions for
+            name: (Optional) str
+                The string name identifying the risk to find related actions for
             taxonomy: str
-                (Optional) The string label for a taxonomy
+                (Optional) The string label for a taxonomy, to filter action results by
 
         Returns:
             list[Action]
-                Result containing a list of AI risks actions
+                Result containing a list of the actions which are marked as related to the specified AI risk
         """
-        risks = list(filter(lambda risk: risk.id == id, self._risks))
+        matching_risks = self._risks
 
-        if len(risks) > 0:
-            risk: Risk = risks[0]
+        if risk is not None:
+            matching_risks = [risk]
+        if tag is not None:
+            matching_risks = list(filter(lambda risk: risk.tag == tag, matching_risks))
+        if id is not None:
+            matching_risks = list(filter(lambda risk: risk.id == id, matching_risks))
+        if name is not None:
+            matching_risks = list(
+                filter(lambda risk: risk.name == name, matching_risks)
+            )
+
+        if len(matching_risks) > 0:
+            risk: Risk = matching_risks[0]
             actions = []
 
             if risk.hasRelatedAction is not None:
