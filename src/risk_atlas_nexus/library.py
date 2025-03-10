@@ -132,7 +132,9 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>", tag or id or name, "Please provide tag, id, or name"
+            "<RAN_VALUE_CHECK_ERROR>",
+            tag or id or name,
+            "Please provide tag, id, or name",
         )
 
         risk: Risk | None = cls._risk_explorer.get_risk(
@@ -457,7 +459,9 @@ class RiskAtlasNexus:
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check("<RAN_TYPE_CHECK_ERROR>", List[str], allow_none=False, usecases=usecases)
+        type_check(
+            "<RAN_TYPE_CHECK_ERROR>", List[str], allow_none=False, usecases=usecases
+        )
         value_check(
             "<RAN_VALUE_CHECK_ERROR>",
             inference_engine and usecases,
