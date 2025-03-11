@@ -143,6 +143,23 @@ pip install -e ".[rits]"
 ## Compatibility
 - View the [changelog](CHANGELOG.md).
 
+
+## Referencing the project
+If you use Risk Atlas Nexus in your projects, please consider citing the following:
+```bib
+@article{airiskatlas2025,
+      title={AI Risk Atlas: Taxonomy and Tooling for Navigating AI Risks and Resources}, 
+      author={Frank Bagehorn and Kristina Brimijoin and Elizabeth M. Daly and Jessica He and Michael Hind and Luis Garces-Erice and Christopher Giblin and Ioana Giurgiu and Jacquelyn Martino and Rahul Nair and David Piorkowski and Ambrish Rawat and John Richards and Sean Rooney and Dhaval Salwala and Seshu Tirupathi and Peter Urbanetz and Kush R. Varshney and Inge Vejsbjerg and Mira L. Wolf-Bauwens},
+      year={2025},
+      eprint={2503.05780},
+      archivePrefix={arXiv},
+      primaryClass={cs.CY},
+      url={https://arxiv.org/abs/2503.05780}
+}
+```
+## License
+Risk Atlas Nexus is under Apache 2.0 license.
+
 ## Contributing
 - Get started by checking our [contribution guidelines](CONTRIBUTING.md).
 - Read the wiki for more technical and design details.
