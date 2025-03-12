@@ -19,8 +19,14 @@ nexus:AiOffice a owl:Class ;
 nexus:AiSystem a owl:Class ;
     rdfs:label "AiSystem" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom nexus:EuAiRiskCategory ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isComposedOf ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:hasEuRiskCategory ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasEuAiSystemType ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:hasEuRiskCategory ],
@@ -28,20 +34,14 @@ nexus:AiSystem a owl:Class ;
             owl:allValuesFrom nexus:AiSystemType ;
             owl:onProperty nexus:hasEuAiSystemType ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isComposedOf ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:hasEuAiSystemType ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:BaseAi ;
             owl:onProperty nexus:isComposedOf ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom nexus:EuAiRiskCategory ;
             owl:onProperty nexus:hasEuRiskCategory ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:hasEuAiSystemType ],
         nexus:BaseAi ;
     skos:definition "A compound AI System composed of one or more AI capablities. ChatGPT is an example of an AI system which deploys multiple GPT AI models." ;
     skos:exactMatch airo:AISystem ;
@@ -51,10 +51,43 @@ nexus:Container a owl:Class ;
     rdfs:label "Container" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty nexus:modalities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:datasets ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:organizations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Documentation ;
             owl:onProperty nexus:documents ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Organization ;
-            owl:onProperty nexus:organizations ],
+            owl:allValuesFrom nexus:Risk ;
+            owl:onProperty nexus:risks ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Dataset ;
+            owl:onProperty nexus:datasets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:AiEval ;
+            owl:onProperty nexus:evaluations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:aimodelfamilies ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:RiskTaxonomy ;
+            owl:onProperty nexus:taxonomies ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:riskcontrols ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:AiTask ;
+            owl:onProperty nexus:aitasks ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:riskgroups ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:License ;
+            owl:onProperty nexus:licenses ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:RiskControl ;
             owl:onProperty nexus:riskcontrols ],
@@ -62,77 +95,44 @@ nexus:Container a owl:Class ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:aitasks ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Risk ;
-            owl:onProperty nexus:risks ],
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:taxonomies ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:riskgroups ],
+            owl:onProperty nexus:actions ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:riskcontrols ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom nexus:LargeLanguageModel ;
             owl:onProperty nexus:aimodels ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:LargeLanguageModelFamily ;
-            owl:onProperty nexus:aimodelfamilies ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:AiEval ;
-            owl:onProperty nexus:evaluations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Action ;
-            owl:onProperty nexus:actions ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:AiTask ;
-            owl:onProperty nexus:aitasks ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:evaluations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Dataset ;
-            owl:onProperty nexus:datasets ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:actions ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:License ;
-            owl:onProperty nexus:licenses ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:risks ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:RiskGroup ;
             owl:onProperty nexus:riskgroups ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:datasets ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Documentation ;
-            owl:onProperty nexus:documents ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:organizations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:licenses ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:taxonomies ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:LargeLanguageModel ;
             owl:onProperty nexus:aimodels ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:RiskTaxonomy ;
-            owl:onProperty nexus:taxonomies ],
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:evaluations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Action ;
+            owl:onProperty nexus:actions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:risks ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:documents ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Modality ;
             owl:onProperty nexus:modalities ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:modalities ],
+            owl:allValuesFrom nexus:LargeLanguageModelFamily ;
+            owl:onProperty nexus:aimodelfamilies ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Organization ;
+            owl:onProperty nexus:organizations ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:aimodelfamilies ] ;
+            owl:onProperty nexus:licenses ] ;
     skos:definition "An umbrella object that holds the ontology class instances" ;
     skos:inScheme nexus:ai-risk-ontology .
 
@@ -142,10 +142,10 @@ nexus:Questionnaire a owl:Class ;
             owl:allValuesFrom nexus:Question ;
             owl:onProperty nexus:composed_of ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:composed_of ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:composed_of ],
         nexus:AiEval ;
     skos:definition "A questionnaire groups questions" ;
@@ -194,7 +194,13 @@ nexus:AiModel a owl:Class ;
             owl:onProperty nexus:architecture ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:gpu_hours ],
+            owl:onProperty nexus:carbon_emitted ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:carbon_emitted ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:architecture ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:intersectionOf ( xsd:float [ a rdfs:Datatype ;
@@ -202,23 +208,8 @@ nexus:AiModel a owl:Class ;
                                 owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
             owl:onProperty nexus:carbon_emitted ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:gpu_hours ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:integer ;
-                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
-            owl:onProperty nexus:power_consumption_w ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:carbon_emitted ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:integer ;
-                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
-            owl:onProperty nexus:gpu_hours ],
+            owl:allValuesFrom nexus:AiEvalResult ;
+            owl:onProperty nexus:hasEvaluation ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:power_consumption_w ],
@@ -227,25 +218,34 @@ nexus:AiModel a owl:Class ;
             owl:onProperty nexus:hasRiskControl ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:hasRiskControl ],
+            owl:onProperty nexus:architecture ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:gpu_hours ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:power_consumption_w ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasEvaluation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
+            owl:onProperty nexus:gpu_hours ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasRiskControl ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:carbon_emitted ],
+            owl:onProperty nexus:gpu_hours ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasEvaluation ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:architecture ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:architecture ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:AiEvalResult ;
-            owl:onProperty nexus:hasEvaluation ],
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
+            owl:onProperty nexus:power_consumption_w ],
         nexus:BaseAi ;
     skos:definition "A base AI Model class. No assumption about the type (SVM, LLM, etc.). Subclassed by model types (see LargeLanguageModel)." ;
     skos:inScheme nexus:ai_system .
@@ -265,7 +265,7 @@ nexus:DataPreprocessing a owl:Class ;
 nexus:Fact a owl:Class ;
     rdfs:label "Fact" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty nexus:value ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -277,11 +277,11 @@ nexus:Fact a owl:Class ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:evidence ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty nexus:value ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:evidence ] ;
+            owl:onProperty nexus:evidence ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:value ] ;
     skos:definition "A fact about something, for example the result of a measurement. In addition to the value, evidence is provided." ;
     skos:exactMatch <http://schema.org/Statement> ;
     skos:inScheme nexus:common .
@@ -289,35 +289,59 @@ nexus:Fact a owl:Class ;
 nexus:LargeLanguageModel a owl:Class ;
     rdfs:label "LargeLanguageModel" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:isPartOf ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:contextWindowSize ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:numTrainingTokens ],
+            owl:onProperty nexus:contextWindowSize ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty nexus:fine_tuning ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:supported_languages ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:fine_tuning ],
+            owl:onProperty nexus:hasTrainingData ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:supported_languages ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Dataset ;
             owl:onProperty nexus:hasTrainingData ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:integer ;
-                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
-            owl:onProperty nexus:contextWindowSize ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Modality ;
             owl:onProperty nexus:hasInputModality ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:hasTrainingData ],
+            owl:onProperty nexus:numParameters ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
+            owl:onProperty nexus:contextWindowSize ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:supported_languages ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:numTrainingTokens ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:numTrainingTokens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
+            owl:onProperty nexus:numTrainingTokens ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:isPartOf ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:fine_tuning ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
@@ -325,47 +349,23 @@ nexus:LargeLanguageModel a owl:Class ;
                                 owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
             owl:onProperty nexus:numParameters ],
         [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Modality ;
+            owl:onProperty nexus:hasOutputModality ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:hasInputModality ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:fine_tuning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:supported_languages ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:contextWindowSize ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:numTrainingTokens ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:numParameters ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:LargeLanguageModelFamily ;
             owl:onProperty nexus:isPartOf ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:isPartOf ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:numParameters ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Modality ;
-            owl:onProperty nexus:hasOutputModality ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( xsd:integer [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:integer ;
-                                owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] ) ] ;
-            owl:onProperty nexus:numTrainingTokens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty nexus:hasOutputModality ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:contextWindowSize ],
+            owl:onProperty nexus:fine_tuning ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:numParameters ],
         nexus:AiModel ;
     skos:altLabel "LLM" ;
     skos:definition "A large language model (LLM) is an AI model which supports a range of language-related tasks such as generation, summarization, classification, among others. A LLM is implemented as an artificial neural networks using a transformer architecture." ;
@@ -386,23 +386,16 @@ nexus:Question a owl:Class ;
     skos:definition "An evaluation where a question has to be answered" ;
     skos:inScheme nexus:ai_eval .
 
-nexus:isDetectedBy a owl:ObjectProperty ;
-    rdfs:label "isDetectedBy" ;
-    rdfs:range nexus:RiskControl ;
-    owl:inverseOf nexus:detectsRiskConcept ;
-    skos:definition "A relationship where a risk, risk source, consequence, or impact is detected by a risk control." ;
-    skos:inScheme nexus:ai_risk .
-
 nexus:AiEvalResult a owl:Class ;
     rdfs:label "AiEvalResult" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:isResultOf ],
-        [ a owl:Restriction ;
             owl:allValuesFrom nexus:AiEval ;
             owl:onProperty nexus:isResultOf ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty nexus:isResultOf ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:isResultOf ],
         nexus:Entity,
         nexus:Fact ;
@@ -481,8 +474,8 @@ nexus:actions a owl:ObjectProperty ;
     skos:definition "A list of risk related actions" ;
     skos:inScheme nexus:ai-risk-ontology .
 
-nexus:aiActorTask a owl:DatatypeProperty ;
-    rdfs:label "aiActorTask" ;
+nexus:ai_actor_task a owl:DatatypeProperty ;
+    rdfs:label "ai_actor_task" ;
     skos:definition "Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)." ;
     skos:inScheme nexus:ai_risk .
 
@@ -615,16 +608,16 @@ nexus:Action a owl:Class ;
     rdfs:label "Action" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:hasRelatedRisk ],
+            owl:onProperty nexus:ai_actor_task ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Risk ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:hasRelatedRisk ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:aiActorTask ],
+            owl:onProperty nexus:ai_actor_task ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:aiActorTask ],
+            owl:allValuesFrom nexus:Risk ;
+            owl:onProperty nexus:hasRelatedRisk ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Documentation ;
             owl:onProperty nexus:hasDocumentation ],
@@ -645,60 +638,53 @@ nexus:AiTask a owl:Class ;
 nexus:BaseAi a owl:Class ;
     rdfs:label "BaseAi" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:producer ],
+            owl:allValuesFrom nexus:AiProvider ;
+            owl:onProperty nexus:isProvidedBy ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:hasLicense ],
+            owl:onProperty nexus:producer ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Documentation ;
-            owl:onProperty nexus:hasDocumentation ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:hasModelCard ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:License ;
-            owl:onProperty nexus:hasLicense ],
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:producer ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:performsTask ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasModelCard ],
+            owl:allValuesFrom nexus:License ;
+            owl:onProperty nexus:hasLicense ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:AiProvider ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:isProvidedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Organization ;
+            owl:onProperty nexus:producer ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:isProvidedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:AiTask ;
             owl:onProperty nexus:performsTask ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:isProvidedBy ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:hasModelCard ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isProvidedBy ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:producer ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Organization ;
-            owl:onProperty nexus:producer ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:hasDocumentation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Documentation ;
+            owl:onProperty nexus:hasDocumentation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasModelCard ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasLicense ],
         nexus:Entity ;
     skos:definition "Any type of AI, be it a LLM, RL agent, SVM, etc." ;
     skos:inScheme nexus:ai_system .
-
-nexus:RiskConcept a owl:Class ;
-    rdfs:label "RiskConcept" ;
-    rdfs:subClassOf nexus:Entity ;
-    skos:definition "An umbrella term for refering to risk, risk source, consequence and impact." ;
-    skos:exactMatch airo:RiskConcept ;
-    skos:inScheme nexus:ai_risk .
 
 nexus:architecture a owl:DatatypeProperty ;
     rdfs:label "architecture" ;
@@ -756,14 +742,6 @@ nexus:descriptor a owl:DatatypeProperty ;
     skos:definition "Annotates whether an AI risk is a traditional risk, specific to or amplified by AI." ;
     skos:inScheme nexus:ai_risk .
 
-nexus:detectsRiskConcept a owl:ObjectProperty ;
-    rdfs:label "detectsRiskConcept" ;
-    rdfs:range nexus:RiskConcept ;
-    owl:inverseOf nexus:isDetectedBy ;
-    skos:definition "The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts." ;
-    skos:exactMatch airo:detectsRiskConcept ;
-    skos:inScheme nexus:ai_risk .
-
 nexus:evidence a owl:DatatypeProperty ;
     rdfs:label "evidence" ;
     skos:definition "Evidence provides a source (typical a chunk, paragraph or link) describing where some value was found or how it was generated." ;
@@ -812,6 +790,13 @@ nexus:id a owl:DatatypeProperty ;
     rdfs:label "id" ;
     skos:definition "A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc." ;
     skos:inScheme nexus:common .
+
+nexus:isDetectedBy a owl:ObjectProperty ;
+    rdfs:label "isDetectedBy" ;
+    rdfs:range nexus:RiskControl ;
+    owl:inverseOf nexus:detectsRiskConcept ;
+    skos:definition "A relationship where a risk, risk source, consequence, or impact is detected by a risk control." ;
+    skos:inScheme nexus:ai_risk .
 
 nexus:isProvidedBy a owl:ObjectProperty ;
     rdfs:label "isProvidedBy" ;
@@ -900,28 +885,6 @@ nexus:value a owl:DatatypeProperty ;
     skos:definition "Some numeric or string value" ;
     skos:inScheme nexus:common .
 
-nexus:RiskControl a owl:Class ;
-    rdfs:label "RiskControl" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom nexus:RiskTaxonomy ;
-            owl:onProperty nexus:isDefinedByTaxonomy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:RiskConcept ;
-            owl:onProperty nexus:detectsRiskConcept ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isDefinedByTaxonomy ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:detectsRiskConcept ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:isDefinedByTaxonomy ],
-        nexus:Entity ;
-    skos:definition "A measure that maintains and/or modifies risk (and risk concepts)" ;
-    skos:exactMatch airo:RiskControl ;
-    skos:inScheme nexus:ai_risk .
-
 nexus:broadMatch a owl:ObjectProperty ;
     rdfs:label "broadMatch" ;
     rdfs:range [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
@@ -966,29 +929,29 @@ nexus:relatedMatch a owl:ObjectProperty ;
 nexus:Dataset a owl:Class ;
     rdfs:label "Dataset" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
             owl:allValuesFrom nexus:Documentation ;
             owl:onProperty nexus:hasDocumentation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasDocumentation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:provider ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:provider ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Organization ;
             owl:onProperty nexus:provider ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:provider ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
             owl:allValuesFrom nexus:License ;
             owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:provider ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasDocumentation ],
         nexus:Entity ;
     skos:definition "A body of structured information describing some topic(s) of interest." ;
     skos:exactMatch <http://schema.org/Dataset> ;
@@ -1001,88 +964,131 @@ nexus:Modality a owl:Class ;
     skos:exactMatch airo:Modality ;
     skos:inScheme nexus:ai_system .
 
+nexus:RiskConcept a owl:Class ;
+    rdfs:label "RiskConcept" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom nexus:RiskControl ;
+            owl:onProperty nexus:isDetectedBy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isDetectedBy ],
+        nexus:Entity ;
+    skos:definition "An umbrella term for refering to risk, risk source, consequence and impact." ;
+    skos:exactMatch airo:RiskConcept ;
+    skos:inScheme nexus:ai_risk .
+
+nexus:RiskControl a owl:Class ;
+    rdfs:label "RiskControl" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom nexus:RiskConcept ;
+            owl:onProperty nexus:detectsRiskConcept ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isDefinedByTaxonomy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:isDefinedByTaxonomy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:RiskTaxonomy ;
+            owl:onProperty nexus:isDefinedByTaxonomy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:detectsRiskConcept ],
+        nexus:Entity ;
+    skos:definition "A measure that maintains and/or modifies risk (and risk concepts)" ;
+    skos:exactMatch airo:RiskControl ;
+    skos:inScheme nexus:ai_risk .
+
 nexus:RiskTaxonomy a owl:Class ;
     rdfs:label "RiskTaxonomy" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
             owl:allValuesFrom nexus:Documentation ;
             owl:onProperty nexus:hasDocumentation ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:hasDocumentation ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty nexus:version ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:License ;
             owl:onProperty nexus:hasLicense ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasDocumentation ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty nexus:version ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:version ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:hasLicense ],
+            owl:onProperty nexus:version ],
         nexus:Entity ;
     skos:definition "A taxonomy of AI system related risks" ;
+    skos:inScheme nexus:ai_risk .
+
+nexus:detectsRiskConcept a owl:ObjectProperty ;
+    rdfs:label "detectsRiskConcept" ;
+    rdfs:range nexus:RiskConcept ;
+    owl:inverseOf nexus:isDetectedBy ;
+    skos:definition "The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts." ;
+    skos:exactMatch airo:detectsRiskConcept ;
     skos:inScheme nexus:ai_risk .
 
 nexus:AiEval a owl:Class ;
     rdfs:label "AiEval" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom nexus:License ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:bestValue ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:bestValue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasRelatedRisk ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isComposedOf ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasUnitxtCard ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasDocumentation ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Documentation ;
             owl:onProperty nexus:hasDocumentation ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:hasUnitxtCard ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:bestValue ],
+            owl:allValuesFrom nexus:License ;
+            owl:onProperty nexus:hasLicense ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:hasDataset ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isComposedOf ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasRelatedRisk ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasUnitxtCard ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:hasLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:AiEval ;
-            owl:onProperty nexus:isComposedOf ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:bestValue ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:hasDocumentation ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Risk ;
-            owl:onProperty nexus:hasRelatedRisk ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty nexus:hasUnitxtCard ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:Dataset ;
             owl:onProperty nexus:hasDataset ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty nexus:hasLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:AiEval ;
+            owl:onProperty nexus:isComposedOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Risk ;
+            owl:onProperty nexus:hasRelatedRisk ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty nexus:bestValue ],
         nexus:Entity ;
     skos:definition "An AI Evaluation, e.g. a metric, benchmark, unitxt card evaluation, a question or a combination of such entities." ;
@@ -1125,13 +1131,13 @@ nexus:Documentation a owl:Class ;
 nexus:License a owl:Class ;
     rdfs:label "License" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty nexus:version ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty nexus:version ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:version ],
         nexus:Entity ;
     skos:definition "The general notion of a license which defines terms and grants permissions to users of AI systems, datasets and software." ;
@@ -1147,13 +1153,13 @@ nexus:isDefinedByTaxonomy a owl:ObjectProperty ;
 nexus:Organization a owl:Class ;
     rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom nexus:License ;
+            owl:onProperty nexus:grants_license ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:grants_license ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:grants_license ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:License ;
             owl:onProperty nexus:grants_license ],
         nexus:Entity ;
     skos:definition "Any organizational entity such as a corporation, educational institution, consortium, government, etc." ;
@@ -1180,32 +1186,20 @@ nexus:Any a owl:Class ;
 nexus:Entity a owl:Class ;
     rdfs:label "Entity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:name ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty nexus:url ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:id ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:dateCreated ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty nexus:dateModified ],
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:description ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:url ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:dateModified ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:url ],
@@ -1214,25 +1208,37 @@ nexus:Entity a owl:Class ;
             owl:onProperty nexus:name ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:dateModified ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty nexus:dateCreated ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:dateCreated ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:id ],
+            owl:onProperty nexus:description ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nexus:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:description ],
+            owl:onProperty nexus:dateModified ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty nexus:id ] ;
+            owl:onProperty nexus:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty nexus:dateModified ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:dateCreated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty nexus:dateCreated ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:dateModified ] ;
     skos:definition "A generic grouping for any identifiable entity." ;
     skos:exactMatch <http://schema.org/Thing> ;
     skos:inScheme nexus:common .
@@ -1240,25 +1246,7 @@ nexus:Entity a owl:Class ;
 nexus:RiskGroup a owl:Class ;
     rdfs:label "RiskGroup" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:narrowMatch ],
-        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:narrowMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isDefinedByTaxonomy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:broadMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:broadMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:relatedMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty nexus:closeMatch ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:RiskTaxonomy ;
@@ -1267,74 +1255,48 @@ nexus:RiskGroup a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:isDefinedByTaxonomy ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:closeMatch ],
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:narrowMatch ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
             owl:onProperty nexus:relatedMatch ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:exactMatch ],
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:closeMatch ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isDefinedByTaxonomy ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:exactMatch ],
-        nexus:Entity ;
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:relatedMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:narrowMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:exactMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:broadMatch ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:broadMatch ],
+        nexus:Entity,
+        nexus:RiskConcept ;
     skos:definition "A group of AI system related risks that are part of a risk taxonomy." ;
     skos:inScheme nexus:ai_risk .
 
 nexus:Risk a owl:Class ;
     rdfs:label "Risk" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:descriptor ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:tag ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:concern ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:broadMatch ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:concern ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nexus:Action ;
-            owl:onProperty nexus:hasRelatedAction ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom nexus:RiskGroup ;
-            owl:onProperty nexus:isPartOf ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:hasRelatedAction ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:exactMatch ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:closeMatch ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:tag ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:relatedMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:broadMatch ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty nexus:phase ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:descriptor ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:closeMatch ],
+            owl:onProperty nexus:detectsRiskConcept ],
         [ a owl:Restriction ;
             owl:allValuesFrom nexus:RiskTaxonomy ;
             owl:onProperty nexus:isDefinedByTaxonomy ],
@@ -1343,46 +1305,97 @@ nexus:Risk a owl:Class ;
             owl:onProperty nexus:isDefinedByTaxonomy ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty nexus:phase ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:closeMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:narrowMatch ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:broadMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:closeMatch ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:hasRelatedAction ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:descriptor ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:tag ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:narrowMatch ],
+            owl:onProperty nexus:isDefinedByTaxonomy ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty nexus:tag ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:relatedMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty nexus:phase ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty nexus:isPartOf ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:phase ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:broadMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:Action ;
+            owl:onProperty nexus:hasRelatedAction ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:concern ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:type ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty nexus:exactMatch ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:allValuesFrom nexus:RiskConcept ;
+            owl:onProperty nexus:detectsRiskConcept ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:onProperty nexus:exactMatch ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nexus:isPartOf ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:descriptor ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
-            owl:onProperty nexus:relatedMatch ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nexus:isPartOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:intersectionOf ( [ owl:unionOf ( nexus:Risk nexus:RiskGroup ) ] nexus:Any ) ] ;
+            owl:minCardinality 0 ;
             owl:onProperty nexus:narrowMatch ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:phase ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nexus:isPartOf ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty nexus:concern ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nexus:descriptor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty nexus:tag ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nexus:isDefinedByTaxonomy ],
+            owl:onProperty nexus:relatedMatch ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom nexus:RiskGroup ;
+            owl:onProperty nexus:isPartOf ],
         nexus:Entity,
         nexus:RiskConcept ;
     skos:definition "The state of uncertainty associated with an AI system, that has the potential to cause harms" ;

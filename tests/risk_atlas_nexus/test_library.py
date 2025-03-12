@@ -104,13 +104,13 @@ class TestLibrary(TestCaseBase):
         """Get related risk definitions from the LinkML, by risk atlas tag"""
         ran_lib = self.ran_lib
         risks = ran_lib.get_related_risks(tag="toxic-output")
-        self.assertIs(len(risks), 3)
+        self.assertIs(len(risks), 4)
 
     def test_get_related_risk_ids_by_tag(self):
         """Get related risk definitions from the LinkML, by risk atlas tag"""
         ran_lib = self.ran_lib
         risks = ran_lib.get_related_risks(tag="toxic-output")
-        self.assertIs(len(risks), 3)
+        self.assertIs(len(risks), 4)
 
     def test_get_related_risks_by_id(self):
         """Get related risk definitions from the LinkML, by risk id"""
@@ -168,5 +168,16 @@ class TestLibrary(TestCaseBase):
         """Get taxonomy definitions from the LinkML filtered by taxonomy id"""
         ran_lib = self.ran_lib
         taxonomy = ran_lib.get_taxonomy_by_id("nist-ai-rmf")
-
         assert taxonomy.id == "nist-ai-rmf"
+
+    def test_get_all_risk_controls(self):
+        """Get all risk control definitions from the LinkML"""
+        ran_lib = self.ran_lib
+        risk_controls = ran_lib.get_all_risk_controls()
+        self.assertIs(len(risk_controls), 13)
+
+    def test_get_risk_control_by_id(self):
+        """Get risk_control definition from the LinkML filtered by risk_control id"""
+        ran_lib = self.ran_lib
+        risk_control = ran_lib.get_risk_control(id="gg-unethical-behavior-detection")
+        assert risk_control.id == "gg-unethical-behavior-detection"

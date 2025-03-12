@@ -34,8 +34,8 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
           
     
     
-    RiskControl --> "*" Any : detectsRiskConcept
-    click Any href "../Any"
+    RiskControl --> "*" RiskConcept : detectsRiskConcept
+    click RiskConcept href "../RiskConcept"
 
         
       RiskControl : id
@@ -70,7 +70,7 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [detectsRiskConcept](detectsRiskConcept.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property airo:detectsRiskConcept indicates the control used for detecting... | direct |
+| [detectsRiskConcept](detectsRiskConcept.md) | * <br/> [RiskConcept](RiskConcept.md) | The property airo:detectsRiskConcept indicates the control used for detecting... | direct |
 | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
@@ -88,6 +88,9 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Container](Container.md) | [riskcontrols](riskcontrols.md) | range | [RiskControl](RiskControl.md) |
+| [RiskGroup](RiskGroup.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
+| [Risk](Risk.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
+| [RiskConcept](RiskConcept.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
 | [AiModel](AiModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
 
@@ -157,7 +160,7 @@ attributes:
   detectsRiskConcept:
     name: detectsRiskConcept
     description: The property airo:detectsRiskConcept indicates the control used for
-      detecting risks, risk sources, consequences, and impacts.
+      detecting risks, risk sources,  consequences, and impacts.
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     exact_mappings:
     - airo:detectsRiskConcept
@@ -165,13 +168,12 @@ attributes:
     alias: detectsRiskConcept
     owner: RiskControl
     domain_of:
+    - Risk
     - RiskControl
-    range: Any
+    inverse: isDetectedBy
+    range: RiskConcept
     multivalued: true
     inlined: false
-    any_of:
-    - range: Risk
-    - range: RiskGroup
   isDefinedByTaxonomy:
     name: isDefinedByTaxonomy
     description: A relationship where a risk or a risk group is defined by a risk

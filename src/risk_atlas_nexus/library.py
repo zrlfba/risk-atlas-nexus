@@ -7,8 +7,9 @@ from typing import Optional, List, Dict
 
 from importlib.metadata import version
 from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
-    Risk,
     Action,
+    Risk,
+    RiskControl,
     RiskTaxonomy,
 )
 from risk_atlas_nexus.blocks.inference.templates import COT_TEMPLATE, AI_TASKS_TEMPLATE
@@ -257,6 +258,85 @@ class RiskAtlasNexus:
 
         action: Action | None = cls._risk_explorer.get_action_by_id(id=id)
         return action
+
+    def get_related_risk_controls(
+        cls, risk=None, tag=None, id=None, name=None, taxonomy=None
+    ):
+        """Get related risk controls for a risk definition from the LinkML.  The risk is identified by risk id, tag, or name
+
+        Args:
+            risk: (Optional) Risk
+                The risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            Risk
+                Result containing a list of AI actions
+        """
+        type_check("<RAN_TYPE_CHECK_ERROR>", Risk, allow_none=True, risk=risk)
+        type_check(
+            "<RAN_TYPE_CHECK_ERROR>",
+            str,
+            allow_none=True,
+            tag=tag,
+            id=id,
+            name=name,
+            taxonomy=taxonomy,
+        )
+        value_check(
+            "<RAN_VALUE_CHECK_ERROR>",
+            risk or tag or id or name,
+            "Please provide risk, tag, id, or name",
+        )
+
+        risk_controls = cls._risk_explorer.get_related_risk_controls(
+            risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
+        )
+        return risk_controls
+
+    def get_all_risk_controls(cls, taxonomy=None):
+        """Get all risk control definitions from the LinkML
+
+        Args:
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            list[RiskControl]
+                Result containing a list of RiskControls
+        """
+        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+
+        risk_control_instances: list[RiskControl] = (
+            cls._risk_explorer.get_all_risk_controls(taxonomy)
+        )
+        return risk_control_instances
+
+    def get_risk_control(cls, id=None, taxonomy=None):
+        """Get an action definition from the LinkML, filtered by risk control id
+
+        Args:
+            id: str
+                The string id identifying the risk control
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            Action
+                Result containing a risk control.
+        """
+        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=False, id=id)
+        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+
+        risk_control: RiskControl | None = cls._risk_explorer.get_risk_control(id=id)
+        return risk_control
 
     def identify_risks_from_usecases(
         cls,

@@ -1,10 +1,4 @@
 organizations:
-- id: ibm
-  name: International Business Machines Corporation
-  description: International Business Machines Corporation (using the trademark IBM),
-    is an American multinational technology company headquartered in Armonk, New York
-    and present in over 175 countries.
-  url: https://www.ibm.com
 - id: codeparrot
   name: CodeParrot & Friends
   description: This organization is dedicated to language models for code generation.
@@ -958,6 +952,8 @@ risks:
   isPartOf: ibm-risk-atlas-multi-category
   broadMatch:
   - nist-information-integrity
+  relatedMatch:
+  - granite-jailbreak
   tag: jailbreaking
   type: inference
   descriptor: specific
@@ -1421,6 +1417,11 @@ risks:
   - nist-confabulation
   broadMatch:
   - owasp-llm062025-excessive-agency
+  relatedMatch:
+  - granite-function-call
+  - granite-answer-relevance
+  - granite-relevance
+  - granite-groundedness
   tag: hallucination
   type: output
   descriptor: specific
@@ -1567,6 +1568,8 @@ risks:
   isPartOf: ibm-risk-atlas-fairness
   broadMatch:
   - nist-harmful-bias-or-homogenization
+  relatedMatch:
+  - granite-social-bias
   tag: output-bias
   type: output
   descriptor: specific
@@ -1640,6 +1643,8 @@ risks:
   - nist-obscene-degrading-and-or-abusive-content
   broadMatch:
   - owasp-llm052025-improper-output-handling
+  relatedMatch:
+  - granite-profanity
   tag: toxic-output
   type: output
   descriptor: specific
@@ -4928,6 +4933,8 @@ risks:
   url: https://www.ibm.com/granite/docs/models/guardian/#risk-definitions
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
+  isDetectedBy:
+  - gg-function-call-detection
   isDefinedByTaxonomy: ibm-granite-guardian
   isPartOf: granite-guardian-agentic-safety-group
   relatedMatch:
@@ -5091,7 +5098,7 @@ riskcontrols:
 - id: gg-answer-relevance-detection
   name: Answer Relevance detection
   detectsRiskConcept:
-  - answer-relevance
+  - granite-answer-relevance
   isDefinedByTaxonomy: ibm-granite-guardian
 - id: gg-function-call-detection
   name: Function Calling Hallucination detection
@@ -5108,7 +5115,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.2-001
   name: GV-1.2-001
@@ -5122,7 +5129,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.2-002
   name: GV-1.2-002
@@ -5134,7 +5141,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-001
   name: GV-1.3-001
@@ -5155,7 +5162,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-002
   name: GV-1.3-002
@@ -5169,7 +5176,7 @@ actions:
   - nist-dangerous-violent-or-hateful-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-003
   name: GV-1.3-003
@@ -5181,7 +5188,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-004
   name: GV-1.3-004
@@ -5193,7 +5200,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-005
   name: GV-1.3-005
@@ -5203,7 +5210,7 @@ actions:
     and algorithmic monoculture.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-006
   name: GV-1.3-006
@@ -5219,7 +5226,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.3-007
   name: GV-1.3-007
@@ -5230,7 +5237,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.4-001
   name: GV-1.4-001
@@ -5241,7 +5248,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - AI Deployment
   - Governance and Oversight
@@ -5255,7 +5262,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - AI Deployment
   - Governance and Oversight
@@ -5267,7 +5274,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
 - id: GV-1.5-002
@@ -5280,7 +5287,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
 - id: GV-1.5-003
@@ -5293,7 +5300,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
 - id: GV-1.6-001
@@ -5304,7 +5311,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.6-002
   name: GV-1.6-002
@@ -5314,7 +5321,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.6-003
   name: GV-1.6-003
@@ -5334,7 +5341,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-1.7-001
   name: GV-1.7-001
@@ -5345,7 +5352,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
 - id: GV-1.7-002
@@ -5360,7 +5367,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
 - id: GV-2.1-001
@@ -5374,7 +5381,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-2.1-002
   name: GV-2.1-002
@@ -5383,7 +5390,7 @@ actions:
     type.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-2.1-003
   name: GV-2.1-003
@@ -5393,7 +5400,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-2.1-004
   name: GV-2.1-004
@@ -5405,7 +5412,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-2.1-005
   name: GV-2.1-005
@@ -5418,7 +5425,7 @@ actions:
   - nist-dangerous-violent-or-hateful-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
 - id: GV-3.2-001
   name: GV-3.2-001
@@ -5429,7 +5436,7 @@ actions:
   - nist-cbrn-information-or-capabilities
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
 - id: GV-3.2-002
   name: GV-3.2-002
@@ -5443,7 +5450,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
 - id: GV-3.2-003
   name: GV-3.2-003
@@ -5454,7 +5461,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
 - id: GV-3.2-004
   name: GV-3.2-004
@@ -5464,7 +5471,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
 - id: GV-3.2-005
   name: GV-3.2-005
@@ -5474,7 +5481,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
 - id: GV-4.1-001
   name: GV-4.1-001
@@ -5488,7 +5495,7 @@ actions:
   - nist-confabulation
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5503,7 +5510,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5517,7 +5524,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5531,7 +5538,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5543,7 +5550,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5556,7 +5563,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -5570,7 +5577,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Impact Assessment
   - Affected Individuals and Communities
   - Governance and Oversight
@@ -5584,7 +5591,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Impact Assessment
   - Affected Individuals and Communities
   - Governance and Oversight
@@ -5597,7 +5604,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Impact Assessment
   - Affected Individuals and Communities
   - Governance and Oversight
@@ -5609,7 +5616,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -5623,7 +5630,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -5638,7 +5645,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5650,7 +5657,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5664,7 +5671,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5679,7 +5686,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5697,7 +5704,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5709,7 +5716,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5721,7 +5728,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5735,7 +5742,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5758,7 +5765,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5772,7 +5779,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Operation and Monitoring
   - Procurement
   - third-party entities
@@ -5784,7 +5791,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5798,7 +5805,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5819,7 +5826,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5832,7 +5839,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5843,7 +5850,7 @@ actions:
     including model weights and other system artifacts.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5857,7 +5864,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5879,7 +5886,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -5894,7 +5901,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-1.1-002
   name: MP-1.1-002
@@ -5906,7 +5913,7 @@ actions:
     institutions, and the physical environment; Social norms and expectations.'
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-1.1-003
   name: MP-1.1-003
@@ -5923,7 +5930,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-1.1-004
   name: MP-1.1-004
@@ -5935,7 +5942,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-1.2-001
   name: MP-1.2-001
@@ -5947,7 +5954,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-1.2-002
   name: MP-1.2-002
@@ -5958,7 +5965,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
 - id: MP-2.1-001
   name: MP-2.1-001
@@ -5968,7 +5975,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - TEVV
 - id: MP-2.1-002
   name: MP-2.1-002
@@ -5980,7 +5987,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - TEVV
 - id: MP-2.2-001
   name: MP-2.2-001
@@ -5992,7 +5999,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - End Users
 - id: MP-2.2-002
   name: MP-2.2-002
@@ -6003,7 +6010,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - End Users
 - id: MP-2.3-001
   name: MP-2.3-001
@@ -6015,7 +6022,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6027,7 +6034,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6040,7 +6047,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6052,7 +6059,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6064,7 +6071,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6077,7 +6084,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6092,7 +6099,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6107,7 +6114,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6121,7 +6128,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6137,7 +6144,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6155,7 +6162,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Design
   - AI Development
   - Domain Experts
@@ -6170,7 +6177,7 @@ actions:
   - nist-data-privacy
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6183,7 +6190,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6198,7 +6205,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6213,7 +6220,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6233,7 +6240,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6247,7 +6254,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6260,7 +6267,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6278,7 +6285,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6291,7 +6298,7 @@ actions:
   - nist-data-privacy
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6306,7 +6313,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Governance and Oversight
   - Operation and Monitoring
   - Procurement
@@ -6321,7 +6328,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6341,7 +6348,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6359,7 +6366,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6377,7 +6384,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6393,7 +6400,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6410,7 +6417,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -6428,7 +6435,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
@@ -6447,7 +6454,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Impact Assessment
@@ -6464,7 +6471,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6477,7 +6484,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6489,7 +6496,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6502,7 +6509,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6517,7 +6524,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6529,7 +6536,7 @@ actions:
     to monitor and improve outputs.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6542,7 +6549,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6555,7 +6562,7 @@ actions:
   - nist-cbrn-information-or-capabilities
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6569,7 +6576,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Domain Experts
   - TEVV
@@ -6583,7 +6590,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
@@ -6604,7 +6611,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
@@ -6622,7 +6629,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Development
   - AI Impact Assessment
@@ -6640,7 +6647,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Human Factors
   - TEVV
@@ -6657,7 +6664,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Human Factors
   - TEVV
@@ -6671,7 +6678,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Human Factors
   - TEVV
@@ -6685,7 +6692,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Development
   - Human Factors
   - TEVV
@@ -6698,7 +6705,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - TEVV
 - id: MS-2.3-002
@@ -6709,7 +6716,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - TEVV
 - id: MS-2.3-003
@@ -6720,7 +6727,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - TEVV
 - id: MS-2.3-004
@@ -6736,7 +6743,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - TEVV
 - id: MS-2.5-001
@@ -6748,7 +6755,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.5-002
@@ -6760,7 +6767,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.5-003
@@ -6771,7 +6778,7 @@ actions:
   - nist-confabulation
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.5-004
@@ -6782,7 +6789,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.5-005
@@ -6793,7 +6800,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.5-006
@@ -6806,7 +6813,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - Domain Experts
   - TEVV
 - id: MS-2.6-001
@@ -6821,7 +6828,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6840,7 +6847,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6854,7 +6861,7 @@ actions:
   - nist-dangerous-violent-or-hateful-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6869,7 +6876,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6886,7 +6893,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6902,7 +6909,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6917,7 +6924,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6937,7 +6944,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6953,7 +6960,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6970,7 +6977,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -6986,7 +6993,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7004,7 +7011,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7020,7 +7027,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7037,7 +7044,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7052,7 +7059,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7065,7 +7072,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7080,7 +7087,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7093,7 +7100,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7110,7 +7117,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7123,7 +7130,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7138,7 +7145,7 @@ actions:
   - nist-confabulation
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7157,7 +7164,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7176,7 +7183,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7193,7 +7200,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7206,7 +7213,7 @@ actions:
     synthetic data.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7222,7 +7229,7 @@ actions:
     data cross contamination, relative to in-context deployment environment.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -7249,7 +7256,7 @@ actions:
   - nist-dangerous-violent-or-hateful-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -7264,7 +7271,7 @@ actions:
     impacted communities.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -7287,7 +7294,7 @@ actions:
     data in GAI system training data.'
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -7302,7 +7309,7 @@ actions:
     of model collapse.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Affected Individuals and Communities
@@ -7317,7 +7324,7 @@ actions:
   - nist-dangerous-violent-or-hateful-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7329,7 +7336,7 @@ actions:
     and deployment in product design decisions.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7343,7 +7350,7 @@ actions:
     at training time.'
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7355,7 +7362,7 @@ actions:
     and applications, and address green-washing concerns.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Domain Experts
@@ -7373,7 +7380,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - TEVV
@@ -7386,7 +7393,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Impact Assessment
   - Domain Experts
   - Operation and Monitoring
@@ -7397,7 +7404,7 @@ actions:
     different social, economic, and cultural groups.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - End-Users
@@ -7414,7 +7421,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - End-Users
@@ -7427,7 +7434,7 @@ actions:
     methods as well as evaluating structured feedback input."
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - End-Users
@@ -7444,7 +7451,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - End-Users
@@ -7463,7 +7470,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - End-Users
@@ -7480,7 +7487,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Domain Experts
   - End-Users
@@ -7497,7 +7504,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Domain Experts
   - End-Users
@@ -7511,7 +7518,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Domain Experts
   - End-Users
@@ -7526,7 +7533,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Domain Experts
   - End-Users
@@ -7542,7 +7549,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Domain Experts
   - End-Users
@@ -7560,7 +7567,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Operation and Monitoring
@@ -7573,7 +7580,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Operation and Monitoring
@@ -7588,7 +7595,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7601,7 +7608,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7615,7 +7622,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7629,7 +7636,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7644,7 +7651,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7657,7 +7664,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7671,7 +7678,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7685,7 +7692,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7703,7 +7710,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Impact Assessment
   - Governance and Oversight
@@ -7721,7 +7728,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
 - id: MG-2.4-001
@@ -7732,7 +7739,7 @@ actions:
     user access removal, alternative processes, contact information, etc. Human-
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Governance and Oversight
   - Operation and Monitoring
@@ -7746,7 +7753,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Governance and Oversight
   - Operation and Monitoring
@@ -7759,7 +7766,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Governance and Oversight
   - Operation and Monitoring
@@ -7771,7 +7778,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Governance and Oversight
   - Operation and Monitoring
@@ -7790,7 +7797,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7805,7 +7812,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7818,7 +7825,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7834,7 +7841,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7848,7 +7855,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7860,7 +7867,7 @@ actions:
     processes to mitigate risks related to unexplainable GAI systems.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7876,7 +7883,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7892,7 +7899,7 @@ actions:
   - nist-intellectual-property
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7902,7 +7909,7 @@ actions:
     system updates."
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7918,7 +7925,7 @@ actions:
   - nist-obscene-degrading-and-or-abusive-content
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7932,7 +7939,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7946,7 +7953,7 @@ actions:
   - nist-value-chain-and-component-integration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7960,7 +7967,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7974,7 +7981,7 @@ actions:
   - nist-confabulation
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Operation and Monitoring
   - Third-party entities
@@ -7987,7 +7994,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8005,7 +8012,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8021,7 +8028,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8036,7 +8043,7 @@ actions:
   - nist-confabulation
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8052,7 +8059,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8068,7 +8075,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8082,7 +8089,7 @@ actions:
     provenance data tracking techniques, and promptly escalate issues for response.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8095,7 +8102,7 @@ actions:
     the performance, feedback received, and improvements made.
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -8114,7 +8121,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -8130,7 +8137,7 @@ actions:
   - nist-human-ai-configuration
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - AI Design
   - AI Development
@@ -8148,7 +8155,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8164,7 +8171,7 @@ actions:
   - nist-information-integrity
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts
@@ -8181,7 +8188,7 @@ actions:
   - nist-information-security
   hasDocumentation:
   - NIST.AI.600-1
-  aiActorTask:
+  ai_actor_task:
   - AI Deployment
   - Affected Individuals and Communities
   - Domain Experts

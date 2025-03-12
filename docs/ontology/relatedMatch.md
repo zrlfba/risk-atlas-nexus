@@ -9,7 +9,7 @@ _The property skos:relatedMatch is used to state an associative mapping link bet
 
 
 
-URI: [skos:relatedMatch](skos:relatedMatch)
+URI: [skos:relatedMatch](http://www.w3.org/2004/02/skos/core/relatedMatch)
 
 
 

@@ -10,6 +10,7 @@ class RiskExplorer(ExplorerBase):
         # load the data into the graph
         self._ontology = ontology
         self._risks = ontology.risks
+        self._riskcontrols = ontology.riskcontrols
         self._actions = ontology.actions
         self._taxonomies = ontology.taxonomies
 
@@ -122,7 +123,7 @@ class RiskExplorer(ExplorerBase):
                 Result containing a list of AI risks IDs
         """
         matching_risks = self._risks
-
+        print(risk, tag, id, name)
         if risk is not None:
             matching_risks = [risk]
         if tag is not None:
@@ -275,4 +276,110 @@ class RiskExplorer(ExplorerBase):
             return matching_taxonomies[0]
         else:
             print("No matching taxonomy found")
+            return None
+
+    def get_related_risk_controls(
+        self, risk=None, tag=None, id=None, name=None, taxonomy=None
+    ):
+        """Get related risk controls for a risk from the LinkML
+
+        Args:
+            risk: (Optional) Risk
+                The Risk object to find related actions for
+            id: (Optional) str
+                The string ID identifying the risk to find related actions for
+            tag: (Optional) str
+                The string tag identifying the risk to find related actions for
+            name: (Optional) str
+                The string name identifying the risk to find related actions for
+            taxonomy: str
+                (Optional) The string label for a taxonomy, to filter action results by
+
+        Returns:
+            list[RiskControl]
+                Result containing a list of the risk controls which are marked as related to the specified AI risk
+        """
+        matching_risks = self._risks
+
+        if risk is not None:
+            matching_risks = [risk]
+        if tag is not None:
+            matching_risks = list(filter(lambda risk: risk.tag == tag, matching_risks))
+        if id is not None:
+            matching_risks = list(filter(lambda risk: risk.id == id, matching_risks))
+        if name is not None:
+            matching_risks = list(
+                filter(lambda risk: risk.name == name, matching_risks)
+            )
+
+        if len(matching_risks) > 0:
+            risk: Risk = matching_risks[0]
+            risk_controls = []
+
+            if risk.isDetectedBy is not None:
+                risk_controls.append(risk.isDetectedBy)
+
+            risk_controls = [j for i in risk_controls for j in i]
+
+            if taxonomy is not None:
+                risk_controls = list(
+                    filter(
+                        lambda risk_control: risk_control.isDefinedByTaxonomy
+                        == taxonomy,
+                        risk_controls,
+                    )
+                )
+            related_risk_controls = list(
+                filter(
+                    lambda risk_control: risk_control.id in risk_controls,
+                    self._riskcontrols,
+                )
+            )
+            return related_risk_controls
+        else:
+            print("No matching risk controls found")
+            return None
+
+    def get_all_risk_controls(self, taxonomy=None):
+        """Get all risk control definitions from the LinkML
+
+        Args:
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            list[RiskControl]
+                Result containing a list of RiskControls
+        """
+        risk_control_instances = self._riskcontrols
+
+        if taxonomy is not None:
+            risk_control_instances = list(
+                filter(
+                    lambda risk_control: risk_control.isDefinedByTaxonomy == taxonomy,
+                    risk_control_instances,
+                )
+            )
+
+        return risk_control_instances
+
+    def get_risk_control(self, id):
+        """Get risk control definition from the LinkML by ID
+
+        Args:
+            id: str
+                The string id for a risk control
+
+        Returns:
+            RiskControl
+                Result containing a RiskControl
+        """
+        matching_risk_controls = list(
+            filter(lambda risk_control: risk_control.id == id, self._riskcontrols)
+        )
+
+        if len(matching_risk_controls) > 0:
+            return matching_risk_controls[0]
+        else:
+            print("No matching risk control found")
             return None

@@ -189,10 +189,35 @@ risks:
   dateCreated: 2024-12-10
   dateModified: 2024-12-10
   isDefinedByTaxonomy: ibm-granite-guardian
+  isDetectedBy: 
+  - gg-function-call-detection
   isPartOf: granite-guardian-agentic-safety-group
   tag: function-call
   relatedMatch:
   - atlas-hallucination
+- id: atlas-harmful-output
+  relatedMatch: 
+  - granite-guardian-harm
+  - granite-sexual-content
+  - granite-unethical-behavior
+  - granite-harm-engagement
+  - granite-evasiveness
+  - granite-violence
+- id: atlas-output-bias
+  relatedMatch:
+  - granite-social-bias
+- id: atlas-toxic-output
+  relatedMatch:
+  - granite-profanity
+- id: atlas-jailbreaking
+  relatedMatch: 
+  - granite-jailbreak
+- id: atlas-hallucination
+  relatedMatch:
+  - granite-function-call
+  - granite-answer-relevance
+  - granite-relevance
+  - granite-groundedness
 riskcontrols:
 - id: gg-harm-detection
   name: Harm detection
@@ -252,7 +277,7 @@ riskcontrols:
 - id: gg-answer-relevance-detection
   name: Answer Relevance detection
   detectsRiskConcept: 
-  - answer-relevance
+  - granite-answer-relevance
   isDefinedByTaxonomy: ibm-granite-guardian
 - id: gg-function-call-detection
   name: Function Calling Hallucination detection

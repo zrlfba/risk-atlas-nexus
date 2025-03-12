@@ -20,6 +20,8 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
  classDiagram
     class RiskGroup
     click RiskGroup href "../RiskGroup"
+      RiskConcept <|-- RiskGroup
+        click RiskConcept href "../RiskConcept"
       Entity <|-- RiskGroup
         click Entity href "../Entity"
       
@@ -67,6 +69,15 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
     click RiskTaxonomy href "../RiskTaxonomy"
 
         
+      RiskGroup : isDetectedBy
+        
+          
+    
+    
+    RiskGroup --> "*" RiskControl : isDetectedBy
+    click RiskControl href "../RiskControl"
+
+        
       RiskGroup : name
         
       RiskGroup : narrowMatch
@@ -98,7 +109,7 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **RiskGroup**
+    * **RiskGroup** [ [RiskConcept](RiskConcept.md)]
 
 
 
@@ -112,6 +123,7 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 | [broadMatch](broadMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [narrowMatch](narrowMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [relatedMatch](relatedMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
+| [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | [RiskConcept](RiskConcept.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -139,7 +151,6 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 | [Risk](Risk.md) | [broadMatch](broadMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
 | [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
 | [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
-| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | any_of[range] | [RiskGroup](RiskGroup.md) |
 
 
 
@@ -187,6 +198,8 @@ name: RiskGroup
 description: A group of AI system related risks that are part of a risk taxonomy.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 slots:
 - isDefinedByTaxonomy
 - closeMatch
@@ -206,6 +219,8 @@ name: RiskGroup
 description: A group of AI system related risks that are part of a risk taxonomy.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 attributes:
   isDefinedByTaxonomy:
     name: isDefinedByTaxonomy
@@ -314,6 +329,20 @@ attributes:
     any_of:
     - range: Risk
     - range: RiskGroup
+  isDetectedBy:
+    name: isDetectedBy
+    description: A relationship where a risk, risk source, consequence, or impact
+      is detected by a risk control.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    alias: isDetectedBy
+    owner: RiskGroup
+    domain_of:
+    - RiskConcept
+    inverse: detectsRiskConcept
+    range: RiskControl
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

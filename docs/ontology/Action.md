@@ -23,7 +23,7 @@ URI: [nexus:Action](http://research.ibm.com/ontologies/aiont/Action)
       Entity <|-- Action
         click Entity href "../Entity"
       
-      Action : aiActorTask
+      Action : ai_actor_task
         
       Action : dateCreated
         
@@ -74,7 +74,7 @@ URI: [nexus:Action](http://research.ibm.com/ontologies/aiont/Action)
 | ---  | --- | --- | --- |
 | [hasRelatedRisk](hasRelatedRisk.md) | * <br/> [Risk](Risk.md) | A relationship where an entity relates to a risk | direct |
 | [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | direct |
-| [aiActorTask](aiActorTask.md) | * <br/> [String](String.md) | Pertinent AI Actor Tasks for each subcategory | direct |
+| [ai_actor_task](ai_actor_task.md) | * <br/> [String](String.md) | Pertinent AI Actor Tasks for each subcategory | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -143,8 +143,8 @@ slots:
 - hasRelatedRisk
 - hasDocumentation
 attributes:
-  aiActorTask:
-    name: aiActorTask
+  ai_actor_task:
+    name: ai_actor_task
     description: Pertinent AI Actor Tasks for each subcategory. Not every AI Actor
       Task listed will apply to every suggested action in the subcategory (i.e., some
       apply to AI development and others apply to AI deployment).
@@ -166,14 +166,14 @@ description: Action to remediate a risk
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 attributes:
-  aiActorTask:
-    name: aiActorTask
+  ai_actor_task:
+    name: ai_actor_task
     description: Pertinent AI Actor Tasks for each subcategory. Not every AI Actor
       Task listed will apply to every suggested action in the subcategory (i.e., some
       apply to AI development and others apply to AI deployment).
     from_schema: http://research.ibm.com/ontologies/aiont/ai_risk
     rank: 1000
-    alias: aiActorTask
+    alias: ai_actor_task
     owner: Action
     domain_of:
     - Action

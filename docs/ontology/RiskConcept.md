@@ -3,7 +3,7 @@
 # Class: RiskConcept
 
 
-_An umbrella term for refering to risk, risk source consequence and impact._
+_An umbrella term for refering to risk, risk source, consequence and impact._
 
 
 
@@ -23,6 +23,13 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
       Entity <|-- RiskConcept
         click Entity href "../Entity"
       
+
+      RiskConcept <|-- RiskGroup
+        click RiskGroup href "../RiskGroup"
+      RiskConcept <|-- Risk
+        click Risk href "../Risk"
+      
+      
       RiskConcept : dateCreated
         
       RiskConcept : dateModified
@@ -30,6 +37,15 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
       RiskConcept : description
         
       RiskConcept : id
+        
+      RiskConcept : isDetectedBy
+        
+          
+    
+    
+    RiskConcept --> "*" RiskControl : isDetectedBy
+    click RiskControl href "../RiskControl"
+
         
       RiskConcept : name
         
@@ -52,6 +68,7 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -61,6 +78,14 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 
 
 
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Risk](Risk.md) | [detectsRiskConcept](detectsRiskConcept.md) | range | [RiskConcept](RiskConcept.md) |
+| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | range | [RiskConcept](RiskConcept.md) |
 
 
 
@@ -105,9 +130,11 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 <details>
 ```yaml
 name: RiskConcept
-description: An umbrella term for refering to risk, risk source consequence and impact.
+description: An umbrella term for refering to risk, risk source, consequence and impact.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
+slots:
+- isDetectedBy
 class_uri: airo:RiskConcept
 
 ```
@@ -118,10 +145,24 @@ class_uri: airo:RiskConcept
 <details>
 ```yaml
 name: RiskConcept
-description: An umbrella term for refering to risk, risk source consequence and impact.
+description: An umbrella term for refering to risk, risk source, consequence and impact.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 attributes:
+  isDetectedBy:
+    name: isDetectedBy
+    description: A relationship where a risk, risk source, consequence, or impact
+      is detected by a risk control.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    alias: isDetectedBy
+    owner: RiskConcept
+    domain_of:
+    - RiskConcept
+    inverse: detectsRiskConcept
+    range: RiskControl
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

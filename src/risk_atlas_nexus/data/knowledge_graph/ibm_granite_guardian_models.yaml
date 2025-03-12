@@ -1,8 +1,3 @@
-organizations:
-- id: "ibm"
-  name: "International Business Machines Corporation"
-  url: "https://www.ibm.com"
-  description: "International Business Machines Corporation (using the trademark IBM), is an American multinational technology company headquartered in Armonk, New York and present in over 175 countries."
 aimodels:
 - id: granite-guardian-3.2-3b-a800m
   name: Granite Guardian 3.2 3B-A800M

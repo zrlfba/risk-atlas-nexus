@@ -50,7 +50,7 @@ linkml_meta = LinkMLMeta(
         "default_range": "string",
         "description": "An ontology describing AI systems and their risks",
         "id": "http://research.ibm.com/ontologies/aiont/ai-risk-ontology",
-        "imports": ["linkml:types", "common", "ai_risk", "ai_system"],
+        "imports": ["linkml:types", "common", "ai_risk", "ai_system", "ai_eval"],
         "license": "https://www.apache.org/licenses/LICENSE-2.0.html",
         "name": "ai-risk-ontology",
         "prefixes": {
@@ -695,13 +695,107 @@ class RiskTaxonomy(Entity):
     )
 
 
-class RiskGroup(Entity):
+class RiskConcept(Entity):
+    """
+    An umbrella term for refering to risk, risk source, consequence and impact.
+    """
+
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
+        {
+            "class_uri": "airo:RiskConcept",
+            "from_schema": "http://research.ibm.com/ontologies/aiont/ai_risk",
+        }
+    )
+
+    isDetectedBy: Optional[List[str]] = Field(
+        default=None,
+        description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "isDetectedBy",
+                "domain_of": ["RiskConcept"],
+                "inverse": "detectsRiskConcept",
+            }
+        },
+    )
+    id: str = Field(
+        default=...,
+        description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "id",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:identifier",
+            }
+        },
+    )
+    name: Optional[str] = Field(
+        default=None,
+        description="""A text name of this instance.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "name",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:name",
+            }
+        },
+    )
+    description: Optional[str] = Field(
+        default=None,
+        description="""The description of an entity""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "description",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:description",
+            }
+        },
+    )
+    url: Optional[str] = Field(
+        default=None,
+        description="""An optional URL associated with this instance.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "url",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:url",
+            }
+        },
+    )
+    dateCreated: Optional[date] = Field(
+        default=None,
+        description="""The date on which the entity was created.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "dateCreated",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:dateCreated",
+            }
+        },
+    )
+    dateModified: Optional[date] = Field(
+        default=None,
+        description="""The date on which the entity was most recently modified.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "dateModified",
+                "domain_of": ["Entity"],
+                "slot_uri": "schema:dateModified",
+            }
+        },
+    )
+
+
+class RiskGroup(RiskConcept, Entity):
     """
     A group of AI system related risks that are part of a risk taxonomy.
     """
 
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
-        {"from_schema": "http://research.ibm.com/ontologies/aiont/ai_risk"}
+        {
+            "from_schema": "http://research.ibm.com/ontologies/aiont/ai_risk",
+            "mixins": ["RiskConcept"],
+        }
     )
 
     isDefinedByTaxonomy: Optional[str] = Field(
@@ -775,6 +869,17 @@ class RiskGroup(Entity):
             }
         },
     )
+    isDetectedBy: Optional[List[str]] = Field(
+        default=None,
+        description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "isDetectedBy",
+                "domain_of": ["RiskConcept"],
+                "inverse": "detectsRiskConcept",
+            }
+        },
+    )
     id: str = Field(
         default=...,
         description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""",
@@ -843,7 +948,7 @@ class RiskGroup(Entity):
     )
 
 
-class Risk(Entity):
+class Risk(RiskConcept, Entity):
     """
     The state of uncertainty associated with an AI system, that has the potential to cause harms
     """
@@ -852,6 +957,7 @@ class Risk(Entity):
         {
             "class_uri": "airo:Risk",
             "from_schema": "http://research.ibm.com/ontologies/aiont/ai_risk",
+            "mixins": ["RiskConcept"],
             "slot_usage": {
                 "isPartOf": {
                     "description": "A relationship where a risk is "
@@ -952,6 +1058,18 @@ class Risk(Entity):
             }
         },
     )
+    detectsRiskConcept: Optional[List[str]] = Field(
+        default=None,
+        description="""The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts.""",
+        json_schema_extra={
+            "linkml_meta": {
+                "alias": "detectsRiskConcept",
+                "domain_of": ["Risk", "RiskControl"],
+                "exact_mappings": ["airo:detectsRiskConcept"],
+                "inverse": "isDetectedBy",
+            }
+        },
+    )
     tag: Optional[str] = Field(
         default=None,
         description="""A shost version of the name""",
@@ -979,86 +1097,17 @@ class Risk(Entity):
         description="""Some explanation about the concern related to an AI risk""",
         json_schema_extra={"linkml_meta": {"alias": "concern", "domain_of": ["Risk"]}},
     )
-    id: str = Field(
-        default=...,
-        description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "alias": "id",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:identifier",
-            }
-        },
-    )
-    name: Optional[str] = Field(
+    isDetectedBy: Optional[List[str]] = Field(
         default=None,
-        description="""A text name of this instance.""",
+        description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""",
         json_schema_extra={
             "linkml_meta": {
-                "alias": "name",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:name",
+                "alias": "isDetectedBy",
+                "domain_of": ["RiskConcept"],
+                "inverse": "detectsRiskConcept",
             }
         },
     )
-    description: Optional[str] = Field(
-        default=None,
-        description="""The description of an entity""",
-        json_schema_extra={
-            "linkml_meta": {
-                "alias": "description",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:description",
-            }
-        },
-    )
-    url: Optional[str] = Field(
-        default=None,
-        description="""An optional URL associated with this instance.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "alias": "url",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:url",
-            }
-        },
-    )
-    dateCreated: Optional[date] = Field(
-        default=None,
-        description="""The date on which the entity was created.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "alias": "dateCreated",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:dateCreated",
-            }
-        },
-    )
-    dateModified: Optional[date] = Field(
-        default=None,
-        description="""The date on which the entity was most recently modified.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "alias": "dateModified",
-                "domain_of": ["Entity"],
-                "slot_uri": "schema:dateModified",
-            }
-        },
-    )
-
-
-class RiskConcept(Entity):
-    """
-    An umbrella term for refering to risk, risk source consequence and impact.
-    """
-
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
-        {
-            "class_uri": "airo:RiskConcept",
-            "from_schema": "http://research.ibm.com/ontologies/aiont/ai_risk",
-        }
-    )
-
     id: str = Field(
         default=...,
         description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""",
@@ -1141,13 +1190,13 @@ class RiskControl(Entity):
 
     detectsRiskConcept: Optional[List[str]] = Field(
         default=None,
-        description="""The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, consequences, and impacts.""",
+        description="""The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts.""",
         json_schema_extra={
             "linkml_meta": {
                 "alias": "detectsRiskConcept",
-                "any_of": [{"range": "Risk"}, {"range": "RiskGroup"}],
-                "domain_of": ["RiskControl"],
+                "domain_of": ["Risk", "RiskControl"],
                 "exact_mappings": ["airo:detectsRiskConcept"],
+                "inverse": "isDetectedBy",
             }
         },
     )
@@ -1267,11 +1316,11 @@ class Action(Entity):
             }
         },
     )
-    aiActorTask: Optional[List[str]] = Field(
+    ai_actor_task: Optional[List[str]] = Field(
         default=None,
         description="""Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment).""",
         json_schema_extra={
-            "linkml_meta": {"alias": "aiActorTask", "domain_of": ["Action"]}
+            "linkml_meta": {"alias": "ai_actor_task", "domain_of": ["Action"]}
         },
     )
     id: str = Field(
@@ -3481,9 +3530,9 @@ Dataset.model_rebuild()
 Documentation.model_rebuild()
 Fact.model_rebuild()
 RiskTaxonomy.model_rebuild()
+RiskConcept.model_rebuild()
 RiskGroup.model_rebuild()
 Risk.model_rebuild()
-RiskConcept.model_rebuild()
 RiskControl.model_rebuild()
 Action.model_rebuild()
 AiEval.model_rebuild()
