@@ -123,7 +123,7 @@ class RiskExplorer(ExplorerBase):
                 Result containing a list of AI risks IDs
         """
         matching_risks = self._risks
-        print(risk, tag, id, name)
+       
         if risk is not None:
             matching_risks = [risk]
         if tag is not None:

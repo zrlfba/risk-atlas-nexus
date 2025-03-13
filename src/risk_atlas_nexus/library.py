@@ -101,7 +101,7 @@ class RiskAtlasNexus:
             list[Risk]
                 Result containing a list of AI risks
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RANEACF44A7E>", str, allow_none=True, taxonomy=taxonomy)
 
         risk_instances = cls._risk_explorer.get_all_risks(taxonomy)
         return risk_instances
@@ -124,7 +124,7 @@ class RiskAtlasNexus:
                 Result containing a list of AI risks
         """
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RAND62C1B3AE>",
             str,
             allow_none=True,
             tag=tag,
@@ -133,7 +133,7 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN14D4D967E>",
             tag or id or name,
             "Please provide tag, id, or name",
         )
@@ -161,9 +161,9 @@ class RiskAtlasNexus:
             List[str]
                 Result containing a list of AI risk IDs
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", Risk, allow_none=True, risk=risk)
+        type_check("<RAN283B72CAE>", Risk, allow_none=True, risk=risk)
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RANC9FDCC45E>",
             str,
             allow_none=True,
             tag=tag,
@@ -172,7 +172,7 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN0748ECB7E>",
             risk or tag or id or name,
             "Please provide tag, id, or name",
         )
@@ -203,9 +203,9 @@ class RiskAtlasNexus:
             Risk
                 Result containing a list of AI actions
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", Risk, allow_none=True, risk=risk)
+        type_check("<RANEDB39EABE>", Risk, allow_none=True, risk=risk)
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RANC49E332BE>",
             str,
             allow_none=True,
             tag=tag,
@@ -214,7 +214,7 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN7154EE0FE>",
             risk or tag or id or name,
             "Please provide risk, tag, id, or name",
         )
@@ -235,7 +235,7 @@ class RiskAtlasNexus:
             list[Action]
                 Result containing a list of AI actions
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RAN1C9A35ADE>", str, allow_none=True, taxonomy=taxonomy)
 
         action_instances: list[Action] = cls._risk_explorer.get_all_actions(taxonomy)
         return action_instances
@@ -253,12 +253,12 @@ class RiskAtlasNexus:
             Action
                 Result containing an action
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=False, id=id)
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RAN66203B1FE>", str, allow_none=False, id=id)
+        type_check("<RAN869039B6E>", str, allow_none=True, taxonomy=taxonomy)
 
         action: Action | None = cls._risk_explorer.get_action_by_id(id=id)
         return action
-
+    
     def get_related_risk_controls(
         cls, risk=None, tag=None, id=None, name=None, taxonomy=None
     ):
@@ -280,9 +280,9 @@ class RiskAtlasNexus:
             Risk
                 Result containing a list of AI actions
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", Risk, allow_none=True, risk=risk)
+        type_check("<RAN4E03158FE>", Risk, allow_none=True, risk=risk)
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RAN55784808E>",
             str,
             allow_none=True,
             tag=tag,
@@ -291,7 +291,7 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN5DCADF94E>",
             risk or tag or id or name,
             "Please provide risk, tag, id, or name",
         )
@@ -300,7 +300,7 @@ class RiskAtlasNexus:
             risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
         )
         return risk_controls
-
+    
     def get_all_risk_controls(cls, taxonomy=None):
         """Get all risk control definitions from the LinkML
 
@@ -312,11 +312,9 @@ class RiskAtlasNexus:
             list[RiskControl]
                 Result containing a list of RiskControls
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RAN129A1692E>", str, allow_none=True, taxonomy=taxonomy)
 
-        risk_control_instances: list[RiskControl] = (
-            cls._risk_explorer.get_all_risk_controls(taxonomy)
-        )
+        risk_control_instances: list[RiskControl] = cls._risk_explorer.get_all_risk_controls(taxonomy)
         return risk_control_instances
 
     def get_risk_control(cls, id=None, taxonomy=None):
@@ -332,8 +330,8 @@ class RiskAtlasNexus:
             Action
                 Result containing a risk control.
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=False, id=id)
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RAN9785FFE3E>", str, allow_none=False, id=id)
+        type_check("<RAN5A157049E>", str, allow_none=True, taxonomy=taxonomy)
 
         risk_control: RiskControl | None = cls._risk_explorer.get_risk_control(id=id)
         return risk_control
@@ -359,14 +357,14 @@ class RiskAtlasNexus:
                 Result containing a list of risks
         """
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RANE023314BE>",
             InferenceEngine,
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=True, taxonomy=taxonomy)
+        type_check("<RANB72CAE6EE>", str, allow_none=True, taxonomy=taxonomy)
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN4717CF18E>",
             usecases or inference_engine,
             "Please provide usecases and inference_engine",
         )
@@ -398,7 +396,7 @@ class RiskAtlasNexus:
             RiskTaxonomy
                 An AI Risk taxonomy
         """
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=False, id=id)
+        type_check("<RANBFB574E3E>", str, allow_none=False, id=id)
 
         taxonomy: RiskTaxonomy | None = cls._risk_explorer.get_taxonomy_by_id(id)
         return taxonomy
@@ -427,17 +425,17 @@ class RiskAtlasNexus:
             List[str]: List of LLM predictions.
         """
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RANF7EFFADAE>",
             InferenceEngine,
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check("<RAN_TYPE_CHECK_ERROR>", str, allow_none=False, usecase=usecase)
+        type_check("<RANB9FDEA04E>", str, allow_none=False, usecase=usecase)
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>", List[str], allow_none=False, questions=questions
+            "<RANF7256EC3E>", List[str], allow_none=False, questions=questions
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RANC49F00D3E>",
             inference_engine and questions,
             "Please provide questions and inference_engine",
         )
@@ -534,16 +532,16 @@ class RiskAtlasNexus:
                 Result containing a list of AI tasks
         """
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>",
+            "<RAN3B9CD886E>",
             InferenceEngine,
             allow_none=False,
             inference_engine=inference_engine,
         )
         type_check(
-            "<RAN_TYPE_CHECK_ERROR>", List[str], allow_none=False, usecases=usecases
+            "<RAN4CDA6852E>", List[str], allow_none=False, usecases=usecases
         )
         value_check(
-            "<RAN_VALUE_CHECK_ERROR>",
+            "<RAN0E435F50E>",
             inference_engine and usecases,
             "Please provide usecases and inference_engine",
         )
