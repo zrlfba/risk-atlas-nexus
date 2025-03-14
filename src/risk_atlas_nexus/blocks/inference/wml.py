@@ -100,19 +100,33 @@ class WMLInferenceEngine(InferenceEngine):
             prompt=prompts,
             concurrency_limit=self.concurrency_limit,
         ):
-            responses.append(self._prepare_prediction_output(response))
+            responses.append(self._prepare_generation_output(response))
 
         return responses
 
-    def _prepare_prediction_output(
+    def _prepare_generation_output(
         self, response
     ) -> List[TextGenerationInferenceOutput]:
         return TextGenerationInferenceOutput(
             prediction=response["results"][0]["generated_text"],
-            # input_text=prompts[0]["source"],
             input_tokens=response["results"][0]["input_token_count"],
             output_tokens=response["results"][0]["generated_token_count"],
             stop_reason=response["results"][0]["stop_reason"],
+            model_name_or_path=self.model_name_or_path,
+            inference_engine=str(self._inference_engine_type),
+        )
+
+    @postprocess
+    def chat(self, messages: List[Dict]) -> TextGenerationInferenceOutput:
+        response = self.client.chat(messages=messages)
+        return self._prepare_chat_output(response)
+
+    def _prepare_chat_output(self, response) -> List[TextGenerationInferenceOutput]:
+        return TextGenerationInferenceOutput(
+            prediction=response["choices"][0]["message"]["content"],
+            input_tokens=response["usage"]["prompt_tokens"],
+            output_tokens=response["usage"]["completion_tokens"],
+            stop_reason=response["choices"][0]["finish_reason"],
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )

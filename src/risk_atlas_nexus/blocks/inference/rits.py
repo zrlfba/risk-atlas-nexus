@@ -53,74 +53,34 @@ class RITSInferenceEngine(InferenceEngine):
             default_headers={"RITS_API_KEY": credentials["api_key"]},
         )
 
-    def _to_open_ai_format(self, prompt: str):
-        # prompt = []
-        # if "instructions" in prompt_params:
-        #     prompt.append(
-        #         {
-        #             "role": "developer",
-        #             "content": [
-        #                 {
-        #                     "type": "text",
-        #                     "text": prompt_params["instructions"],
-        #                 }
-        #             ],
-        #         }
-        #     )
-        # if "examples" in prompt_params:
-        #     prompt.append(
-        #         {
-        #             "role": "examples",
-        #             "content": [
-        #                 {
-        #                     "type": "text",
-        #                     "text": prompt_params["examples"],
-        #                 }
-        #             ],
-        #         }
-        #     )
-        # if "query" in prompt_params:
-        #     prompt.append(
-        #         {
-        #             "role": "user",
-        #             "content": [
-        #                 {
-        #                     "type": "text",
-        #                     "text": prompt_params["query"],
-        #                 }
-        #             ],
-        #         }
-        #     )
-
-        return [
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        ]
-
     @postprocess
-    def generate(self, prompts: List[str]):
-        return run_parallel(
-            self.generate_text,
-            prompts,
-            f"Inferring with {self._inference_engine_type}",
-            self.concurrency_limit,
+    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
+        response = self.client.completions.create(
+            model=self.model_name_or_path,
+            prompt=prompts,
+            **self.parameters,
+        )
+        return [self._prepare_generate_output(choice) for choice in response.choices]
+
+    def _prepare_generate_output(self, response):
+        return TextGenerationInferenceOutput(
+            prediction=response.text,
+            model_name_or_path=self.model_name_or_path,
+            inference_engine=str(self._inference_engine_type),
         )
 
-    def generate_text(self, prompt: str):
-        messages = self._to_open_ai_format(prompt)
+    @postprocess
+    def chat(self, messages: List[Dict]) -> TextGenerationInferenceOutput:
         response = self.client.chat.completions.create(
             messages=messages,
             model=self.model_name_or_path,
             **self.parameters,
         )
-        return self._prepare_prediction_output(response)
+        return self._prepare_chat_output(response)
 
-    def _prepare_prediction_output(self, response):
+    def _prepare_chat_output(self, response):
         return TextGenerationInferenceOutput(
             prediction=response.choices[0].message.content,
-            # input_text=prompts[0]["source"],
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )

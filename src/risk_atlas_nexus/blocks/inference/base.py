@@ -8,6 +8,8 @@ from risk_atlas_nexus.blocks.inference.params import (
     RITSInferenceEngineParams,
     TextGenerationInferenceOutput,
     WMLInferenceEngineParams,
+    OllamaInferenceEngineParams,
+    VLLMInferenceEngineParams,
 )
 from risk_atlas_nexus.toolkit.logging import configure_logger
 
@@ -22,7 +24,12 @@ class InferenceEngine(ABC):
         model_name_or_path: str,
         credentials: Optional[Union[Dict, InferenceEngineCredentials]] = None,
         parameters: Optional[
-            Union[RITSInferenceEngineParams, WMLInferenceEngineParams]
+            Union[
+                RITSInferenceEngineParams,
+                WMLInferenceEngineParams,
+                OllamaInferenceEngineParams,
+                VLLMInferenceEngineParams,
+            ]
         ] = None,
         postprocessors: List[str] = None,
         concurrency_limit: int = 10,
@@ -68,6 +75,10 @@ class InferenceEngine(ABC):
 
     @abstractmethod
     def create_client(self, credentials: InferenceEngineCredentials) -> Any:
+        raise NotImplementedError
+
+    @abstractmethod
+    def chat(self, messages: List[Dict]) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError
 
     @abstractmethod

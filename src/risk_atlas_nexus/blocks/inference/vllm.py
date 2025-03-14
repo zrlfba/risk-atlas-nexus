@@ -77,40 +77,62 @@ class VLLMInferenceEngine(InferenceEngine):
     def generate(self, prompts: List[str]):
         from vllm import LLM, SamplingParams
 
-        responses = []
         if isinstance(self.client, LLM):
+            responses = []
             for response in self.client.generate(
                 prompts=prompts,
                 sampling_params=SamplingParams(**self.parameters),
                 use_tqdm=True,
             ):
-                responses.append(
-                    self._prepare_prediction_output(response, offline=True)
-                )
+                responses.append(self._prepare_generate_output(response, offline=True))
+            return responses
         else:
-            responses = run_parallel(
-                self.generate_vllm_server_response,
-                prompts,
-                f"Inferring with {self._inference_engine_type}",
-                self.concurrency_limit,
+            response = self.client.completions.create(
+                model=self.model_name_or_path,
+                prompt=prompts,
+                **self.parameters,
             )
+            return [
+                self._prepare_generate_output(choice, offline=False)
+                for choice in response.choices
+            ]
 
-        return responses
-
-    def generate_vllm_server_response(self, prompt: str):
-        response = self.client.completions.create(
-            model=self.model_name_or_path,
-            prompt=prompt,
-            **self.parameters,
+    def _prepare_generate_output(self, response, offline=True):
+        return TextGenerationInferenceOutput(
+            prediction=(response.outputs[0].text if offline else response.text),
+            model_name_or_path=self.model_name_or_path,
+            inference_engine=str(self._inference_engine_type),
         )
-        return self._prepare_prediction_output(response, offline=False)
 
-    def _prepare_prediction_output(self, response, offline=True):
+    @postprocess
+    def chat(self, messages: List[Dict]):
+        from vllm import LLM, SamplingParams
+
+        if isinstance(self.client, LLM):
+            responses = []
+            for response in self.client.chat(
+                messages=messages,
+                sampling_params=SamplingParams(**self.parameters),
+                use_tqdm=True,
+            ):
+                responses.append(self._prepare_chat_output(response, offline=True))
+            return responses
+        else:
+
+            response = self.client.chat.completions.create(
+                model=self.model_name_or_path,
+                messages=messages,
+                **self.parameters,
+            )
+            return self._prepare_chat_output(response, offline=False)
+
+    def _prepare_chat_output(self, response, offline=True):
         return TextGenerationInferenceOutput(
             prediction=(
-                response.outputs[0].text if offline else response.choices[0].text
+                response.outputs[0].text
+                if offline
+                else response.choices[0].message.content
             ),
-            # input_text=prompts[0]["source"],
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )

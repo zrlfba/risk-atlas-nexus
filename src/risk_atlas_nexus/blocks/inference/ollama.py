@@ -48,29 +48,37 @@ class OllamaInferenceEngine(InferenceEngine):
     def create_client(self, credentials):
         from ollama import Client
 
-        return Client(host=credentials["api_url"])
+        return Client(host=credentials["api_url"]).generate
 
     @postprocess
-    def generate(self, prompts: List[str]):
+    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
+        def generate_text(prompt: str):
+            response = self.client.generate(
+                model=self.model_name_or_path,
+                prompt=prompt,
+                options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+            )
+            return self._prepare_prediction_output(response.response)
+
         return run_parallel(
-            self.generate_text,
+            generate_text,
             prompts,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
         )
 
-    def generate_text(self, prompt: str):
-        response = self.client.generate(
+    @postprocess
+    def chat(self, messages: List[Dict]) -> TextGenerationInferenceOutput:
+        response = self.client.chat(
             model=self.model_name_or_path,
-            prompt=prompt,
+            messages=messages,
             options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
         )
-        return self._prepare_prediction_output(response)
+        return self._prepare_prediction_output(response.message.content)
 
-    def _prepare_prediction_output(self, response):
+    def _prepare_prediction_output(self, prediction):
         return TextGenerationInferenceOutput(
-            prediction=response.response,
-            # input_text=prompts[0]["source"],
+            prediction=prediction,
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )
