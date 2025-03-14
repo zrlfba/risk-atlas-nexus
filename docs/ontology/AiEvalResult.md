@@ -9,7 +9,7 @@ _The result of an evaluation for a specific AI model._
 
 
 
-URI: [dqv:QualityMeasurement](dqv:QualityMeasurement)
+URI: [dqv:QualityMeasurement](https://www.w3.org/TR/vocab-dqv/QualityMeasurement)
 
 
 

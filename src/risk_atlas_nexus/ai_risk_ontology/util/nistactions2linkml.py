@@ -22,7 +22,9 @@ def create_container_object() -> Container:
             id=action["NIST Action ID"],
             name=action["NIST Action ID"],
             description=action["NIST Title"],
-            aiActorTask=[task.strip() for task in action["AI Actor Tasks"].split(",")],
+            ai_actor_task=[
+                task.strip() for task in action["AI Actor Tasks"].split(",")
+            ],
             hasRelatedRisk=get_related_risks(action["NIST GAI Risks"], risks),
             hasDocumentation=["NIST.AI.600-1"],
         )

@@ -1,15 +1,15 @@
 
 
-# Slot: exactMatch
+# Slot: isDetectedBy
 
 
-_The property is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications_
+_A relationship where a risk, risk source, consequence, or impact is detected by a risk control._
 
 
 
 
 
-URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core/exactMatch)
+URI: [nexus:isDetectedBy](http://research.ibm.com/ontologies/aiont/isDetectedBy)
 
 
 
@@ -23,6 +23,7 @@ URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core/exactMatch)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [RiskConcept](RiskConcept.md) | An umbrella term for refering to risk, risk source, consequence and impact |  no  |
 | [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
 | [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 
@@ -34,7 +35,7 @@ URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core/exactMatch)
 
 ## Properties
 
-* Range: [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md)
+* Range: [RiskControl](RiskControl.md)
 
 * Multivalued: True
 
@@ -62,8 +63,8 @@ URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core/exactMatch)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | skos:exactMatch |
-| native | nexus:exactMatch |
+| self | nexus:isDetectedBy |
+| native | nexus:isDetectedBy |
 
 
 
@@ -72,23 +73,18 @@ URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core/exactMatch)
 
 <details>
 ```yaml
-name: exactMatch
-description: The property is used to link two concepts, indicating a high degree of
-  confidence that the concepts can be used interchangeably across a wide range of
-  information retrieval applications
+name: isDetectedBy
+description: A relationship where a risk, risk source, consequence, or impact is detected
+  by a risk control.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
-slot_uri: skos:exactMatch
-alias: exactMatch
+alias: isDetectedBy
 domain_of:
-- RiskGroup
-- Risk
-range: Any
+- RiskConcept
+inverse: detectsRiskConcept
+range: RiskControl
 multivalued: true
 inlined: false
-any_of:
-- range: Risk
-- range: RiskGroup
 
 ```
 </details>

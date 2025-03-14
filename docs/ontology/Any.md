@@ -47,7 +47,6 @@ URI: [linkml:Any](https://w3id.org/linkml/Any)
 | [Risk](Risk.md) | [broadMatch](broadMatch.md) | range | [Any](Any.md) |
 | [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | range | [Any](Any.md) |
 | [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | range | [Any](Any.md) |
-| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | range | [Any](Any.md) |
 
 
 

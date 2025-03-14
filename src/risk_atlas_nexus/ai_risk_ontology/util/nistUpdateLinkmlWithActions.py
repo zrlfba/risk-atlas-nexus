@@ -17,11 +17,15 @@ def create_container_object() -> Container:
     new_risks = []
     for risk in risk_data.risks:
         risk.hasRelatedAction = [
-            action.id for action in actions if action.hasRelatedRisk is not None and risk.id in action.hasRelatedRisk
+            action.id
+            for action in actions
+            if action.hasRelatedRisk is not None and risk.id in action.hasRelatedRisk
         ]
         new_risks.append(risk)
     # Create container
-    container = Container(risks=new_risks, documents=risk_data.documents, taxonomies=risk_data.taxonomies)
+    container = Container(
+        risks=new_risks, documents=risk_data.documents, taxonomies=risk_data.taxonomies
+    )
     return container
 
 
@@ -32,7 +36,12 @@ def get_risks() -> Container:
 
 def get_related_risks(related_risks_str: str, risks: dict[str, str]) -> list[str]:
     related_risks = related_risks_str.split(";")
-    return [id for name, id in risks.items() for risk in related_risks if name == risk.strip()]
+    return [
+        id
+        for name, id in risks.items()
+        for risk in related_risks
+        if name == risk.strip()
+    ]
 
 
 def get_actions() -> list[Action]:

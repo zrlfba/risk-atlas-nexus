@@ -7,8 +7,9 @@ from typing import Optional, List, Dict
 
 from importlib.metadata import version
 from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
-    Risk,
     Action,
+    Risk,
+    RiskControl,
     RiskTaxonomy,
 )
 from risk_atlas_nexus.blocks.inference.templates import COT_TEMPLATE, AI_TASKS_TEMPLATE
@@ -17,14 +18,16 @@ from risk_atlas_nexus.blocks.risk_explorer import RiskExplorer
 from risk_atlas_nexus.blocks.inference import InferenceEngine
 from risk_atlas_nexus.ai_risk_ontology.schema import *
 from risk_atlas_nexus.toolkit.data_utils import load_yamls_to_container
+from risk_atlas_nexus.toolkit.error_utils import type_check, value_check
 from risk_atlas_nexus.data import get_templates_path
 from risk_atlas_nexus.toolkit.logging import configure_logger
+
 
 logger = configure_logger(__name__)
 
 
 class RiskAtlasNexus:
-    """A RiskAtlasNexus"""
+    """A RiskAtlasNexus object"""
 
     # Load the schema
     directory = os.path.dirname(os.path.abspath(__file__))
@@ -98,18 +101,21 @@ class RiskAtlasNexus:
             list[Risk]
                 Result containing a list of AI risks
         """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check("<RANEACF44A7E>", str, allow_none=True, taxonomy=taxonomy)
 
         risk_instances = cls._risk_explorer.get_all_risks(taxonomy)
         return risk_instances
 
-    def get_risk_by_tag(cls, tag):
-        """Get risk definition from the LinkML, filtered by risk atlas tag
+    def get_risk(cls, tag=None, id=None, name=None, taxonomy=None):
+        """Get risk definition from the LinkML, filtered by risk atlas id, tag, name
 
         Args:
-            tag: str
-                The string label identifying the risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
             taxonomy: str
                 (Optional) The string label for a taxonomy
 
@@ -117,130 +123,109 @@ class RiskAtlasNexus:
             Risk
                 Result containing a list of AI risks
         """
-        risk = cls._risk_explorer.get_risk_by_tag(tag=tag)
+        type_check(
+            "<RAND62C1B3AE>",
+            str,
+            allow_none=True,
+            tag=tag,
+            id=id,
+            name=name,
+            taxonomy=taxonomy,
+        )
+        value_check(
+            "<RAN14D4D967E>",
+            tag or id or name,
+            "Please provide tag, id, or name",
+        )
+
+        risk: Risk | None = cls._risk_explorer.get_risk(
+            tag=tag, id=id, name=name, taxonomy=taxonomy
+        )
         return risk
 
-    def get_risk_by_id(cls, id):
-        """Get a risk definition from the LinkML, filtered by risk id
+    def get_related_risks(cls, risk=None, tag=None, id=None, name=None, taxonomy=None):
+        """Get related risks from the LinkML, filtered by risk id, tag, or name
 
         Args:
-            id: str
-                The string label identifying the risk
-
-        Returns:
-            Risk
-                Result containing a list of AI risks
-        """
-        risk = cls._risk_explorer.get_risk_by_id(id=id)
-        return risk
-
-    def get_related_risk_ids_by_atlas_tag(cls, tag, taxonomy=None):
-        """Get related risk IDs from the LinkML, that are attached to a risk with risk atlas tag
-
-        Args:
-            tag: str
-                The string label identifying the risk
+            risk: (Optional) Risk
+                The risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
             taxonomy: str
                 (Optional) The string label for a taxonomy
-
         Returns:
             List[str]
                 Result containing a list of AI risk IDs
         """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check("<RAN283B72CAE>", Risk, allow_none=True, risk=risk)
+        type_check(
+            "<RANC9FDCC45E>",
+            str,
+            allow_none=True,
+            tag=tag,
+            id=id,
+            name=name,
+            taxonomy=taxonomy,
+        )
+        value_check(
+            "<RAN0748ECB7E>",
+            risk or tag or id or name,
+            "Please provide tag, id, or name",
+        )
 
-        related_risk_instances = cls._risk_explorer.get_related_risk_ids_by_atlas_tag(
-            tag, taxonomy
+        related_risk_instances = cls._risk_explorer.get_related_risks(
+            risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
         )
         return related_risk_instances
 
-    def get_related_risks_by_atlas_tag(cls, tag, taxonomy=None):
-        """Get related risk definitions from the LinkML, by risk atlas tag
+    def get_related_actions(
+        cls, risk=None, tag=None, id=None, name=None, taxonomy=None
+    ):
+        """Get actions for a risk definition from the LinkML.  The risk is identified by risk id, tag, or name
 
         Args:
-            tag: str
-                The string label identifying the risk
-            taxonomy: str
-                The string label for a taxonomy
-
-        Returns:
-            List[Risk]
-                Result containing a list of AI risks
-        """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
-
-        related_risk_instances = cls._risk_explorer.get_related_risks_by_atlas_tag(
-            tag, taxonomy
-        )
-        return related_risk_instances
-
-    def get_related_risk_ids_by_risk_id(cls, id, taxonomy=None):
-        """Get related risk definitions from the LinkML, by risk atlas tag
-
-        Args:
-            id: str
-                The string label identifying the risk
-            taxonomy: str
-                The string label for a taxonomy
-
-        Returns:
-            List[str]
-                Result containing a list of AI risks IDs
-        """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
-
-        related_risk_instances = cls._risk_explorer.get_related_risk_ids_by_risk_id(
-            id=id, taxonomy=taxonomy
-        )
-        return related_risk_instances
-
-    def get_related_risks_by_risk_id(cls, id, taxonomy=None):
-        """Get related risk definitions from the LinkML, by risk atlas tag
-
-        Args:
-            id: str
-                The string label identifying the risk
-            taxonomy: str
-                The string label for a taxonomy
-
-        Returns:
-            List[Risk]
-                Result containing a list of AI risks
-        """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
-
-        related_risk_instances = cls._risk_explorer.get_related_risks_by_risk_id(
-            id=id, taxonomy=taxonomy
-        )
-        return related_risk_instances
-
-    def get_risk_actions_by_risk_id(cls, id, taxonomy=None):
-        """Get actions for a risk definition from the LinkML, filtered by risk id
-
-        Args:
-            id: str
-                The string label identifying the risk
+            risk: (Optional) Risk
+                The risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
             taxonomy: str
                 (Optional) The string label for a taxonomy
 
         Returns:
             Risk
-                Result containing a list of AI risks
+                Result containing a list of AI actions
         """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check("<RANEDB39EABE>", Risk, allow_none=True, risk=risk)
+        type_check(
+            "<RANC49E332BE>",
+            str,
+            allow_none=True,
+            tag=tag,
+            id=id,
+            name=name,
+            taxonomy=taxonomy,
+        )
+        value_check(
+            "<RAN7154EE0FE>",
+            risk or tag or id or name,
+            "Please provide risk, tag, id, or name",
+        )
 
-        actions = cls._risk_explorer.get_risk_actions_by_risk_id(
-            id=id, taxonomy=taxonomy
+        actions = cls._risk_explorer.get_related_actions(
+            risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
         )
         return actions
 
     def get_all_actions(cls, taxonomy=None):
-        """Get all risk definitions from the LinkML
+        """Get all action definitions from the LinkML
 
         Args:
             taxonomy: str
@@ -248,10 +233,9 @@ class RiskAtlasNexus:
 
         Returns:
             list[Action]
-                Result containing a list of AI risks
+                Result containing a list of AI actions
         """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check("<RAN1C9A35ADE>", str, allow_none=True, taxonomy=taxonomy)
 
         action_instances: list[Action] = cls._risk_explorer.get_all_actions(taxonomy)
         return action_instances
@@ -266,14 +250,91 @@ class RiskAtlasNexus:
                 (Optional) The string label for a taxonomy
 
         Returns:
-            Risk
-                Result containing a list of AI risks
+            Action
+                Result containing an action
         """
-        if taxonomy is not None and type(taxonomy) != str:
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check("<RAN66203B1FE>", str, allow_none=False, id=id)
+        type_check("<RAN869039B6E>", str, allow_none=True, taxonomy=taxonomy)
 
         action: Action | None = cls._risk_explorer.get_action_by_id(id=id)
         return action
+    
+    def get_related_risk_controls(
+        cls, risk=None, tag=None, id=None, name=None, taxonomy=None
+    ):
+        """Get related risk controls for a risk definition from the LinkML.  The risk is identified by risk id, tag, or name
+
+        Args:
+            risk: (Optional) Risk
+                The risk
+            id: (Optional) str
+                The string ID identifying the risk
+            tag: (Optional) str
+                The string tag identifying the risk
+            name: (Optional) str
+                The string name identifying the risk
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            Risk
+                Result containing a list of AI actions
+        """
+        type_check("<RAN4E03158FE>", Risk, allow_none=True, risk=risk)
+        type_check(
+            "<RAN55784808E>",
+            str,
+            allow_none=True,
+            tag=tag,
+            id=id,
+            name=name,
+            taxonomy=taxonomy,
+        )
+        value_check(
+            "<RAN5DCADF94E>",
+            risk or tag or id or name,
+            "Please provide risk, tag, id, or name",
+        )
+
+        risk_controls = cls._risk_explorer.get_related_risk_controls(
+            risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
+        )
+        return risk_controls
+    
+    def get_all_risk_controls(cls, taxonomy=None):
+        """Get all risk control definitions from the LinkML
+
+        Args:
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            list[RiskControl]
+                Result containing a list of RiskControls
+        """
+        type_check("<RAN129A1692E>", str, allow_none=True, taxonomy=taxonomy)
+
+        risk_control_instances: list[RiskControl] = cls._risk_explorer.get_all_risk_controls(taxonomy)
+        return risk_control_instances
+
+    def get_risk_control(cls, id=None, taxonomy=None):
+        """Get an action definition from the LinkML, filtered by risk control id
+
+        Args:
+            id: str
+                The string id identifying the risk control
+            taxonomy: str
+                (Optional) The string label for a taxonomy
+
+        Returns:
+            Action
+                Result containing a risk control.
+        """
+        type_check("<RAN9785FFE3E>", str, allow_none=False, id=id)
+        type_check("<RAN5A157049E>", str, allow_none=True, taxonomy=taxonomy)
+
+        risk_control: RiskControl | None = cls._risk_explorer.get_risk_control(id=id)
+        return risk_control
 
     def identify_risks_from_usecases(
         cls,
@@ -295,8 +356,18 @@ class RiskAtlasNexus:
             List[List[Risk]]:
                 Result containing a list of risks
         """
-        if taxonomy is not None and (type(taxonomy) != str):
-            raise ValueError("Taxonomy must be a string", taxonomy)
+        type_check(
+            "<RANE023314BE>",
+            InferenceEngine,
+            allow_none=False,
+            inference_engine=inference_engine,
+        )
+        type_check("<RANB72CAE6EE>", str, allow_none=True, taxonomy=taxonomy)
+        value_check(
+            "<RAN4717CF18E>",
+            usecases or inference_engine,
+            "Please provide usecases and inference_engine",
+        )
 
         risk_detector = AutoRiskDetector.create(
             cls._ontology, inference_engine=inference_engine, taxonomy=taxonomy
@@ -308,8 +379,8 @@ class RiskAtlasNexus:
         """Get all taxonomy definitions from the LinkML, optionally filtered by taxonomy
 
         Returns:
-            List[Risk]
-                Result containing a list of AI risks
+            List[RiskTaxonomy]
+                Result containing a list of AI Risk taxonomies
         """
         taxonomy_instances: list[RiskTaxonomy] = cls._risk_explorer.get_all_taxonomies()
         return taxonomy_instances
@@ -322,9 +393,11 @@ class RiskAtlasNexus:
                 The string id for a taxonomy
 
         Returns:
-            List[RiskTaxonomy]
-                Result containing a list of AI risks
+            RiskTaxonomy
+                An AI Risk taxonomy
         """
+        type_check("<RANBFB574E3E>", str, allow_none=False, id=id)
+
         taxonomy: RiskTaxonomy | None = cls._risk_explorer.get_taxonomy_by_id(id)
         return taxonomy
 
@@ -351,6 +424,21 @@ class RiskAtlasNexus:
         Returns:
             List[str]: List of LLM predictions.
         """
+        type_check(
+            "<RANF7EFFADAE>",
+            InferenceEngine,
+            allow_none=False,
+            inference_engine=inference_engine,
+        )
+        type_check("<RANB9FDEA04E>", str, allow_none=False, usecase=usecase)
+        type_check(
+            "<RANF7256EC3E>", List[str], allow_none=False, questions=questions
+        )
+        value_check(
+            "<RANC49F00D3E>",
+            inference_engine and questions,
+            "Please provide questions and inference_engine",
+        )
 
         prompts = [
             inference_engine.prepare_prompt(
@@ -443,6 +531,21 @@ class RiskAtlasNexus:
             List[List[str]]:
                 Result containing a list of AI tasks
         """
+        type_check(
+            "<RAN3B9CD886E>",
+            InferenceEngine,
+            allow_none=False,
+            inference_engine=inference_engine,
+        )
+        type_check(
+            "<RAN4CDA6852E>", List[str], allow_none=False, usecases=usecases
+        )
+        value_check(
+            "<RAN0E435F50E>",
+            inference_engine and usecases,
+            "Please provide usecases and inference_engine",
+        )
+
         with open(os.path.join(get_templates_path(), "hf_ai_tasks.json")) as f:
             hf_ai_tasks = json.load(f)
         prompts = [
