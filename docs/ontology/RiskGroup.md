@@ -58,6 +58,15 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
     click Any href "../Any"
 
         
+      RiskGroup : hasPart
+        
+          
+    
+    
+    RiskGroup --> "*" Risk : hasPart
+    click Risk href "../Risk"
+
+        
       RiskGroup : id
         
       RiskGroup : isDefinedByTaxonomy
@@ -123,6 +132,7 @@ URI: [nexus:RiskGroup](http://research.ibm.com/ontologies/aiont/RiskGroup)
 | [broadMatch](broadMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [narrowMatch](narrowMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [relatedMatch](relatedMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
+| [hasPart](hasPart.md) | * <br/> [Risk](Risk.md) | A relationship where a riskgroup has a risk | direct |
 | [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | [RiskConcept](RiskConcept.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
@@ -207,6 +217,12 @@ slots:
 - broadMatch
 - narrowMatch
 - relatedMatch
+- hasPart
+slot_usage:
+  hasPart:
+    name: hasPart
+    description: A relationship where a riskgroup has a risk
+    range: Risk
 
 ```
 </details>
@@ -221,6 +237,11 @@ from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
 mixins:
 - RiskConcept
+slot_usage:
+  hasPart:
+    name: hasPart
+    description: A relationship where a riskgroup has a risk
+    range: Risk
 attributes:
   isDefinedByTaxonomy:
     name: isDefinedByTaxonomy
@@ -329,6 +350,18 @@ attributes:
     any_of:
     - range: Risk
     - range: RiskGroup
+  hasPart:
+    name: hasPart
+    description: A relationship where a riskgroup has a risk
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: schema:hasPart
+    alias: hasPart
+    owner: RiskGroup
+    domain_of:
+    - RiskGroup
+    range: Risk
+    multivalued: true
   isDetectedBy:
     name: isDetectedBy
     description: A relationship where a risk, risk source, consequence, or impact

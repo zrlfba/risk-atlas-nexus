@@ -80,7 +80,7 @@ class TestLibrary(TestCaseBase):
         """Check how many risks returned for get all risk definitions"""
         ran_lib = self.ran_lib
         all_risks = ran_lib.get_all_risks()
-        self.assertTrue(len(all_risks) == 439)
+        self.assertTrue(len(all_risks) == 451)
 
     def test_get_risk_by_tag_type(self):
         """Check type of Get risk definition filtered by risk atlas tag"""
@@ -162,7 +162,7 @@ class TestLibrary(TestCaseBase):
         """Get all taxonomy definitions from the LinkML"""
         ran_lib = self.ran_lib
         taxonomies = ran_lib.get_all_taxonomies()
-        self.assertIs(len(taxonomies), 6)
+        self.assertIs(len(taxonomies), 7)
 
     def test_get_taxonomy_by_id(self):
         """Get taxonomy definitions from the LinkML filtered by taxonomy id"""
