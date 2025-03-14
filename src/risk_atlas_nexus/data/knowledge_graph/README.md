@@ -16,6 +16,7 @@ For more information about LinkML data instances see [the LinkML documentation](
 - `owasp_llm_2.0_data.yaml`: The OWASP Top 10 for Large Language Model Applications version 2 risk definitions
 - `mit_ai_risk_repository_data.yaml`: The MIT AI Risk Repository risk taxonomy
 - `ailuminate.yaml`: The AILuminate benchmark risk taxonomy
+- `credo.yaml`: the Unified Control Framework from Credo
 
 ### Risk mappings
 

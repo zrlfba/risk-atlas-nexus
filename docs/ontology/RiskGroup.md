@@ -256,6 +256,7 @@ attributes:
     - RiskGroup
     - Risk
     - RiskControl
+    - Action
     range: RiskTaxonomy
   closeMatch:
     name: closeMatch

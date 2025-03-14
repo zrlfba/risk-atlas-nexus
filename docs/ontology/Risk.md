@@ -402,6 +402,7 @@ attributes:
     - RiskGroup
     - Risk
     - RiskControl
+    - Action
     range: RiskTaxonomy
   isPartOf:
     name: isPartOf

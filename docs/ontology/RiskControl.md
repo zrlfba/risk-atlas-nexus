@@ -187,6 +187,7 @@ attributes:
     - RiskGroup
     - Risk
     - RiskControl
+    - Action
     range: RiskTaxonomy
   id:
     name: id
