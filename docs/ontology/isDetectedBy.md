@@ -23,8 +23,8 @@ URI: [nexus:isDetectedBy](http://research.ibm.com/ontologies/aiont/isDetectedBy)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RiskConcept](RiskConcept.md) | An umbrella term for refering to risk, risk source, consequence and impact |  no  |
 | [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
+| [RiskConcept](RiskConcept.md) | An umbrella term for refering to risk, risk source, consequence and impact |  no  |
 | [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
 
 

@@ -24,9 +24,9 @@ URI: [nexus:producer](http://research.ibm.com/ontologies/aiont/producer)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [AiModel](AiModel.md) | A base AI Model class |  no  |
-| [BaseAi](BaseAi.md) | Any type of AI, be it a LLM, RL agent, SVM, etc |  no  |
-| [LargeLanguageModel](LargeLanguageModel.md) | A large language model (LLM) is an AI model which supports a range of languag... |  no  |
 | [AiSystem](AiSystem.md) | A compound AI System composed of one or more AI capablities |  no  |
+| [LargeLanguageModel](LargeLanguageModel.md) | A large language model (LLM) is an AI model which supports a range of languag... |  no  |
+| [BaseAi](BaseAi.md) | Any type of AI, be it a LLM, RL agent, SVM, etc |  no  |
 
 
 
