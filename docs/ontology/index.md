@@ -83,6 +83,7 @@ Name: ai-risk-ontology
 | [hasLicense](hasLicense.md) | Indicates licenses associated with a resource |
 | [hasModelCard](hasModelCard.md) | A relationship to model card references |
 | [hasOutputModality](hasOutputModality.md) | A relationship indicating the output modalities supported by an AI component |
+| [hasPart](hasPart.md) | A relationship where an entity has another entity |
 | [hasRelatedAction](hasRelatedAction.md) | A relationship where an entity relates to an action |
 | [hasRelatedRisk](hasRelatedRisk.md) | A relationship where an entity relates to a risk |
 | [hasRiskControl](hasRiskControl.md) | Indicates the control measures associated with a system or component to modif... |

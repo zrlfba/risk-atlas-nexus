@@ -29,6 +29,10 @@ classes:
     description: A group of AI system related risks that are part of a risk taxonomy.
     mixins: 
       - RiskConcept
+    slot_usage:
+      hasPart:
+        description: A relationship where a riskgroup has a risk
+        range: Risk
     slots:
       - isDefinedByTaxonomy
       - closeMatch
@@ -36,6 +40,7 @@ classes:
       - broadMatch
       - narrowMatch
       - relatedMatch
+      - hasPart
 
   Risk:
     is_a: Entity

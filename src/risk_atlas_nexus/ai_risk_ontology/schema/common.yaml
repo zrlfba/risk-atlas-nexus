@@ -132,4 +132,8 @@ slots:
   isPartOf:
     slot_uri: schema:isPartOf
     description: A relationship where an entity is part of another entity
+  hasPart:
+    slot_uri: schema:hasPart
+    description: A relationship where an entity has another entity
+    multivalued: true
 
