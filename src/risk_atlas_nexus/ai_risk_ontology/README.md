@@ -24,3 +24,4 @@ Included are 7 different risk taxonomies:
 - the [MIT AI Risk Repository](https://airisk.mit.edu/)
 - the [AI Risk Taxonomy (AIR 2024)](https://arxiv.org/pdf/2406.17864)
 - the [AILuminate Benchmark](https://arxiv.org/pdf/2503.05731)
+- the [Unified Control Framework](https://arxiv.org/pdf/2503.05937v1) from Credo

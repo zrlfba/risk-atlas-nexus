@@ -94,6 +94,7 @@ URI: [nexus:RiskTaxonomy](http://research.ibm.com/ontologies/aiont/RiskTaxonomy)
 | [RiskGroup](RiskGroup.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
 | [Risk](Risk.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
 | [RiskControl](RiskControl.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
+| [Action](Action.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
 
 
 

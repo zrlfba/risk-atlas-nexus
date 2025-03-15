@@ -306,7 +306,7 @@ class RiskGroup(RiskConcept, Entity):
                                     'range': 'Risk'}}})
 
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
-         'domain_of': ['RiskGroup', 'Risk', 'RiskControl'],
+         'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action'],
          'slot_uri': 'schema:isPartOf'} })
     closeMatch: Optional[List[str]] = Field(default=None, description="""The property is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.""", json_schema_extra = { "linkml_meta": {'alias': 'closeMatch',
          'any_of': [{'range': 'Risk'}, {'range': 'RiskGroup'}],
@@ -360,7 +360,7 @@ class Risk(RiskConcept, Entity):
 
     hasRelatedAction: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to an action""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedAction', 'domain_of': ['Risk']} })
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
-         'domain_of': ['RiskGroup', 'Risk', 'RiskControl'],
+         'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action'],
          'slot_uri': 'schema:isPartOf'} })
     isPartOf: Optional[str] = Field(default=None, description="""A relationship where a risk is part of a risk group""", json_schema_extra = { "linkml_meta": {'alias': 'isPartOf',
          'domain_of': ['Risk', 'LargeLanguageModel'],
@@ -423,7 +423,7 @@ class RiskControl(Entity):
          'exact_mappings': ['airo:detectsRiskConcept'],
          'inverse': 'isDetectedBy'} })
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
-         'domain_of': ['RiskGroup', 'Risk', 'RiskControl'],
+         'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action'],
          'slot_uri': 'schema:isPartOf'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })
@@ -454,6 +454,9 @@ class Action(Entity):
                        'BaseAi',
                        'LargeLanguageModelFamily'],
          'slot_uri': 'airo:hasDocumentation'} })
+    isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
+         'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action'],
+         'slot_uri': 'schema:isPartOf'} })
     ai_actor_task: Optional[List[str]] = Field(default=None, description="""Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment).""", json_schema_extra = { "linkml_meta": {'alias': 'ai_actor_task', 'domain_of': ['Action']} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })

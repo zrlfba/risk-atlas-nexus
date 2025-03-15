@@ -51,6 +51,15 @@ URI: [nexus:Action](http://research.ibm.com/ontologies/aiont/Action)
         
       Action : id
         
+      Action : isDefinedByTaxonomy
+        
+          
+    
+    
+    Action --> "0..1" RiskTaxonomy : isDefinedByTaxonomy
+    click RiskTaxonomy href "../RiskTaxonomy"
+
+        
       Action : name
         
       Action : url
@@ -74,6 +83,7 @@ URI: [nexus:Action](http://research.ibm.com/ontologies/aiont/Action)
 | ---  | --- | --- | --- |
 | [hasRelatedRisk](hasRelatedRisk.md) | * <br/> [Risk](Risk.md) | A relationship where an entity relates to a risk | direct |
 | [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | direct |
+| [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
 | [ai_actor_task](ai_actor_task.md) | * <br/> [String](String.md) | Pertinent AI Actor Tasks for each subcategory | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
@@ -142,6 +152,7 @@ is_a: Entity
 slots:
 - hasRelatedRisk
 - hasDocumentation
+- isDefinedByTaxonomy
 attributes:
   ai_actor_task:
     name: ai_actor_task
@@ -210,6 +221,21 @@ attributes:
     range: Documentation
     multivalued: true
     inlined: false
+  isDefinedByTaxonomy:
+    name: isDefinedByTaxonomy
+    description: A relationship where a risk or a risk group is defined by a risk
+      taxonomy
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    slot_uri: schema:isPartOf
+    alias: isDefinedByTaxonomy
+    owner: Action
+    domain_of:
+    - RiskGroup
+    - Risk
+    - RiskControl
+    - Action
+    range: RiskTaxonomy
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

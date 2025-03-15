@@ -99,6 +99,7 @@ classes:
     slots:
     - hasRelatedRisk
     - hasDocumentation
+    - isDefinedByTaxonomy
 
   Any:
     class_uri: linkml:Any
