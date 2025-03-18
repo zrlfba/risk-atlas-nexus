@@ -30,8 +30,8 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 ## Links
 - **AI Risk Ontology**
     - [LinkML schema documentation](ontology/index.md)
-    - [LinkML instance data for an example knowledge graph](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/README.md)
-    - [Download a populated graph](https://github.com/ibm/risk-atlas-nexus/graph_export/README.md)
+    - [LinkML instance data for an example knowledge graph](https://github.com/IBM/risk-atlas-nexus/blob/main/src/risk_atlas_nexus/data/knowledge_graph/README.md)
+    - [Download a populated graph](https://github.com/IBM/risk-atlas-nexus/blob/main/graph_export/README.md)
     - [Contribute your own taxonomy files and CoT templates](concepts/Contributing_a_taxonomy.md)
 - **Notebooks:** 
     - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality
