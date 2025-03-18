@@ -1,6 +1,6 @@
 
 
-# Slot: ai_actor_task
+# Slot: hasAiActorTask
 
 
 _Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)._
@@ -9,7 +9,7 @@ _Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed w
 
 
 
-URI: [nexus:ai_actor_task](http://research.ibm.com/ontologies/aiont/ai_actor_task)
+URI: [nexus:hasAiActorTask](http://research.ibm.com/ontologies/aiont/hasAiActorTask)
 
 
 
@@ -61,8 +61,8 @@ URI: [nexus:ai_actor_task](http://research.ibm.com/ontologies/aiont/ai_actor_tas
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:ai_actor_task |
-| native | nexus:ai_actor_task |
+| self | nexus:hasAiActorTask |
+| native | nexus:hasAiActorTask |
 
 
 
@@ -71,13 +71,13 @@ URI: [nexus:ai_actor_task](http://research.ibm.com/ontologies/aiont/ai_actor_tas
 
 <details>
 ```yaml
-name: ai_actor_task
+name: hasAiActorTask
 description: Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task
   listed will apply to every suggested action in the subcategory (i.e., some apply
   to AI development and others apply to AI deployment).
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
-alias: ai_actor_task
+alias: hasAiActorTask
 owner: Action
 domain_of:
 - Action

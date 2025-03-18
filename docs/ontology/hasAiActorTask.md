@@ -78,7 +78,6 @@ description: Pertinent AI Actor Tasks for each subcategory. Not every AI Actor T
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
 alias: hasAiActorTask
-owner: Action
 domain_of:
 - Action
 range: string
