@@ -24,9 +24,9 @@ URI: [nexus:hasRelatedRisk](http://research.ibm.com/ontologies/aiont/hasRelatedR
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Question](Question.md) | An evaluation where a question has to be answered |  no  |
-| [Action](Action.md) | Action to remediate a risk |  no  |
 | [AiEval](AiEval.md) | An AI Evaluation, e |  no  |
 | [Questionnaire](Questionnaire.md) | A questionnaire groups questions |  no  |
+| [Action](Action.md) | Action to remediate a risk |  no  |
 
 
 

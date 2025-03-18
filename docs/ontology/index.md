@@ -50,7 +50,6 @@ Name: ai-risk-ontology
 | Slot | Description |
 | --- | --- |
 | [actions](actions.md) | A list of risk related actions |
-| [ai_actor_task](ai_actor_task.md) | Pertinent AI Actor Tasks for each subcategory |
 | [aimodelfamilies](aimodelfamilies.md) | A list of AI model families |
 | [aimodels](aimodels.md) | A list of AI models |
 | [aitasks](aitasks.md) | A list of AI tasks |
@@ -74,6 +73,7 @@ Name: ai-risk-ontology
 | [fine_tuning](fine_tuning.md) | A description of the fine-tuning mechanism(s) applied to a model |
 | [gpu_hours](gpu_hours.md) | GPU consumption in terms of hours |
 | [grants_license](grants_license.md) | A relationship from a granting entity such as an Organization to a License in... |
+| [hasAiActorTask](hasAiActorTask.md) | Pertinent AI Actor Tasks for each subcategory |
 | [hasDataset](hasDataset.md) | A relationship to datasets that are used |
 | [hasDocumentation](hasDocumentation.md) | Indicates documentation associated with an entity |
 | [hasEuAiSystemType](hasEuAiSystemType.md) | The type of system as defined by the EU AI Act |

@@ -93,13 +93,11 @@ classes:
     is_a: Entity
     description: Action to remediate a risk
     attributes:
-      ai_actor_task:
-        description: "Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)."
-        multivalued: true
     slots:
     - hasRelatedRisk
     - hasDocumentation
     - isDefinedByTaxonomy
+    - hasAiActorTask
 
   Any:
     class_uri: linkml:Any
@@ -109,6 +107,9 @@ slots:
     slot_uri: schema:isPartOf
     description: A relationship where a risk or a risk group is defined by a risk taxonomy
     range: RiskTaxonomy
+  hasAiActorTask:
+    description: "Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)."
+    multivalued: true
   hasRelatedRisk:
     description: A relationship where an entity relates to a risk
     range: Risk
