@@ -20,6 +20,8 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
  classDiagram
     class Risk
     click Risk href "../Risk"
+      RiskConcept <|-- Risk
+        click RiskConcept href "../RiskConcept"
       Entity <|-- Risk
         click Entity href "../Entity"
       
@@ -51,6 +53,15 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
         
       Risk : descriptor
         
+      Risk : detectsRiskConcept
+        
+          
+    
+    
+    Risk --> "*" RiskConcept : detectsRiskConcept
+    click RiskConcept href "../RiskConcept"
+
+        
       Risk : exactMatch
         
           
@@ -78,6 +89,15 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
     
     Risk --> "0..1" RiskTaxonomy : isDefinedByTaxonomy
     click RiskTaxonomy href "../RiskTaxonomy"
+
+        
+      Risk : isDetectedBy
+        
+          
+    
+    
+    Risk --> "*" RiskControl : isDetectedBy
+    click RiskControl href "../RiskControl"
 
         
       Risk : isPartOf
@@ -126,7 +146,7 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **Risk**
+    * **Risk** [ [RiskConcept](RiskConcept.md)]
 
 
 
@@ -142,11 +162,13 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
 | [broadMatch](broadMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [narrowMatch](narrowMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property is used to state a hierarchical mapping link between two concept... | direct |
 | [relatedMatch](relatedMatch.md) | * <br/> [Any](Any.md)&nbsp;or&nbsp;<br />[Risk](Risk.md)&nbsp;or&nbsp;<br />[RiskGroup](RiskGroup.md) | The property skos:relatedMatch is used to state an associative mapping link b... | direct |
+| [detectsRiskConcept](detectsRiskConcept.md) | * <br/> [RiskConcept](RiskConcept.md) | The property airo:detectsRiskConcept indicates the control used for detecting... | direct |
 | [tag](tag.md) | 0..1 <br/> [String](String.md) | A shost version of the name | direct |
 | [type](type.md) | 0..1 <br/> [String](String.md) | Annotation whether an AI risk occurs at input or output or is non-technical | direct |
 | [phase](phase.md) | 0..1 <br/> [String](String.md) | Annotation whether an AI risk shows specifically during the training-tuning o... | direct |
 | [descriptor](descriptor.md) | 0..1 <br/> [String](String.md) | Annotates whether an AI risk is a traditional risk, specific to or amplified ... | direct |
 | [concern](concern.md) | 0..1 <br/> [String](String.md) | Some explanation about the concern related to an AI risk | direct |
+| [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | [RiskConcept](RiskConcept.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -168,12 +190,12 @@ URI: [airo:Risk](https://w3id.org/airo#Risk)
 | [RiskGroup](RiskGroup.md) | [broadMatch](broadMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [RiskGroup](RiskGroup.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [RiskGroup](RiskGroup.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [Risk](Risk.md) |
+| [RiskGroup](RiskGroup.md) | [hasPart](hasPart.md) | range | [Risk](Risk.md) |
 | [Risk](Risk.md) | [closeMatch](closeMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [Risk](Risk.md) | [exactMatch](exactMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [Risk](Risk.md) | [broadMatch](broadMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [Risk](Risk.md) | [narrowMatch](narrowMatch.md) | any_of[range] | [Risk](Risk.md) |
 | [Risk](Risk.md) | [relatedMatch](relatedMatch.md) | any_of[range] | [Risk](Risk.md) |
-| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | any_of[range] | [Risk](Risk.md) |
 | [Action](Action.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
 | [AiEval](AiEval.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
 | [Question](Question.md) | [hasRelatedRisk](hasRelatedRisk.md) | range | [Risk](Risk.md) |
@@ -226,6 +248,8 @@ description: The state of uncertainty associated with an AI system, that has the
   to cause harms
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 slots:
 - hasRelatedAction
 - isDefinedByTaxonomy
@@ -235,6 +259,7 @@ slots:
 - broadMatch
 - narrowMatch
 - relatedMatch
+- detectsRiskConcept
 slot_usage:
   isPartOf:
     name: isPartOf
@@ -292,6 +317,8 @@ description: The state of uncertainty associated with an AI system, that has the
   to cause harms
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 slot_usage:
   isPartOf:
     name: isPartOf
@@ -375,6 +402,7 @@ attributes:
     - RiskGroup
     - Risk
     - RiskControl
+    - Action
     range: RiskTaxonomy
   isPartOf:
     name: isPartOf
@@ -481,6 +509,37 @@ attributes:
     any_of:
     - range: Risk
     - range: RiskGroup
+  detectsRiskConcept:
+    name: detectsRiskConcept
+    description: The property airo:detectsRiskConcept indicates the control used for
+      detecting risks, risk sources,  consequences, and impacts.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    exact_mappings:
+    - airo:detectsRiskConcept
+    rank: 1000
+    alias: detectsRiskConcept
+    owner: Risk
+    domain_of:
+    - Risk
+    - RiskControl
+    inverse: isDetectedBy
+    range: RiskConcept
+    multivalued: true
+    inlined: false
+  isDetectedBy:
+    name: isDetectedBy
+    description: A relationship where a risk, risk source, consequence, or impact
+      is detected by a risk control.
+    from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
+    rank: 1000
+    alias: isDetectedBy
+    owner: Risk
+    domain_of:
+    - RiskConcept
+    inverse: detectsRiskConcept
+    range: RiskControl
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

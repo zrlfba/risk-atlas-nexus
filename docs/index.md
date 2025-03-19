@@ -13,7 +13,7 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 
 ## Features
 - 🏗️ An [ontology](ontology/index.md) has been provided, that combines the AI risk view (taxonomies, risks, actions) with an AI model view (AI systems, AI models, model evaluations) into one coherent schema 
-- 📚 AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, the AI Risk Taxonomy (AIR 2024), and OWASP Top 10 for Large Language Model Applications
+- 📚 AI Risks were collected from IBM AI Risk Atlas, IBM Granite Guardian, MIT AI Risk Repository, NIST Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, the AI Risk Taxonomy (AIR 2024), the AILuminate Benchmark, Credo's Unified Control Framework, and OWASP Top 10 for Large Language Model Applications
 - 🔗 Mappings are proposed between the taxonomies and between risks and actions
 - 🔍 Use the python library methods to quickly explore available risks, relations and actions 
 - 🚨 Use the python library methods to detect potential risks in your usecase 
@@ -30,8 +30,8 @@ Our intention is to create a starting point for an open AI Systems ontology whos
 ## Links
 - **AI Risk Ontology**
     - [LinkML schema documentation](ontology/index.md)
-    - [LinkML instance data for an example knowledge graph](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/README.md)
-    - [Download a populated graph](https://github.com/ibm/risk-atlas-nexus/graph_export/README.md)
+    - [LinkML instance data for an example knowledge graph](https://github.com/IBM/risk-atlas-nexus/blob/main/src/risk_atlas_nexus/data/knowledge_graph/README.md)
+    - [Download a populated graph](https://github.com/IBM/risk-atlas-nexus/blob/main/graph_export/README.md)
     - [Contribute your own taxonomy files and CoT templates](concepts/Contributing_a_taxonomy.md)
 - **Notebooks:** 
     - [Risk Atlas Nexus Quickstart](examples/notebooks/Risk_Atlas_Nexus_Quickstart.ipynb) Overview of library functionality

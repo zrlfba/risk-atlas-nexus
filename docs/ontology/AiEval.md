@@ -9,7 +9,7 @@ _An AI Evaluation, e.g. a metric, benchmark, unitxt card evaluation, a question 
 
 
 
-URI: [dqv:Metric](dqv:Metric)
+URI: [dqv:Metric](https://www.w3.org/TR/vocab-dqv/Metric)
 
 
 

@@ -27,6 +27,12 @@ classes:
   RiskGroup:
     is_a: Entity
     description: A group of AI system related risks that are part of a risk taxonomy.
+    mixins: 
+      - RiskConcept
+    slot_usage:
+      hasPart:
+        description: A relationship where a riskgroup has a risk
+        range: Risk
     slots:
       - isDefinedByTaxonomy
       - closeMatch
@@ -34,9 +40,12 @@ classes:
       - broadMatch
       - narrowMatch
       - relatedMatch
+      - hasPart
 
   Risk:
     is_a: Entity
+    mixins: 
+      - RiskConcept
     description: The state of uncertainty associated with an AI system, that has the potential to cause harms
     class_uri: airo:Risk
     attributes:
@@ -63,12 +72,15 @@ classes:
       - broadMatch
       - narrowMatch
       - relatedMatch
+      - detectsRiskConcept
 
   RiskConcept:
     is_a: Entity
-    description: An umbrella term for refering to risk, risk source consequence and impact.
+    description: An umbrella term for refering to risk, risk source, consequence and impact.
     class_uri: airo:RiskConcept
-
+    slots:
+      - isDetectedBy
+      
   RiskControl:
     is_a: Entity
     class_uri: airo:RiskControl
@@ -81,12 +93,11 @@ classes:
     is_a: Entity
     description: Action to remediate a risk
     attributes:
-      aiActorTask:
-        description: "Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)."
-        multivalued: true
     slots:
     - hasRelatedRisk
     - hasDocumentation
+    - isDefinedByTaxonomy
+    - hasAiActorTask
 
   Any:
     class_uri: linkml:Any
@@ -96,6 +107,9 @@ slots:
     slot_uri: schema:isPartOf
     description: A relationship where a risk or a risk group is defined by a risk taxonomy
     range: RiskTaxonomy
+  hasAiActorTask:
+    description: "Pertinent AI Actor Tasks for each subcategory. Not every AI Actor Task listed will apply to every suggested action in the subcategory (i.e., some apply to AI development and others apply to AI deployment)."
+    multivalued: true
   hasRelatedRisk:
     description: A relationship where an entity relates to a risk
     range: Risk
@@ -154,10 +168,17 @@ slots:
   detectsRiskConcept:
     exact_mappings:
     - airo:detectsRiskConcept
-    description: The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, consequences, and impacts.
-    range: Any
-    any_of:
-      - range: Risk
-      - range: RiskGroup
+    description: >- 
+      The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources, 
+      consequences, and impacts.
+    range: RiskConcept
     multivalued: true
     inlined: false
+    inverse: isDetectedBy
+  isDetectedBy:
+    description: >-
+      A relationship where a risk, risk source, consequence, or impact is detected by a risk control.
+    range: RiskControl
+    multivalued: true
+    inlined: false
+    inverse: detectsRiskConcept

@@ -9,7 +9,7 @@ _A relationship indicating that an entity has an AI evaluation result._
 
 
 
-URI: [dqv:hasQualityMeasurement](dqv:hasQualityMeasurement)
+URI: [dqv:hasQualityMeasurement](https://www.w3.org/TR/vocab-dqv/hasQualityMeasurement)
 
 
 

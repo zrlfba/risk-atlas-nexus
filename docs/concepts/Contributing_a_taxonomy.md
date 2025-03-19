@@ -21,7 +21,7 @@ The Risk Atlas Nexus ontology combines the AI risk view (taxonomies, risks, acti
 You can add your own risk definitions by adding yaml to [knowledge graph data folder](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). Ensure the entries comply with [the schema](../ontology/index.md)
 
 #### An example addition of a risk
-If you would like to contribute your own taxonomy files to the project for others to use, add one or more yaml files to the  [knowledge graph data directory](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/).
+If you would like to contribute your own taxonomy files to the project for others to use, add one or more yaml files to the  [knowledge graph data directory](https://github.com/IBM/risk-atlas-nexus/tree/main/src/risk_atlas_nexus/data/knowledge_graph/).
 
 For example, to add a new risk, create a file with the following sample content.
 
@@ -32,7 +32,7 @@ For example, to add a new risk, create a file with the following sample content.
   isDefinedByTaxonomy: my-taxonomy
 ```
 
-- Save your new taxonomy files in the [knowledge graph data directory](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/). push your changes and make a PR to the main project.
+- Save your new taxonomy files in the [knowledge graph data directory](https://github.com/IBM/risk-atlas-nexus/tree/main/src/risk_atlas_nexus/data/knowledge_graph). push your changes and make a PR to the main project.
 
 
 ### Add your own Chain of Thought templates

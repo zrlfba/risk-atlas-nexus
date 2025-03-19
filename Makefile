@@ -7,6 +7,7 @@ MAKEFLAGS += --warn-undefined-variables
 SCHEMA_NAME = ai-risk-ontology
 LINKML_SCHEMA_NAME = ai-risk-ontology
 SOURCE_SCHEMA_PATH = src/risk_atlas_nexus/ai_risk_ontology/schema
+KG_DATA_PATH = src/risk_atlas_nexus/data/knowledge_graph
 
 SHELL := bash
 .SHELLFLAGS := -eu -o pipefail -c
@@ -24,6 +25,7 @@ help: status
 	@echo "make regenerate_pydantic -- update pydantic classes"
 	@echo "make regenerate_documentation -- regenerate the documentation"
 	@echo "make regenerate_graph_output -- export the graph with all instances"
+	@echo "make regenerate_owl_schema -- export the schema as OWL"
 	@echo "make regenerate_risk_atlas_as_tex -- export the IBM AI risk atlas as .tex"
 	@echo ""
 
@@ -39,6 +41,9 @@ regenerate_pydantic:
 
 regenerate_graph_output:
 	python ./src/risk_atlas_nexus/ai_risk_ontology/util/export_graph.py
+
+regenerate_owl_schema:
+	gen-owl $(SOURCE_SCHEMA_PATH)/${LINKML_SCHEMA_NAME}.yaml --metadata-profile 'linkml' > graph_export/owl/${LINKML_SCHEMA_NAME}_schema.ttl
 
 regenerate_risk_atlas_as_tex:
 	python ./src/risk_atlas_nexus/ai_risk_ontology/util/export_risk_atlas_tex.py

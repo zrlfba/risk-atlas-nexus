@@ -83,8 +83,8 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [Dataset](Dataset.md)
     * [Documentation](Documentation.md)
     * [RiskTaxonomy](RiskTaxonomy.md)
-    * [RiskGroup](RiskGroup.md)
-    * [Risk](Risk.md)
+    * [RiskGroup](RiskGroup.md) [ [RiskConcept](RiskConcept.md)]
+    * [Risk](Risk.md) [ [RiskConcept](RiskConcept.md)]
     * [RiskConcept](RiskConcept.md)
     * [RiskControl](RiskControl.md)
     * [Action](Action.md)

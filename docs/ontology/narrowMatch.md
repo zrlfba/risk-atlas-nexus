@@ -9,7 +9,7 @@ _The property is used to state a hierarchical mapping link between two concepts,
 
 
 
-URI: [skos:narrowMatch](skos:narrowMatch)
+URI: [skos:narrowMatch](http://www.w3.org/2004/02/skos/core/narrowMatch)
 
 
 
@@ -23,8 +23,8 @@ URI: [skos:narrowMatch](skos:narrowMatch)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 | [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
+| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 
 
 

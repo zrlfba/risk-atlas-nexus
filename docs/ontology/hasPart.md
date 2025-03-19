@@ -1,15 +1,15 @@
 
 
-# Slot: bestValue
+# Slot: hasPart
 
 
-_Annotation of the best possible result of the evaluation_
+_A relationship where an entity has another entity_
 
 
 
 
 
-URI: [nexus:bestValue](http://research.ibm.com/ontologies/aiont/bestValue)
+URI: [schema:hasPart](http://schema.org/hasPart)
 
 
 
@@ -23,9 +23,7 @@ URI: [nexus:bestValue](http://research.ibm.com/ontologies/aiont/bestValue)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Question](Question.md) | An evaluation where a question has to be answered |  no  |
-| [AiEval](AiEval.md) | An AI Evaluation, e |  no  |
-| [Questionnaire](Questionnaire.md) | A questionnaire groups questions |  no  |
+| [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  yes  |
 
 
 
@@ -36,6 +34,8 @@ URI: [nexus:bestValue](http://research.ibm.com/ontologies/aiont/bestValue)
 ## Properties
 
 * Range: [String](String.md)
+
+* Multivalued: True
 
 
 
@@ -61,8 +61,8 @@ URI: [nexus:bestValue](http://research.ibm.com/ontologies/aiont/bestValue)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:bestValue |
-| native | nexus:bestValue |
+| self | schema:hasPart |
+| native | nexus:hasPart |
 
 
 
@@ -71,14 +71,16 @@ URI: [nexus:bestValue](http://research.ibm.com/ontologies/aiont/bestValue)
 
 <details>
 ```yaml
-name: bestValue
-description: Annotation of the best possible result of the evaluation
+name: hasPart
+description: A relationship where an entity has another entity
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
 rank: 1000
-alias: bestValue
+slot_uri: schema:hasPart
+alias: hasPart
 domain_of:
-- AiEval
+- RiskGroup
 range: string
+multivalued: true
 
 ```
 </details>

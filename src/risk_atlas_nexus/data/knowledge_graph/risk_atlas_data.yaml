@@ -910,7 +910,7 @@ risks:
     and auditors to understand and trust the model.
 - id: atlas-harmful-output
   name: Harmful output
-  description: A model might generate language that leads to physical harm The language
+  description: A model might generate language that leads to physical harm. The language
     might include overtly violent, covertly dangerous, or otherwise indirectly unsafe
     statements.
   url: https://www.ibm.com/docs/en/watsonx/saas?topic=SSYOK8/wsj/ai-risk-atlas/harmful-output.html
