@@ -1,14 +1,13 @@
 import json
 import os
 from abc import ABC, abstractmethod
-from typing import Optional
-
+from typing import Optional, List
+from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import Risk
 from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
     Container,
     RiskTaxonomy,
 )
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
-from risk_atlas_nexus.blocks.inference.params import TextGenerationInferenceOutput
 from risk_atlas_nexus.data import get_templates_path
 from risk_atlas_nexus.toolkit.logging import configure_logger
 
@@ -68,5 +67,5 @@ class RiskDetector(ABC):
             )
 
     @abstractmethod
-    def detect(self, usecase: str) -> TextGenerationInferenceOutput:
+    def detect(self, usecases: List[str]) -> List[Risk]:
         raise NotImplementedError
