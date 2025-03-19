@@ -80,6 +80,7 @@ URI: [airo:License](https://w3id.org/airo#License)
 | [AiOffice](AiOffice.md) | [grants_license](grants_license.md) | range | [License](License.md) |
 | [BaseAi](BaseAi.md) | [hasLicense](hasLicense.md) | range | [License](License.md) |
 | [AiSystem](AiSystem.md) | [hasLicense](hasLicense.md) | range | [License](License.md) |
+| [AiAgent](AiAgent.md) | [hasLicense](hasLicense.md) | range | [License](License.md) |
 | [AiModel](AiModel.md) | [hasLicense](hasLicense.md) | range | [License](License.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [hasLicense](hasLicense.md) | range | [License](License.md) |
 | [AiProvider](AiProvider.md) | [grants_license](grants_license.md) | range | [License](License.md) |
