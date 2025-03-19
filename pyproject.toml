@@ -2,12 +2,12 @@
 name = "risk_atlas_nexus"
 version = "0.0.1"
 authors = [
-{ name="Elizabeth Daly", email="elizabeth.daly@ie.ibm.com" },
-{ name="Dhaval Salwala", email="dhaval.vinodbhai.salwala@ibm.com" },
-{ name="Frank Bagehorn", email="fba@zurich.ibm.com" },
-{ name="Luis Garces-Erice", email="lga@zurich.ibm.com" },
-{ name="Sean Rooney", email="sro@zurich.ibm.com" },
-{ name="Inge Vejsbjerg", email="ingevejs@ie.ibm.com" }
+    { name = "Elizabeth Daly", email = "elizabeth.daly@ie.ibm.com" },
+    { name = "Dhaval Salwala", email = "dhaval.vinodbhai.salwala@ibm.com" },
+    { name = "Frank Bagehorn", email = "fba@zurich.ibm.com" },
+    { name = "Luis Garces-Erice", email = "lga@zurich.ibm.com" },
+    { name = "Sean Rooney", email = "sro@zurich.ibm.com" },
+    { name = "Inge Vejsbjerg", email = "ingevejs@ie.ibm.com" },
 ]
 description = "Risk Atlas Nexus provides tooling to help bring together disparate resources related to governance of foundation models. "
 readme = "README.md"
@@ -28,20 +28,28 @@ dependencies = [
     "tqdm",
     "logzero",
     "python-dotenv",
-    "datasets"
+    "datasets",
 ]
 
 [project.optional-dependencies]
 wml = ["ibm-watsonx-ai"]
 rits = ["openai"]
-ollama = ["ollama"]
-vllm = ["vllm", "openai"]
-docs = ["mkdocs-material", "mkdocs-jupyter", "mkdocs-click", "mkdocstrings", "griffe_inherited_docstrings", "griffe-pydantic", "mkdocs-awesome-nav" ]
+ollama = ["ollama", "openai"]
+vllm = ["vllm", "openai", "xgrammar"]
+docs = [
+    "mkdocs-material",
+    "mkdocs-jupyter",
+    "mkdocs-click",
+    "mkdocstrings",
+    "griffe_inherited_docstrings",
+    "griffe-pydantic",
+    "mkdocs-awesome-nav",
+]
 
 [tool.isort]
 profile = "black"
-line_length=88
-remove_redundant_aliases=true
-group_by_package=true
-combine_star=true
-lines_after_imports=2
+line_length = 88
+remove_redundant_aliases = true
+group_by_package = true
+combine_star = true
+lines_after_imports = 2

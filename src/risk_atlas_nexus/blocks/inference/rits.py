@@ -1,18 +1,16 @@
 import os
 from typing import Any, Dict, List, Union
-
 from dotenv import load_dotenv
-
 from risk_atlas_nexus.blocks.inference.base import InferenceEngine
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
     RITSInferenceEngineParams,
     TextGenerationInferenceOutput,
+    OpenAIChatCompletionMessageParam,
 )
 from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
-
 
 # load .env file to environment
 load_dotenv()
@@ -47,36 +45,51 @@ class RITSInferenceEngine(InferenceEngine):
     def create_client(self, credentials):
         from openai import OpenAI
 
+        model_name_for_endpoint = (
+            self.model_name_or_path.split("/")[-1]
+            .lower()
+            .replace("v0.1", "v01")
+            .replace("vision-", "")
+            .replace(".", "-")
+        )
         return OpenAI(
             api_key=credentials["api_key"],
-            base_url=f"{credentials['api_url']}/{self.model_name_or_path.split('/')[1]}/v1",
+            base_url=f"{credentials['api_url']}/{model_name_for_endpoint}/v1",
             default_headers={"RITS_API_KEY": credentials["api_key"]},
         )
 
     @postprocess
-    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
-        response = self.client.completions.create(
-            model=self.model_name_or_path,
-            prompt=prompts,
-            **self.parameters,
-        )
-        return [self._prepare_generate_output(choice) for choice in response.choices]
-
-    def _prepare_generate_output(self, response):
-        return TextGenerationInferenceOutput(
-            prediction=response.text,
-            model_name_or_path=self.model_name_or_path,
-            inference_engine=str(self._inference_engine_type),
-        )
+    def generate(
+        self, prompts: List[str], response_format=None, verbose=True
+    ) -> List[TextGenerationInferenceOutput]:
+        return self.chat(prompts, response_format, verbose)
 
     @postprocess
-    def chat(self, messages: List[Dict]) -> TextGenerationInferenceOutput:
-        response = self.client.chat.completions.create(
-            messages=messages,
-            model=self.model_name_or_path,
-            **self.parameters,
+    def chat(
+        self,
+        prompts: Union[
+            List[OpenAIChatCompletionMessageParam],
+            List[str],
+        ],
+        response_format=None,
+        verbose=True,
+    ) -> TextGenerationInferenceOutput:
+        def chat_response(prompt):
+            response = self.client.chat.completions.create(
+                messages=self._to_openai_format(prompt),
+                model=self.model_name_or_path,
+                response_format=self._create_schema_format(response_format),
+                **self.parameters,
+            )
+            return self._prepare_chat_output(response)
+
+        return run_parallel(
+            chat_response,
+            prompts,
+            f"Inferring with {self._inference_engine_type}",
+            self.concurrency_limit,
+            verbose=verbose,
         )
-        return self._prepare_chat_output(response)
 
     def _prepare_chat_output(self, response):
         return TextGenerationInferenceOutput(
@@ -84,3 +97,15 @@ class RITSInferenceEngine(InferenceEngine):
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )
+
+    def _create_schema_format(self, response_format):
+        if response_format:
+            return {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "RITS_schema",
+                    "schema": response_format,
+                },
+            }
+        else:
+            return None

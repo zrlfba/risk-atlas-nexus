@@ -1,5 +1,6 @@
 import dataclasses
-from typing import Any, Dict, List, Literal, Optional, TypedDict, Union
+from typing import Any, Dict, List, Literal, Optional, TypedDict, Union, TypeAlias
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class InferenceEngineCredentials(TypedDict):
@@ -159,3 +160,6 @@ class TextGenerationInferenceOutput:
     input_text: Optional[str] = None
     model_name_or_path: Optional[str] = None
     inference_engine: Optional[str] = None
+
+
+OpenAIChatCompletionMessageParam: TypeAlias = List[ChatCompletionMessageParam]

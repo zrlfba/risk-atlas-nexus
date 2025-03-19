@@ -1,12 +1,14 @@
 import json
 import re
 from risk_atlas_nexus.toolkit.logging import configure_logger
-from typing import Any, List
+from typing import Any, List, Union
 from risk_atlas_nexus.blocks.inference.params import TextGenerationInferenceOutput
 
 logger = configure_logger(__name__)
 
 POSTPROCESSORS_REGISTRY = {}
+
+JSON_STRIP_CHARS = " \n\r\t`"
 
 
 def register(name):
@@ -23,7 +25,9 @@ def register(name):
 
 def postprocess(func):
     def wrapper(*args, **kwargs):
-        inference_response: List[TextGenerationInferenceOutput] = func(*args, **kwargs)
+        inference_response: Union[
+            TextGenerationInferenceOutput, List[TextGenerationInferenceOutput]
+        ] = func(*args, **kwargs)
         if args[0].postprocessors:
             for processor in args[0].postprocessors:
                 try:
@@ -38,40 +42,26 @@ def postprocess(func):
     return wrapper
 
 
-@register("clean_output")
-class CleanOutput:
+@register("list_of_str")
+class ListOfStr:
 
-    def apply(self, text: Any) -> Any:
-        return " ".join(str(text).strip().split())
+    def apply(self, text: str) -> List[str]:
 
+        # Strip whitespace,newlines,backtick from the start and end
+        text = str(text.strip(JSON_STRIP_CHARS).replace("'", '"'))
 
-@register("take_first_not_null")
-class TakeFirstNonEmptyLine:
+        # Remove newlines characters inside the returned value
+        text = text.replace("\n", "")
 
-    def apply(self, text: Any) -> Any:
-        parts = str(text).strip().split("\n")
-        if len(parts) == 0:
-            return ""
-        return parts[0].strip()
-
-
-@register("return_as_object")
-class ReturnAsObject:
-
-    def apply(self, text: Any) -> Any:
         if isinstance(text, str):
             try:
-                return json.loads(str(text.strip().replace("'", '"')))
+                list_of_text = json.loads(text)
+                if not isinstance(list_of_text, List):
+                    raise ()
             except:
-                return str(text).strip()
-        return text
+                list_of_text = re.findall(r'"(.*?)"', text)
 
+        if isinstance(list_of_text, List):
+            list_of_text = [text.strip() for text in list_of_text]
 
-@register("take_first_word")
-class TakeFirstWord:
-
-    def apply(self, text: Any) -> Any:
-        match = re.search(r"([-]*[0-9]+(\.([0-9]+))*)|([\w]+)", text)
-        if match:
-            return text[match.start() : match.end()]
-        return ""
+        return list_of_text

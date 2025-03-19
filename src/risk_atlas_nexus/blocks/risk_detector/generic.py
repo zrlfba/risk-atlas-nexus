@@ -5,6 +5,7 @@ from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import Risk
 from risk_atlas_nexus.blocks.inference import TextGenerationInferenceOutput
 from risk_atlas_nexus.blocks.inference.templates import RISK_IDENTIFICATION_TEMPLATE
 from risk_atlas_nexus.blocks.risk_detector import RiskDetector
+from risk_atlas_nexus.blocks.inference.response_schema import LIST_OF_STR_SCHEMA
 
 
 class GenericRiskDetector(RiskDetector):
@@ -26,9 +27,11 @@ class GenericRiskDetector(RiskDetector):
             for usecase in usecases
         ]
 
+        LIST_OF_STR_SCHEMA["items"]["enum"] = [risk.name for risk in self._risks]
         inference_response: List[TextGenerationInferenceOutput] = (
-            self.inference_engine.generate(prompts)
+            self.inference_engine.generate(prompts, response_format=LIST_OF_STR_SCHEMA)
         )
+
         return [
             list(
                 filter(

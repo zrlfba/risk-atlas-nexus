@@ -19,6 +19,7 @@ from risk_atlas_nexus.ai_risk_ontology.schema import *
 from risk_atlas_nexus.toolkit.data_utils import load_yamls_to_container
 from risk_atlas_nexus.data import get_templates_path
 from risk_atlas_nexus.toolkit.logging import configure_logger
+from risk_atlas_nexus.blocks.inference.response_schema import LIST_OF_STR_SCHEMA
 
 logger = configure_logger(__name__)
 
@@ -454,4 +455,13 @@ class RiskAtlasNexus:
             )
             for usecase in usecases
         ]
-        return [result.prediction for result in inference_engine.generate(prompts)]
+
+        LIST_OF_STR_SCHEMA["items"]["enum"] = [
+            task["task_label"] for task in hf_ai_tasks
+        ]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts, response_format=LIST_OF_STR_SCHEMA
+            )
+        ]

@@ -8,12 +8,14 @@ from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
     TextGenerationInferenceOutput,
     VLLMInferenceEngineParams,
+    OpenAIChatCompletionMessageParam,
 )
+from vllm.sampling_params import GuidedDecodingParams
 from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
 from risk_atlas_nexus.toolkit.logging import configure_logger
-
+from vllm.model_executor.guided_decoding.guided_fields import GuidedDecodingRequest
 
 logger = configure_logger(__name__)
 
@@ -70,32 +72,49 @@ class VLLMInferenceEngine(InferenceEngine):
             return LLM(
                 model=self.model_name_or_path,
                 trust_remote_code=True,
-                max_model_len=4098,
+                max_model_len=26208,
             )
 
     @postprocess
-    def generate(self, prompts: List[str]):
+    def generate(
+        self,
+        prompts: List[str],
+        response_format=None,
+        verbose=True,
+    ):
         from vllm import LLM, SamplingParams
 
         if isinstance(self.client, LLM):
+            if response_format:
+                self.parameters.update(
+                    {"guided_decoding": GuidedDecodingParams(json=response_format)}
+                )
             responses = []
             for response in self.client.generate(
                 prompts=prompts,
                 sampling_params=SamplingParams(**self.parameters),
-                use_tqdm=True,
+                use_tqdm=verbose,
             ):
                 responses.append(self._prepare_generate_output(response, offline=True))
             return responses
         else:
-            response = self.client.completions.create(
-                model=self.model_name_or_path,
-                prompt=prompts,
-                **self.parameters,
+
+            def chat_response(prompt):
+                response = self.client.chat.completions.create(
+                    model=self.model_name_or_path,
+                    messages=self._to_openai_format(prompt),
+                    response_format=self._create_schema_format(response_format),
+                    **self.parameters,
+                )
+                return self._prepare_chat_output(response, offline=False)
+
+            return run_parallel(
+                chat_response,
+                prompts,
+                f"Inferring with {self._inference_engine_type}",
+                self.concurrency_limit,
+                verbose=verbose,
             )
-            return [
-                self._prepare_generate_output(choice, offline=False)
-                for choice in response.choices
-            ]
 
     def _prepare_generate_output(self, response, offline=True):
         return TextGenerationInferenceOutput(
@@ -105,26 +124,48 @@ class VLLMInferenceEngine(InferenceEngine):
         )
 
     @postprocess
-    def chat(self, messages: List[Dict]):
+    def chat(
+        self,
+        prompts: Union[
+            List[OpenAIChatCompletionMessageParam],
+            List[str],
+        ],
+        response_format=None,
+        verbose=True,
+    ):
         from vllm import LLM, SamplingParams
 
         if isinstance(self.client, LLM):
+            if response_format:
+                self.parameters.update(
+                    {"guided_decoding": GuidedDecodingParams(json=response_format)}
+                )
             responses = []
             for response in self.client.chat(
-                messages=messages,
+                messages=[self._to_openai_format(prompt) for prompt in prompts],
                 sampling_params=SamplingParams(**self.parameters),
-                use_tqdm=True,
+                use_tqdm=verbose,
             ):
                 responses.append(self._prepare_chat_output(response, offline=True))
             return responses
         else:
 
-            response = self.client.chat.completions.create(
-                model=self.model_name_or_path,
-                messages=messages,
-                **self.parameters,
+            def chat_response(prompt):
+                response = self.client.chat.completions.create(
+                    model=self.model_name_or_path,
+                    messages=self._to_openai_format(prompt),
+                    response_format=self._create_schema_format(response_format),
+                    **self.parameters,
+                )
+                return self._prepare_chat_output(response, offline=False)
+
+            return run_parallel(
+                chat_response,
+                prompts,
+                f"Inferring with {self._inference_engine_type}",
+                self.concurrency_limit,
+                verbose=verbose,
             )
-            return self._prepare_chat_output(response, offline=False)
 
     def _prepare_chat_output(self, response, offline=True):
         return TextGenerationInferenceOutput(
@@ -136,3 +177,15 @@ class VLLMInferenceEngine(InferenceEngine):
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )
+
+    def _create_schema_format(self, response_format):
+        if response_format:
+            return {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "RITS_schema",
+                    "schema": response_format,
+                },
+            }
+        else:
+            return None

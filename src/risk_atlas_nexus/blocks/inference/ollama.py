@@ -8,6 +8,7 @@ from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
     OllamaInferenceEngineParams,
     TextGenerationInferenceOutput,
+    OpenAIChatCompletionMessageParam,
 )
 from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
@@ -48,14 +49,17 @@ class OllamaInferenceEngine(InferenceEngine):
     def create_client(self, credentials):
         from ollama import Client
 
-        return Client(host=credentials["api_url"]).generate
+        return Client(host=credentials["api_url"])
 
     @postprocess
-    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
+    def generate(
+        self, prompts: List[str], response_format=None, verbose=True
+    ) -> List[TextGenerationInferenceOutput]:
         def generate_text(prompt: str):
             response = self.client.generate(
                 model=self.model_name_or_path,
                 prompt=prompt,
+                format=response_format,
                 options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
             )
             return self._prepare_prediction_output(response.response)
@@ -65,16 +69,35 @@ class OllamaInferenceEngine(InferenceEngine):
             prompts,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
+            verbose=verbose,
         )
 
     @postprocess
-    def chat(self, messages: List[Dict]) -> TextGenerationInferenceOutput:
-        response = self.client.chat(
-            model=self.model_name_or_path,
-            messages=messages,
-            options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+    def chat(
+        self,
+        prompts: Union[
+            List[OpenAIChatCompletionMessageParam],
+            List[str],
+        ],
+        response_format=None,
+        verbose=True,
+    ) -> List[TextGenerationInferenceOutput]:
+        def chat_response(prompt):
+            response = self.client.chat(
+                model=self.model_name_or_path,
+                messages=self._to_openai_format(prompt),
+                format=response_format,
+                options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
+            )
+            return self._prepare_prediction_output(response.message.content)
+
+        return run_parallel(
+            chat_response,
+            prompts,
+            f"Inferring with {self._inference_engine_type}",
+            self.concurrency_limit,
+            verbose=verbose,
         )
-        return self._prepare_prediction_output(response.message.content)
 
     def _prepare_prediction_output(self, prediction):
         return TextGenerationInferenceOutput(

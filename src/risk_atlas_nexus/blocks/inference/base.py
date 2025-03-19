@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Union
 
 from jinja2 import Template
-
 from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
     RITSInferenceEngineParams,
@@ -10,9 +9,10 @@ from risk_atlas_nexus.blocks.inference.params import (
     WMLInferenceEngineParams,
     OllamaInferenceEngineParams,
     VLLMInferenceEngineParams,
+    OpenAIChatCompletionMessageParam,
 )
 from risk_atlas_nexus.toolkit.logging import configure_logger
-
+import pydantic
 
 logger = configure_logger(__name__)
 
@@ -66,6 +66,18 @@ class InferenceEngine(ABC):
             **kwargs,
         )
 
+    def _to_openai_format(self, prompt: Union[OpenAIChatCompletionMessageParam, str]):
+        if isinstance(prompt, str):
+            return [{"role": "user", "content": prompt}]
+        elif pydantic.TypeAdapter(OpenAIChatCompletionMessageParam).validate_python(
+            prompt
+        ):
+            return prompt
+        else:
+            raise Exception(
+                f"Invalid input format: {prompt}. Please use openai format or plain str."
+            )
+
     @abstractmethod
     def prepare_credentials(
         self,
@@ -78,9 +90,19 @@ class InferenceEngine(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def chat(self, messages: List[Dict]) -> List[TextGenerationInferenceOutput]:
+    def generate(
+        self, prompts: List[str], response_format=None, verbose=True
+    ) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError
 
     @abstractmethod
-    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
+    def chat(
+        self,
+        prompts: Union[
+            List[OpenAIChatCompletionMessageParam],
+            List[str],
+        ],
+        response_format=None,
+        verbose=True,
+    ) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError
