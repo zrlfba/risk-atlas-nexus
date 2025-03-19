@@ -65,3 +65,10 @@ class ListOfStr:
             list_of_text = [text.strip() for text in list_of_text]
 
         return list_of_text
+
+
+@register("clean_output")
+class CleanOutput:
+
+    def apply(self, text: Any) -> Any:
+        return " ".join(str(text).strip(JSON_STRIP_CHARS).split())
