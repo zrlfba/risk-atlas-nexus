@@ -57,6 +57,8 @@ classes:
     slot_usage:
       isProvidedBy:
         description: A relationship indicating the AI agent has been provided by an AI systems provider.
+    slots:
+      - hasEvaluation
 
   AiModel:
     is_a: BaseAi
