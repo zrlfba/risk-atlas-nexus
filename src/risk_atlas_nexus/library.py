@@ -315,7 +315,9 @@ class RiskAtlasNexus:
         """
         type_check("<RAN129A1692E>", str, allow_none=True, taxonomy=taxonomy)
 
-        risk_control_instances: list[RiskControl] = cls._risk_explorer.get_all_risk_controls(taxonomy)
+        risk_control_instances: list[RiskControl] = (
+            cls._risk_explorer.get_all_risk_controls(taxonomy)
+        )
         return risk_control_instances
 
     def get_risk_control(cls, id=None, taxonomy=None):
@@ -432,9 +434,7 @@ class RiskAtlasNexus:
             inference_engine=inference_engine,
         )
         type_check("<RANB9FDEA04E>", str, allow_none=False, usecase=usecase)
-        type_check(
-            "<RANF7256EC3E>", List[str], allow_none=False, questions=questions
-        )
+        type_check("<RANF7256EC3E>", List[str], allow_none=False, questions=questions)
         value_check(
             "<RANC49F00D3E>",
             inference_engine and questions,
@@ -450,7 +450,12 @@ class RiskAtlasNexus:
             )
             for question in questions
         ]
-        return [result.prediction for result in inference_engine.generate(prompts)]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts, postprocessors=["clean_output"]
+            )
+        ]
 
     def generate_few_shot_output(
         cls,
@@ -513,7 +518,12 @@ class RiskAtlasNexus:
                 )
             )
 
-        return [result.prediction for result in inference_engine.generate(prompts)]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts, postprocessors=["clean_output"]
+            )
+        ]
 
     def identify_ai_tasks_from_usecases(
         cls,
@@ -538,9 +548,7 @@ class RiskAtlasNexus:
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check(
-            "<RAN4CDA6852E>", List[str], allow_none=False, usecases=usecases
-        )
+        type_check("<RAN4CDA6852E>", List[str], allow_none=False, usecases=usecases)
         value_check(
             "<RAN0E435F50E>",
             inference_engine and usecases,
