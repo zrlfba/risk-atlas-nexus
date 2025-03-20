@@ -76,6 +76,7 @@ URI: [airo:Documentation](https://w3id.org/airo#Documentation)
 | [Questionnaire](Questionnaire.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
 | [BaseAi](BaseAi.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
 | [AiSystem](AiSystem.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
+| [AiAgent](AiAgent.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
 | [AiModel](AiModel.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |
 | [LargeLanguageModelFamily](LargeLanguageModelFamily.md) | [hasDocumentation](hasDocumentation.md) | range | [Documentation](Documentation.md) |

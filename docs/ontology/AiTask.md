@@ -70,6 +70,7 @@ URI: [airo:AiCapability](https://w3id.org/airo#AiCapability)
 | [Container](Container.md) | [aitasks](aitasks.md) | range | [AiTask](AiTask.md) |
 | [BaseAi](BaseAi.md) | [performsTask](performsTask.md) | range | [AiTask](AiTask.md) |
 | [AiSystem](AiSystem.md) | [performsTask](performsTask.md) | range | [AiTask](AiTask.md) |
+| [AiAgent](AiAgent.md) | [performsTask](performsTask.md) | range | [AiTask](AiTask.md) |
 | [AiModel](AiModel.md) | [performsTask](performsTask.md) | range | [AiTask](AiTask.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [performsTask](performsTask.md) | range | [AiTask](AiTask.md) |
 

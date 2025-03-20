@@ -1,15 +1,15 @@
 
 
-# Class: AiSystem
+# Class: AiAgent
 
 
-_A compound AI System composed of one or more AI capablities. ChatGPT is an example of an AI system which deploys multiple GPT AI models._
+_An artificial intelligence (AI) agent refers to a system or program that is capable of autonomously performing tasks on behalf of a user or another system by designing its workflow and utilizing available tools._
 
 
 
 
 
-URI: [airo:AISystem](https://w3id.org/airo#AISystem)
+URI: [nexus:AiAgent](http://research.ibm.com/ontologies/aiont/AiAgent)
 
 
 
@@ -18,92 +18,87 @@ URI: [airo:AISystem](https://w3id.org/airo#AISystem)
 
 ```mermaid
  classDiagram
-    class AiSystem
-    click AiSystem href "../AiSystem"
-      BaseAi <|-- AiSystem
-        click BaseAi href "../BaseAi"
-      
-
+    class AiAgent
+    click AiAgent href "../AiAgent"
       AiSystem <|-- AiAgent
-        click AiAgent href "../AiAgent"
+        click AiSystem href "../AiSystem"
       
-      
-      AiSystem : dateCreated
+      AiAgent : dateCreated
         
-      AiSystem : dateModified
+      AiAgent : dateModified
         
-      AiSystem : description
+      AiAgent : description
         
-      AiSystem : hasDocumentation
+      AiAgent : hasDocumentation
         
           
     
     
-    AiSystem --> "*" Documentation : hasDocumentation
+    AiAgent --> "*" Documentation : hasDocumentation
     click Documentation href "../Documentation"
 
         
-      AiSystem : hasEuAiSystemType
+      AiAgent : hasEuAiSystemType
         
           
     
     
-    AiSystem --> "0..1" AiSystemType : hasEuAiSystemType
+    AiAgent --> "0..1" AiSystemType : hasEuAiSystemType
     click AiSystemType href "../AiSystemType"
 
         
-      AiSystem : hasEuRiskCategory
+      AiAgent : hasEuRiskCategory
         
           
     
     
-    AiSystem --> "0..1" EuAiRiskCategory : hasEuRiskCategory
+    AiAgent --> "0..1" EuAiRiskCategory : hasEuRiskCategory
     click EuAiRiskCategory href "../EuAiRiskCategory"
 
         
-      AiSystem : hasLicense
+      AiAgent : hasLicense
         
           
     
     
-    AiSystem --> "0..1" License : hasLicense
+    AiAgent --> "0..1" License : hasLicense
     click License href "../License"
 
         
-      AiSystem : hasModelCard
+      AiAgent : hasModelCard
         
-      AiSystem : id
+      AiAgent : id
         
-      AiSystem : isProvidedBy
+      AiAgent : isProvidedBy
         
           
     
     
-    AiSystem --> "0..1" AiProvider : isProvidedBy
+    AiAgent --> "0..1" AiProvider : isProvidedBy
     click AiProvider href "../AiProvider"
 
         
-      AiSystem : name
+      AiAgent : name
         
-      AiSystem : performsTask
+      AiAgent : performsTask
         
           
     
     
-    AiSystem --> "*" AiTask : performsTask
+    AiAgent --> "*" AiTask : performsTask
     click AiTask href "../AiTask"
 
         
-      AiSystem : producer
+      AiAgent : producer
         
           
     
     
-    AiSystem --> "0..1" Organization : producer
+    AiAgent --> "0..1" Organization : producer
     click Organization href "../Organization"
 
         
-      AiSystem : url
+      AiAgent : url
         
       
 ```
@@ -115,8 +110,8 @@ URI: [airo:AISystem](https://w3id.org/airo#AISystem)
 ## Inheritance
 * [Entity](Entity.md)
     * [BaseAi](BaseAi.md)
-        * **AiSystem**
-            * [AiAgent](AiAgent.md)
+        * [AiSystem](AiSystem.md)
+            * **AiAgent**
 
 
 
@@ -124,14 +119,14 @@ URI: [airo:AISystem](https://w3id.org/airo#AISystem)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [hasEuAiSystemType](hasEuAiSystemType.md) | 0..1 <br/> [AiSystemType](AiSystemType.md) | The type of system as defined by the EU AI Act | direct |
-| [hasEuRiskCategory](hasEuRiskCategory.md) | 0..1 <br/> [EuAiRiskCategory](EuAiRiskCategory.md) | The risk category of an AI system as defined by the EU AI Act | direct |
+| [hasEuAiSystemType](hasEuAiSystemType.md) | 0..1 <br/> [AiSystemType](AiSystemType.md) | The type of system as defined by the EU AI Act | [AiSystem](AiSystem.md) |
+| [hasEuRiskCategory](hasEuRiskCategory.md) | 0..1 <br/> [EuAiRiskCategory](EuAiRiskCategory.md) | The risk category of an AI system as defined by the EU AI Act | [AiSystem](AiSystem.md) |
 | [producer](producer.md) | 0..1 <br/> [Organization](Organization.md) | A relationship to the Organization instance which produces this instance | [BaseAi](BaseAi.md) |
 | [hasModelCard](hasModelCard.md) | * <br/> [String](String.md) | A relationship to model card references | [BaseAi](BaseAi.md) |
 | [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | [BaseAi](BaseAi.md) |
 | [hasLicense](hasLicense.md) | 0..1 <br/> [License](License.md) | Indicates licenses associated with a resource | [BaseAi](BaseAi.md) |
 | [performsTask](performsTask.md) | * <br/> [AiTask](AiTask.md) | relationship indicating the AI tasks an AI model can perform | [BaseAi](BaseAi.md) |
-| [isProvidedBy](isProvidedBy.md) | 0..1 <br/> [AiProvider](AiProvider.md) | A relationship indicating the AI model has been provided by an AI model provi... | [BaseAi](BaseAi.md) |
+| [isProvidedBy](isProvidedBy.md) | 0..1 <br/> [AiProvider](AiProvider.md) | A relationship indicating the AI agent has been provided by an AI systems pro... | [BaseAi](BaseAi.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -167,8 +162,8 @@ URI: [airo:AISystem](https://w3id.org/airo#AISystem)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | airo:AISystem |
-| native | nexus:AiSystem |
+| self | nexus:AiAgent |
+| native | nexus:AiAgent |
 
 
 
@@ -184,21 +179,17 @@ URI: [airo:AISystem](https://w3id.org/airo#AISystem)
 
 <details>
 ```yaml
-name: AiSystem
-description: A compound AI System composed of one or more AI capablities. ChatGPT
-  is an example of an AI system which deploys multiple GPT AI models.
+name: AiAgent
+description: An artificial intelligence (AI) agent refers to a system or program that
+  is capable of autonomously performing tasks on behalf of a user or another system
+  by designing its workflow and utilizing available tools.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
-is_a: BaseAi
-slots:
-- hasEuAiSystemType
-- hasEuRiskCategory
+is_a: AiSystem
 slot_usage:
-  isComposedOf:
-    name: isComposedOf
-    description: Relationship indicating the AI components from which a complete AI
-      system is composed.
-    range: BaseAi
-class_uri: airo:AISystem
+  isProvidedBy:
+    name: isProvidedBy
+    description: A relationship indicating the AI agent has been provided by an AI
+      systems provider.
 
 ```
 </details>
@@ -207,17 +198,17 @@ class_uri: airo:AISystem
 
 <details>
 ```yaml
-name: AiSystem
-description: A compound AI System composed of one or more AI capablities. ChatGPT
-  is an example of an AI system which deploys multiple GPT AI models.
+name: AiAgent
+description: An artificial intelligence (AI) agent refers to a system or program that
+  is capable of autonomously performing tasks on behalf of a user or another system
+  by designing its workflow and utilizing available tools.
 from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
-is_a: BaseAi
+is_a: AiSystem
 slot_usage:
-  isComposedOf:
-    name: isComposedOf
-    description: Relationship indicating the AI components from which a complete AI
-      system is composed.
-    range: BaseAi
+  isProvidedBy:
+    name: isProvidedBy
+    description: A relationship indicating the AI agent has been provided by an AI
+      systems provider.
 attributes:
   hasEuAiSystemType:
     name: hasEuAiSystemType
@@ -225,7 +216,7 @@ attributes:
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     alias: hasEuAiSystemType
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - AiSystem
     range: AiSystemType
@@ -235,7 +226,7 @@ attributes:
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     alias: hasEuRiskCategory
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - AiSystem
     range: EuAiRiskCategory
@@ -245,7 +236,7 @@ attributes:
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     alias: producer
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - BaseAi
     range: Organization
@@ -255,7 +246,7 @@ attributes:
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     alias: hasModelCard
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - BaseAi
     range: string
@@ -269,7 +260,7 @@ attributes:
     rank: 1000
     slot_uri: airo:hasDocumentation
     alias: hasDocumentation
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Dataset
     - RiskTaxonomy
@@ -287,7 +278,7 @@ attributes:
     rank: 1000
     slot_uri: airo:hasLicense
     alias: hasLicense
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Dataset
     - RiskTaxonomy
@@ -300,7 +291,7 @@ attributes:
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     alias: performsTask
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - BaseAi
     range: AiTask
@@ -308,13 +299,13 @@ attributes:
     inlined: false
   isProvidedBy:
     name: isProvidedBy
-    description: A relationship indicating the AI model has been provided by an AI
-      model provider.
+    description: A relationship indicating the AI agent has been provided by an AI
+      systems provider.
     from_schema: http://research.ibm.com/ontologies/aiont/ai-risk-ontology
     rank: 1000
     slot_uri: airo:isProvidedBy
     alias: isProvidedBy
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - BaseAi
     range: AiProvider
@@ -327,7 +318,7 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: string
@@ -339,7 +330,7 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: string
@@ -350,7 +341,7 @@ attributes:
     rank: 1000
     slot_uri: schema:description
     alias: description
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: string
@@ -361,7 +352,7 @@ attributes:
     rank: 1000
     slot_uri: schema:url
     alias: url
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: uri
@@ -372,7 +363,7 @@ attributes:
     rank: 1000
     slot_uri: schema:dateCreated
     alias: dateCreated
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: date
@@ -384,12 +375,11 @@ attributes:
     rank: 1000
     slot_uri: schema:dateModified
     alias: dateModified
-    owner: AiSystem
+    owner: AiAgent
     domain_of:
     - Entity
     range: date
     required: false
-class_uri: airo:AISystem
 
 ```
 </details>
