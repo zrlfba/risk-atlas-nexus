@@ -98,7 +98,7 @@ class InferenceEngine(ABC):
     @abstractmethod
     def chat(
         self,
-        prompts: Union[
+        messages: Union[
             List[OpenAIChatCompletionMessageParam],
             List[str],
         ],

@@ -127,23 +127,24 @@ class WMLInferenceEngine(InferenceEngine):
     @postprocess
     def chat(
         self,
-        prompts: Union[
+        messages: Union[
             List[OpenAIChatCompletionMessageParam],
             List[str],
         ],
         response_format=None,
         verbose=True,
     ) -> TextGenerationInferenceOutput:
-        def chat_response(prompt):
+
+        def chat_response(messages):
             response = self.client.chat(
-                messages=self._to_openai_format(prompt),
+                messages=self._to_openai_format(messages),
                 params=self.parameters,
             )
             return self._prepare_chat_output(response)
 
         return run_parallel(
             chat_response,
-            prompts,
+            messages,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
             verbose=verbose,

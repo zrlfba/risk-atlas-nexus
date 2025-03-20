@@ -67,16 +67,17 @@ class RITSInferenceEngine(InferenceEngine):
     @postprocess
     def chat(
         self,
-        prompts: Union[
+        messages: Union[
             List[OpenAIChatCompletionMessageParam],
             List[str],
         ],
         response_format=None,
         verbose=True,
     ) -> TextGenerationInferenceOutput:
-        def chat_response(prompt):
+
+        def chat_response(messages):
             response = self.client.chat.completions.create(
-                messages=self._to_openai_format(prompt),
+                messages=self._to_openai_format(messages),
                 model=self.model_name_or_path,
                 response_format=self._create_schema_format(response_format),
                 **self.parameters,
@@ -85,7 +86,7 @@ class RITSInferenceEngine(InferenceEngine):
 
         return run_parallel(
             chat_response,
-            prompts,
+            messages,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
             verbose=verbose,

@@ -10,12 +10,11 @@ from risk_atlas_nexus.blocks.inference.params import (
     VLLMInferenceEngineParams,
     OpenAIChatCompletionMessageParam,
 )
-from vllm.sampling_params import GuidedDecodingParams
+
 from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.job_utils import run_parallel
 from risk_atlas_nexus.toolkit.logging import configure_logger
-from vllm.model_executor.guided_decoding.guided_fields import GuidedDecodingRequest
 
 logger = configure_logger(__name__)
 
@@ -83,6 +82,7 @@ class VLLMInferenceEngine(InferenceEngine):
         verbose=True,
     ):
         from vllm import LLM, SamplingParams
+        from vllm.sampling_params import GuidedDecodingParams
 
         if isinstance(self.client, LLM):
             if response_format:
@@ -126,7 +126,7 @@ class VLLMInferenceEngine(InferenceEngine):
     @postprocess
     def chat(
         self,
-        prompts: Union[
+        messages: Union[
             List[OpenAIChatCompletionMessageParam],
             List[str],
         ],
@@ -134,6 +134,7 @@ class VLLMInferenceEngine(InferenceEngine):
         verbose=True,
     ):
         from vllm import LLM, SamplingParams
+        from vllm.sampling_params import GuidedDecodingParams
 
         if isinstance(self.client, LLM):
             if response_format:
@@ -142,7 +143,7 @@ class VLLMInferenceEngine(InferenceEngine):
                 )
             responses = []
             for response in self.client.chat(
-                messages=[self._to_openai_format(prompt) for prompt in prompts],
+                messages=[self._to_openai_format(message) for message in messages],
                 sampling_params=SamplingParams(**self.parameters),
                 use_tqdm=verbose,
             ):
@@ -150,10 +151,10 @@ class VLLMInferenceEngine(InferenceEngine):
             return responses
         else:
 
-            def chat_response(prompt):
+            def chat_response(messages):
                 response = self.client.chat.completions.create(
                     model=self.model_name_or_path,
-                    messages=self._to_openai_format(prompt),
+                    messages=self._to_openai_format(messages),
                     response_format=self._create_schema_format(response_format),
                     **self.parameters,
                 )
@@ -161,7 +162,7 @@ class VLLMInferenceEngine(InferenceEngine):
 
             return run_parallel(
                 chat_response,
-                prompts,
+                messages,
                 f"Inferring with {self._inference_engine_type}",
                 self.concurrency_limit,
                 verbose=verbose,

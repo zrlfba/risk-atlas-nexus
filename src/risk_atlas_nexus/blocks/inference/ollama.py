@@ -75,17 +75,18 @@ class OllamaInferenceEngine(InferenceEngine):
     @postprocess
     def chat(
         self,
-        prompts: Union[
+        messages: Union[
             List[OpenAIChatCompletionMessageParam],
             List[str],
         ],
         response_format=None,
         verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
-        def chat_response(prompt):
+
+        def chat_response(messages):
             response = self.client.chat(
                 model=self.model_name_or_path,
-                messages=self._to_openai_format(prompt),
+                messages=self._to_openai_format(messages),
                 format=response_format,
                 options=self.parameters,  # https://github.com/ollama/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values
             )
@@ -93,7 +94,7 @@ class OllamaInferenceEngine(InferenceEngine):
 
         return run_parallel(
             chat_response,
-            prompts,
+            messages,
             f"Inferring with {self._inference_engine_type}",
             self.concurrency_limit,
             verbose=verbose,
