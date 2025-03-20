@@ -29,13 +29,13 @@ dependencies = [
     "logzero",
     "python-dotenv",
     "datasets",
+    "openai",
 ]
 
 [project.optional-dependencies]
 wml = ["ibm-watsonx-ai"]
-rits = ["openai"]
-ollama = ["ollama", "openai"]
-vllm = ["vllm", "openai", "xgrammar"]
+ollama = ["ollama"]
+vllm = ["vllm", "xgrammar"]
 docs = [
     "mkdocs-material",
     "mkdocs-jupyter",
