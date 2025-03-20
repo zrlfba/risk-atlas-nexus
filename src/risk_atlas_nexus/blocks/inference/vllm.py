@@ -71,7 +71,7 @@ class VLLMInferenceEngine(InferenceEngine):
             return LLM(
                 model=self.model_name_or_path,
                 trust_remote_code=True,
-                max_model_len=26208,
+                max_model_len=4098,
             )
 
     @postprocess

@@ -434,7 +434,7 @@ class RiskAtlasNexus:
             inference_engine=inference_engine,
         )
         type_check("<RANB9FDEA04E>", str, allow_none=False, usecase=usecase)
-        type_check("<RANF7256EC3E>", List[str], allow_none=False, questions=questions)
+        type_check("<RANF7256EC3E>", List, allow_none=False, questions=questions)
         value_check(
             "<RANC49F00D3E>",
             inference_engine and questions,
@@ -548,7 +548,7 @@ class RiskAtlasNexus:
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check("<RAN4CDA6852E>", List[str], allow_none=False, usecases=usecases)
+        type_check("<RAN4CDA6852E>", List, allow_none=False, usecases=usecases)
         value_check(
             "<RAN0E435F50E>",
             inference_engine and usecases,
