@@ -46,11 +46,7 @@ class RITSInferenceEngine(InferenceEngine):
         from openai import OpenAI
 
         model_name_for_endpoint = (
-            self.model_name_or_path.split("/")[-1]
-            .lower()
-            .replace("v0.1", "v01")
-            .replace("vision-", "")
-            .replace(".", "-")
+            self.model_name_or_path.split("/")[-1].lower().replace(".", "-")
         )
         return OpenAI(
             api_key=credentials["api_key"],
