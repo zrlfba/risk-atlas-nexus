@@ -90,6 +90,7 @@ URI: [schema:Organization](http://schema.org/Organization)
 | [Dataset](Dataset.md) | [provider](provider.md) | range | [Organization](Organization.md) |
 | [BaseAi](BaseAi.md) | [producer](producer.md) | range | [Organization](Organization.md) |
 | [AiSystem](AiSystem.md) | [producer](producer.md) | range | [Organization](Organization.md) |
+| [AiAgent](AiAgent.md) | [producer](producer.md) | range | [Organization](Organization.md) |
 | [AiModel](AiModel.md) | [producer](producer.md) | range | [Organization](Organization.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [producer](producer.md) | range | [Organization](Organization.md) |
 

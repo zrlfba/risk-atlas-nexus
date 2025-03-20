@@ -50,6 +50,14 @@ classes:
       - hasEuAiSystemType
       - hasEuRiskCategory
 
+  AiAgent:
+    is_a: AiSystem
+    description:
+      An artificial intelligence (AI) agent refers to a system or program that is capable of autonomously performing tasks on behalf of a user or another system by designing its workflow and utilizing available tools.
+    slot_usage:
+      isProvidedBy:
+        description: A relationship indicating the AI agent has been provided by an AI systems provider.
+
   AiModel:
     is_a: BaseAi
     description:
