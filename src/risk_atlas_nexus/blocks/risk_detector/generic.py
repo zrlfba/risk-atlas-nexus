@@ -28,8 +28,10 @@ class GenericRiskDetector(RiskDetector):
         ]
 
         LIST_OF_STR_SCHEMA["items"]["enum"] = [risk.name for risk in self._risks]
-        inference_response: List[TextGenerationInferenceOutput] = (
-            self.inference_engine.generate(prompts, response_format=LIST_OF_STR_SCHEMA)
+        inference_response = self.inference_engine.generate(
+            prompts,
+            response_format=LIST_OF_STR_SCHEMA,
+            postprocessors=["list_of_str"],
         )
 
         return [

@@ -79,6 +79,7 @@ class VLLMInferenceEngine(InferenceEngine):
         self,
         prompts: List[str],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ):
         from vllm import LLM, SamplingParams
@@ -131,6 +132,7 @@ class VLLMInferenceEngine(InferenceEngine):
             List[str],
         ],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ):
         from vllm import LLM, SamplingParams

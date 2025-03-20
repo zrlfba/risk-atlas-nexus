@@ -259,7 +259,7 @@ class RiskAtlasNexus:
 
         action: Action | None = cls._risk_explorer.get_action_by_id(id=id)
         return action
-    
+
     def get_related_risk_controls(
         cls, risk=None, tag=None, id=None, name=None, taxonomy=None
     ):
@@ -301,7 +301,7 @@ class RiskAtlasNexus:
             risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
         )
         return risk_controls
-    
+
     def get_all_risk_controls(cls, taxonomy=None):
         """Get all risk control definitions from the LinkML
 
@@ -565,6 +565,8 @@ class RiskAtlasNexus:
         return [
             result.prediction
             for result in inference_engine.generate(
-                prompts, response_format=LIST_OF_STR_SCHEMA
+                prompts,
+                response_format=LIST_OF_STR_SCHEMA,
+                postprocessors=["list_of_str"],
             )
         ]

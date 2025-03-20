@@ -60,9 +60,13 @@ class RITSInferenceEngine(InferenceEngine):
 
     @postprocess
     def generate(
-        self, prompts: List[str], response_format=None, verbose=True
+        self,
+        prompts: List[str],
+        response_format=None,
+        postprocessors=None,
+        verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
-        return self.chat(prompts, response_format, verbose)
+        return self.chat(prompts, response_format, postprocessors, verbose)
 
     @postprocess
     def chat(
@@ -72,6 +76,7 @@ class RITSInferenceEngine(InferenceEngine):
             List[str],
         ],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ) -> TextGenerationInferenceOutput:
 

@@ -53,7 +53,11 @@ class OllamaInferenceEngine(InferenceEngine):
 
     @postprocess
     def generate(
-        self, prompts: List[str], response_format=None, verbose=True
+        self,
+        prompts: List[str],
+        response_format=None,
+        postprocessors=None,
+        verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
         def generate_text(prompt: str):
             response = self.client.generate(
@@ -80,6 +84,7 @@ class OllamaInferenceEngine(InferenceEngine):
             List[str],
         ],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
 

@@ -31,7 +31,6 @@ class InferenceEngine(ABC):
                 VLLMInferenceEngineParams,
             ]
         ] = None,
-        postprocessors: List[str] = None,
         concurrency_limit: int = 10,
     ):
         self.model_name_or_path = model_name_or_path
@@ -39,7 +38,6 @@ class InferenceEngine(ABC):
         self.client = self.create_client(
             self.prepare_credentials(credentials if credentials else {})
         )
-        self.postprocessors = postprocessors
         self.concurrency_limit = concurrency_limit
 
         logger.info(f"Created {self._inference_engine_type} inference engine.")
@@ -91,7 +89,11 @@ class InferenceEngine(ABC):
 
     @abstractmethod
     def generate(
-        self, prompts: List[str], response_format=None, verbose=True
+        self,
+        prompts: List[str],
+        response_format=None,
+        postprocessors=None,
+        verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError
 
@@ -103,6 +105,7 @@ class InferenceEngine(ABC):
             List[str],
         ],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
         raise NotImplementedError

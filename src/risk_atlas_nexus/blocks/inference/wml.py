@@ -100,6 +100,7 @@ class WMLInferenceEngine(InferenceEngine):
         self,
         prompts: List[str],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ) -> List[TextGenerationInferenceOutput]:
         responses = []
@@ -132,6 +133,7 @@ class WMLInferenceEngine(InferenceEngine):
             List[str],
         ],
         response_format=None,
+        postprocessors=None,
         verbose=True,
     ) -> TextGenerationInferenceOutput:
 

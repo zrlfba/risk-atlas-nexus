@@ -25,18 +25,18 @@ def register(name):
 
 def postprocess(func):
     def wrapper(*args, **kwargs):
+        postprocessors = kwargs["postprocessors"] if "postprocessors" in kwargs else []
         inference_response: Union[
             TextGenerationInferenceOutput, List[TextGenerationInferenceOutput]
         ] = func(*args, **kwargs)
-        if args[0].postprocessors:
-            for processor in args[0].postprocessors:
-                try:
-                    for inference in inference_response:
-                        inference.prediction = POSTPROCESSORS_REGISTRY[
-                            processor
-                        ]().apply(inference.prediction)
-                except:
-                    logger.debug("[{processor}] - Error in post processing.")
+        for processor in postprocessors:
+            try:
+                for inference in inference_response:
+                    inference.prediction = POSTPROCESSORS_REGISTRY[processor]().apply(
+                        inference.prediction
+                    )
+            except:
+                logger.debug("[{processor}] - Error in post processing.")
         return inference_response
 
     return wrapper
