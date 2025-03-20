@@ -70,5 +70,15 @@ class ListOfStr:
 @register("clean_output")
 class CleanOutput:
 
-    def apply(self, text: Any) -> Any:
+    def apply(self, text: str) -> str:
         return " ".join(str(text).strip(JSON_STRIP_CHARS).split())
+
+
+@register("json_object")
+class JsonObject:
+
+    def apply(self, text: str) -> object:
+        try:
+            return json.loads(str(text).strip(JSON_STRIP_CHARS))
+        except:
+            return text
