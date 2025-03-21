@@ -21,6 +21,7 @@ from risk_atlas_nexus.toolkit.data_utils import load_yamls_to_container
 from risk_atlas_nexus.toolkit.error_utils import type_check, value_check
 from risk_atlas_nexus.data import get_templates_path
 from risk_atlas_nexus.toolkit.logging import configure_logger
+from risk_atlas_nexus.blocks.inference.response_schema import LIST_OF_STR_SCHEMA
 
 
 logger = configure_logger(__name__)
@@ -258,7 +259,7 @@ class RiskAtlasNexus:
 
         action: Action | None = cls._risk_explorer.get_action_by_id(id=id)
         return action
-    
+
     def get_related_risk_controls(
         cls, risk=None, tag=None, id=None, name=None, taxonomy=None
     ):
@@ -300,7 +301,7 @@ class RiskAtlasNexus:
             risk=risk, tag=tag, id=id, name=name, taxonomy=taxonomy
         )
         return risk_controls
-    
+
     def get_all_risk_controls(cls, taxonomy=None):
         """Get all risk control definitions from the LinkML
 
@@ -314,7 +315,9 @@ class RiskAtlasNexus:
         """
         type_check("<RAN129A1692E>", str, allow_none=True, taxonomy=taxonomy)
 
-        risk_control_instances: list[RiskControl] = cls._risk_explorer.get_all_risk_controls(taxonomy)
+        risk_control_instances: list[RiskControl] = (
+            cls._risk_explorer.get_all_risk_controls(taxonomy)
+        )
         return risk_control_instances
 
     def get_risk_control(cls, id=None, taxonomy=None):
@@ -431,9 +434,7 @@ class RiskAtlasNexus:
             inference_engine=inference_engine,
         )
         type_check("<RANB9FDEA04E>", str, allow_none=False, usecase=usecase)
-        type_check(
-            "<RANF7256EC3E>", List, allow_none=False, questions=questions
-        )
+        type_check("<RANF7256EC3E>", List, allow_none=False, questions=questions)
         value_check(
             "<RANC49F00D3E>",
             inference_engine and questions,
@@ -449,7 +450,12 @@ class RiskAtlasNexus:
             )
             for question in questions
         ]
-        return [result.prediction for result in inference_engine.generate(prompts)]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts, postprocessors=["clean_output"]
+            )
+        ]
 
     def generate_few_shot_output(
         cls,
@@ -512,7 +518,12 @@ class RiskAtlasNexus:
                 )
             )
 
-        return [result.prediction for result in inference_engine.generate(prompts)]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts, postprocessors=["clean_output"]
+            )
+        ]
 
     def identify_ai_tasks_from_usecases(
         cls,
@@ -537,9 +548,7 @@ class RiskAtlasNexus:
             allow_none=False,
             inference_engine=inference_engine,
         )
-        type_check(
-            "<RAN4CDA6852E>", List, allow_none=False, usecases=usecases
-        )
+        type_check("<RAN4CDA6852E>", List, allow_none=False, usecases=usecases)
         value_check(
             "<RAN0E435F50E>",
             inference_engine and usecases,
@@ -557,4 +566,15 @@ class RiskAtlasNexus:
             )
             for usecase in usecases
         ]
-        return [result.prediction for result in inference_engine.generate(prompts)]
+
+        LIST_OF_STR_SCHEMA["items"]["enum"] = [
+            task["task_label"] for task in hf_ai_tasks
+        ]
+        return [
+            result.prediction
+            for result in inference_engine.generate(
+                prompts,
+                response_format=LIST_OF_STR_SCHEMA,
+                postprocessors=["list_of_str"],
+            )
+        ]

@@ -2,7 +2,7 @@ COT_TEMPLATE = """{% if examples is not none %}Few shot examples:
 {% for example in examples %}
 Example: [Given: {{ example.usecase }}] [Question: {{ question }}] Output: [{{ example.answer }}]
 {% endfor %}{% endif %}
-Question: [Given: {{ usecase }}] [Question: {{ question }}]\n
+Question: [Given: {{ usecase }}] [Question: {{ question }}] Output: \n
 """
 
 RISK_IDENTIFICATION_TEMPLATE = """You are an expert at AI risk classification. Study the risks JSON below containing list of risk category and its description. 

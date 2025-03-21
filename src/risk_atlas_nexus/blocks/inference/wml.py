@@ -8,11 +8,12 @@ from risk_atlas_nexus.blocks.inference.params import (
     InferenceEngineCredentials,
     TextGenerationInferenceOutput,
     WMLInferenceEngineParams,
+    OpenAIChatCompletionMessageParam,
 )
 from risk_atlas_nexus.blocks.inference.postprocessing import postprocess
 from risk_atlas_nexus.metadata_base import InferenceEngineType
 from risk_atlas_nexus.toolkit.logging import configure_logger
-
+from risk_atlas_nexus.toolkit.job_utils import run_parallel
 
 logger = configure_logger(__name__)
 
@@ -87,32 +88,89 @@ class WMLInferenceEngine(InferenceEngine):
         else:
             client.set.default_project(credentials["project_id"])
 
+        # self.parameters.update(
+        #     {"response_format": self._create_schema_format(response_format)}
+        # )
         return ModelInference(
-            model_id=self.model_name_or_path,
-            api_client=client,
-            params=self.parameters,
+            model_id=self.model_name_or_path, api_client=client, params=self.parameters
         )
 
     @postprocess
-    def generate(self, prompts: List[str]) -> List[TextGenerationInferenceOutput]:
+    def generate(
+        self,
+        prompts: List[str],
+        response_format=None,
+        postprocessors=None,
+        verbose=True,
+    ) -> List[TextGenerationInferenceOutput]:
         responses = []
         for response in self.client.generate(
             prompt=prompts,
+            params=self.parameters,
             concurrency_limit=self.concurrency_limit,
         ):
-            responses.append(self._prepare_prediction_output(response))
+            responses.append(self._prepare_generation_output(response))
 
         return responses
 
-    def _prepare_prediction_output(
+    def _prepare_generation_output(
         self, response
     ) -> List[TextGenerationInferenceOutput]:
         return TextGenerationInferenceOutput(
             prediction=response["results"][0]["generated_text"],
-            # input_text=prompts[0]["source"],
             input_tokens=response["results"][0]["input_token_count"],
             output_tokens=response["results"][0]["generated_token_count"],
             stop_reason=response["results"][0]["stop_reason"],
             model_name_or_path=self.model_name_or_path,
             inference_engine=str(self._inference_engine_type),
         )
+
+    @postprocess
+    def chat(
+        self,
+        messages: Union[
+            List[OpenAIChatCompletionMessageParam],
+            List[str],
+        ],
+        response_format=None,
+        postprocessors=None,
+        verbose=True,
+    ) -> TextGenerationInferenceOutput:
+
+        def chat_response(messages):
+            response = self.client.chat(
+                messages=self._to_openai_format(messages),
+                params=self.parameters,
+            )
+            return self._prepare_chat_output(response)
+
+        return run_parallel(
+            chat_response,
+            messages,
+            f"Inferring with {self._inference_engine_type}",
+            self.concurrency_limit,
+            verbose=verbose,
+        )
+
+    def _prepare_chat_output(self, response) -> List[TextGenerationInferenceOutput]:
+        print(response["choices"][0]["message"]["content"])
+        return TextGenerationInferenceOutput(
+            prediction=response["choices"][0]["message"]["content"],
+            input_tokens=response["usage"]["prompt_tokens"],
+            output_tokens=response["usage"]["completion_tokens"],
+            stop_reason=response["choices"][0]["finish_reason"],
+            model_name_or_path=self.model_name_or_path,
+            inference_engine=str(self._inference_engine_type),
+        )
+
+    def _create_schema_format(self, response_format):
+        if response_format:
+            return {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "RITS_schema",
+                    "schema": response_format,
+                },
+            }
+        else:
+            return None

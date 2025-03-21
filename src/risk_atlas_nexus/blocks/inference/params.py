@@ -1,5 +1,6 @@
 import dataclasses
-from typing import Any, Dict, List, Literal, Optional, TypedDict, Union
+from typing import Any, Dict, List, Literal, Optional, TypedDict, Union, TypeAlias
+from openai.types.chat import ChatCompletionMessageParam
 
 
 class InferenceEngineCredentials(TypedDict):
@@ -38,6 +39,8 @@ class RITSInferenceEngineParams(TypedDict):
 
 
 class WMLInferenceEngineParams(TypedDict):
+
+    # generation params
     decoding_method: Optional[Literal["greedy", "sample"]] = None
     length_penalty: Optional[Dict[str, Union[int, float]]] = None
     temperature: Optional[float] = None
@@ -52,6 +55,21 @@ class WMLInferenceEngineParams(TypedDict):
     truncate_input_tokens: Optional[int] = None
     prompt_variables: Optional[Dict[str, Any]] = None
     return_options: Optional[Dict[str, bool]] = None
+
+    # chat params
+    frequency_penalty: float | None = None
+    logprobs: bool | None = None
+    top_logprobs: int | None = None
+    presence_penalty: float | None = None
+    response_format: dict | None = None
+    temperature: float | None = None
+    max_tokens: int | None = None
+    time_limit: int | None = None
+    top_p: float | None = None
+    n: int | None = None
+    logit_bias: dict | None = None
+    seed: int | None = None
+    stop: list[str] | None = None
 
 
 class OllamaInferenceEngineParams(TypedDict):
@@ -142,3 +160,6 @@ class TextGenerationInferenceOutput:
     input_text: Optional[str] = None
     model_name_or_path: Optional[str] = None
     inference_engine: Optional[str] = None
+
+
+OpenAIChatCompletionMessageParam: TypeAlias = List[ChatCompletionMessageParam]
