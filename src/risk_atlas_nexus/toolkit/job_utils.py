@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from tqdm.autonotebook import tqdm
 from multiprocessing.pool import ThreadPool
 

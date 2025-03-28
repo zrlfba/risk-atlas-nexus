@@ -3,7 +3,9 @@ import glob
 import os
 from linkml_runtime.loaders import yaml_loader
 from risk_atlas_nexus.data import get_data_path
-from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import Container
+from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
+    Container,
+)
 from risk_atlas_nexus.toolkit.logging import configure_logger
 
 logger = configure_logger(__name__)
@@ -27,14 +29,20 @@ def load_yamls_to_container(base_dir):
     for yaml_dir in [system_data_path, base_dir]:
         # Include YAML files from the user defined `base_dir` if exist.
         if yaml_dir is not None:
-            master_yaml_files.extend(glob.glob(os.path.join(yaml_dir, "*.yaml")))
+            master_yaml_files.extend(
+                glob.glob(
+                    os.path.join(yaml_dir, "**", "*.yaml"), recursive=True
+                )
+            )
 
     yml_items_result = {}
     for yaml_file in master_yaml_files:
         try:
             yml_items = yaml_loader.load_as_dict(source=yaml_file)
             for ontology_class, instances in yml_items.items():
-                yml_items_result.setdefault(ontology_class, []).extend(instances)
+                yml_items_result.setdefault(ontology_class, []).extend(
+                    instances
+                )
         except:
             logger.info(f"YAML ignored: {yaml_file}. Failed to load.")
 
@@ -51,8 +59,14 @@ def load_yamls_to_container(base_dir):
             if key != "id":
                 if key not in combine_risks[risk_id]:
                     combine_risks[risk_id][key] = value
-
-            # maybe should add append here for lists?
+                else:
+                    if combine_risks[risk_id][key] is not None:
+                        combine_risks[risk_id][key] = [
+                            *combine_risks[risk_id][key],
+                            *value,
+                        ]
+                    else:
+                        combine_risks[risk_id][key] = value
 
     yml_items_result["risks"] = list(combine_risks.values())
 
