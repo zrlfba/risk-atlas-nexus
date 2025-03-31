@@ -1,6 +1,6 @@
 # Assisted by watsonx Code Assistant 
 import unittest
-from src.risk_atlas_nexus.toolkit.error_utils import type_check, value_check
+from src.risk_atlas_nexus.toolkit.error_utils import type_check, value_check, _gen_new_error_code
 
 class TestErrorUtils(unittest.TestCase):
 
@@ -28,5 +28,11 @@ class TestErrorUtils(unittest.TestCase):
         with self.assertRaises(ValueError):
             value_check("value_check_error", 0 < val < 1, "value is not between 0 and 1", val)
 
+    def test_error_code_gen(self):
+        new_code = _gen_new_error_code("RAN", "error")
+        self.assertRegex(new_code, r"RAN\d\d\d\d\d\d\d\dE")
+
+        new_code_2 = _gen_new_error_code("TEST", "warning")
+        self.assertRegex(new_code_2, r"TEST\d\d\d\d\d\d\d\dW")
 if __name__ == '__main__':
     unittest.main()
