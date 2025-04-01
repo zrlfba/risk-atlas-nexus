@@ -27,10 +27,8 @@ class RiskMapper(RiskMappingBase):
             relationship = "skos:exactMatch"
         elif (score <= 100) and (score > 80):
             relationship = "skos:closeMatch"
-        elif (score <= 80) and (score > 50):
+        elif (score <= 80) and (score > 20):
             relationship = "skos:relatedMatch"
-        elif (score <= 50) and (score > 20):
-            relationship = "rdfs:seeAlso"
 
         return relationship
     

@@ -62,17 +62,11 @@ directory.
 1. Prepare a TSV file either
     1. manually, or
     2. semi-automatically, with aid of the python notebook [Prepare taxonomy mappings](../examples/notebooks/Prepare_taxonomy_mappings.ipynb).
-2. Verify the mappings
-3. Prepare the yaml mapping files either
-    1. manually or
-    2. automatically with `make lift_mappings_from_tsv`
-       Ensure the entries comply with [the schema](../ontology/index.md)
-4. Save them in
-   the [knowledge graph data mapping folder](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/mapping/)
-   .
+2. Verify the TSV mappings are correct.
+3. Lift all the TSV files to yaml mapping entries by executing `make lift_mappings_from_tsv`. 
+4. Ensure the changes were saved to the [knowledge graph data mapping folder](https://github.com/ibm/risk-atlas-nexus/src/risk_atlas_nexus/data/knowledge_graph/mapping/) .
 
 ## Save your changes
-
 - Save your new taxonomy files in
   the [knowledge graph data directory](https://github.com/IBM/risk-atlas-nexus/tree/main/src/risk_atlas_nexus/data/knowledge_graph)
   . Push your changes and make a PR to the main project.
