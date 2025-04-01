@@ -18,3 +18,16 @@ class InferenceEngineType(str, Enum):
 
     def __str__(self):
         return self.name
+
+@unique
+class MappingMethod(str, Enum):
+    """Enum to contain possible values for risk mapping types"""
+    SEMANTIC = "SEMANTIC"
+    RITS_INFERENCE = "RITS_INFERENCE"
+
+    @classmethod
+    def list(cls):
+        return list(map(lambda c: c.name, cls))
+
+    def __str__(self):
+        return self.name
