@@ -8791,7 +8791,7 @@ actions:
   - End-Users
   - Human Factors
   - Operation and Monitoring
-- id: credo-ract-control-001
+- id: credo-act-control-001
   name: Establish AI system access controls
   description: Implement comprehensive access management including role-based access
     control (RBAC), authentication mechanisms, and audit logging for AI models and
@@ -8804,7 +8804,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-009
+- id: credo-act-control-009
   name: Establish AI system documentation framework
   description: Implement comprehensive documentation requirements and processes covering
     training data provenance, system architecture, model cards, and component interactions
@@ -8818,7 +8818,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-010
+- id: credo-act-control-010
   name: Implement AI system monitoring and logging infrastructure
   description: Deploy comprehensive monitoring and logging systems that capture AI
     system behavior, decisions, performance metrics, and real-time data source usage
@@ -8834,7 +8834,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-011
+- id: credo-act-control-011
   name: Establish AI decision explanation framework
   description: Implement mechanisms and tools for generating humanunderstandable explanations
     of AI system decisions, including feature importance, decision paths, confidence
@@ -8848,7 +8848,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-012
+- id: credo-act-control-012
   name: Establish and apply performance testing and validation framework
   description: Implement comprehensive performance requirements, testing protocols,
     and validation procedures to ensure AI systems meet capability requirements and
@@ -8861,7 +8861,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-014
+- id: credo-act-control-014
   name: Establish and apply fairness testing and validation framework
   description: Implement comprehensive procedures to validate model fairness during
     development and pre-deployment, including test dataset creation, metric definition,
@@ -8874,7 +8874,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-015
+- id: credo-act-control-015
   name: Implement fairness monitoring and remediation system
   description: Deploy continuous monitoring systems to detect fairness issues in production,
     including automated drift detection, performance disparity alerts, and systematic
@@ -8887,7 +8887,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-016
+- id: credo-act-control-016
   name: Establish universal access and performance design framework
   description: Establish and follow a structured framework ensuring the AI system
     is designed and developed to deliver consistent, high-quality performance and
@@ -8902,7 +8902,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-017
+- id: credo-act-control-017
   name: Establish content safety policy and boundaries
   description: Define and document comprehensive content safety policies, including
     prohibited content categories, acceptable content guidelines, output constraints,
@@ -8921,7 +8921,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-018
+- id: credo-act-control-018
   name: Implement content moderation system
   description: mote malicious use. Implement automated and/or human-in-the-loop content
     moderation mechanisms to detect and filter harmful content in real-time, including
@@ -8938,7 +8938,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-019
+- id: credo-act-control-019
   name: Implement content safety incident response
   description: Establish procedures for investigating, documenting, and remediating
     harmful content incidents that bypass moderation systems, including coordination
@@ -8955,7 +8955,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-021
+- id: credo-act-control-021
   name: Establish frontier AI safety framework (Alaga et al., 2024)
   description: Establish and enforce policies governing system AI scaling decisions,
     including risk assessment requirements, capability thresholds, and deployment
@@ -8971,7 +8971,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-022
+- id: credo-act-control-022
   name: Implement adversarial testing and red team program
   description: Conduct systematic adversarial testing and red team exercises focused
     on probing AI system capabilities, identifying potential misuse vectors, and exposing
@@ -8992,7 +8992,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-023
+- id: credo-act-control-023
   name: Implement system usage monitoring and prevention
   description: Monitor and prevent malicious or otherwise disallowed behavioral patterns
     including automated abuse, coordination across accounts, and systematic manipulation
@@ -9008,7 +9008,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-025
+- id: credo-act-control-025
   name: Implement AI System Disclosure Requirements
   description: Deploy mechanisms to ensure clear, timely disclosure of AI system use
     to end users, including automated notifications of AI involvement in interactions,
@@ -9022,7 +9022,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-026
+- id: credo-act-control-026
   name: Implement a privacy protection framework
   description: Implement comprehensive privacy protection measures to prevent exposure
     of PII and sensitive information, including data minimization, anonymization procedures,
@@ -9037,7 +9037,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-028
+- id: credo-act-control-028
   name: Establish user rights and recourse framework
   description: Implement comprehensive mechanisms for user reporting, feedback collection,
     incident investigation, and recourse provision, including clear procedures for
@@ -9054,7 +9054,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-029
+- id: credo-act-control-029
   name: Implement AI literacy and competency program
   description: Implement comprehensive training and education programs to ensure personnel
     develop and maintain appropriate levels of AI literacy, risk awareness, and operational
@@ -9069,7 +9069,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-032
+- id: credo-act-control-032
   name: Implement environmental impact management system
   description: Implement comprehensive environmental impact monitoring and optimization
     procedures, including energy efficiency measures, carbon
@@ -9080,7 +9080,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-035
+- id: credo-act-control-035
   name: Establish societal impact assessment framework
   description: Implement comprehensive processes for assessing and documenting potential
     societal impacts of AI systems, including effects on employment, economic systems,
@@ -9095,7 +9095,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-036
+- id: credo-act-control-036
   name: Establish responsible development and deployment policy
   description: Establish policies and procedures governing AI system development and
     deployment decisions that consider societal implications, including competitive
@@ -9110,7 +9110,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-037
+- id: credo-act-control-037
   name: Implement AI alignment validation system
   description: Establish processes for validating and maintaining AI system alignment
     with human values and goals, including testing for goal preservation, monitoring
@@ -9127,7 +9127,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-040
+- id: credo-act-control-040
   name: Establish documentation sharing mechanism
   description: Implement a process to share information and documentation to thirdparties,
     including to regulators and downstream deployers or developers.
@@ -9138,7 +9138,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-041
+- id: credo-act-control-041
   name: Implement a risk reporting mechanism
   description: Establish processes to identify and disclose known or reasonably foreseeable
     risks, the discovery of new risks, or instances of non-conformity to third parties.
@@ -9149,7 +9149,7 @@ actions:
   hasDocumentation:
   - credo-doc
   isDefinedByTaxonomy: credo-ucf
-- id: credo-ract-control-042
+- id: credo-act-control-042
   name: Establish a general purpose incident response mechanism
   description: Establish processes to enable incident monitoring and reporting. This
     includes defining "serious incidents" or set a threshold for formal reporting
