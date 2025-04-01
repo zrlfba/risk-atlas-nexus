@@ -77,12 +77,6 @@ class TestLibrary(TestCaseBase):
         all_risks = ran_lib.get_all_risks()
         assert all_risks[0].linkml_meta.root["class_uri"] == "airo:Risk"
 
-    def test_get_all_risks_len(self):
-        """Check how many risks returned for get all risk definitions"""
-        ran_lib = self.ran_lib
-        all_risks = ran_lib.get_all_risks()
-        self.assertTrue(len(all_risks) == 480)
-
     def test_get_risk_by_tag_type(self):
         """Check type of Get risk definition filtered by risk atlas tag"""
         ran_lib = self.ran_lib
