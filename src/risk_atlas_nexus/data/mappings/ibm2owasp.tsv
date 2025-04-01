@@ -3,7 +3,7 @@
 #  ibmairisk: https://www.ibm.com/docs/en/watsonx/saas?topic=
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
-#mapping_set_id: https://github.ibm.com/ai-gov-model-risk/risk-atlas-nexus/tree/main/src/data/mappings/ibm2owasp.tsv
+#mapping_set_id: https://github.com/IBM/risk-atlas-nexus/tree/main/src/data/mappings/ibm2owasp.tsv
 #mapping_set_description: Mapping of IBM AI Risk Atlas to OWASP Gen AI Top 10 2025
 #license: https://www.apache.org/licenses/LICENSE-2.0.html
 #mapping_date: "2025-01-27"
