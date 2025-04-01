@@ -23,19 +23,28 @@ class LatexDumper(Dumper):
                 LinkML object to be output
             to_file: str
                 file to write to
+            contexts: Optional[Union[CONTEXT_TYPE, List[CONTEXT_TYPE]]]
+                 a list of JSON-LD contexts, which can be one of:
+                    * the name of a JSON-LD file
+                    * the URI of a JSON-lD file
+                    * JSON-LD text
+                    * A JsonObj object that contains JSON-LD
+                    * A dictionary that contains JSON-LD
         """
         if isinstance(element, BaseModel):
             element = element.dict()
 
         super().dump(element, to_file, contexts=contexts, **kwargs)
 
-    def dumps(self, element: Union[BaseModel, YAMLRoot]) -> str:
+    def dumps(self, element: Union[BaseModel, YAMLRoot], **_) -> str:
         """
         Return element as latex string
 
         Args:
             element: Union[BaseModel, YAMLRoot],
                 LinkML object to be emitted
+            _:
+                method specific arguments
 
         Returns:
             str
@@ -55,41 +64,20 @@ class LatexDumper(Dumper):
         Returns:
             str
         """
-        tex = []
+        tex = ["\\documentclass[a4paper,12pt]{article}\n", "\\usepackage{xcolor}\n",
+               "\\usepackage[skins]{tcolorbox}%\n", "\\usepackage{tcolorbox}\n", "\\usepackage{hyperref}\n",
+               "\\newtcolorbox[auto counter, number within=section]{definitionbox}[2][]{%\n", "colframe=black!50,\n",
+               "colback=black!5,\n", "coltitle=white,\n", "fonttitle=\\bfseries,\n", "title={#2},\n",
+               "sharp corners=south,\n", "enhanced,\n", "before upper={\\noindent},\n", "}\n", "\\begin{document}\n",
+               "\\section{IBM AI Risk Atlas}\n",
+               "Explore this atlas to understand some of the risks of working with generative AI, foundation models, "
+               "and machine learning models. Risks are categorized with one of these tags:\n",
+               "\\begin{itemize}\n",
+               "\\item Traditional AI risks (applies to traditional models as well as generative AI)\n",
+               "\\item Risks amplified by generative AI (might also apply to traditional models)\n",
+               "\\item New risks specifically associated with generative AI\n", "\\end{itemize}\n",
+               "\\subsection*{AI Risk Atlas Definitions}\n"]
 
-        tex.append("\\documentclass[a4paper,12pt]{article}\n")
-        tex.append("\\usepackage{xcolor}\n")
-        tex.append("\\usepackage[skins]{tcolorbox}%\n")
-        tex.append("\\usepackage{tcolorbox}\n")
-        tex.append("\\usepackage{hyperref}\n")
-        tex.append(
-            "\\newtcolorbox[auto counter, number within=section]{definitionbox}[2][]{%\n"
-        )
-        tex.append("colframe=black!50,\n")
-        tex.append("colback=black!5,\n")
-        tex.append("coltitle=white,\n")
-        tex.append("fonttitle=\\bfseries,\n")
-        tex.append("title={#2},\n")
-        tex.append("sharp corners=south,\n")
-        tex.append("enhanced,\n")
-        tex.append("before upper={\\noindent},\n")
-        tex.append("}\n")
-
-        tex.append("\\begin{document}\n")
-        tex.append("\\section{IBM AI Risk Atlas}\n")
-        tex.append(
-            "Explore this atlas to understand some of the risks of working with generative AI, foundation models, and machine learning models. Risks are categorized with one of these tags:\n"
-        )
-        tex.append("\\begin{itemize}\n")
-        tex.append(
-            "\\item Traditional AI risks (applies to traditional models as well as generative AI)\n"
-        )
-        tex.append(
-            "\\item Risks amplified by generative AI (might also apply to traditional models)\n"
-        )
-        tex.append("\\item New risks specifically associated with generative AI\n")
-        tex.append("\\end{itemize}\n")
-        tex.append("\\subsection*{AI Risk Atlas Definitions}\n")
         for risk in element_dict["risks"]:
             tex.append("\\begin{definitionbox}{" + risk["name"] + "}\n")
             tex.append(

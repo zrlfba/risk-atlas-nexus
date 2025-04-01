@@ -896,6 +896,8 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-transparency
   broadMatch:
+  - llm032025-supply-chain
+  - llm042025-data-and-model-poisoning
   - nist-information-integrity
   - nist-value-chain-and-component-integration
   tag: data-transparency
@@ -917,6 +919,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-legal-compliance
   broadMatch:
+  - llm032025-supply-chain
   - nist-data-privacy
   - nist-intellectual-property
   - nist-value-chain-and-component-integration
@@ -937,7 +940,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-robustness
   exactMatch:
-  - owasp-llm01-prompt-injection
+  - llm01-prompt-injection
   broadMatch:
   - nist-information-security
   tag: prompt-injection
@@ -954,6 +957,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-value-alignment
   broadMatch:
+  - llm092025-misinformation
   - nist-information-integrity
   - nist-value-chain-and-component-integration
   tag: incomplete-advice
@@ -1031,6 +1035,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: personal-information-in-data
   type: training-data
@@ -1066,6 +1071,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-robustness
   broadMatch:
+  - llm052025-improper-output-handling
   - nist-information-security
   tag: extraction-attack
   type: inference
@@ -1098,6 +1104,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-multi-category
   broadMatch:
+  - llm01-prompt-injection
   - nist-information-integrity
   relatedMatch:
   - granite-jailbreak
@@ -1135,6 +1142,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-fairness
   broadMatch:
+  - llm032025-supply-chain
   - nist-harmful-bias-or-homogenization
   tag: data-bias
   type: training-data
@@ -1154,6 +1162,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-transparency
   broadMatch:
+  - llm032025-supply-chain
   - nist-value-chain-and-component-integration
   tag: data-provenance
   type: training-data
@@ -1172,6 +1181,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-governance
   broadMatch:
+  - llm032025-supply-chain
   - nist-value-chain-and-component-integration
   tag: unrepresentative-risk-testing
   type: non-technical
@@ -1189,8 +1199,11 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm032025-supply-chain
+  - llm032025-supply-chain
   - nist-data-privacy
   - nist-value-chain-and-component-integration
+  - nist-intellectual-property
   tag: data-usage-rights
   type: training-data
   descriptor: amplified
@@ -1207,6 +1220,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-value-alignment
   broadMatch:
+  - llm092025-misinformation
   - nist-dangerous-violent-or-hateful-content
   - nist-information-security
   tag: harmful-code-generation
@@ -1224,6 +1238,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-accuracy
   broadMatch:
+  - llm032025-supply-chain
   - nist-information-security
   - nist-value-chain-and-component-integration
   tag: data-contamination
@@ -1260,6 +1275,8 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm032025-supply-chain
+  - llm082025-vector-and-embedding-weaknesses
   - nist-intellectual-property
   tag: copyright-infringement
   type: output
@@ -1315,6 +1332,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-value-alignment
   broadMatch:
+  - llm032025-supply-chain
   - nist-value-chain-and-component-integration
   tag: improper-retraining
   type: training-data
@@ -1333,6 +1351,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-misuse
   broadMatch:
+  - llm092025-misinformation
   - nist-harmful-bias-or-homogenization
   tag: spreading-toxicity
   type: output
@@ -1351,7 +1370,7 @@ risks:
   broadMatch:
   - nist-value-chain-and-component-integration
   relatedMatch:
-  - owasp-llm032025-supply-chain
+  - llm032025-supply-chain
   tag: inaccessible-training-data
   type: output
   descriptor: amplified
@@ -1384,6 +1403,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-explainability
   broadMatch:
+  - llm032025-supply-chain
   - nist-information-integrity
   tag: untraceable-attribution
   type: output
@@ -1402,6 +1422,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-robustness
   broadMatch:
+  - llm042025-data-and-model-poisoning
   - nist-information-security
   tag: evasion-attack
   type: inference
@@ -1453,6 +1474,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-governance
   broadMatch:
+  - llm032025-supply-chain
   - nist-value-chain-and-component-integration
   tag: incorrect-risk-testing
   type: non-technical
@@ -1473,6 +1495,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: membership-inference-attack
   type: inference
@@ -1491,6 +1514,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-intellectual-property
   tag: confidential-data-in-prompt
   type: inference
@@ -1508,6 +1532,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: data-privacy-rights
   type: training-data
@@ -1524,6 +1549,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: ip-information-in-prompt
   type: inference
@@ -1542,6 +1568,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-robustness
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-information-security
   tag: prompt-leaking
   type: inference
@@ -1563,7 +1590,7 @@ risks:
   exactMatch:
   - nist-confabulation
   broadMatch:
-  - owasp-llm062025-excessive-agency
+  - llm062025-excessive-agency
   relatedMatch:
   - granite-function-call
   - granite-answer-relevance
@@ -1586,6 +1613,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-legal-compliance
   broadMatch:
+  - llm032025-supply-chain
   - nist-data-privacy
   - nist-intellectual-property
   - nist-value-chain-and-component-integration
@@ -1610,6 +1638,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-multi-category
   broadMatch:
+  - llm01-prompt-injection
   - nist-information-security
   tag: prompt-priming
   type: inference
@@ -1627,6 +1656,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: reidentification
   type: training-data
@@ -1645,6 +1675,8 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm01-prompt-injection
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   - nist-information-security
   tag: attribute-inference-attack
@@ -1663,6 +1695,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-accuracy
   broadMatch:
+  - llm052025-improper-output-handling
   - nist-human-ai-configuration
   - nist-information-integrity
   - nist-value-chain-and-component-integration
@@ -1697,6 +1730,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-legal-compliance
   broadMatch:
+  - llm032025-supply-chain
   - nist-intellectual-property
   tag: generated-content-ownership
   type: non-technical
@@ -1714,6 +1748,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-fairness
   broadMatch:
+  - llm052025-improper-output-handling
   - nist-harmful-bias-or-homogenization
   relatedMatch:
   - granite-social-bias
@@ -1789,7 +1824,7 @@ risks:
   - nist-dangerous-violent-or-hateful-content
   - nist-obscene-degrading-and-or-abusive-content
   broadMatch:
-  - owasp-llm052025-improper-output-handling
+  - llm052025-improper-output-handling
   relatedMatch:
   - granite-profanity
   tag: toxic-output
@@ -1808,6 +1843,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-robustness
   broadMatch:
+  - llm042025-data-and-model-poisoning
   - nist-information-security
   tag: data-poisoning
   type: training-data
@@ -1845,8 +1881,14 @@ risks:
   closeMatch:
   - nist-dangerous-violent-or-hateful-content
   broadMatch:
-  - owasp-llm052025-improper-output-handling
+  - llm052025-improper-output-handling
   relatedMatch:
+  - granite-guardian-harm
+  - granite-sexual-content
+  - granite-unethical-behavior
+  - granite-harm-engagement
+  - granite-evasiveness
+  - granite-violence
   - nist-cbrn-information-or-capabilities
   - nist-data-privacy
   - nist-obscene-degrading-and-or-abusive-content
@@ -1865,6 +1907,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-intellectual-property
   tag: confidential-information-in-data
   type: training-data
@@ -1903,6 +1946,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-accuracy
   broadMatch:
+  - llm042025-data-and-model-poisoning
   - nist-harmful-bias-or-homogenization
   relatedMatch:
   - nist-value-chain-and-component-integration
@@ -1919,6 +1963,9 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-societal-impact
+  broadMatch:
+  - llm092025-misinformation
+  - nist-information-integrity
   tag: impact-on-human-agency
   type: non-technical
   descriptor: amplified
@@ -1939,6 +1986,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: personal-information-in-prompt
   type: inference
@@ -1959,6 +2007,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-misuse
   broadMatch:
+  - llm092025-misinformation
   - nist-data-privacy
   tag: nonconsensual-use
   type: output
@@ -1977,6 +2026,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-fairness
   broadMatch:
+  - llm042025-data-and-model-poisoning
   - nist-harmful-bias-or-homogenization
   tag: decision-bias
   type: output
@@ -2008,6 +2058,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-privacy
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-data-privacy
   tag: exposing-personal-information
   type: output
@@ -2023,6 +2074,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-value-alignment
   broadMatch:
+  - llm032025-supply-chain
   - nist-value-chain-and-component-integration
   tag: data-curation
   type: training-data
@@ -2042,6 +2094,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
   broadMatch:
+  - llm022025-sensitive-information-disclosure
   - nist-intellectual-property
   tag: revealing-confidential-information
   type: output
@@ -2059,6 +2112,7 @@ risks:
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-misuse
   broadMatch:
+  - llm092025-misinformation
   - nist-information-integrity
   tag: spreading-disinformation
   type: output
@@ -2100,6 +2154,10 @@ risks:
   - MG-3.2-009
   - MG-4.1-002
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-dangerous-use
+  relatedMatch:
+  - atlas-harmful-output
 - id: nist-confabulation
   name: Confabulation
   description: The production of confidently stated but erroneous or false content
@@ -2125,6 +2183,8 @@ risks:
   - MG-4.1-004
   - MG-4.3-002
   isDefinedByTaxonomy: nist-ai-rmf
+  exactMatch:
+  - atlas-hallucination
 - id: nist-dangerous-violent-or-hateful-content
   name: Dangerous, Violent, or Hateful Content
   description: Eased production of and access to violent, inciting, radicalizing,
@@ -2163,6 +2223,11 @@ risks:
   - MG-3.2-005
   - MG-4.2-002
   isDefinedByTaxonomy: nist-ai-rmf
+  closeMatch:
+  - atlas-harmful-output
+  - atlas-toxic-output
+  narrowMatch:
+  - atlas-harmful-code-generation
 - id: nist-data-privacy
   name: Data Privacy
   description: Impacts due to leakage and unauthorized use, disclosure, or de-anonymization
@@ -2199,11 +2264,28 @@ risks:
   - MG-3.2-002
   - MG-4.3-003
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-attribute-inference-attack
+  - atlas-data-privacy-rights
+  - atlas-data-usage-rights
+  - atlas-exposing-personal-information
+  - atlas-ip-information-in-prompt
+  - atlas-legal-accountability
+  - atlas-membership-inference-attack
+  - atlas-model-usage-rights
+  - atlas-nonconsensual-use
+  - atlas-personal-information-in-data
+  - atlas-personal-information-in-prompt
+  - atlas-reidentification
+  relatedMatch:
+  - atlas-harmful-output
 - id: nist-environmental-impacts
   name: Environmental Impacts
   description: Impacts due to high compute resource utilization in training or operating
     GAI models, and related outcomes that may adversely impact ecosystems.
   isDefinedByTaxonomy: nist-ai-rmf
+  exactMatch:
+  - atlas-impact-environment
 - id: nist-harmful-bias-or-homogenization
   name: Harmful Bias or Homogenization
   description: Amplification and exacerbation of historical, societal, and systemic
@@ -2213,6 +2295,13 @@ risks:
     that skews system or model outputs, which may be erroneous, lead to ill-founded
     decision-making, or amplify harmful biases.
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-data-bias
+  - atlas-decision-bias
+  - atlas-impact-affected-communities
+  - atlas-output-bias
+  - atlas-spreading-toxicity
+  - atlas-unrepresentative-data
 - id: nist-human-ai-configuration
   name: Human-AI Configuration
   description: Arrangements of or interactions between a human and an AI system which
@@ -2274,6 +2363,12 @@ risks:
   - MG-4.2-002
   - MG-4.2-003
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-improper-usage
+  - atlas-incomplete-usage-definition
+  - atlas-non-disclosure
+  - atlas-over-under-reliance
+  - atlas-poor-model-accuracy
 - id: nist-information-integrity
   name: Information Integrity
   description: Lowered barrier to entry to generate and support the exchange and consumption
@@ -2354,6 +2449,17 @@ risks:
   - MG-4.1-006
   - MG-4.3-002
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-data-transparency
+  - atlas-impact-cultural-diversity
+  - atlas-impact-on-human-agency
+  - atlas-incomplete-advice
+  - atlas-jailbreaking
+  - atlas-lack-testing-diversity
+  - atlas-poor-model-accuracy
+  - atlas-spreading-disinformation
+  - atlas-unexplainable-output
+  - atlas-untraceable-attribution
 - id: nist-information-security
   name: Information Security
   description: Lowered barriers for offensive cyber capabilities, including via automated
@@ -2414,6 +2520,17 @@ risks:
   - MG-4.3-001
   - MG-4.3-003
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-attribute-inference-attack
+  - atlas-data-contamination
+  - atlas-data-poisoning
+  - atlas-evasion-attack
+  - atlas-extraction-attack
+  - atlas-harmful-code-generation
+  - atlas-prompt-injection
+  - atlas-prompt-leaking
+  - atlas-prompt-priming
+  - atlas-unreliable-source-attribution
 - id: nist-intellectual-property
   name: Intellectual Property
   description: Eased production or replication of alleged copyrighted, trademarked,
@@ -2449,6 +2566,15 @@ risks:
   - MG-3.1-004
   - MG-3.2-003
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-confidential-data-in-prompt
+  - atlas-confidential-information-in-data
+  - atlas-copyright-infringement
+  - atlas-data-usage-rights
+  - atlas-generated-content-ownership
+  - atlas-legal-accountability
+  - atlas-model-usage-rights
+  - atlas-revealing-confidential-information
 - id: nist-obscene-degrading-and-or-abusive-content
   name: Obscene, Degrading, and/or Abusive Content
   description: Eased production of and access to obscene, degrading, and/or abusive
@@ -2470,6 +2596,12 @@ risks:
   - MG-2.2-005
   - MG-3.2-005
   isDefinedByTaxonomy: nist-ai-rmf
+  closeMatch:
+  - atlas-toxic-output
+  narrowMatch:
+  - atlas-human-exploitation
+  relatedMatch:
+  - atlas-harmful-output
 - id: nist-value-chain-and-component-integration
   name: Value Chain and Component Integration
   description: Non-transparent or untraceable integration of upstream third-party
@@ -2515,6 +2647,27 @@ risks:
   - MG-3.1-005
   - MG-3.2-007
   isDefinedByTaxonomy: nist-ai-rmf
+  narrowMatch:
+  - atlas-data-acquisition-restrictions
+  - atlas-data-contamination
+  - atlas-data-curation
+  - atlas-data-provenance
+  - atlas-data-transfer
+  - atlas-data-transparency
+  - atlas-data-usage-rights
+  - atlas-improper-retraining
+  - atlas-inaccessible-training-data
+  - atlas-incomplete-advice
+  - atlas-incorrect-risk-testing
+  - atlas-lack-data-transparency
+  - atlas-lack-model-transparency
+  - atlas-lack-system-transparency
+  - atlas-legal-accountability
+  - atlas-model-usage-rights
+  - atlas-poor-model-accuracy
+  - atlas-unrepresentative-risk-testing
+  relatedMatch:
+  - atlas-unrepresentative-data
 - id: ail-violent-crimes
   name: Violent Crimes
   description: 'Acceptable responses may describe or contain information about violent
@@ -5214,7 +5367,7 @@ risks:
   relatedMatch:
   - atlas-hallucination
   tag: function-call
-- id: owasp-llm01-prompt-injection
+- id: llm01-prompt-injection
   name: LLM01:2025 Prompt Injection
   description: A Prompt Injection Vulnerability occurs when user prompts alter the
     LLM’s behavior or output in unintended ways. These inputs can affect the model
@@ -5222,7 +5375,13 @@ risks:
     to be human-visible/readable, as long as the content is parsed by the model.
   url: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm022025-sensitive-information-disclosure
+  exactMatch:
+  - atlas-prompt-injection
+  narrowMatch:
+  - atlas-attribute-inference-attack
+  - atlas-jailbreaking
+  - atlas-prompt-priming
+- id: llm022025-sensitive-information-disclosure
   name: LLM02:2025 Sensitive Information Disclosure
   description: Sensitive information can affect both the LLM and its application context.
     This includes personal identifiable information (PII), financial details, health
@@ -5231,7 +5390,20 @@ risks:
     sensitive, especially in closed or foundation models.
   url: https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm032025-supply-chain
+  narrowMatch:
+  - atlas-attribute-inference-attack
+  - atlas-confidential-data-in-prompt
+  - atlas-confidential-information-in-data
+  - atlas-data-privacy-rights
+  - atlas-exposing-personal-information
+  - atlas-ip-information-in-prompt
+  - atlas-membership-inference-attack
+  - atlas-personal-information-in-data
+  - atlas-personal-information-in-prompt
+  - atlas-prompt-leaking
+  - atlas-reidentification
+  - atlas-revealing-confidential-information
+- id: llm032025-supply-chain
   name: LLM03:2025 Supply Chain
   description: LLM supply chains are susceptible to various vulnerabilities, which
     can affect the integrity of training data, models, and deployment platforms. These
@@ -5240,7 +5412,27 @@ risks:
     in ML the risks also extend to third-party pre-trained models and data.
   url: https://genai.owasp.org/llmrisk/llm032025-supply-chain/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm042025-data-and-model-poisoning
+  narrowMatch:
+  - atlas-copyright-infringement
+  - atlas-data-acquisition-restrictions
+  - atlas-data-bias
+  - atlas-data-contamination
+  - atlas-data-curation
+  - atlas-data-provenance
+  - atlas-data-transparency
+  - atlas-data-usage-rights
+  - atlas-data-usage-rights
+  - atlas-generated-content-ownership
+  - atlas-improper-retraining
+  - atlas-incorrect-risk-testing
+  - atlas-lack-data-transparency
+  - atlas-legal-accountability
+  - atlas-model-usage-rights
+  - atlas-unrepresentative-risk-testing
+  - atlas-untraceable-attribution
+  relatedMatch:
+  - atlas-inaccessible-training-data
+- id: llm042025-data-and-model-poisoning
   name: 'LLM04: Data and Model Poisoning'
   description: Data poisoning occurs when pre-training, fine-tuning, or embedding
     data is manipulated to introduce vulnerabilities, backdoors, or biases. This manipulation
@@ -5249,7 +5441,14 @@ risks:
     biased or toxic content, and exploitation of downstream systems.
   url: https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm052025-improper-output-handling
+  narrowMatch:
+  - atlas-data-poisoning
+  - atlas-data-transparency
+  - atlas-decision-bias
+  - atlas-evasion-attack
+  - atlas-lack-testing-diversity
+  - atlas-unrepresentative-data
+- id: llm052025-improper-output-handling
   name: LLM05:2025 Improper Output Handling
   description: Improper Output Handling refers specifically to insufficient validation,
     sanitization, and handling of the outputs generated by large language models before
@@ -5258,7 +5457,15 @@ risks:
     users indirect access to additional functionality.
   url: https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm062025-excessive-agency
+  narrowMatch:
+  - atlas-extraction-attack
+  - atlas-harmful-output
+  - atlas-output-bias
+  - atlas-poor-model-accuracy
+  - atlas-toxic-output
+  relatedMatch:
+  - atlas-over-under-reliance
+- id: llm062025-excessive-agency
   name: LLM06:2025 Excessive Agency
   description: An LLM-based system is often granted a degree of agency by its developer
     - the ability to call functions or interface with other systems via extensions
@@ -5272,7 +5479,9 @@ risks:
     of what is causing the LLM to malfunction.
   url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm072025-system-prompt-leakage
+  narrowMatch:
+  - atlas-hallucination
+- id: llm072025-system-prompt-leakage
   name: LLM07:2025 System Prompt Leakage
   description: The system prompt leakage vulnerability in LLMs refers to the risk
     that the system prompts or instructions used to steer the behavior of the model
@@ -5282,7 +5491,7 @@ risks:
     information can be used to facilitate other attacks.
   url: https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm082025-vector-and-embedding-weaknesses
+- id: llm082025-vector-and-embedding-weaknesses
   name: LLM08:2025 Vector and Embedding Weaknesses
   description: Vectors and embeddings vulnerabilities present significant security
     risks in systems utilizing Retrieval Augmented Generation (RAG) with Large Language
@@ -5291,7 +5500,11 @@ risks:
     to inject harmful content, manipulate model outputs, or access sensitive information.
   url: https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm092025-misinformation
+  narrowMatch:
+  - atlas-copyright-infringement
+  relatedMatch:
+  - atlas-over-under-reliance
+- id: llm092025-misinformation
   name: LLM09:2025 Misinformation
   description: Misinformation from LLMs poses a core vulnerability for applications
     relying on these models. Misinformation occurs when LLMs produce false or misleading
@@ -5299,7 +5512,17 @@ risks:
     reputational damage, and legal liability.
   url: https://genai.owasp.org/llmrisk/llm092025-misinformation/
   isDefinedByTaxonomy: owasp-llm-2.0
-- id: owasp-llm102025-unbounded-consumption
+  narrowMatch:
+  - atlas-harmful-code-generation
+  - atlas-impact-affected-communities
+  - atlas-impact-on-human-agency
+  - atlas-incomplete-advice
+  - atlas-nonconsensual-use
+  - atlas-spreading-disinformation
+  - atlas-spreading-toxicity
+  relatedMatch:
+  - atlas-over-under-reliance
+- id: llm102025-unbounded-consumption
   name: LLM10:2025 Unbounded Consumption
   description: Unbounded Consumption refers to the process where a Large Language
     Model (LLM) generates outputs based on input queries or prompts. Inference is
@@ -5635,6 +5858,41 @@ risks:
   - credo-act-control-042
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+- id: atlas-data-acquisition-restrictions
+  broadMatch:
+  - llm032025-supply-chain
+  - nist-value-chain-and-component-integration
+- id: atlas-impact-affected-communities
+  broadMatch:
+  - llm092025-misinformation
+  - nist-harmful-bias-or-homogenization
+- id: atlas-lack-data-transparency
+  broadMatch:
+  - llm032025-supply-chain
+  - nist-value-chain-and-component-integration
+- id: atlas-lack-testing-diversity
+  broadMatch:
+  - llm042025-data-and-model-poisoning
+  - nist-information-integrity
+- id: atlas-over-under-reliance
+  broadMatch:
+  - nist-human-ai-configuration
+  relatedMatch:
+  - llm052025-improper-output-handling
+  - llm082025-vector-and-embedding-weaknesses
+  - llm092025-misinformation
+- id: atlas-impact-cultural-diversity
+  broadMatch:
+  - nist-information-integrity
+- id: atlas-impact-environment
+  exactMatch:
+  - nist-environmental-impacts
+- id: atlas-lack-model-transparency
+  broadMatch:
+  - nist-value-chain-and-component-integration
+- id: atlas-lack-system-transparency
+  broadMatch:
+  - nist-value-chain-and-component-integration
 riskcontrols:
 - id: gg-harm-detection
   name: Harm detection
