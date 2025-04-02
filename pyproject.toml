@@ -29,7 +29,7 @@ dependencies = [
     "logzero",
     "python-dotenv",
     "datasets",
-    "openai",
+    "openai>=1.0",
 ]
 
 [project.optional-dependencies]
