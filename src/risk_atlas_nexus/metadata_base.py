@@ -1,6 +1,5 @@
 # Standard
-from enum import auto, Enum, unique
-from typing import Any
+from enum import Enum, unique
 
 
 @unique
@@ -18,6 +17,7 @@ class InferenceEngineType(str, Enum):
 
     def __str__(self):
         return self.name
+
 
 @unique
 class MappingMethod(str, Enum):

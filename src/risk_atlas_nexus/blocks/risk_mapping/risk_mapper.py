@@ -1,12 +1,12 @@
 import datetime
-import json
 import re
 from typing import List
 from txtai import Embeddings
 from sssom_schema import Mapping, EntityReference
 from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import Risk
-from risk_atlas_nexus.metadata_base import MappingMethod
+from risk_atlas_nexus.blocks.inference import InferenceEngine
 from risk_atlas_nexus.blocks.risk_mapping import RiskMappingBase
+from risk_atlas_nexus.metadata_base import MappingMethod
 
 
 class RiskMapper(RiskMappingBase):
@@ -32,27 +32,27 @@ class RiskMapper(RiskMappingBase):
 
         return relationship
     
-    def _format_with_curie(self, curie_prefix, id):
+    def _format_with_curie(self, curie_prefix, entity_id):
         """Format the string with curie prefix
 
         Args:
             curie_prefix: str
                 The curie prefix
-            id: str
+            entity_id: str
                 The linkml instance id
 
         Returns:
             EntityReference
                 A formatted string
         """
-        s = curie_prefix.strip() + ":" + id.strip()
+        s = curie_prefix.strip() + ":" + entity_id.strip()
         return EntityReference(s)
-    
 
-    def generate(self, new_risks: List[Risk], existing_risks: List[Risk], new_prefix: str, mapping_method: MappingMethod) -> List[Mapping]:
+    def generate(self, new_risks: List[Risk], existing_risks: List[Risk], inference_engine:InferenceEngine,
+                 new_prefix: str, mapping_method: MappingMethod) -> List[Mapping]:
         """Generate a list of mappings between two lists of risks
         Args:
-            new_risks List[Risk]:
+            new_risks: List[Risk]
                 A new set of risks
             existing_risks: List[Risk],
                 Secondary list, this should be the list of existing risks in RAN

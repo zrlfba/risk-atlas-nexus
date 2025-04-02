@@ -582,7 +582,6 @@ class RiskAtlasNexus:
             )
         ]
 
-
     def generate_proposed_mappings(
         cls,
         new_risks: List[Risk],
@@ -594,16 +593,20 @@ class RiskAtlasNexus:
         """Identify mappings between a new set of risks and risks that exist in the Risk Atlas
 
         Args:
-            new_risks List[Risk]:
+            new_risks: List[Risk]
                 A new set of risks
-            existing_risks: List[Risk],
+            existing_risks: List[Risk]
                 Secondary list, this should be the list of existing risks in RAN
             inference_engine: (Optional)Union[InferenceEngine | None]:
-                An LLM inference engine to infer risks from the usecases.
+                An LLM inference engine to infer risks from the use cases.
+            new_prefix: str
+                The CURIE prefix for the new list of risks
+            mapping_method: MappingMethod
+                The possible values for type of risk mapping method
 
         Returns:
-            MappingSet
-                Result containing a list of risks
+            List[Mapping]
+                Result containing a list of mappings
         """
         type_check(
             "<RAN28959363E>",
@@ -620,4 +623,4 @@ class RiskAtlasNexus:
                                  new_prefix=new_prefix, mapping_method=mapping_method
         )
 
-        return risk_mapper.generate(new_risks=new_risks, existing_risks=existing_risks, new_prefix=new_prefix, mapping_method=mapping_method)
+        return risk_mapper.generate(new_risks=new_risks, existing_risks=existing_risks, inference_engine=inference_engine, new_prefix=new_prefix, mapping_method=mapping_method)
