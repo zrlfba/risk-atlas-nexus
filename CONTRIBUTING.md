@@ -14,7 +14,7 @@ Please make sure to include any potentially useful information in the issue, so 
 - TBC
 
 ## Contributing a change
-Contributions to this project are [released][released] to the public under the project's [opensource license](LICENSE.md).
+Contributions to this project are [released][released] to the public under the project's [opensource license](https://github.com/IBM/risk-atlas-nexus/blob/main/LICENSE).
 
 Contributors must _sign off_ that they adhere to these requirements by adding a `Signed-off-by` line to all commit messages with an email address that matches the commit author:
 

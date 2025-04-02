@@ -12,7 +12,7 @@ See the [LinkML documentation](https://linkml.io/linkml/index.html) for instruct
 
 The AI risk ontology tries to model AI systems from a risk point of view. It is based on [AIRO](https://w3id.org/airo), but goes beyond it by extending the risk concept to include existing AI risk taxonomies.
 
-See the full documentation of the LinkML classes and slots in the [doc folder](doc/index.md).
+See the full documentation of the LinkML classes and slots in the [docs folder](https://github.com/IBM/risk-atlas-nexus/blob/main/docs/index.md).
 
 ## The risk taxonomy data
 

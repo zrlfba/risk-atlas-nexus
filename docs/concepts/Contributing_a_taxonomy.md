@@ -5,7 +5,7 @@ project.
 
 1. [Overview](#overview)
     1. [What are the taxonomy files?](#what-are-the-taxonomy-files)
-    2. [How are mappings created between taxonomies?](#how-are-mappings-created-between-taxonomies)
+    2. [How are mappings created between taxonomies?](#how-are-mappings-maintained-between-taxonomies)
 2. [Add your own taxonomies/risks/actions](#add-your-own-taxonomiesrisksactions)
     1. [An example addition of a risk](#an-example-addition-of-a-risk)
 3. [Add your own mappings](#add-your-own-mappings)
