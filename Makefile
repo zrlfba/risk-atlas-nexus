@@ -8,6 +8,7 @@ SCHEMA_NAME = ai-risk-ontology
 LINKML_SCHEMA_NAME = ai-risk-ontology
 SOURCE_SCHEMA_PATH = src/risk_atlas_nexus/ai_risk_ontology/schema
 KG_DATA_PATH = src/risk_atlas_nexus/data/knowledge_graph
+DATAMODEL_PATH = src/risk_atlas_nexus/ai_risk_ontology/datamodel
 
 SHELL := bash
 .SHELLFLAGS := -eu -o pipefail -c
@@ -22,7 +23,8 @@ help: status
 	@echo ""
 	@echo "make test -- runs tests"
 	@echo "make help -- show this help"
-	@echo "make regenerate_pydantic -- update pydantic classes"
+	@echo "make lift_mappings_from_tsv -- lift mappings from all tsv files to yaml directory."
+	@echo "make compile_pydantic_model -- update pydantic classes"
 	@echo "make regenerate_documentation -- regenerate the documentation"
 	@echo "make regenerate_graph_output -- export the graph with all instances"
 	@echo "make regenerate_owl_schema -- export the schema as OWL"
@@ -36,8 +38,11 @@ status:
 regenerate_documentation:
 	gen-doc -d docs/ontology $(SOURCE_SCHEMA_PATH)/${LINKML_SCHEMA_NAME}.yaml
 
-regenerate_pydantic:
-	gen-pydantic $(SOURCE_SCHEMA_PATH)/${LINKML_SCHEMA_NAME}.yaml > src/risk_atlas_nexus/ai_risk_ontology/datamodel/ai_risk_ontology.py
+lift_mappings_from_tsv: 
+	python ./src/risk_atlas_nexus/ai_risk_ontology/util/lifting/import_risk_mappings.py
+
+compile_pydantic_model:
+	gen-pydantic $(SOURCE_SCHEMA_PATH)/${LINKML_SCHEMA_NAME}.yaml > ${DATAMODEL_PATH}/ai_risk_ontology.py
 
 regenerate_graph_output:
 	python ./src/risk_atlas_nexus/ai_risk_ontology/util/export_graph.py

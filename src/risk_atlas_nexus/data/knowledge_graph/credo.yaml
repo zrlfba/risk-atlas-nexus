@@ -204,7 +204,7 @@ risks:
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-harmful-content
 - id: credo-risk-016
-  name: Overor under-reliance and unsafe use (Slattery et al., 2024; IBM, 2024; AI,
+  name: Over or under-reliance and unsafe use (Slattery et al., 2024; IBM, 2024; AI,
     2023)
   description: Users may inappropriately rely on the AI system for critical decisions
     or tasks beyond its capabilities, or fail to put trust in AI systems when they
@@ -218,7 +218,7 @@ risks:
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
 - id: credo-risk-017
-  name: ' Inadequate AI literacy and communication'
+  name: 'Inadequate AI literacy and communication'
   description: The AI system's capabilities, limitations, and appropriate use cases
     may be insufficiently understood or communicated within the organization, potentially
     resulting in ineffective implementation or failure to achieve desired outcomes.

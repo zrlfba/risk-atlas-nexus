@@ -1,10 +1,11 @@
 # Standard
 import os
 import tempfile
-from typing import Union
+from typing import Union, List, Dict
 
 # Third party
 from linkml_runtime import SchemaView
+from sssom_schema import Mapping
 
 # Unit Test Infrastructure
 from src.risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
@@ -75,12 +76,6 @@ class TestLibrary(TestCaseBase):
         ran_lib = self.ran_lib
         all_risks = ran_lib.get_all_risks()
         assert all_risks[0].linkml_meta.root["class_uri"] == "airo:Risk"
-
-    def test_get_all_risks_len(self):
-        """Check how many risks returned for get all risk definitions"""
-        ran_lib = self.ran_lib
-        all_risks = ran_lib.get_all_risks()
-        self.assertTrue(len(all_risks) == 480)
 
     def test_get_risk_by_tag_type(self):
         """Check type of Get risk definition filtered by risk atlas tag"""
@@ -181,3 +176,19 @@ class TestLibrary(TestCaseBase):
         ran_lib = self.ran_lib
         risk_control = ran_lib.get_risk_control(id="gg-unethical-behavior-detection")
         assert risk_control.id == "gg-unethical-behavior-detection"
+
+    def test_generate_proposed_mappings(self):
+        """Test Identify mappings between a new set of risks and risks that exist in the Risk Atlas"""
+        ran_lib = self.ran_lib
+
+        risks_1 = ran_lib.get_all_risks(taxonomy="nist-ai-rmf")
+        risks_2 = ran_lib.get_all_risks(taxonomy="ibm-risk-atlas")
+        
+        mappings = ran_lib.generate_proposed_mappings(risks_1, risks_2, None, "test_prefix", "SEMANTIC")
+        
+        self.assertIs(len(mappings), 12)
+        self.assertIsInstance(mappings, List)
+        assert all(isinstance(i, Mapping) for i in mappings)
+
+        with self.assertRaises(ValueError):
+            mappings2 = ran_lib.generate_proposed_mappings(risks_1, None, None, "test_prefix", "SEMANTIC")

@@ -25,6 +25,7 @@ dependencies = [
     "pydantic",
     "requests",
     "sssom",
+    "txtai",
     "tqdm",
     "logzero",
     "python-dotenv",

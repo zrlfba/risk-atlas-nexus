@@ -1,4 +1,3 @@
-from collections import defaultdict
 import glob
 import os
 from linkml_runtime.loaders import yaml_loader
@@ -27,17 +26,25 @@ def load_yamls_to_container(base_dir):
     for yaml_dir in [system_data_path, base_dir]:
         # Include YAML files from the user defined `base_dir` if exist.
         if yaml_dir is not None:
-            master_yaml_files.extend(glob.glob(os.path.join(yaml_dir, "*.yaml")))
+            master_yaml_files.extend(
+                glob.glob(
+                    os.path.join(yaml_dir, "**", "*.yaml"), recursive=True
+                )
+            )
 
     yml_items_result = {}
     for yaml_file in master_yaml_files:
         try:
             yml_items = yaml_loader.load_as_dict(source=yaml_file)
             for ontology_class, instances in yml_items.items():
-                yml_items_result.setdefault(ontology_class, []).extend(instances)
-        except:
-            logger.info(f"YAML ignored: {yaml_file}. Failed to load.")
-
+                yml_items_result.setdefault(ontology_class, []).extend(
+                    instances
+                )
+        except Exception as e:
+            logger.info(f"YAML ignored: {yaml_file}. Failed to load. {e}")
+    
+    # TODO: generalise this to cover all ontology classes
+    
     # combine any risk entries which share the same id, for example a risk, and a secondary entry for a mapping
     combine_risks = {}
 
@@ -51,8 +58,14 @@ def load_yamls_to_container(base_dir):
             if key != "id":
                 if key not in combine_risks[risk_id]:
                     combine_risks[risk_id][key] = value
-
-            # maybe should add append here for lists?
+                else:
+                    if combine_risks[risk_id][key] is not None:
+                        combine_risks[risk_id][key] = [
+                            *combine_risks[risk_id][key],
+                            *value,
+                        ]
+                    else:
+                        combine_risks[risk_id][key] = value
 
     yml_items_result["risks"] = list(combine_risks.values())
 

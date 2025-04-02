@@ -6,6 +6,8 @@ from linkml_runtime.dumpers import YAMLDumper
 from typing import Optional, List, Dict
 
 from importlib.metadata import version
+from sssom_schema import Mapping
+
 from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
     Action,
     Risk,
@@ -15,13 +17,14 @@ from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
 from risk_atlas_nexus.blocks.inference.templates import COT_TEMPLATE, AI_TASKS_TEMPLATE
 from risk_atlas_nexus.blocks.risk_detector import AutoRiskDetector
 from risk_atlas_nexus.blocks.risk_explorer import RiskExplorer
+from risk_atlas_nexus.blocks.risk_mapping import RiskMapper
 from risk_atlas_nexus.blocks.inference import InferenceEngine
-from risk_atlas_nexus.ai_risk_ontology.schema import *
 from risk_atlas_nexus.toolkit.data_utils import load_yamls_to_container
 from risk_atlas_nexus.toolkit.error_utils import type_check, value_check
 from risk_atlas_nexus.data import get_templates_path
 from risk_atlas_nexus.toolkit.logging import configure_logger
 from risk_atlas_nexus.blocks.inference.response_schema import LIST_OF_STR_SCHEMA
+from risk_atlas_nexus.metadata_base import MappingMethod
 
 
 logger = configure_logger(__name__)
@@ -45,7 +48,7 @@ class RiskAtlasNexus:
         if base_dir is not None:
             if type(base_dir) != str:
                 raise ValueError("Base directory must be a string", base_dir)
-            if os.path.isdir(base_dir) == False:
+            if not os.path.isdir(base_dir):
                 logger.error(f"Directory %s does not exist.", base_dir)
                 raise FileNotFoundError("Base directory is not found", base_dir)
 
@@ -62,7 +65,7 @@ class RiskAtlasNexus:
                 The path to the directory where the artifact will be exported to.
 
         """
-        if os.path.isdir(export_path) == False:
+        if not os.path.isdir(export_path):
             logger.error(f"Directory %s does not exist.", export_path)
             raise FileNotFoundError("Export directory is not found", export_path)
 
@@ -578,3 +581,46 @@ class RiskAtlasNexus:
                 postprocessors=["list_of_str"],
             )
         ]
+
+    def generate_proposed_mappings(
+        cls,
+        new_risks: List[Risk],
+        existing_risks: List[Risk],
+        inference_engine: InferenceEngine,
+        new_prefix: str,  
+        mapping_method: MappingMethod = MappingMethod.SEMANTIC
+    ) -> List[Mapping]:
+        """Identify mappings between a new set of risks and risks that exist in the Risk Atlas
+
+        Args:
+            new_risks: List[Risk]
+                A new set of risks
+            existing_risks: List[Risk]
+                Secondary list, this should be the list of existing risks in RAN
+            inference_engine: (Optional)Union[InferenceEngine | None]:
+                An LLM inference engine to infer risks from the use cases.
+            new_prefix: str
+                The CURIE prefix for the new list of risks
+            mapping_method: MappingMethod
+                The possible values for type of risk mapping method
+
+        Returns:
+            List[Mapping]
+                Result containing a list of mappings
+        """
+        type_check(
+            "<RAN28959363E>",
+            InferenceEngine,
+            allow_none=True,
+            inference_engine=inference_engine,
+        )
+        value_check(
+            "<RAN85167315E>",
+            new_risks and existing_risks,
+            "Please provide new_risks and existing_risks",
+        )
+        risk_mapper = RiskMapper(new_risks=new_risks, existing_risks=existing_risks, inference_engine=inference_engine, 
+                                 new_prefix=new_prefix, mapping_method=mapping_method
+        )
+
+        return risk_mapper.generate(new_risks=new_risks, existing_risks=existing_risks, inference_engine=inference_engine, new_prefix=new_prefix, mapping_method=mapping_method)

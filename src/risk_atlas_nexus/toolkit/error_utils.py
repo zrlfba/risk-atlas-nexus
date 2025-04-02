@@ -1,3 +1,5 @@
+from random import randint
+
 def type_check(log_code, *types, allow_none=False, **variables):
     """Check for acceptable types for a given object.
 
@@ -59,3 +61,21 @@ def value_check(log_code, condition, msg="", *args):
     if not condition:
         interpolated_msg = msg.format(*args)
         raise ValueError("value check failed:{} {}".format(log_code, interpolated_msg))
+
+
+def _gen_new_error_code(prefix="RAN", level="error"):
+    """Internal helper to make a new error code.
+
+    Args:
+        prefix:  str
+            A error code prefix in str format
+        level:  str
+
+    """
+    level_letter = "E"
+    if level == "error":
+        level_letter = "E"
+    if level == "warning":
+        level_letter = "W"
+
+    return prefix + '{:08d}'.format(randint(0, 10**8)) + level_letter
