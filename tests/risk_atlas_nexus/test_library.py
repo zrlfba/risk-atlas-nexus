@@ -99,13 +99,13 @@ class TestLibrary(TestCaseBase):
         """Get related risk definitions from the LinkML, by risk atlas tag"""
         ran_lib = self.ran_lib
         risks = ran_lib.get_related_risks(tag="toxic-output")
-        self.assertIs(len(risks), 4)
+        self.assertIs(len(risks), 6)
 
     def test_get_related_risk_ids_by_tag(self):
         """Get related risk definitions from the LinkML, by risk atlas tag"""
         ran_lib = self.ran_lib
         risks = ran_lib.get_related_risks(tag="toxic-output")
-        self.assertIs(len(risks), 4)
+        self.assertIs(len(risks), 6)
 
     def test_get_related_risks_by_id(self):
         """Get related risk definitions from the LinkML, by risk id"""

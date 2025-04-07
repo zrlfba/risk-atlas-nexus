@@ -24,9 +24,9 @@ URI: [schema:isPartOf](http://schema.org/isPartOf)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [RiskControl](RiskControl.md) | A measure that maintains and/or modifies risk (and risk concepts) |  no  |
-| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 | [RiskGroup](RiskGroup.md) | A group of AI system related risks that are part of a risk taxonomy |  no  |
 | [Action](Action.md) | Action to remediate a risk |  no  |
+| [Risk](Risk.md) | The state of uncertainty associated with an AI system, that has the potential... |  no  |
 
 
 

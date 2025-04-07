@@ -369,6 +369,7 @@ attributes:
       is detected by a risk control.
     from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
     rank: 1000
+    domain: RiskConcept
     alias: isDetectedBy
     owner: RiskGroup
     domain_of:
