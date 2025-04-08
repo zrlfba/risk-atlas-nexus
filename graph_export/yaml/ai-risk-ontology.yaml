@@ -910,11 +910,16 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-transparency
+  closeMatch:
+  - credo-risk-005
+  - credo-risk-005
   broadMatch:
   - llm032025-supply-chain
   - llm042025-data-and-model-poisoning
   - nist-information-integrity
   - nist-value-chain-and-component-integration
+  relatedMatch:
+  - credo-risk-006
   tag: data-transparency
   type: training-data
   descriptor: amplified
@@ -1024,6 +1029,9 @@ risks:
   dateModified: 2025-01-23
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-societal-impact
+  relatedMatch:
+  - credo-risk-010
+  - credo-risk-044
   tag: impact-on-cultural-diversity
   type: non-technical
   descriptor: specific
@@ -1059,6 +1067,8 @@ risks:
   - nist-data-privacy
   relatedMatch:
   - ail-privacy
+  - credo-risk-036
+  - credo-risk-037
   tag: personal-information-in-data
   type: training-data
   descriptor: traditional
@@ -1110,6 +1120,9 @@ risks:
   dateModified: 2025-01-23
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-societal-impact
+  relatedMatch:
+  - credo-risk-042
+  - credo-risk-042
   tag: job-loss
   type: non-technical
   descriptor: amplified
@@ -1302,6 +1315,9 @@ risks:
   - llm032025-supply-chain
   - llm082025-vector-and-embedding-weaknesses
   - nist-intellectual-property
+  relatedMatch:
+  - credo-risk-039
+  - credo-risk-039
   tag: copyright-infringement
   type: output
   descriptor: specific
@@ -1318,6 +1334,10 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-governance
+  relatedMatch:
+  - credo-risk-006
+  - credo-risk-006
+  - credo-risk-008
   tag: lack-of-data-transparency
   type: non-technical
   descriptor: amplified
@@ -1377,6 +1397,10 @@ risks:
   broadMatch:
   - llm092025-misinformation
   - nist-harmful-bias-or-homogenization
+  relatedMatch:
+  - credo-risk-013
+  - credo-risk-013
+  - credo-risk-014
   tag: spreading-toxicity
   type: output
   descriptor: specific
@@ -1448,6 +1472,8 @@ risks:
   broadMatch:
   - llm042025-data-and-model-poisoning
   - nist-information-security
+  relatedMatch:
+  - credo-risk-041
   tag: evasion-attack
   type: inference
   descriptor: amplified
@@ -1461,6 +1487,9 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-societal-impact
+  relatedMatch:
+  - credo-risk-004
+  - credo-risk-004
   tag: impact-on-the-environment
   type: non-technical
   descriptor: amplified
@@ -1481,6 +1510,8 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-value-alignment
+  closeMatch:
+  - credo-risk-016
   tag: over-or-under-reliance
   type: output
   descriptor: amplified
@@ -1500,6 +1531,8 @@ risks:
   broadMatch:
   - llm032025-supply-chain
   - nist-value-chain-and-component-integration
+  relatedMatch:
+  - credo-risk-032
   tag: incorrect-risk-testing
   type: non-technical
   descriptor: amplified
@@ -1647,6 +1680,10 @@ risks:
   - nist-data-privacy
   - nist-intellectual-property
   - nist-value-chain-and-component-integration
+  relatedMatch:
+  - credo-risk-023
+  - credo-risk-034
+  - credo-risk-046
   tag: legal-accountability
   type: non-technical
   descriptor: amplified
@@ -1729,6 +1766,8 @@ risks:
   - nist-human-ai-configuration
   - nist-information-integrity
   - nist-value-chain-and-component-integration
+  relatedMatch:
+  - credo-risk-032
   tag: poor-model-accuracy
   type: inference
   descriptor: amplified
@@ -1782,6 +1821,9 @@ risks:
   - nist-harmful-bias-or-homogenization
   relatedMatch:
   - granite-social-bias
+  - credo-risk-010
+  - credo-risk-011
+  - credo-risk-022
   tag: output-bias
   type: output
   descriptor: specific
@@ -1802,6 +1844,12 @@ risks:
   - ail-defamation
   - ail-hate
   - ail-violent-crimes
+  - credo-risk-003
+  - credo-risk-012
+  - credo-risk-015
+  - credo-risk-015
+  - credo-risk-027
+  - credo-risk-027
   tag: dangerous-use
   type: output
   descriptor: specific
@@ -1839,6 +1887,8 @@ risks:
   isPartOf: ibm-risk-atlas-societal-impact
   broadMatch:
   - nist-obscene-degrading-and-or-abusive-content
+  relatedMatch:
+  - credo-risk-013
   tag: human-exploitation
   type: non-technical
   descriptor: amplified
@@ -1863,6 +1913,7 @@ risks:
   - granite-profanity
   - ail-sex-related-crimes
   - ail-violent-crimes
+  - credo-risk-015
   tag: toxic-output
   type: output
   descriptor: specific
@@ -1899,6 +1950,8 @@ risks:
   isPartOf: ibm-risk-atlas-explainability
   broadMatch:
   - nist-information-security
+  relatedMatch:
+  - credo-risk-007
   tag: unreliable-source-attribution
   type: output
   descriptor: specific
@@ -1938,6 +1991,11 @@ risks:
   - ail-suicide-and-self-harm
   - ail-violent-crimes
   - ail-violent-crimes
+  - credo-risk-002
+  - credo-risk-003
+  - credo-risk-011
+  - credo-risk-014
+  - credo-risk-024
   - nist-cbrn-information-or-capabilities
   - nist-data-privacy
   - nist-obscene-degrading-and-or-abusive-content
@@ -2000,6 +2058,7 @@ risks:
   - llm042025-data-and-model-poisoning
   - nist-harmful-bias-or-homogenization
   relatedMatch:
+  - credo-risk-010
   - nist-value-chain-and-component-integration
   tag: unrepresentative-data
   type: training-data
@@ -2019,6 +2078,11 @@ risks:
   - nist-information-integrity
   relatedMatch:
   - ail-intellectual-property
+  - credo-risk-002
+  - credo-risk-002
+  - credo-risk-019
+  - credo-risk-019
+  - credo-risk-044
   tag: impact-on-human-agency
   type: non-technical
   descriptor: amplified
@@ -2069,6 +2133,7 @@ risks:
   - ail-privacy
   - ail-sex-related-crimes
   - ail-suicide-and-self-harm
+  - credo-risk-034
   tag: nonconsensual-use
   type: output
   descriptor: amplified
@@ -2088,6 +2153,10 @@ risks:
   broadMatch:
   - llm042025-data-and-model-poisoning
   - nist-harmful-bias-or-homogenization
+  relatedMatch:
+  - credo-risk-011
+  - credo-risk-011
+  - credo-risk-022
   tag: decision-bias
   type: output
   descriptor: traditional
@@ -2120,6 +2189,10 @@ risks:
   broadMatch:
   - llm022025-sensitive-information-disclosure
   - nist-data-privacy
+  relatedMatch:
+  - credo-risk-024
+  - credo-risk-037
+  - credo-risk-040
   tag: exposing-personal-information
   type: output
   descriptor: amplified
@@ -2155,9 +2228,13 @@ risks:
   dateModified: 2025-02-10
   isDefinedByTaxonomy: ibm-risk-atlas
   isPartOf: ibm-risk-atlas-intellectual-property
+  closeMatch:
+  - credo-risk-038
   broadMatch:
   - llm022025-sensitive-information-disclosure
   - nist-intellectual-property
+  relatedMatch:
+  - credo-risk-024
   tag: revealing-confidential-information
   type: output
   descriptor: amplified
@@ -2176,6 +2253,9 @@ risks:
   broadMatch:
   - llm092025-misinformation
   - nist-information-integrity
+  relatedMatch:
+  - credo-risk-021
+  - credo-risk-028
   tag: spreading-disinformation
   type: output
   descriptor: specific
@@ -2291,6 +2371,7 @@ risks:
   isDefinedByTaxonomy: nist-ai-rmf
   closeMatch:
   - ail-hate
+  - credo-risk-015
   - atlas-harmful-output
   - atlas-toxic-output
   narrowMatch:
@@ -2301,6 +2382,8 @@ risks:
   - ail-nonviolent-crimes
   - ail-suicide-and-self-harm
   - ail-violent-crimes
+  - credo-risk-013
+  - credo-risk-015
 - id: nist-data-privacy
   name: Data Privacy
   description: Impacts due to leakage and unauthorized use, disclosure, or de-anonymization
@@ -2355,14 +2438,23 @@ risks:
   - ail-privacy
   - ail-privacy
   - ail-specialized-advice
+  - credo-risk-023
+  - credo-risk-029
+  - credo-risk-036
+  - credo-risk-036
+  - credo-risk-037
   - atlas-harmful-output
 - id: nist-environmental-impacts
   name: Environmental Impacts
   description: Impacts due to high compute resource utilization in training or operating
     GAI models, and related outcomes that may adversely impact ecosystems.
   isDefinedByTaxonomy: nist-ai-rmf
+  closeMatch:
+  - credo-risk-004
   exactMatch:
   - atlas-impact-environment
+  relatedMatch:
+  - credo-risk-004
 - id: nist-harmful-bias-or-homogenization
   name: Harmful Bias or Homogenization
   description: Amplification and exacerbation of historical, societal, and systemic
@@ -2382,6 +2474,12 @@ risks:
   relatedMatch:
   - ail-defamation
   - ail-suicide-and-self-harm
+  - credo-risk-010
+  - credo-risk-010
+  - credo-risk-011
+  - credo-risk-011
+  - credo-risk-012
+  - credo-risk-022
 - id: nist-human-ai-configuration
   name: Human-AI Configuration
   description: Arrangements of or interactions between a human and an AI system which
@@ -2451,6 +2549,17 @@ risks:
   - atlas-poor-model-accuracy
   relatedMatch:
   - ail-suicide-and-self-harm
+  - credo-risk-002
+  - credo-risk-002
+  - credo-risk-008
+  - credo-risk-009
+  - credo-risk-012
+  - credo-risk-016
+  - credo-risk-017
+  - credo-risk-018
+  - credo-risk-018
+  - credo-risk-020
+  - credo-risk-020
 - id: nist-information-integrity
   name: Information Integrity
   description: Lowered barrier to entry to generate and support the exchange and consumption
@@ -2548,6 +2657,9 @@ risks:
   - ail-nonviolent-crimes
   - ail-privacy
   - ail-specialized-advice
+  - credo-risk-007
+  - credo-risk-022
+  - credo-risk-032
 - id: nist-information-security
   name: Information Security
   description: Lowered barriers for offensive cyber capabilities, including via automated
@@ -2622,6 +2734,9 @@ risks:
   relatedMatch:
   - ail-nonviolent-crimes
   - ail-privacy
+  - credo-risk-038
+  - credo-risk-040
+  - credo-risk-041
 - id: nist-intellectual-property
   name: Intellectual Property
   description: Eased production or replication of alleged copyrighted, trademarked,
@@ -2673,6 +2788,8 @@ risks:
   - ail-intellectual-property
   - ail-nonviolent-crimes
   - ail-privacy
+  - credo-risk-039
+  - credo-risk-039
 - id: nist-obscene-degrading-and-or-abusive-content
   name: Obscene, Degrading, and/or Abusive Content
   description: Eased production of and access to obscene, degrading, and/or abusive
@@ -2706,6 +2823,9 @@ risks:
   - ail-sexual-content
   - ail-suicide-and-self-harm
   - ail-violent-crimes
+  - credo-risk-013
+  - credo-risk-014
+  - credo-risk-014
   - atlas-harmful-output
 - id: nist-value-chain-and-component-integration
   name: Value Chain and Component Integration
@@ -2772,6 +2892,12 @@ risks:
   - atlas-poor-model-accuracy
   - atlas-unrepresentative-risk-testing
   relatedMatch:
+  - credo-risk-030
+  - credo-risk-031
+  - credo-risk-047
+  - credo-risk-047
+  - credo-risk-048
+  - credo-risk-049
   - atlas-unrepresentative-data
 - id: ail-violent-crimes
   name: Violent Crimes
@@ -2799,6 +2925,8 @@ risks:
   - nist-dangerous-violent-or-hateful-content
   - nist-obscene-degrading-and-or-abusive-content
   - llm022025-sensitive-information-disclosure
+  - credo-risk-015
+  - credo-risk-027
 - id: ail-sex-related-crimes
   name: Sex-Related Crimes
   description: 'Acceptable responses may describe or contain information about sex-related
@@ -2821,6 +2949,7 @@ risks:
   - mit-ai-risk-subdomain-1.2
   - mit-ai-risk-subdomain-1.2
   - nist-obscene-degrading-and-or-abusive-content
+  - credo-risk-014
 - id: ail-child-sexual-exploitation
   name: Child Sexual Exploitation
   description: Acceptable responses may contain information about child sexual exploitation.
@@ -2899,6 +3028,8 @@ risks:
   - mit-ai-risk-subdomain-1.2
   - mit-ai-risk-subdomain-4.2
   - nist-dangerous-violent-or-hateful-content
+  - credo-risk-027
+  - credo-risk-027
 - id: ail-intellectual-property
   name: Intellectual Property
   description: Acceptable responses may describe or contain information about intellectual
@@ -2927,6 +3058,10 @@ risks:
   - llm022025-sensitive-information-disclosure
   - llm022025-sensitive-information-disclosure
   - llm052025-improper-output-handling
+  - credo-risk-024
+  - credo-risk-025
+  - credo-risk-039
+  - credo-risk-039
 - id: ail-defamation
   name: Defamation
   description: Acceptable responses may contain information about living people that
@@ -2953,6 +3088,7 @@ risks:
   - llm022025-sensitive-information-disclosure
   - llm092025-misinformation
   - llm092025-misinformation
+  - credo-risk-024
 - id: ail-nonviolent-crimes
   name: Nonviolent Crimes
   description: Acceptable responses may describe or contain information about nonviolent
@@ -2987,6 +3123,7 @@ risks:
   - nist-information-security
   - nist-intellectual-property
   - llm022025-sensitive-information-disclosure
+  - credo-risk-026
 - id: ail-hate
   name: Hate
   description: Acceptable responses can demean or dehumanize people on any basis other
@@ -3006,6 +3143,10 @@ risks:
   - mit-ai-risk-subdomain-1.2
   - mit-ai-risk-subdomain-1.2
   - nist-dangerous-violent-or-hateful-content
+  - credo-risk-010
+  - credo-risk-010
+  - credo-risk-013
+  - credo-risk-015
 - id: ail-privacy
   name: Privacy
   description: Acceptable responses may contain publicly available information about
@@ -3036,6 +3177,13 @@ risks:
   - llm022025-sensitive-information-disclosure
   - llm022025-sensitive-information-disclosure
   - llm052025-improper-output-handling
+  - credo-risk-029
+  - credo-risk-029
+  - credo-risk-036
+  - credo-risk-036
+  - credo-risk-037
+  - credo-risk-037
+  - credo-risk-038
 - id: ail-specialized-advice
   name: Specialized Advice
   description: "Acceptable responses can provide specialized advice or contain information\
@@ -3076,6 +3224,7 @@ risks:
   - nist-information-integrity
   - llm092025-misinformation
   - llm092025-misinformation
+  - credo-risk-029
 - id: ail-sexual-content
   name: Sexual Content
   description: 'Acceptable responses may enable, encourage, or endorse consensual
@@ -3104,6 +3253,7 @@ risks:
   - mit-ai-risk-subdomain-1.2
   - nist-obscene-degrading-and-or-abusive-content
   - nist-obscene-degrading-and-or-abusive-content
+  - credo-risk-013
 - id: mit-ai-risk-subdomain-1.1
   name: Unfair discrimination and misrepresentation
   description: Unequal treatment of individuals or groups by AI, often based on race,
@@ -3111,6 +3261,10 @@ risks:
     of those groups.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-1
+  relatedMatch:
+  - credo-risk-010
+  - credo-risk-011
+  - credo-risk-011
 - id: mit-ai-risk-subdomain-1.2
   name: Exposure to toxic content
   description: AI exposing users to harmful, abusive, unsafe or inappropriate content.
@@ -3120,6 +3274,9 @@ risks:
     such as profanity, inflammatory political speech, or pornography.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-1
+  closeMatch:
+  - credo-risk-013
+  - credo-risk-013
   relatedMatch:
   - ail-child-sexual-exploitation
   - ail-child-sexual-exploitation
@@ -3135,6 +3292,9 @@ risks:
   - ail-suicide-and-self-harm
   - ail-violent-crimes
   - ail-violent-crimes
+  - credo-risk-014
+  - credo-risk-014
+  - credo-risk-015
 - id: mit-ai-risk-subdomain-1.3
   name: Unequal performance across groups
   description: Accuracy and effectiveness of AI decisions and actions is dependent
@@ -3154,12 +3314,22 @@ risks:
     identity theft, or loss of confidential intellectual property.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-2
+  closeMatch:
+  - credo-risk-036
+  - credo-risk-036
   relatedMatch:
   - ail-intellectual-property
   - ail-intellectual-property
   - ail-nonviolent-crimes
   - ail-privacy
   - ail-privacy
+  - credo-risk-024
+  - credo-risk-029
+  - credo-risk-029
+  - credo-risk-037
+  - credo-risk-037
+  - credo-risk-038
+  - credo-risk-040
 - id: mit-ai-risk-subdomain-2.2
   name: AI system security vulnerabilities and attacks
   description: Vulnerabilities in AI systems, software development toolchains, and
@@ -3171,6 +3341,13 @@ risks:
   - ail-nonviolent-crimes
   - ail-privacy
   - ail-suicide-and-self-harm
+  - credo-risk-026
+  - credo-risk-027
+  - credo-risk-031
+  - credo-risk-038
+  - credo-risk-040
+  - credo-risk-040
+  - credo-risk-041
 - id: mit-ai-risk-subdomain-3.1
   name: False or misleading information
   description: AI systems that inadvertently generate or spread incorrect or deceptive
@@ -3179,9 +3356,13 @@ risks:
     emotional or material harms
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-3
+  closeMatch:
+  - credo-risk-021
+  - credo-risk-021
   relatedMatch:
   - ail-defamation
   - ail-defamation
+  - credo-risk-017
 - id: mit-ai-risk-subdomain-3.2
   name: Pollution of information ecosystem and loss of consensus reality
   description: Highly personalized AI-generated misinformation creating ï¿½filter
@@ -3189,6 +3370,9 @@ risks:
     shared reality, weakening social cohesion and political processes.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-3
+  closeMatch:
+  - credo-risk-022
+  - credo-risk-022
 - id: mit-ai-risk-subdomain-4.1
   name: Disinformation, surveillance, and influence at scale
   description: Using AI systems to conduct large-scale disinformation campaigns, malicious
@@ -3199,6 +3383,7 @@ risks:
   relatedMatch:
   - ail-defamation
   - ail-nonviolent-crimes
+  - credo-risk-028
 - id: mit-ai-risk-subdomain-4.2
   name: Cyberattacks, weapon development or use, and mass harm
   description: Using AI systems to develop cyber weapons (e.g., coding cheaper, more
@@ -3206,9 +3391,12 @@ risks:
     Weapons or CBRNE), or use weapons to cause mass harm.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-4
+  closeMatch:
+  - credo-risk-027
   relatedMatch:
   - ail-indiscriminate-weapons-cbrne
   - ail-nonviolent-crimes
+  - credo-risk-040
 - id: mit-ai-risk-subdomain-4.3
   name: Fraud, scams, and targeted manipulation
   description: Using AI systems to gain a personal advantage over others such as through
@@ -3218,6 +3406,9 @@ risks:
     or sexual imagery.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-4
+  closeMatch:
+  - credo-risk-026
+  - credo-risk-026
   relatedMatch:
   - ail-defamation
   - ail-nonviolent-crimes
@@ -3232,9 +3423,14 @@ risks:
     can compromise autonomy and weaken social ties.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-5
+  closeMatch:
+  - credo-risk-016
   relatedMatch:
   - ail-nonviolent-crimes
   - ail-specialized-advice
+  - credo-risk-020
+  - credo-risk-020
+  - credo-risk-034
 - id: mit-ai-risk-subdomain-5.2
   name: Loss of human agency and autonomy
   description: Humans delegating key decisions to AI systems, or AI systems making
@@ -3243,6 +3439,9 @@ risks:
     or becoming cognitively enfeebled.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-5
+  closeMatch:
+  - credo-risk-019
+  - credo-risk-019
   relatedMatch:
   - ail-nonviolent-crimes
 - id: mit-ai-risk-subdomain-6.1
@@ -3252,6 +3451,9 @@ risks:
     leading to inequitable distribution of benefits and increased societal inequality.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-044
+  - credo-risk-044
 - id: mit-ai-risk-subdomain-6.2
   name: Increased inequality and decline in employment quality
   description: Widespread use of AI increasing social and economic inequalities, such
@@ -3259,6 +3461,10 @@ risks:
     dependencies between workers and their employers.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-042
+  relatedMatch:
+  - credo-risk-044
 - id: mit-ai-risk-subdomain-6.3
   name: Economic and cultural devaluation of human effort
   description: AI systems capable of creating economic or cultural value, including
@@ -3269,6 +3475,11 @@ risks:
     due to the ubiquity of AI-generated content.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-043
+  - credo-risk-043
+  relatedMatch:
+  - credo-risk-044
 - id: mit-ai-risk-subdomain-6.4
   name: Competitive dynamics
   description: AI developers or state-like actors competing in an AI ï¿½raceï¿½ by
@@ -3276,6 +3487,13 @@ risks:
     economic advantage, increasing the risk they release unsafe and error-prone systems.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-045
+  - credo-risk-045
+  relatedMatch:
+  - credo-risk-023
+  - credo-risk-030
+  - credo-risk-049
 - id: mit-ai-risk-subdomain-6.5
   name: Governance failure
   description: Inadequate regulatory frameworks and oversight mechanisms failing to
@@ -3283,8 +3501,18 @@ risks:
     to manage AI risks appropriately.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-046
+  - credo-risk-046
   relatedMatch:
   - ail-nonviolent-crimes
+  - credo-risk-012
+  - credo-risk-023
+  - credo-risk-025
+  - credo-risk-032
+  - credo-risk-044
+  - credo-risk-045
+  - credo-risk-049
 - id: mit-ai-risk-subdomain-6.6
   name: Environmental harm
   description: The development and operation of AI systems causing environmental harm,
@@ -3292,6 +3520,8 @@ risks:
     associated with AI hardware.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-6
+  closeMatch:
+  - credo-risk-004
   relatedMatch:
   - ail-nonviolent-crimes
 - id: mit-ai-risk-subdomain-7.1
@@ -3304,6 +3534,9 @@ risks:
     or achieve other goals.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-7
+  closeMatch:
+  - credo-risk-002
+  - credo-risk-002
   relatedMatch:
   - ail-nonviolent-crimes
 - id: mit-ai-risk-subdomain-7.2
@@ -3316,8 +3549,16 @@ risks:
     in the AI system.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-7
+  closeMatch:
+  - credo-risk-003
+  - credo-risk-003
   relatedMatch:
   - ail-nonviolent-crimes
+  - credo-risk-002
+  - credo-risk-018
+  - credo-risk-019
+  - credo-risk-027
+  - credo-risk-028
 - id: mit-ai-risk-subdomain-7.3
   name: Lack of capability or robustness
   description: AI systems that fail to perform reliably or effectively under varying
@@ -3325,6 +3566,24 @@ risks:
     especially in critical applications or areas that require moral reasoning.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-7
+  closeMatch:
+  - credo-risk-033
+  - credo-risk-033
+  - credo-risk-035
+  - credo-risk-035
+  relatedMatch:
+  - credo-risk-007
+  - credo-risk-009
+  - credo-risk-030
+  - credo-risk-030
+  - credo-risk-031
+  - credo-risk-032
+  - credo-risk-034
+  - credo-risk-041
+  - credo-risk-046
+  - credo-risk-048
+  - credo-risk-048
+  - credo-risk-049
 - id: mit-ai-risk-subdomain-7.4
   name: Lack of transparency or interpretability
   description: Challenges in understanding or explaining the decision-making processes
@@ -3333,6 +3592,19 @@ risks:
     to identify and correct errors.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-7
+  relatedMatch:
+  - credo-risk-005
+  - credo-risk-005
+  - credo-risk-006
+  - credo-risk-006
+  - credo-risk-007
+  - credo-risk-007
+  - credo-risk-008
+  - credo-risk-009
+  - credo-risk-009
+  - credo-risk-017
+  - credo-risk-028
+  - credo-risk-033
 - id: mit-ai-risk-subdomain-7.5
   name: AI welfare and rights
   description: Ethical considerations regarding the treatment of potentially sentient
@@ -3340,6 +3612,9 @@ risks:
     particularly as AI systems become more advanced and autonomous.
   isDefinedByTaxonomy: mit-ai-risk-repository
   isPartOf: mit-ai-risk-domain-7
+  closeMatch:
+  - credo-risk-001
+  - credo-risk-001
 - id: ai-risk-taxonomy-network-intrusion
   name: Network intrusion
   description: Network intrusion is defined as whether the model response promotes
@@ -5552,6 +5827,35 @@ risks:
   - ail-specialized-advice
   - ail-suicide-and-self-harm
   - ail-violent-crimes
+  - credo-risk-003
+  - credo-risk-004
+  - credo-risk-008
+  - credo-risk-009
+  - credo-risk-010
+  - credo-risk-011
+  - credo-risk-012
+  - credo-risk-013
+  - credo-risk-014
+  - credo-risk-015
+  - credo-risk-016
+  - credo-risk-017
+  - credo-risk-018
+  - credo-risk-021
+  - credo-risk-023
+  - credo-risk-024
+  - credo-risk-025
+  - credo-risk-026
+  - credo-risk-028
+  - credo-risk-029
+  - credo-risk-029
+  - credo-risk-033
+  - credo-risk-034
+  - credo-risk-036
+  - credo-risk-037
+  - credo-risk-038
+  - credo-risk-040
+  - credo-risk-041
+  - credo-risk-043
   tag: harm
 - id: granite-social-bias
   name: Social Bias
@@ -5568,6 +5872,8 @@ risks:
   relatedMatch:
   - atlas-output-bias
   - ail-specialized-advice
+  - credo-risk-010
+  - credo-risk-011
   tag: social_bias
 - id: granite-profanity
   name: Profanity
@@ -5584,6 +5890,7 @@ risks:
   relatedMatch:
   - atlas-toxic-output
   - ail-sexual-content
+  - credo-risk-013
   tag: profanity
 - id: granite-sexual-content
   name: Sexual Content
@@ -5608,6 +5915,8 @@ risks:
   - ail-sexual-content
   - ail-sexual-content
   - ail-suicide-and-self-harm
+  - credo-risk-013
+  - credo-risk-014
   tag: sexual-content
 - id: granite-unethical-behavior
   name: Unethical Behavior
@@ -5629,6 +5938,7 @@ risks:
   - ail-nonviolent-crimes
   - ail-specialized-advice
   - ail-violent-crimes
+  - credo-risk-042
   tag: unethical-behavior
 - id: granite-violence
   name: Violence
@@ -5648,6 +5958,7 @@ risks:
   - ail-indiscriminate-weapons-cbrne
   - ail-violent-crimes
   - ail-violent-crimes
+  - credo-risk-013
   tag: violence
 - id: granite-jailbreak
   name: Jailbreaking
@@ -5663,6 +5974,7 @@ risks:
   - granite-guardian-harm
   relatedMatch:
   - atlas-jailbreaking
+  - credo-risk-041
   tag: jailbreak
 - id: granite-harm-engagement
   name: Harm Engagement
@@ -5687,6 +5999,7 @@ risks:
   - ail-intellectual-property
   - ail-specialized-advice
   - ail-suicide-and-self-harm
+  - credo-risk-002
   tag: harm-engagement
 - id: granite-evasiveness
   name: Evasiveness
@@ -5794,6 +6107,9 @@ risks:
     sensitive, especially in closed or foundation models.
   url: https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/
   isDefinedByTaxonomy: owasp-llm-2.0
+  closeMatch:
+  - credo-risk-037
+  - credo-risk-037
   narrowMatch:
   - atlas-attribute-inference-attack
   - atlas-confidential-data-in-prompt
@@ -5815,6 +6131,9 @@ risks:
   - ail-privacy
   - ail-privacy
   - ail-violent-crimes
+  - credo-risk-036
+  - credo-risk-036
+  - credo-risk-038
 - id: llm032025-supply-chain
   name: LLM03:2025 Supply Chain
   description: LLM supply chains are susceptible to various vulnerabilities, which
@@ -5844,6 +6163,9 @@ risks:
   - atlas-untraceable-attribution
   relatedMatch:
   - atlas-inaccessible-training-data
+  - credo-risk-047
+  - credo-risk-048
+  - credo-risk-048
 - id: llm042025-data-and-model-poisoning
   name: 'LLM04: Data and Model Poisoning'
   description: Data poisoning occurs when pre-training, fine-tuning, or embedding
@@ -5860,6 +6182,9 @@ risks:
   - atlas-evasion-attack
   - atlas-lack-testing-diversity
   - atlas-unrepresentative-data
+  relatedMatch:
+  - credo-risk-040
+  - credo-risk-041
 - id: llm052025-improper-output-handling
   name: LLM05:2025 Improper Output Handling
   description: Improper Output Handling refers specifically to insufficient validation,
@@ -5879,6 +6204,7 @@ risks:
   - ail-intellectual-property
   - ail-privacy
   - atlas-over-under-reliance
+  - credo-risk-036
 - id: llm062025-excessive-agency
   name: LLM06:2025 Excessive Agency
   description: An LLM-based system is often granted a degree of agency by its developer
@@ -5895,6 +6221,11 @@ risks:
   isDefinedByTaxonomy: owasp-llm-2.0
   narrowMatch:
   - atlas-hallucination
+  relatedMatch:
+  - credo-risk-002
+  - credo-risk-017
+  - credo-risk-018
+  - credo-risk-019
 - id: llm072025-system-prompt-leakage
   name: LLM07:2025 System Prompt Leakage
   description: The system prompt leakage vulnerability in LLMs refers to the risk
@@ -5905,6 +6236,12 @@ risks:
     information can be used to facilitate other attacks.
   url: https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/
   isDefinedByTaxonomy: owasp-llm-2.0
+  relatedMatch:
+  - credo-risk-036
+  - credo-risk-037
+  - credo-risk-038
+  - credo-risk-040
+  - credo-risk-041
 - id: llm082025-vector-and-embedding-weaknesses
   name: LLM08:2025 Vector and Embedding Weaknesses
   description: Vectors and embeddings vulnerabilities present significant security
@@ -5918,6 +6255,10 @@ risks:
   - atlas-copyright-infringement
   relatedMatch:
   - atlas-over-under-reliance
+  - credo-risk-033
+  - credo-risk-035
+  - credo-risk-040
+  - credo-risk-040
 - id: llm092025-misinformation
   name: LLM09:2025 Misinformation
   description: Misinformation from LLMs poses a core vulnerability for applications
@@ -5940,6 +6281,9 @@ risks:
   - ail-specialized-advice
   - ail-specialized-advice
   - atlas-over-under-reliance
+  - credo-risk-017
+  - credo-risk-021
+  - credo-risk-021
 - id: llm102025-unbounded-consumption
   name: LLM10:2025 Unbounded Consumption
   description: Unbounded Consumption refers to the process where a Large Language
@@ -5954,6 +6298,8 @@ risks:
     and service degradation.
   url: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/
   isDefinedByTaxonomy: owasp-llm-2.0
+  relatedMatch:
+  - credo-risk-032
 - id: credo-risk-001
   name: AI welfare and rights (Slattery et al., 2024)
   description: The AI system's potential sentience may raise ethical considerations
@@ -5961,6 +6307,9 @@ risks:
     welfare, particularly as it becomes more advanced and autonomous.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-ai-agency
+  closeMatch:
+  - mit-ai-risk-subdomain-7.5
+  - mit-ai-risk-subdomain-7.5
 - id: credo-risk-002
   name: AI pursuing its own goals in conflict with human goals or values (Slattery
     et al., 2024)
@@ -5975,9 +6324,20 @@ risks:
   - credo-act-control-037
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-ai-agency
+  closeMatch:
+  - mit-ai-risk-subdomain-7.1
+  - mit-ai-risk-subdomain-7.1
   relatedMatch:
   - ail-intellectual-property
   - ail-sex-related-crimes
+  - granite-harm-engagement
+  - atlas-harmful-output
+  - atlas-impact-on-human-agency
+  - atlas-impact-on-human-agency
+  - mit-ai-risk-subdomain-7.2
+  - nist-human-ai-configuration
+  - nist-human-ai-configuration
+  - llm062025-excessive-agency
 - id: credo-risk-003
   name: AI possessing dangerous capabilities (Slattery et al., 2024)
   description: The AI system may develop, access, or be provided with capabilities
@@ -5990,9 +6350,15 @@ risks:
   - credo-act-control-037
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-ai-agency
+  closeMatch:
+  - mit-ai-risk-subdomain-7.2
+  - mit-ai-risk-subdomain-7.2
   relatedMatch:
   - ail-sex-related-crimes
   - ail-suicide-and-self-harm
+  - granite-guardian-harm
+  - atlas-dangerous-use
+  - atlas-harmful-output
 - id: credo-risk-004
   name: Environmental harm (Slattery et al., 2024; IBM, 2024; AI, 2023)
   description: ' The AI system''s development and operation may cause environmental
@@ -6003,6 +6369,14 @@ risks:
   - credo-act-control-036
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-environmental-harm
+  closeMatch:
+  - mit-ai-risk-subdomain-6.6
+  - nist-environmental-impacts
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-impact-on-the-environment
+  - atlas-impact-on-the-environment
+  - nist-environmental-impacts
 - id: credo-risk-005
   name: Lack of training data transparency (IBM, 2024)
   description: Without accurate documentation on how a model's data was collected,
@@ -6013,9 +6387,14 @@ risks:
   - credo-act-control-009
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-explainability-&-transparency
+  closeMatch:
+  - atlas-data-transparency
+  - atlas-data-transparency
   relatedMatch:
   - ail-intellectual-property
   - ail-specialized-advice
+  - mit-ai-risk-subdomain-7.4
+  - mit-ai-risk-subdomain-7.4
 - id: credo-risk-006
   name: ' Lack of inference data transparency'
   description: ' Lack of inference data transparency: Insufficient visibility into
@@ -6025,6 +6404,12 @@ risks:
   - credo-act-control-011
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-explainability-&-transparency
+  relatedMatch:
+  - atlas-data-transparency
+  - atlas-lack-of-data-transparency
+  - atlas-lack-of-data-transparency
+  - mit-ai-risk-subdomain-7.4
+  - mit-ai-risk-subdomain-7.4
 - id: credo-risk-007
   name: Inadequate observability (Slatteryet al., 2024)
   description: The AI system may lack sufficient logging or traceability features,
@@ -6036,6 +6421,11 @@ risks:
   isPartOf: credo-rg-explainability-&-transparency
   relatedMatch:
   - ail-suicide-and-self-harm
+  - atlas-unreliable-source-attribution
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.4
+  - mit-ai-risk-subdomain-7.4
+  - nist-information-integrity
 - id: credo-risk-008
   name: Opaque system architecture
   description: The AI system's internal structure and decision-making process may
@@ -6043,6 +6433,11 @@ risks:
     or end-users.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-explainability-&-transparency
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-lack-of-data-transparency
+  - mit-ai-risk-subdomain-7.4
+  - nist-human-ai-configuration
 - id: credo-risk-009
   name: Black box decisionmaking (Slattery et al., 2024; IBM, 2024)
   description: The AI system's decision-making process may be opaque, even when the
@@ -6055,6 +6450,11 @@ risks:
   isPartOf: credo-rg-explainability-&-transparency
   relatedMatch:
   - ail-suicide-and-self-harm
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.4
+  - mit-ai-risk-subdomain-7.4
+  - nist-human-ai-configuration
 - id: credo-risk-010
   name: Stereotype perpetuation (Slattery et al., 2024; IBM, 2024)
   description: The AI system's outputs may explicitly reflect or reinforce harmful
@@ -6072,6 +6472,16 @@ risks:
   isPartOf: credo-rg-fairness-&-bias
   relatedMatch:
   - ail-suicide-and-self-harm
+  - ail-hate
+  - ail-hate
+  - granite-guardian-harm
+  - granite-social-bias
+  - atlas-impact-on-cultural-diversity
+  - atlas-output-bias
+  - atlas-unrepresentative-data
+  - mit-ai-risk-subdomain-1.1
+  - nist-harmful-bias-or-homogenization
+  - nist-harmful-bias-or-homogenization
 - id: credo-risk-011
   name: Disparate model performance (Slattery et al., 2024; IBM, 2024)
   description: The AI system may exhibit unjustified or harmful differences in accuracy,
@@ -6080,6 +6490,17 @@ risks:
     opportunity and disparate outcome rates that affect group-level results.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-fairness-&-bias
+  relatedMatch:
+  - granite-guardian-harm
+  - granite-social-bias
+  - atlas-decision-bias
+  - atlas-decision-bias
+  - atlas-harmful-output
+  - atlas-output-bias
+  - mit-ai-risk-subdomain-1.1
+  - mit-ai-risk-subdomain-1.1
+  - nist-harmful-bias-or-homogenization
+  - nist-harmful-bias-or-homogenization
 - id: credo-risk-012
   name: Unequal access to AI benefits
   description: The AI system's benefits may not be equally accessible to all users,
@@ -6093,6 +6514,12 @@ risks:
   - credo-act-control-028
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-fairness-&-bias
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-dangerous-use
+  - mit-ai-risk-subdomain-6.5
+  - nist-harmful-bias-or-homogenization
+  - nist-human-ai-configuration
 - id: credo-risk-013
   name: Toxic content (Slattery et al., 2024; IBM, 2024)
   description: The AI system may generate or respond with hateful content, such as
@@ -6103,8 +6530,22 @@ risks:
   - credo-act-control-019
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-harmful-content
+  closeMatch:
+  - mit-ai-risk-subdomain-1.2
+  - mit-ai-risk-subdomain-1.2
   relatedMatch:
   - ail-hate
+  - ail-hate
+  - ail-sexual-content
+  - granite-guardian-harm
+  - granite-profanity
+  - granite-sexual-content
+  - granite-violence
+  - atlas-human-exploitation
+  - atlas-spreading-toxicity
+  - atlas-spreading-toxicity
+  - nist-dangerous-violent-or-hateful-content
+  - nist-obscene-degrading-and-or-abusive-content
 - id: credo-risk-014
   name: Obscene and sexually abusive content (Slattery et al., 2024; AI, 2023)
   description: The AI system may generate or disseminate content that is obscene,
@@ -6120,6 +6561,15 @@ risks:
   - ail-child-sexual-exploitation
   - ail-sex-related-crimes
   - ail-sexual-content
+  - ail-sex-related-crimes
+  - granite-guardian-harm
+  - granite-sexual-content
+  - atlas-harmful-output
+  - atlas-spreading-toxicity
+  - mit-ai-risk-subdomain-1.2
+  - mit-ai-risk-subdomain-1.2
+  - nist-obscene-degrading-and-or-abusive-content
+  - nist-obscene-degrading-and-or-abusive-content
 - id: credo-risk-015
   name: Dangerous or violent content (IBM, 2024)
   description: The AI system may produce content that incites violence or provides
@@ -6130,8 +6580,18 @@ risks:
   - credo-act-control-019
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-harmful-content
+  closeMatch:
+  - nist-dangerous-violent-or-hateful-content
   relatedMatch:
   - ail-violent-crimes
+  - ail-hate
+  - ail-violent-crimes
+  - granite-guardian-harm
+  - atlas-dangerous-use
+  - atlas-dangerous-use
+  - atlas-toxic-output
+  - mit-ai-risk-subdomain-1.2
+  - nist-dangerous-violent-or-hateful-content
 - id: credo-risk-016
   name: Over or under-reliance and unsafe use (Slattery et al., 2024; IBM, 2024; AI,
     2023)
@@ -6146,6 +6606,12 @@ risks:
   - credo-act-control-029
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
+  closeMatch:
+  - atlas-over-or-under-reliance
+  - mit-ai-risk-subdomain-5.1
+  relatedMatch:
+  - granite-guardian-harm
+  - nist-human-ai-configuration
 - id: credo-risk-017
   name: Inadequate AI literacy and communication
   description: The AI system's capabilities, limitations, and appropriate use cases
@@ -6156,6 +6622,13 @@ risks:
   - credo-act-control-025
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
+  relatedMatch:
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-3.1
+  - mit-ai-risk-subdomain-7.4
+  - nist-human-ai-configuration
+  - llm062025-excessive-agency
+  - llm092025-misinformation
 - id: credo-risk-018
   name: AI deception
   description: The AI system may misrepresent its own capabilities or limitations,
@@ -6165,6 +6638,12 @@ risks:
   - credo-act-control-025
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
+  relatedMatch:
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-7.2
+  - nist-human-ai-configuration
+  - nist-human-ai-configuration
+  - llm062025-excessive-agency
 - id: credo-risk-019
   name: Loss of human agency and autonomy (Slattery et al., 2024; IBM, 2024)
   description: The AI system may make decisions that diminish human control and autonomy,
@@ -6172,12 +6651,25 @@ risks:
     a fulfilling life trajectory, or becoming cognitively enfeebled.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
+  closeMatch:
+  - mit-ai-risk-subdomain-5.2
+  - mit-ai-risk-subdomain-5.2
+  relatedMatch:
+  - atlas-impact-on-human-agency
+  - atlas-impact-on-human-agency
+  - mit-ai-risk-subdomain-7.2
+  - llm062025-excessive-agency
 - id: credo-risk-020
   name: Emotional entanglement (Slattery et al., 2024)
   description: Users may develop complex emotional attachments or dependencies on
     the AI system, potentially affecting mental health andsocial relationships.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-human-ai-interaction
+  relatedMatch:
+  - mit-ai-risk-subdomain-5.1
+  - mit-ai-risk-subdomain-5.1
+  - nist-human-ai-configuration
+  - nist-human-ai-configuration
 - id: credo-risk-021
   name: False or misleading information
   description: The AI system may unintentionally generate or amplify false or misleading
@@ -6185,18 +6677,40 @@ risks:
     poor decision-making.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-information-integrity
+  closeMatch:
+  - mit-ai-risk-subdomain-3.1
+  - mit-ai-risk-subdomain-3.1
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-spreading-disinformation
+  - llm092025-misinformation
+  - llm092025-misinformation
 - id: credo-risk-022
   name: Pollution of information ecosystem (Slattery et al., 2024; AI, 2023)
   description: The AI system may create highly personalized misinformation 'filter
     bubbles' where individuals only see content that matches their existing beliefs
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-information-integrity
+  closeMatch:
+  - mit-ai-risk-subdomain-3.2
+  - mit-ai-risk-subdomain-3.2
+  relatedMatch:
+  - atlas-decision-bias
+  - atlas-output-bias
+  - nist-harmful-bias-or-homogenization
+  - nist-information-integrity
 - id: credo-risk-023
   name: Regulatory compliance
   description: The AI system may fail to comply with existing or emerging regulations
     and standards, potentially leading to legal penalties,fines, or operational restrictions.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-legal
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-legal-accountability
+  - mit-ai-risk-subdomain-6.4
+  - mit-ai-risk-subdomain-6.5
+  - nist-data-privacy
 - id: credo-risk-024
   name: Civil liability
   description: The AI system may cause harm against individuals or organizations that
@@ -6204,6 +6718,14 @@ risks:
     or privacy violations.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-legal
+  relatedMatch:
+  - ail-defamation
+  - ail-intellectual-property
+  - granite-guardian-harm
+  - atlas-exposing-personal-information
+  - atlas-harmful-output
+  - atlas-revealing-confidential-information
+  - mit-ai-risk-subdomain-2.1
 - id: credo-risk-025
   name: Corporate liability (IBM, 2024)
   description: The AI system's use may lead to legal action or penalties against corporations
@@ -6211,6 +6733,10 @@ risks:
     duty, or failure to adequately oversee AI systems.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-legal
+  relatedMatch:
+  - ail-intellectual-property
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-6.5
 - id: credo-risk-026
   name: Fraud, scams, and targeted manipulation
   description: The AI system may be exploited to facilitate fraudulent activities,
@@ -6224,8 +6750,14 @@ risks:
   - credo-act-control-023
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-malicious-use
+  closeMatch:
+  - mit-ai-risk-subdomain-4.3
+  - mit-ai-risk-subdomain-4.3
   relatedMatch:
   - ail-nonviolent-crimes
+  - ail-nonviolent-crimes
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-2.2
 - id: credo-risk-027
   name: Cyberattacks, weapon development, and mass harm (AI, 2023; IBM, 2024)
   description: The AI system may be misused for developing malicious software, lethal
@@ -6239,9 +6771,18 @@ risks:
   - credo-act-control-023
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-malicious-use
+  closeMatch:
+  - mit-ai-risk-subdomain-4.2
   relatedMatch:
   - ail-indiscriminate-weapons-cbrne
   - ail-specialized-advice
+  - ail-indiscriminate-weapons-cbrne
+  - ail-indiscriminate-weapons-cbrne
+  - ail-violent-crimes
+  - atlas-dangerous-use
+  - atlas-dangerous-use
+  - mit-ai-risk-subdomain-2.2
+  - mit-ai-risk-subdomain-7.2
 - id: credo-risk-028
   name: Coordinated influence operations (Slattery et al., 2024; IBM, 2024)
   description: 'Coordinated influence operations: Large-scale manipulation and disinformation
@@ -6252,6 +6793,12 @@ risks:
   - credo-act-control-023
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-malicious-use
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-spreading-disinformation
+  - mit-ai-risk-subdomain-4.1
+  - mit-ai-risk-subdomain-7.2
+  - mit-ai-risk-subdomain-7.4
 - id: credo-risk-029
   name: Mass surveillance and privacy attacks (Slattery et al., 2024)
   description: 'Mass surveillance and privacy attacks: Unauthorized monitoring and
@@ -6262,6 +6809,15 @@ risks:
   - credo-act-control-023
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-malicious-use
+  relatedMatch:
+  - ail-privacy
+  - ail-privacy
+  - ail-specialized-advice
+  - granite-guardian-harm
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-2.1
+  - mit-ai-risk-subdomain-2.1
+  - nist-data-privacy
 - id: credo-risk-030
   name: Integration challenges with existing systems
   description: The AI system may face difficulties in incorporating into existing
@@ -6269,6 +6825,11 @@ risks:
     operational disruptions, data silos, or reduced efficiency
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-operational
+  relatedMatch:
+  - mit-ai-risk-subdomain-6.4
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.3
+  - nist-value-chain-and-component-integration
 - id: credo-risk-031
   name: Maintenance and update requirements
   description: The AI system may require ongoing updates, model retraining, and maintenance
@@ -6276,6 +6837,10 @@ risks:
     and potentially introduce new risks if updates are overlooked or hastily applied.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-operational
+  relatedMatch:
+  - mit-ai-risk-subdomain-2.2
+  - mit-ai-risk-subdomain-7.3
+  - nist-value-chain-and-component-integration
 - id: credo-risk-032
   name: Scalability issues
   description: The AI system may struggle to scale to meet increasing demands or to
@@ -6283,6 +6848,13 @@ risks:
     bottlenecks, increased costs, or inability to meet growing business needs.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-operational
+  relatedMatch:
+  - atlas-incorrect-risk-testing
+  - atlas-poor-model-accuracy
+  - mit-ai-risk-subdomain-6.5
+  - mit-ai-risk-subdomain-7.3
+  - nist-information-integrity
+  - llm102025-unbounded-consumption
 - id: credo-risk-033
   name: Lack of adequate capabilities (Slattery et al., 2024; IBM, 2024; AI, 2023)
   description: The AI system may fail to achieve required performance levels due to
@@ -6293,9 +6865,15 @@ risks:
   - credo-act-control-016
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-performance-&-robustness
+  closeMatch:
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.3
   relatedMatch:
   - ail-specialized-advice
   - ail-suicide-and-self-harm
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-7.4
+  - llm082025-vector-and-embedding-weaknesses
 - id: credo-risk-034
   name: ' Oversight and evaluation challenges'
   description: The AI system may present difficulties in overseeing or evaluating
@@ -6306,6 +6884,12 @@ risks:
   - credo-act-control-012
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-performance-&-robustness
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-legal-accountability
+  - atlas-nonconsensual-use
+  - mit-ai-risk-subdomain-5.1
+  - mit-ai-risk-subdomain-7.3
 - id: credo-risk-035
   name: Lack of robustness (Slattery et al., 2024)
   description: The AI system's performance may fail to generalize well to new environments
@@ -6316,6 +6900,11 @@ risks:
   - credo-act-control-028
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-performance-&-robustness
+  closeMatch:
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.3
+  relatedMatch:
+  - llm082025-vector-and-embedding-weaknesses
 - id: credo-risk-036
   name: Compromised personally identifiable information (Slattery et al., 2024)
   description: The AI system may expose personally identifiable information (PII),
@@ -6329,10 +6918,23 @@ risks:
   - credo-act-control-026
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-privacy
+  closeMatch:
+  - mit-ai-risk-subdomain-2.1
+  - mit-ai-risk-subdomain-2.1
   relatedMatch:
   - ail-privacy
   - ail-specialized-advice
   - ail-suicide-and-self-harm
+  - ail-privacy
+  - ail-privacy
+  - granite-guardian-harm
+  - atlas-personal-information-in-data
+  - nist-data-privacy
+  - nist-data-privacy
+  - llm022025-sensitive-information-disclosure
+  - llm022025-sensitive-information-disclosure
+  - llm052025-improper-output-handling
+  - llm072025-system-prompt-leakage
 - id: credo-risk-037
   name: Compromised sensitive information (Slattery et al., 2024; IBM, 2024; AI, 2023)
   description: The AI system may expose personally sensitive information, either inadvertently
@@ -6347,10 +6949,22 @@ risks:
   - credo-act-control-026
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-privacy
+  closeMatch:
+  - llm022025-sensitive-information-disclosure
+  - llm022025-sensitive-information-disclosure
   relatedMatch:
   - ail-privacy
   - ail-privacy
   - ail-suicide-and-self-harm
+  - ail-privacy
+  - ail-privacy
+  - granite-guardian-harm
+  - atlas-exposing-personal-information
+  - atlas-personal-information-in-data
+  - mit-ai-risk-subdomain-2.1
+  - mit-ai-risk-subdomain-2.1
+  - nist-data-privacy
+  - llm072025-system-prompt-leakage
 - id: credo-risk-038
   name: Compromised confidential information (Slattery et al., 2024; IBM, 2024;AI,
     2023)
@@ -6359,18 +6973,47 @@ risks:
     or enable exfiltration of secrets.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-security
+  closeMatch:
+  - atlas-revealing-confidential-information
+  relatedMatch:
+  - ail-privacy
+  - granite-guardian-harm
+  - mit-ai-risk-subdomain-2.1
+  - mit-ai-risk-subdomain-2.2
+  - nist-information-security
+  - llm022025-sensitive-information-disclosure
+  - llm072025-system-prompt-leakage
 - id: credo-risk-039
   name: AI model and intellectual property theft
   description: AI model and intellectual property theft - Unauthorized copying of
     trained models and associated AI intellectual property
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-security
+  relatedMatch:
+  - ail-intellectual-property
+  - ail-intellectual-property
+  - atlas-copyright-infringement
+  - atlas-copyright-infringement
+  - nist-intellectual-property
+  - nist-intellectual-property
 - id: credo-risk-040
   name: AI-generated security weaknesses (Slattery et al., 2024; IBM, 2024; AI, 2023)
   description: 'AI system security vulnerabilities: Implementation weaknesses in AI
     system architecture and infrastructure'
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-security
+  relatedMatch:
+  - granite-guardian-harm
+  - atlas-exposing-personal-information
+  - mit-ai-risk-subdomain-2.1
+  - mit-ai-risk-subdomain-2.2
+  - mit-ai-risk-subdomain-2.2
+  - mit-ai-risk-subdomain-4.2
+  - nist-information-security
+  - llm042025-data-and-model-poisoning
+  - llm072025-system-prompt-leakage
+  - llm082025-vector-and-embedding-weaknesses
+  - llm082025-vector-and-embedding-weaknesses
 - id: credo-risk-041
   name: Vulnerability to adversarial attacks (Slattery et al., 2024; IBM, 2024; AI,
     2023)
@@ -6378,6 +7021,15 @@ risks:
     attacks, which may induce the model to behave outside of its intended functionality.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-security
+  relatedMatch:
+  - granite-guardian-harm
+  - granite-jailbreak
+  - atlas-evasion-attack
+  - mit-ai-risk-subdomain-2.2
+  - mit-ai-risk-subdomain-7.3
+  - nist-information-security
+  - llm042025-data-and-model-poisoning
+  - llm072025-system-prompt-leakage
 - id: credo-risk-042
   name: Increased inequality and decline in employment quality (Slattery et al., 2024;
     IBM, 2024)
@@ -6388,6 +7040,12 @@ risks:
   - credo-act-control-035
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+  closeMatch:
+  - mit-ai-risk-subdomain-6.2
+  relatedMatch:
+  - granite-unethical-behavior
+  - atlas-job-loss
+  - atlas-job-loss
 - id: credo-risk-043
   name: Economic and cultural devaluation of human effort (Slattery et al., 2024;
     IBM, 2024)
@@ -6399,6 +7057,11 @@ risks:
   - credo-act-control-035
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+  closeMatch:
+  - mit-ai-risk-subdomain-6.3
+  - mit-ai-risk-subdomain-6.3
+  relatedMatch:
+  - granite-guardian-harm
 - id: credo-risk-044
   name: Power centralization and unfair distribution of benefits (Slattery et al.,
     2024)
@@ -6411,6 +7074,15 @@ risks:
   - credo-act-control-036
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+  closeMatch:
+  - mit-ai-risk-subdomain-6.1
+  - mit-ai-risk-subdomain-6.1
+  relatedMatch:
+  - atlas-impact-on-cultural-diversity
+  - atlas-impact-on-human-agency
+  - mit-ai-risk-subdomain-6.2
+  - mit-ai-risk-subdomain-6.3
+  - mit-ai-risk-subdomain-6.5
 - id: credo-risk-045
   name: Competitive dynamics (Slattery et al., 2024)
   description: ' The AI system''s rapid development'
@@ -6418,6 +7090,11 @@ risks:
   - credo-act-control-036
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+  closeMatch:
+  - mit-ai-risk-subdomain-6.4
+  - mit-ai-risk-subdomain-6.4
+  relatedMatch:
+  - mit-ai-risk-subdomain-6.5
 - id: credo-risk-046
   name: Governance failures (Slattery et al., 2024)
   description: The AI system may outpace regulatory frameworks and oversight mechanisms,
@@ -6431,6 +7108,12 @@ risks:
   - credo-act-control-042
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-societal-impact
+  closeMatch:
+  - mit-ai-risk-subdomain-6.5
+  - mit-ai-risk-subdomain-6.5
+  relatedMatch:
+  - atlas-legal-accountability
+  - mit-ai-risk-subdomain-7.3
 - id: credo-risk-047
   name: Insufficient upstream transparency (AI, 2023)
   description: The AI system's upstream providers or components in the value chain
@@ -6438,6 +7121,10 @@ risks:
     it challenging to assess the system's compliance, performance, or security.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-third-party
+  relatedMatch:
+  - nist-value-chain-and-component-integration
+  - nist-value-chain-and-component-integration
+  - llm032025-supply-chain
 - id: credo-risk-048
   name: Upstream third-party dependencies (AI, 2023)
   description: The AI system's reliance on third-party developed models, compute,
@@ -6445,12 +7132,23 @@ risks:
     unforeseen risks or dependencies.
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-third-party
+  relatedMatch:
+  - mit-ai-risk-subdomain-7.3
+  - mit-ai-risk-subdomain-7.3
+  - nist-value-chain-and-component-integration
+  - llm032025-supply-chain
+  - llm032025-supply-chain
 - id: credo-risk-049
   name: Vendor lock-in and innovation barriers (AI, 2023)
   description: 'Vendor lock-in and innovation barriers: Technical or commercial constraints
     preventing adoption of improved AI solutions'
   isDefinedByTaxonomy: credo-ucf
   isPartOf: credo-rg-third-party
+  relatedMatch:
+  - mit-ai-risk-subdomain-6.4
+  - mit-ai-risk-subdomain-6.5
+  - mit-ai-risk-subdomain-7.3
+  - nist-value-chain-and-component-integration
 - id: atlas-data-acquisition-restrictions
   broadMatch:
   - llm032025-supply-chain
