@@ -164,7 +164,7 @@ risks:
 - id: nist-harmful-bias-or-homogenization
   name: Harmful Bias or Homogenization
   description: Amplification and exacerbation of historical, societal, and systemic
-    biases; performance disparities8 between sub-groups or languages, possibly due
+    biases; performance disparities between sub-groups or languages, possibly due
     to non-representative training data, that result in discrimination, amplification
     of biases, or incorrect presumptions about performance; undesired homogeneity
     that skews system or model outputs, which may be erroneous, lead to ill-founded

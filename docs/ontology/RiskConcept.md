@@ -28,6 +28,8 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
         click RiskGroup href "../RiskGroup"
       RiskConcept <|-- Risk
         click Risk href "../Risk"
+      RiskConcept <|-- RiskControl
+        click RiskControl href "../RiskControl"
       
       
       RiskConcept : dateCreated
@@ -84,8 +86,16 @@ URI: [airo:RiskConcept](https://w3id.org/airo#RiskConcept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [RiskGroup](RiskGroup.md) | [isDetectedBy](isDetectedBy.md) | domain | [RiskConcept](RiskConcept.md) |
 | [Risk](Risk.md) | [detectsRiskConcept](detectsRiskConcept.md) | range | [RiskConcept](RiskConcept.md) |
+| [Risk](Risk.md) | [isDetectedBy](isDetectedBy.md) | domain | [RiskConcept](RiskConcept.md) |
+| [RiskConcept](RiskConcept.md) | [isDetectedBy](isDetectedBy.md) | domain | [RiskConcept](RiskConcept.md) |
 | [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | range | [RiskConcept](RiskConcept.md) |
+| [RiskControl](RiskControl.md) | [isDetectedBy](isDetectedBy.md) | domain | [RiskConcept](RiskConcept.md) |
+| [Action](Action.md) | [hasRelatedRisk](hasRelatedRisk.md) | domain | [RiskConcept](RiskConcept.md) |
+| [AiEval](AiEval.md) | [hasRelatedRisk](hasRelatedRisk.md) | domain | [RiskConcept](RiskConcept.md) |
+| [Question](Question.md) | [hasRelatedRisk](hasRelatedRisk.md) | domain | [RiskConcept](RiskConcept.md) |
+| [Questionnaire](Questionnaire.md) | [hasRelatedRisk](hasRelatedRisk.md) | domain | [RiskConcept](RiskConcept.md) |
 
 
 
@@ -155,6 +165,7 @@ attributes:
       is detected by a risk control.
     from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
     rank: 1000
+    domain: RiskConcept
     alias: isDetectedBy
     owner: RiskConcept
     domain_of:

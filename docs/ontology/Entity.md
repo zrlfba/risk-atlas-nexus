@@ -86,7 +86,7 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [RiskGroup](RiskGroup.md) [ [RiskConcept](RiskConcept.md)]
     * [Risk](Risk.md) [ [RiskConcept](RiskConcept.md)]
     * [RiskConcept](RiskConcept.md)
-    * [RiskControl](RiskControl.md)
+    * [RiskControl](RiskControl.md) [ [RiskConcept](RiskConcept.md)]
     * [Action](Action.md)
     * [AiEval](AiEval.md)
     * [AiEvalResult](AiEvalResult.md) [ [Fact](Fact.md)]

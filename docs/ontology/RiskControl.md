@@ -20,6 +20,8 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
  classDiagram
     class RiskControl
     click RiskControl href "../RiskControl"
+      RiskConcept <|-- RiskControl
+        click RiskConcept href "../RiskConcept"
       Entity <|-- RiskControl
         click Entity href "../Entity"
       
@@ -49,6 +51,15 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
     click RiskTaxonomy href "../RiskTaxonomy"
 
         
+      RiskControl : isDetectedBy
+        
+          
+    
+    
+    RiskControl --> "*" RiskControl : isDetectedBy
+    click RiskControl href "../RiskControl"
+
+        
       RiskControl : name
         
       RiskControl : url
@@ -62,7 +73,7 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **RiskControl**
+    * **RiskControl** [ [RiskConcept](RiskConcept.md)]
 
 
 
@@ -72,6 +83,7 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 | ---  | --- | --- | --- |
 | [detectsRiskConcept](detectsRiskConcept.md) | * <br/> [RiskConcept](RiskConcept.md) | The property airo:detectsRiskConcept indicates the control used for detecting... | direct |
 | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | 0..1 <br/> [RiskTaxonomy](RiskTaxonomy.md) | A relationship where a risk or a risk group is defined by a risk taxonomy | direct |
+| [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | [RiskConcept](RiskConcept.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -89,8 +101,11 @@ URI: [airo:RiskControl](https://w3id.org/airo#RiskControl)
 | ---  | --- | --- | --- |
 | [Container](Container.md) | [riskcontrols](riskcontrols.md) | range | [RiskControl](RiskControl.md) |
 | [RiskGroup](RiskGroup.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
+| [Risk](Risk.md) | [detectsRiskConcept](detectsRiskConcept.md) | domain | [RiskControl](RiskControl.md) |
 | [Risk](Risk.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
 | [RiskConcept](RiskConcept.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
+| [RiskControl](RiskControl.md) | [detectsRiskConcept](detectsRiskConcept.md) | domain | [RiskControl](RiskControl.md) |
+| [RiskControl](RiskControl.md) | [isDetectedBy](isDetectedBy.md) | range | [RiskControl](RiskControl.md) |
 | [AiModel](AiModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
 | [LargeLanguageModel](LargeLanguageModel.md) | [hasRiskControl](hasRiskControl.md) | range | [RiskControl](RiskControl.md) |
 
@@ -140,6 +155,8 @@ name: RiskControl
 description: A measure that maintains and/or modifies risk (and risk concepts)
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 slots:
 - detectsRiskConcept
 - isDefinedByTaxonomy
@@ -156,6 +173,8 @@ name: RiskControl
 description: A measure that maintains and/or modifies risk (and risk concepts)
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 attributes:
   detectsRiskConcept:
     name: detectsRiskConcept
@@ -165,6 +184,7 @@ attributes:
     exact_mappings:
     - airo:detectsRiskConcept
     rank: 1000
+    domain: RiskControl
     alias: detectsRiskConcept
     owner: RiskControl
     domain_of:
@@ -189,6 +209,21 @@ attributes:
     - RiskControl
     - Action
     range: RiskTaxonomy
+  isDetectedBy:
+    name: isDetectedBy
+    description: A relationship where a risk, risk source, consequence, or impact
+      is detected by a risk control.
+    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
+    rank: 1000
+    domain: RiskConcept
+    alias: isDetectedBy
+    owner: RiskControl
+    domain_of:
+    - RiskConcept
+    inverse: detectsRiskConcept
+    range: RiskControl
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example

@@ -80,6 +80,7 @@ from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 exact_mappings:
 - airo:detectsRiskConcept
 rank: 1000
+domain: RiskControl
 alias: detectsRiskConcept
 domain_of:
 - Risk

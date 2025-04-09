@@ -278,6 +278,7 @@ class RiskConcept(Entity):
          'from_schema': 'https://ibm.github.io/risk-atlas-nexus/ontology/ai_risk'})
 
     isDetectedBy: Optional[List[str]] = Field(default=None, description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""", json_schema_extra = { "linkml_meta": {'alias': 'isDetectedBy',
+         'domain': 'RiskConcept',
          'domain_of': ['RiskConcept'],
          'inverse': 'detectsRiskConcept'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
@@ -330,6 +331,7 @@ class RiskGroup(RiskConcept, Entity):
          'slot_uri': 'skos:relatedMatch'} })
     hasPart: Optional[List[str]] = Field(default=None, description="""A relationship where a riskgroup has a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasPart', 'domain_of': ['RiskGroup'], 'slot_uri': 'schema:hasPart'} })
     isDetectedBy: Optional[List[str]] = Field(default=None, description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""", json_schema_extra = { "linkml_meta": {'alias': 'isDetectedBy',
+         'domain': 'RiskConcept',
          'domain_of': ['RiskConcept'],
          'inverse': 'detectsRiskConcept'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
@@ -386,6 +388,7 @@ class Risk(RiskConcept, Entity):
          'domain_of': ['RiskGroup', 'Risk'],
          'slot_uri': 'skos:relatedMatch'} })
     detectsRiskConcept: Optional[List[str]] = Field(default=None, description="""The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts.""", json_schema_extra = { "linkml_meta": {'alias': 'detectsRiskConcept',
+         'domain': 'RiskControl',
          'domain_of': ['Risk', 'RiskControl'],
          'exact_mappings': ['airo:detectsRiskConcept'],
          'inverse': 'isDetectedBy'} })
@@ -395,6 +398,7 @@ class Risk(RiskConcept, Entity):
     descriptor: Optional[str] = Field(default=None, description="""Annotates whether an AI risk is a traditional risk, specific to or amplified by AI.""", json_schema_extra = { "linkml_meta": {'alias': 'descriptor', 'domain_of': ['Risk']} })
     concern: Optional[str] = Field(default=None, description="""Some explanation about the concern related to an AI risk""", json_schema_extra = { "linkml_meta": {'alias': 'concern', 'domain_of': ['Risk']} })
     isDetectedBy: Optional[List[str]] = Field(default=None, description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""", json_schema_extra = { "linkml_meta": {'alias': 'isDetectedBy',
+         'domain': 'RiskConcept',
          'domain_of': ['RiskConcept'],
          'inverse': 'detectsRiskConcept'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
@@ -411,20 +415,26 @@ class Risk(RiskConcept, Entity):
          'slot_uri': 'schema:dateModified'} })
 
 
-class RiskControl(Entity):
+class RiskControl(RiskConcept, Entity):
     """
     A measure that maintains and/or modifies risk (and risk concepts)
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'airo:RiskControl',
-         'from_schema': 'https://ibm.github.io/risk-atlas-nexus/ontology/ai_risk'})
+         'from_schema': 'https://ibm.github.io/risk-atlas-nexus/ontology/ai_risk',
+         'mixins': ['RiskConcept']})
 
     detectsRiskConcept: Optional[List[str]] = Field(default=None, description="""The property airo:detectsRiskConcept indicates the control used for detecting risks, risk sources,  consequences, and impacts.""", json_schema_extra = { "linkml_meta": {'alias': 'detectsRiskConcept',
+         'domain': 'RiskControl',
          'domain_of': ['Risk', 'RiskControl'],
          'exact_mappings': ['airo:detectsRiskConcept'],
          'inverse': 'isDetectedBy'} })
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
          'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action'],
          'slot_uri': 'schema:isPartOf'} })
+    isDetectedBy: Optional[List[str]] = Field(default=None, description="""A relationship where a risk, risk source, consequence, or impact is detected by a risk control.""", json_schema_extra = { "linkml_meta": {'alias': 'isDetectedBy',
+         'domain': 'RiskConcept',
+         'domain_of': ['RiskConcept'],
+         'inverse': 'detectsRiskConcept'} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })
     description: Optional[str] = Field(default=None, description="""The description of an entity""", json_schema_extra = { "linkml_meta": {'alias': 'description',
@@ -445,7 +455,9 @@ class Action(Entity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://ibm.github.io/risk-atlas-nexus/ontology/ai_risk'})
 
-    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk', 'domain_of': ['Action', 'AiEval']} })
+    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk',
+         'domain': 'RiskConcept',
+         'domain_of': ['Action', 'AiEval']} })
     hasDocumentation: Optional[List[str]] = Field(default=None, description="""Indicates documentation associated with an entity.""", json_schema_extra = { "linkml_meta": {'alias': 'hasDocumentation',
          'domain_of': ['Dataset',
                        'RiskTaxonomy',
@@ -500,7 +512,9 @@ class AiEval(Entity):
     hasLicense: Optional[str] = Field(default=None, description="""Indicates licenses associated with a resource""", json_schema_extra = { "linkml_meta": {'alias': 'hasLicense',
          'domain_of': ['Dataset', 'RiskTaxonomy', 'AiEval', 'BaseAi'],
          'slot_uri': 'airo:hasLicense'} })
-    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk', 'domain_of': ['Action', 'AiEval']} })
+    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk',
+         'domain': 'RiskConcept',
+         'domain_of': ['Action', 'AiEval']} })
     bestValue: Optional[str] = Field(default=None, description="""Annotation of the best possible result of the evaluation""", json_schema_extra = { "linkml_meta": {'alias': 'bestValue', 'domain_of': ['AiEval']} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })
@@ -563,7 +577,9 @@ class Question(AiEval):
     hasLicense: Optional[str] = Field(default=None, description="""Indicates licenses associated with a resource""", json_schema_extra = { "linkml_meta": {'alias': 'hasLicense',
          'domain_of': ['Dataset', 'RiskTaxonomy', 'AiEval', 'BaseAi'],
          'slot_uri': 'airo:hasLicense'} })
-    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk', 'domain_of': ['Action', 'AiEval']} })
+    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk',
+         'domain': 'RiskConcept',
+         'domain_of': ['Action', 'AiEval']} })
     bestValue: Optional[str] = Field(default=None, description="""Annotation of the best possible result of the evaluation""", json_schema_extra = { "linkml_meta": {'alias': 'bestValue', 'domain_of': ['AiEval']} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })
@@ -599,7 +615,9 @@ class Questionnaire(AiEval):
     hasLicense: Optional[str] = Field(default=None, description="""Indicates licenses associated with a resource""", json_schema_extra = { "linkml_meta": {'alias': 'hasLicense',
          'domain_of': ['Dataset', 'RiskTaxonomy', 'AiEval', 'BaseAi'],
          'slot_uri': 'airo:hasLicense'} })
-    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk', 'domain_of': ['Action', 'AiEval']} })
+    hasRelatedRisk: Optional[List[str]] = Field(default=None, description="""A relationship where an entity relates to a risk""", json_schema_extra = { "linkml_meta": {'alias': 'hasRelatedRisk',
+         'domain': 'RiskConcept',
+         'domain_of': ['Action', 'AiEval']} })
     bestValue: Optional[str] = Field(default=None, description="""Annotation of the best possible result of the evaluation""", json_schema_extra = { "linkml_meta": {'alias': 'bestValue', 'domain_of': ['AiEval']} })
     id: str = Field(default=..., description="""A unique identifier to this instance of the model element. Example identifiers include UUID, URI, URN, etc.""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['Entity'], 'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A text name of this instance.""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Entity'], 'slot_uri': 'schema:name'} })

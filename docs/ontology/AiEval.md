@@ -266,6 +266,7 @@ attributes:
     description: A relationship where an entity relates to a risk
     from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
     rank: 1000
+    domain: RiskConcept
     alias: hasRelatedRisk
     owner: AiEval
     domain_of:

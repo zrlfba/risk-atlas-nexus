@@ -517,6 +517,7 @@ attributes:
     exact_mappings:
     - airo:detectsRiskConcept
     rank: 1000
+    domain: RiskControl
     alias: detectsRiskConcept
     owner: Risk
     domain_of:
@@ -532,6 +533,7 @@ attributes:
       is detected by a risk control.
     from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
     rank: 1000
+    domain: RiskConcept
     alias: isDetectedBy
     owner: Risk
     domain_of:
