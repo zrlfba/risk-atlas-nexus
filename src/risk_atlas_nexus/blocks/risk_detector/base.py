@@ -37,7 +37,7 @@ class RiskDetector(ABC):
         self._ontology = ontology
         self._taxonomy_id = taxonomy if taxonomy else "ibm-risk-atlas"
         self._risks = self.get_risks_by_taxonomy_id(ontology, self._taxonomy_id)
-        self._examples = RISK_IDENTIFICATION_EXAMPLES[self._taxonomy_id]
+        self._examples = RISK_IDENTIFICATION_EXAMPLES.get(self._taxonomy_id, [])
 
     def get_risks_by_taxonomy_id(
         self, ontology: Container, taxonomy_id: Optional[str] = None
