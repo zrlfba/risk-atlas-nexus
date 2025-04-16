@@ -1,15 +1,15 @@
 
 
-# Slot: value
+# Slot: author
 
 
-_Some numeric or string value_
+_The author or authors of the incident report_
 
 
 
 
 
-URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
+URI: [nexus:author](https://ibm.github.io/risk-atlas-nexus/ontology/author)
 
 
 
@@ -23,8 +23,7 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AiEvalResult](AiEvalResult.md) | The result of an evaluation for a specific AI model |  no  |
-| [Fact](Fact.md) | A fact about something, for example the result of a measurement |  no  |
+| [RiskIncident](RiskIncident.md) | An event occuring or occured which is a realised or materialised risk |  no  |
 
 
 
@@ -35,8 +34,6 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 ## Properties
 
 * Range: [String](String.md)
-
-* Required: True
 
 
 
@@ -62,8 +59,8 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:value |
-| native | nexus:value |
+| self | nexus:author |
+| native | nexus:author |
 
 
 
@@ -72,15 +69,15 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 <details>
 ```yaml
-name: value
-description: Some numeric or string value
+name: author
+description: The author or authors of the incident report
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 rank: 1000
-alias: value
+alias: author
+owner: RiskIncident
 domain_of:
-- Fact
+- RiskIncident
 range: string
-required: true
 
 ```
 </details>

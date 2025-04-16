@@ -1,15 +1,10 @@
 
 
-# Class: RiskTaxonomy
-
-
-_A taxonomy of AI system related risks_
+# Class: IncidentStatus
 
 
 
-
-
-URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTaxonomy)
+URI: [dpv:IncidentStatus](https://w3c.github.io/dpv/2.1/dpv/#IncidentStatus)
 
 
 
@@ -18,42 +13,35 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 ```mermaid
  classDiagram
-    class RiskTaxonomy
-    click RiskTaxonomy href "../RiskTaxonomy"
-      Entity <|-- RiskTaxonomy
+    class IncidentStatus
+    click IncidentStatus href "../IncidentStatus"
+      Entity <|-- IncidentStatus
         click Entity href "../Entity"
       
-      RiskTaxonomy : dateCreated
-        
-      RiskTaxonomy : dateModified
-        
-      RiskTaxonomy : description
-        
-      RiskTaxonomy : hasDocumentation
-        
-          
-    
-    
-    RiskTaxonomy --> "*" Documentation : hasDocumentation
-    click Documentation href "../Documentation"
 
+      IncidentStatus <|-- IncidentConcludedclass
+        click IncidentConcludedclass href "../IncidentConcludedclass"
+      IncidentStatus <|-- IncidentHaltedclass
+        click IncidentHaltedclass href "../IncidentHaltedclass"
+      IncidentStatus <|-- IncidentMitigatedclass
+        click IncidentMitigatedclass href "../IncidentMitigatedclass"
+      IncidentStatus <|-- IncidentNearMissclass
+        click IncidentNearMissclass href "../IncidentNearMissclass"
+      IncidentStatus <|-- IncidentOngoingclass
+        click IncidentOngoingclass href "../IncidentOngoingclass"
+      
+      
+      IncidentStatus : dateCreated
         
-      RiskTaxonomy : hasLicense
+      IncidentStatus : dateModified
         
-          
-    
-    
-    RiskTaxonomy --> "0..1" License : hasLicense
-    click License href "../License"
-
+      IncidentStatus : description
         
-      RiskTaxonomy : id
+      IncidentStatus : id
         
-      RiskTaxonomy : name
+      IncidentStatus : name
         
-      RiskTaxonomy : url
-        
-      RiskTaxonomy : version
+      IncidentStatus : url
         
       
 ```
@@ -64,7 +52,12 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **RiskTaxonomy**
+    * **IncidentStatus**
+        * [IncidentConcludedclass](IncidentConcludedclass.md)
+        * [IncidentHaltedclass](IncidentHaltedclass.md)
+        * [IncidentMitigatedclass](IncidentMitigatedclass.md)
+        * [IncidentNearMissclass](IncidentNearMissclass.md)
+        * [IncidentOngoingclass](IncidentOngoingclass.md)
 
 
 
@@ -72,9 +65,6 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [version](version.md) | 0..1 <br/> [String](String.md) | The version of the entity embodied by a specified resource | direct |
-| [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | direct |
-| [hasLicense](hasLicense.md) | 0..1 <br/> [License](License.md) | Indicates licenses associated with a resource | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -90,12 +80,7 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Container](Container.md) | [taxonomies](taxonomies.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskGroup](RiskGroup.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [Risk](Risk.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskControl](RiskControl.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [Action](Action.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskIncident](RiskIncident.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
+| [RiskIncident](RiskIncident.md) | [hasStatus](hasStatus.md) | range | [IncidentStatus](IncidentStatus.md) |
 
 
 
@@ -122,8 +107,8 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:RiskTaxonomy |
-| native | nexus:RiskTaxonomy |
+| self | dpv:IncidentStatus |
+| native | nexus:IncidentStatus |
 
 
 
@@ -139,14 +124,10 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: IncidentStatus
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
-slots:
-- version
-- hasDocumentation
-- hasLicense
+class_uri: dpv:IncidentStatus
 
 ```
 </details>
@@ -155,55 +136,10 @@ slots:
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: IncidentStatus
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
 attributes:
-  version:
-    name: version
-    description: The version of the entity embodied by a specified resource.
-    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
-    rank: 1000
-    slot_uri: schema:version
-    alias: version
-    owner: RiskTaxonomy
-    domain_of:
-    - License
-    - RiskTaxonomy
-    range: string
-  hasDocumentation:
-    name: hasDocumentation
-    description: Indicates documentation associated with an entity.
-    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
-    rank: 1000
-    slot_uri: airo:hasDocumentation
-    alias: hasDocumentation
-    owner: RiskTaxonomy
-    domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - Action
-    - AiEval
-    - BaseAi
-    - LargeLanguageModelFamily
-    range: Documentation
-    multivalued: true
-    inlined: false
-  hasLicense:
-    name: hasLicense
-    description: Indicates licenses associated with a resource
-    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
-    rank: 1000
-    slot_uri: airo:hasLicense
-    alias: hasLicense
-    owner: RiskTaxonomy
-    domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - AiEval
-    - BaseAi
-    range: License
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example
@@ -213,7 +149,7 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: string
@@ -225,7 +161,7 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: string
@@ -236,7 +172,7 @@ attributes:
     rank: 1000
     slot_uri: schema:description
     alias: description
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: string
@@ -247,7 +183,7 @@ attributes:
     rank: 1000
     slot_uri: schema:url
     alias: url
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: uri
@@ -258,7 +194,7 @@ attributes:
     rank: 1000
     slot_uri: schema:dateCreated
     alias: dateCreated
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: date
@@ -270,11 +206,12 @@ attributes:
     rank: 1000
     slot_uri: schema:dateModified
     alias: dateModified
-    owner: RiskTaxonomy
+    owner: IncidentStatus
     domain_of:
     - Entity
     range: date
     required: false
+class_uri: dpv:IncidentStatus
 
 ```
 </details>

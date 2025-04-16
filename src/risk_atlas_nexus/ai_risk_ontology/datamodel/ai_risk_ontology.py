@@ -492,9 +492,10 @@ class RiskIncident(RiskConcept, Entity):
          'from_schema': 'https://ibm.github.io/risk-atlas-nexus/ontology/ai_risk',
          'mixins': ['RiskConcept']})
 
-    refersToRisk: Optional[str] = Field(default=None, description="""Indicates the incident (subject) is a materialisation of the indicated risk (object)""", json_schema_extra = { "linkml_meta": {'alias': 'refersToRisk',
+    refersToRisk: Optional[List[str]] = Field(default=None, description="""Indicates the incident (subject) is a materialisation of the indicated risk (object)""", json_schema_extra = { "linkml_meta": {'alias': 'refersToRisk',
          'domain': 'RiskIncident',
-         'domain_of': ['RiskIncident']} })
+         'domain_of': ['RiskIncident'],
+         'exact_mappings': ['dpv:refersToRisk']} })
     isDefinedByTaxonomy: Optional[str] = Field(default=None, description="""A relationship where a risk or a risk group is defined by a risk taxonomy""", json_schema_extra = { "linkml_meta": {'alias': 'isDefinedByTaxonomy',
          'domain_of': ['RiskGroup', 'Risk', 'RiskControl', 'Action', 'RiskIncident'],
          'slot_uri': 'schema:isPartOf'} })

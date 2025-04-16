@@ -1,15 +1,15 @@
 
 
-# Slot: value
+# Slot: hasStatus
 
 
-_Some numeric or string value_
+_Indicates the status of specified concept_
 
 
 
 
 
-URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
+URI: [nexus:hasStatus](https://ibm.github.io/risk-atlas-nexus/ontology/hasStatus)
 
 
 
@@ -23,8 +23,7 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AiEvalResult](AiEvalResult.md) | The result of an evaluation for a specific AI model |  no  |
-| [Fact](Fact.md) | A fact about something, for example the result of a measurement |  no  |
+| [RiskIncident](RiskIncident.md) | An event occuring or occured which is a realised or materialised risk |  no  |
 
 
 
@@ -34,9 +33,7 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 ## Properties
 
-* Range: [String](String.md)
-
-* Required: True
+* Range: [IncidentStatus](IncidentStatus.md)
 
 
 
@@ -62,8 +59,8 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:value |
-| native | nexus:value |
+| self | nexus:hasStatus |
+| native | nexus:hasStatus |
 
 
 
@@ -72,15 +69,15 @@ URI: [nexus:value](https://ibm.github.io/risk-atlas-nexus/ontology/value)
 
 <details>
 ```yaml
-name: value
-description: Some numeric or string value
+name: hasStatus
+description: Indicates the status of specified concept
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 rank: 1000
-alias: value
+domain: RiskConcept
+alias: hasStatus
 domain_of:
-- Fact
-range: string
-required: true
+- RiskIncident
+range: IncidentStatus
 
 ```
 </details>

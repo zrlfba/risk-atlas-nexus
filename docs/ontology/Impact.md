@@ -1,15 +1,10 @@
 
 
-# Class: RiskTaxonomy
-
-
-_A taxonomy of AI system related risks_
+# Class: Impact
 
 
 
-
-
-URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTaxonomy)
+URI: [dpv:Impact](https://w3c.github.io/dpv/2.1/dpv/#Impact)
 
 
 
@@ -18,42 +13,33 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 ```mermaid
  classDiagram
-    class RiskTaxonomy
-    click RiskTaxonomy href "../RiskTaxonomy"
-      Entity <|-- RiskTaxonomy
+    class Impact
+    click Impact href "../Impact"
+      RiskConcept <|-- Impact
+        click RiskConcept href "../RiskConcept"
+      Entity <|-- Impact
         click Entity href "../Entity"
       
-      RiskTaxonomy : dateCreated
+      Impact : dateCreated
         
-      RiskTaxonomy : dateModified
+      Impact : dateModified
         
-      RiskTaxonomy : description
+      Impact : description
         
-      RiskTaxonomy : hasDocumentation
+      Impact : id
         
-          
-    
-    
-    RiskTaxonomy --> "*" Documentation : hasDocumentation
-    click Documentation href "../Documentation"
-
-        
-      RiskTaxonomy : hasLicense
+      Impact : isDetectedBy
         
           
     
     
-    RiskTaxonomy --> "0..1" License : hasLicense
-    click License href "../License"
+    Impact --> "*" RiskControl : isDetectedBy
+    click RiskControl href "../RiskControl"
 
         
-      RiskTaxonomy : id
+      Impact : name
         
-      RiskTaxonomy : name
-        
-      RiskTaxonomy : url
-        
-      RiskTaxonomy : version
+      Impact : url
         
       
 ```
@@ -64,7 +50,7 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **RiskTaxonomy**
+    * **Impact** [ [RiskConcept](RiskConcept.md)]
 
 
 
@@ -72,9 +58,7 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [version](version.md) | 0..1 <br/> [String](String.md) | The version of the entity embodied by a specified resource | direct |
-| [hasDocumentation](hasDocumentation.md) | * <br/> [Documentation](Documentation.md) | Indicates documentation associated with an entity | direct |
-| [hasLicense](hasLicense.md) | 0..1 <br/> [License](License.md) | Indicates licenses associated with a resource | direct |
+| [isDetectedBy](isDetectedBy.md) | * <br/> [RiskControl](RiskControl.md) | A relationship where a risk, risk source, consequence, or impact is detected ... | [RiskConcept](RiskConcept.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | A unique identifier to this instance of the model element | [Entity](Entity.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A text name of this instance | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | The description of an entity | [Entity](Entity.md) |
@@ -90,12 +74,8 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Container](Container.md) | [taxonomies](taxonomies.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskGroup](RiskGroup.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [Risk](Risk.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskControl](RiskControl.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [Action](Action.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
-| [RiskIncident](RiskIncident.md) | [isDefinedByTaxonomy](isDefinedByTaxonomy.md) | range | [RiskTaxonomy](RiskTaxonomy.md) |
+| [RiskIncident](RiskIncident.md) | [hasImpactOn](hasImpactOn.md) | range | [Impact](Impact.md) |
+| [RiskIncident](RiskIncident.md) | [hasImpact](hasImpact.md) | range | [Impact](Impact.md) |
 
 
 
@@ -122,8 +102,8 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | nexus:RiskTaxonomy |
-| native | nexus:RiskTaxonomy |
+| self | dpv:Impact |
+| native | nexus:Impact |
 
 
 
@@ -139,14 +119,12 @@ URI: [nexus:RiskTaxonomy](https://ibm.github.io/risk-atlas-nexus/ontology/RiskTa
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: Impact
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
-slots:
-- version
-- hasDocumentation
-- hasLicense
+mixins:
+- RiskConcept
+class_uri: dpv:Impact
 
 ```
 </details>
@@ -155,55 +133,27 @@ slots:
 
 <details>
 ```yaml
-name: RiskTaxonomy
-description: A taxonomy of AI system related risks
+name: Impact
 from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
 is_a: Entity
+mixins:
+- RiskConcept
 attributes:
-  version:
-    name: version
-    description: The version of the entity embodied by a specified resource.
+  isDetectedBy:
+    name: isDetectedBy
+    description: A relationship where a risk, risk source, consequence, or impact
+      is detected by a risk control.
     from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
     rank: 1000
-    slot_uri: schema:version
-    alias: version
-    owner: RiskTaxonomy
+    domain: RiskConcept
+    alias: isDetectedBy
+    owner: Impact
     domain_of:
-    - License
-    - RiskTaxonomy
-    range: string
-  hasDocumentation:
-    name: hasDocumentation
-    description: Indicates documentation associated with an entity.
-    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
-    rank: 1000
-    slot_uri: airo:hasDocumentation
-    alias: hasDocumentation
-    owner: RiskTaxonomy
-    domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - Action
-    - AiEval
-    - BaseAi
-    - LargeLanguageModelFamily
-    range: Documentation
+    - RiskConcept
+    inverse: detectsRiskConcept
+    range: RiskControl
     multivalued: true
     inlined: false
-  hasLicense:
-    name: hasLicense
-    description: Indicates licenses associated with a resource
-    from_schema: https://ibm.github.io/risk-atlas-nexus/ontology/ai-risk-ontology
-    rank: 1000
-    slot_uri: airo:hasLicense
-    alias: hasLicense
-    owner: RiskTaxonomy
-    domain_of:
-    - Dataset
-    - RiskTaxonomy
-    - AiEval
-    - BaseAi
-    range: License
   id:
     name: id
     description: A unique identifier to this instance of the model element. Example
@@ -213,7 +163,7 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: string
@@ -225,7 +175,7 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: string
@@ -236,7 +186,7 @@ attributes:
     rank: 1000
     slot_uri: schema:description
     alias: description
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: string
@@ -247,7 +197,7 @@ attributes:
     rank: 1000
     slot_uri: schema:url
     alias: url
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: uri
@@ -258,7 +208,7 @@ attributes:
     rank: 1000
     slot_uri: schema:dateCreated
     alias: dateCreated
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: date
@@ -270,11 +220,12 @@ attributes:
     rank: 1000
     slot_uri: schema:dateModified
     alias: dateModified
-    owner: RiskTaxonomy
+    owner: Impact
     domain_of:
     - Entity
     range: date
     required: false
+class_uri: dpv:Impact
 
 ```
 </details>
