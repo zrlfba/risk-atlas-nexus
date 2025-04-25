@@ -36,7 +36,7 @@ nav:
       -  "Auto assist questionnaire" : examples/notebooks/autoassist_questionnaire.ipynb
   - Ontology:
       - Ontology: ontology/index.md
-      - "*"
+      - "ontology/*"
   - Python Reference:
-    - Python API:
-      - Risk Atlas Nexus: reference/index.md
+      - Library commands: reference/library_reference.md
+      - AI Risk Ontology: reference/ai_ontology_reference.md
