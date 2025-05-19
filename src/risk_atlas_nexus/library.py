@@ -27,7 +27,10 @@ from risk_atlas_nexus.blocks.prompt_templates import (
     AI_TASKS_TEMPLATE,
     QUESTIONNAIRE_COT_TEMPLATE,
 )
-from risk_atlas_nexus.blocks.prompt_builder import FewShotHandler, ZeroShotHandler
+from risk_atlas_nexus.blocks.prompt_builder import (
+    FewShotPromptBuilder,
+    ZeroShotPromptBuilder,
+)
 from risk_atlas_nexus.blocks.risk_detector import AutoRiskDetector
 from risk_atlas_nexus.blocks.risk_explorer import RiskExplorer
 from risk_atlas_nexus.blocks.risk_mapping import RiskMapper
@@ -595,7 +598,7 @@ class RiskAtlasNexus:
         )
 
         # Prepare zero shots inference prompts
-        prompts = ZeroShotHandler(
+        prompts = ZeroShotPromptBuilder(
             questions,
             QUESTIONNAIRE_COT_TEMPLATE,
         ).build(usecase=usecase)
@@ -654,7 +657,7 @@ class RiskAtlasNexus:
                 )
 
         # Prepare few shots inference prompts from CoT Data
-        prompts = FewShotHandler(cot_data, QUESTIONNAIRE_COT_TEMPLATE).build(
+        prompts = FewShotPromptBuilder(cot_data, QUESTIONNAIRE_COT_TEMPLATE).build(
             usecase=usecase
         )
 
@@ -917,7 +920,7 @@ class RiskAtlasNexus:
 
         # Prepare few shots inference prompts from CoT Data
         prompts = [
-            FewShotHandler(
+            FewShotPromptBuilder(
                 cot_data=cot_data,
                 prompt_template=QUESTIONNAIRE_COT_TEMPLATE,
             ).build(usecase=usecase)[0]
