@@ -18,7 +18,7 @@ from risk_atlas_nexus.ai_risk_ontology.datamodel.ai_risk_ontology import (
     RiskTaxonomy,
 )
 from risk_atlas_nexus.blocks.inference import InferenceEngine
-from risk_atlas_nexus.blocks.inference.response_schema import (
+from risk_atlas_nexus.blocks.prompt_response_schema import (
     DOMAIN_TYPE_SCHEMA,
     LIST_OF_STR_SCHEMA,
     QUESTIONNAIRE_OUTPUT_SCHEMA,
