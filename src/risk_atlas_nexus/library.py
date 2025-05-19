@@ -908,15 +908,8 @@ class RiskAtlasNexus:
             "Please provide usecases and inference_engine",
         )
 
-        # Load and filter CoT data from the template
-        cot_data = list(
-            filter(
-                lambda data: data["question"].startswith(
-                    "What domain does your use request fall under?"
-                ),
-                load_resource("risk_questionnaire_cot.json"),
-            )
-        )
+        # Load CoT data from the template dir
+        cot_data = load_resource("risk_questionnaire_cot.json")
 
         assert (
             cot_data and len(cot_data) > 0
