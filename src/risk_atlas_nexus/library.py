@@ -551,17 +551,15 @@ class RiskAtlasNexus:
 
     def generate_zero_shot_risk_questionnaire_output(
         cls,
-        inference_engine: InferenceEngine,
         usecase: str,
         questions: List[str],
-        verbose=False,
+        inference_engine: InferenceEngine,
+        verbose=True,
     ):
         """Get prediction using the zero shot approach.
 
         Args:
             usecase (str): A string describing an AI usecase
-            inference_engine (InferenceEngine):
-                An LLM inference engine to predict the output based on the given use case.
             questions (List[str]): A list of questions.
                 Check example below.
                 ```
@@ -569,6 +567,8 @@ class RiskAtlasNexus:
                     "In which environment is the system used?",
                 ]
                 ```
+            inference_engine (InferenceEngine):
+                An LLM inference engine to predict the output based on the given use case.
 
         Returns:
             List[str]: List of LLM predictions.
@@ -620,7 +620,7 @@ class RiskAtlasNexus:
         cot_data: List[Dict],
         inference_engine: InferenceEngine,
         filter_cot_data_by: Dict["str", "str"] = None,
-        verbose=False,
+        verbose=True,
     ):
         """Get prediction using the few shot (Chain of Thought) examples.
 
@@ -679,7 +679,7 @@ class RiskAtlasNexus:
         ]
 
     def identify_ai_tasks_from_usecases(
-        cls, usecases: List[str], inference_engine: InferenceEngine, verbose=False
+        cls, usecases: List[str], inference_engine: InferenceEngine, verbose=True
     ) -> List[List[str]]:
         """Identify potential risks from a usecase description
 
@@ -876,7 +876,7 @@ class RiskAtlasNexus:
         return related_risk_incidents
 
     def identify_domain_from_usecases(
-        cls, usecases: List[str], inference_engine: InferenceEngine, verbose=False
+        cls, usecases: List[str], inference_engine: InferenceEngine, verbose=True
     ) -> List[List[str]]:
         """Identify potential risks from a usecase description
 
@@ -918,7 +918,7 @@ class RiskAtlasNexus:
         # Prepare few shots inference prompts from CoT Data
         prompts = [
             FewShotPromptBuilder(
-                cot_data=cot_data[0],
+                prompt_data=cot_data[0],
                 prompt_template=QUESTIONNAIRE_COT_TEMPLATE,
             ).build(usecase=usecase)
             for usecase in usecases
