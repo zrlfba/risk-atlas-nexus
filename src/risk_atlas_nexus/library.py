@@ -2,7 +2,7 @@ import json
 import os
 from importlib.metadata import version
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 import yaml
 from jinja2 import Template
@@ -555,7 +555,7 @@ class RiskAtlasNexus:
     def generate_zero_shot_risk_questionnaire_output(
         cls,
         usecase: str,
-        questions: List[str],
+        risk_questionnaire: List[Dict[str, str]],
         inference_engine: InferenceEngine,
         verbose=True,
     ):
@@ -563,7 +563,7 @@ class RiskAtlasNexus:
 
         Args:
             usecase (str): A string describing an AI usecase
-            questions (List[str]): A list of questions.
+            risk_questionnaire: List[Dict[str, str]]: A risk questionnaire
                 Check example below.
                 ```
                 [
@@ -592,44 +592,42 @@ class RiskAtlasNexus:
             "<RANF7256EC3E>",
             List,
             allow_none=False,
-            questions=questions,
+            questions=risk_questionnaire,
         )
         value_check(
             "<RANC49F00D3E>",
-            inference_engine and questions,
+            inference_engine and risk_questionnaire,
             "Please provide questions and inference_engine",
         )
 
         # Prepare zero shots inference prompts
-        prompts = ZeroShotPromptBuilder(
-            questions,
-            QUESTIONNAIRE_COT_TEMPLATE,
-        ).build(usecase=usecase)
+        prompts = [
+            ZeroShotPromptBuilder(
+                QUESTIONNAIRE_COT_TEMPLATE,
+            ).build(usecase=usecase, question=question["text"])
+            for question in risk_questionnaire
+        ]
 
         # Invoke inference service
-        return [
-            result.prediction["answer"]
-            for result in inference_engine.generate(
-                prompts,
-                response_format=QUESTIONNAIRE_OUTPUT_SCHEMA,
-                postprocessors=["json_object"],
-                verbose=verbose,
-            )
-        ]
+        return inference_engine.generate(
+            prompts,
+            response_format=QUESTIONNAIRE_OUTPUT_SCHEMA,
+            postprocessors=["json_object"],
+            verbose=verbose,
+        )
 
     def generate_few_shot_risk_questionnaire_output(
         cls,
         usecase: str,
-        cot_data: List[Dict],
+        risk_questionnaire_cot: List[Dict[str, Any]],
         inference_engine: InferenceEngine,
-        filter_cot_data_by: Dict["str", "str"] = None,
         verbose=True,
     ):
         """Get prediction using the few shot (Chain of Thought) examples.
 
         Args:
             usecase (str): A string describing an AI usecase
-            cot_data (List[Dict]): Chain of Thought data.
+            risk_questionnaire_cot (List[Dict]): Chain of Thought data for risk questionnaire.
                 Each question is associated with a list of example intents and
                 corresponding answers. Check example JSON below.
                 ```
@@ -638,48 +636,65 @@ class RiskAtlasNexus:
                         "question": "In which environment is the system used?",
                         "examples": [
                             "intent": "Find patterns in healthcare insurance claims",
-                            "answers": "Insurance companies, government agencies, or other organizations responsible for reimbursing healthcare providers. Explanation: Healthcare payers need to efficiently process and reimburse claims while minimizing errors and disputes. By identifying patterns in claims data, they can automate routine tasks, detect potential errors or anomalies, and improve overall payment accuracy.",
-                            "explanation": ""
+                            "answer": "Insurance Claims Processing or Risk Management or Data Analytics",
+                            "explanation": "The system might be used by an insurance company's claims processing department to analyze and identify patterns in healthcare insurance claims."
                         ]
                     }
                 ]
             inference_engine (InferenceEngine):
                 An LLM inference engine to predict the output based on the given use case.
             filter_cot_data_by (Dict[str, str]):
-                A dictionary to filter CoT data with key as CoT field and value as filter string.
+                A dictionary to filter CoT examples with key as CoT field and value as filter string.
                 ```
 
         Returns:
             List[str]: List of LLM predictions.
         """
-
-        # filter CoT data
-        if filter_cot_data_by:
-            for key, value in filter_cot_data_by.items():
-                cot_data = filter(
-                    lambda data: data[key].startswith(value),
-                    cot_data,
-                )
-
-        assert (
-            cot_data and len(cot_data) > 0
-        ), "`Chain of Thought (cot_data)` data cannot be None or empty. Please check `filter_cot_data_by` if provided."
-
-        # Prepare few shots inference prompts from CoT Data
-        prompts = FewShotPromptBuilder(cot_data, QUESTIONNAIRE_COT_TEMPLATE).build(
-            usecase=usecase
+        type_check(
+            "<RAN19989483E>",
+            InferenceEngine,
+            allow_none=False,
+            inference_engine=inference_engine,
+        )
+        type_check(
+            "<RAN17812927E>",
+            str,
+            allow_none=False,
+            usecase=usecase,
+        )
+        type_check(
+            "<RAN46376875E>",
+            List,
+            allow_none=False,
+            questions=risk_questionnaire_cot,
+        )
+        value_check(
+            "<RAN59638961E>",
+            inference_engine and risk_questionnaire_cot,
+            "Please provide risk_questionnaire_cot and inference_engine",
         )
 
-        # Invoke inference service
-        return [
-            result.prediction["answer"]
-            for result in inference_engine.generate(
-                prompts,
-                response_format=QUESTIONNAIRE_OUTPUT_SCHEMA,
-                postprocessors=["json_object"],
-                verbose=verbose,
+        assert (
+            risk_questionnaire_cot and len(risk_questionnaire_cot) > 0
+        ), "`Chain of Thought (risk_questionnaire_cot)` data cannot be None or empty."
+
+        # Prepare few shots inference prompts from CoT Data
+        prompts = [
+            FewShotPromptBuilder(QUESTIONNAIRE_COT_TEMPLATE).build(
+                cot_examples=cot_data["examples"],
+                usecase=usecase,
+                question=cot_data["question"],
             )
+            for cot_data in risk_questionnaire_cot
         ]
+
+        # Invoke inference service
+        return inference_engine.generate(
+            prompts,
+            response_format=QUESTIONNAIRE_OUTPUT_SCHEMA,
+            postprocessors=["json_object"],
+            verbose=verbose,
+        )
 
     def identify_ai_tasks_from_usecases(
         cls, usecases: List[str], inference_engine: InferenceEngine, verbose=True
@@ -911,29 +926,28 @@ class RiskAtlasNexus:
             "Please provide usecases and inference_engine",
         )
 
-        # Load CoT data from the template dir
-        cot_data = load_resource("risk_questionnaire_cot.json")
+        # Load risk questionnaire CoT from the template dir
+        risk_questionnaire_cot = load_resource("risk_questionnaire_cot.json")
 
-        assert (
-            cot_data and len(cot_data) > 0
-        ), "`Chain of Thought (cot_data)` data cannot be None or empty."
+        # Retrieve domain question data
+        domain_ques_data = risk_questionnaire_cot[0]
 
         # Prepare few shots inference prompts from CoT Data
         prompts = [
             FewShotPromptBuilder(
-                prompt_data=cot_data[0],
                 prompt_template=QUESTIONNAIRE_COT_TEMPLATE,
-            ).build(usecase=usecase)
+            ).build(
+                cot_examples=domain_ques_data["examples"],
+                usecase=usecase,
+                question=domain_ques_data["question"],
+            )
             for usecase in usecases
         ]
 
         # Invoke inference service
-        return [
-            result.prediction["answer"]
-            for result in inference_engine.chat(
-                messages=prompts,
-                response_format=DOMAIN_TYPE_SCHEMA,
-                postprocessors=["json_object"],
-                verbose=verbose,
-            )
-        ]
+        return inference_engine.chat(
+            messages=prompts,
+            response_format=DOMAIN_TYPE_SCHEMA,
+            postprocessors=["json_object"],
+            verbose=verbose,
+        )
