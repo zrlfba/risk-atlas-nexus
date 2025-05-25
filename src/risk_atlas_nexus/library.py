@@ -736,20 +736,17 @@ class RiskAtlasNexus:
         json_schema["items"]["enum"] = [task["task_label"] for task in hf_ai_tasks]
 
         # Invoke inference service
-        return [
-            result.prediction
-            for result in inference_engine.generate(
-                prompts=[
-                    Template(AI_TASKS_TEMPLATE).render(
-                        usecase=usecase, hf_ai_tasks=hf_ai_tasks, limit=len(hf_ai_tasks)
-                    )
-                    for usecase in usecases
-                ],
-                response_format=json_schema,
-                postprocessors=["list_of_str"],
-                verbose=verbose,
-            )
-        ]
+        return inference_engine.generate(
+            prompts=[
+                Template(AI_TASKS_TEMPLATE).render(
+                    usecase=usecase, hf_ai_tasks=hf_ai_tasks, limit=len(hf_ai_tasks)
+                )
+                for usecase in usecases
+            ],
+            response_format=json_schema,
+            postprocessors=["list_of_str"],
+            verbose=verbose,
+        )
 
     def generate_proposed_mappings(
         cls,
