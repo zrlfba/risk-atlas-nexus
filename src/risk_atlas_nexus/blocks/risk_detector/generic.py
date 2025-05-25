@@ -12,9 +12,8 @@ class GenericRiskDetector(RiskDetector):
 
     def detect(self, usecases: list[str]) -> list[Risk]:
         prompts = [
-            FewShotPromptBuilder(
-                cot_data=self._examples, prompt_template=RISK_IDENTIFICATION_TEMPLATE
-            ).build(
+            FewShotPromptBuilder(prompt_template=RISK_IDENTIFICATION_TEMPLATE).build(
+                cot_examples=self._examples["examples"],
                 usecase=usecase,
                 risks=json.dumps(
                     [
