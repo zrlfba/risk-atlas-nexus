@@ -1145,7 +1145,7 @@ class RiskAtlasNexus:
         )
 
         # Load risk questionnaire CoT from the template dir
-        risk_questionnaire = load_resource("risk_questionnaire.json")
+        risk_questionnaire = load_resource("risk_questionnaire_cot.json")
 
         # Retrieve domain question data
         domain_ques_data = risk_questionnaire[0]
