@@ -73,11 +73,11 @@ directory.
 
 ## Add your own Chain of Thought templates
 
-The template used in `risk_atlas_nexus/data/templates/risk_questionnaire.json` defines the few-shot examples which are use for the [auto-assist](../examples/notebooks/autoassist_questionnaire.ipynb) functionality.
+The template used in `risk_atlas_nexus/data/templates/risk_questionnaire_cot.json` defines the few-shot examples which are use for the [auto-assist](../examples/notebooks/autoassist_questionnaire.ipynb) functionality.
 
 **Customization:**
 
-To adapt this auto-assist functionality to custom questionnaires, users need to provide their own set of questions, example intents, and corresponding answers in a json file (e.g., `risk_questionnaire.json`). This will enable the LLM to learn from these few-shot examples and generate responses for unseen queries.
+To adapt this auto-assist functionality to custom questionnaires, users need to provide their own set of questions, example intents, and corresponding answers in a json file (e.g., `risk_questionnaire_cot.json`). This will enable the LLM to learn from these few-shot examples and generate responses for unseen queries.
 
 **Template Structure: Zero Shot**
 
