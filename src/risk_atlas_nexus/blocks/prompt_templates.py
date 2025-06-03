@@ -20,8 +20,7 @@ RISKS:
 Instructions:
 1. Identify the potential RISKS associated with the given Input. Use RISK `description` to verify if the risk is associated with the Input.
 2. If Input doesn't fit into any of the above RISKS categories, classify it as Unknown.
-3. If input doesn't fit into any of the above categories, classify it as Unknown.
-4. Respond with a list (top 5 high risks categories) of attribute 'category' containing the risk labels.
+3. Respond with a list{% if max_risk is not none %} (top {{ max_risk }} high risks categories){% endif %} of attribute 'category' containing the risk labels.
 {% if cot_examples is not none %}
 EXAMPLES:{% for example in cot_examples %}
 Input: {{ example.Input }}
