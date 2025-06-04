@@ -505,6 +505,12 @@ class RiskAtlasNexus:
         """
         type_check(
             "<RANE023314BE>",
+            List,
+            allow_none=False,
+            usecases=usecases,
+        )
+        type_check(
+            "<RANE023314BE>",
             InferenceEngine,
             allow_none=False,
             inference_engine=inference_engine,
@@ -523,8 +529,8 @@ class RiskAtlasNexus:
         )
         value_check(
             "<RAN4717CF18E>",
-            usecases and inference_engine,
-            "Please provide List[usecase] and inference_engine",
+            all([isinstance(usecase, str) for usecase in usecases]),
+            "Usecases must be a list of string.",
         )
 
         risk_detector = AutoRiskDetector.create(
