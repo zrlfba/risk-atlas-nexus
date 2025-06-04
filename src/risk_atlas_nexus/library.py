@@ -516,7 +516,7 @@ class RiskAtlasNexus:
             taxonomy=taxonomy,
         )
         type_check(
-            "<RAN4717CF18E>",
+            "<RAN80975498E>",
             int,
             allow_none=True,
             max_risk=max_risk,
